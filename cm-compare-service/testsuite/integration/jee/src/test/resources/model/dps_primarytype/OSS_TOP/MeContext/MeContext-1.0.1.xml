@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="MeContext" ns1:ns="OSS_TOP" ns1:version="1.0.1">
+  <ns1:modelCreationInfo author="lciadm100" creationDate="Fri Aug 23 16:05:17 CEST 2013">
+    <ns1:designedModel className="com.ericsson.oss.services.topmim.MeContext" componentId="OssTop-model"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>This MO is the root of the node topology. One instance of this MO Type can exist per MIB.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" restricted="false">
+    <ns1:desc>Provides support for putting a label on the MO instance.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="connectionStatus" restricted="false">
+    <ns1:desc>Connection status of NE</ns1:desc>
+    <ns1:type modelUrn="//OSS_TOP/ConnectionStatus/1.0.1" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="mirrorMIBsynchStatus" restricted="false">
+    <ns1:desc>Mirror MIB synch status</ns1:desc>
+    <ns1:type modelUrn="//OSS_TOP/MirrorMIBsynchStatus/1.0.1" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="generationCounter" restricted="false">
+    <ns1:desc>Keeps track of notifications received from the Node. The initial value set at create is -1.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="lostSynchronisation" restricted="false">
+    <ns1:desc>The time (YYYY-MM-DD HH:MM:SS) when the OSS lost synchronisation with the node. When the node is synchronised, the value will be 'SYNCHRONISED' or if synchronisation is not required the value will be 'SYNC_ON_DEMAND'</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

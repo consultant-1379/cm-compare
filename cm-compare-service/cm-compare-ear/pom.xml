@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>cm-compare</artifactId>
+		<groupId>com.ericsson.oss.services.cm</groupId>
+		<version>1.4.14-SNAPSHOT</version>
+	</parent>
+	<artifactId>cm-compare-ear</artifactId>
+	<packaging>ear</packaging>
+
+	<name>[${project.parent.artifactId}] EAR module</name>
+
+	<properties>
+		<version.jboss-as-maven-plugin>${version.jboss.as}</version.jboss-as-maven-plugin>
+		<version.maven-ear-plugin>2.7</version.maven-ear-plugin>
+		<project.ear.contextRoot>${project.parent.artifactId}</project.ear.contextRoot>
+		<project.war.contextRoot>/${project.parent.artifactId}</project.war.contextRoot>
+	</properties>
+
+	<build>
+		<outputDirectory>${project.parent.artifactId}-${project.version}</outputDirectory>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>${version.maven-ear-plugin}</version>
+
+				<configuration>
+					<version>${version.jee}</version>
+					<workDirectory>target/${project.parent.artifactId}-${project.version}</workDirectory>
+					<defaultLibBundleDir>${project.ear.defaultLibBundleDir}</defaultLibBundleDir>
+					<description>${project.parent.artifactId} JEE6 service</description>
+					<displayName>${project.parent.artifactId} JEE6 service</displayName>
+
+					<archive>
+						<manifestEntries>
+							<Dependencies>${project.ear.Dependencies}</Dependencies>
+						</manifestEntries>
+					</archive>
+
+					<modules>
+						<ejbModule>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>${project.parent.artifactId}-ejb</artifactId>
+						</ejbModule>
+						<jarModule>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>cm-common-api</artifactId>
+						</jarModule>
+						<jarModule>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>cm-common-tools</artifactId>
+						</jarModule>
+					</modules>
+				</configuration>
+			</plugin>
+		</plugins>
+
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.codehaus.mojo
+										</groupId>
+										<artifactId>
+											build-helper-maven-plugin
+										</artifactId>
+										<versionRange>
+											[1.7,)
+										</versionRange>
+										<goals>
+											<goal>regex-property</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<dependencies>
+		<!--  SFWK Runtime Dependencies -->
+		<!-- sdk-cluster-core required for DPS EServiceRef Framework Injection -->
+		<dependency>
+			<groupId>com.ericsson.oss.itpf.sdk</groupId>
+			<artifactId>sdk-cluster-core</artifactId>
+		</dependency>
+		<!-- sdk-config-core is required for this service to deploy and start it is unclear however why, see Jira http://jira-oss.lmera.ericsson.se/browse/CDS-1466 -->
+		<dependency>
+			<groupId>com.ericsson.oss.itpf.sdk</groupId>
+			<artifactId>sdk-config-core</artifactId>
+		</dependency>		
+		<!-- sdk-recording Required for cm-common-error (Error Logging) --> 
+		<dependency>
+        	<groupId>com.ericsson.oss.itpf.sdk</groupId>
+        	<artifactId>sdk-recording</artifactId>
+		</dependency>
+		<!-- sdk-tracing Required for Tracing --> 
+		<dependency>
+        	<groupId>com.ericsson.oss.itpf.sdk</groupId>
+        	<artifactId>sdk-tracing</artifactId>
+		</dependency>
+		<!--  CM Runtime Dependencies -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>${project.parent.artifactId}-ejb</artifactId>
+			<version>${project.version}</version>
+			<type>ejb</type>
+		</dependency>
+	</dependencies>
+
+</project>

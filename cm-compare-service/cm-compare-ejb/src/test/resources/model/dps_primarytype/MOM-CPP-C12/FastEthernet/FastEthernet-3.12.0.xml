@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="FastEthernet" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>This MO type models a Fast Ethernet interface on the GPB or CBU.
+
+It is not possible to configure both the MediumAccessUnit MO and the FastEthernet MO under the same GeneralProcessorUnit MO. These MOs are mutually exclusive.
+
+A maximum of 16 Fast Ethernet MOs can be configured per node.
+
+A maximum of 16 IpAccessHost MOs can be connected to the FastEthernet MO.
+
+The FastEthernet MO does not have to be configured on the same processor as the IpAccessHostGpb MOs connected to it.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="FastEthernetId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value componenet of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="operationalState" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The operational state.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/OperState/3.12.0" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="availabilityStatus" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The availability status.
+
+It contains details about operationalState.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/AvailabilityStatus/3.12.0" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="administrativeState" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The administrative state.
+
+Traffic is not stopped if administrativeState is set to LOCKED.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/AdmState/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="LOCKED" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains a list of MO instances that reserve this MO instance.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="//MOM-CPP-C12/ManagedObject/3.12.0" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="macAddress" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The MAC address of the ethernet link.
+
+If the board is not available, the attribute has the value "00:00:00:00:00:00".</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;00:00:00:00:00:00&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="subnet" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>This attribute contains the subnet address of the FastEthernet MO.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="defaultRouter" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The IP address of the default router.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="mtu" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The maximum transfer unit.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="1500" min="64"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1500" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="networkPrefixLength" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The subnet mask.
+
+Example: networkPrefixLength = 24, subnet mask is 255.255.255.0
+Example: networkPrefixLength = 28, subnet mask is 255.255.255.240</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:notNullConstraint/>
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="30" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInErrors" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of input packets discarded due to any error.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInUcastPkts" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of unicast packets, delivered by this sublayer to a higher (sub-)layer, that were not addressed to a multicast or broadcast address at this sublayer.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfOutUcastPkts" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of outgoing unicast ethernet frames requested to be transmitted (including those that were  discarded or not sent).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInDiscards" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of inbound packets that were chosen to be discarded even though no errors had been detected that prevented them from being delivered to a higher-layer protocol.
+One possible reason for discarding such a packet could be to free up buffer space.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInUnknownProtos" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of packets received that had a protocol not supported or unknown.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfOutErrors" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of packets requested to be transmitted, but which were discarded due to errors found in the packets.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfOutDiscards" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of packets requested to be transmitted, but which were discarded due to lack of resources (for example, buffer space).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInMulticastPkts" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of multicast packets, delivered by this sublayer to a higher (sub-)layer, that were addressed to a multicast address at this sublayer.
+For a MAC layer protocol, this includes both Group and Functional addresses.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInBroadcastPkts" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of broadcast packets, delivered by this sublayer to a higher (sub-)layer, that were addressed to a broadcast address at this sublayer.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfOutMulticastPkts" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of multicast packets that higher-level protocols requested to be transmitted, and which were addressed to a multicast address at this sublayer, including those that were discarded or not sent.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfOutBroadcastPkts" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of outgoing broadcast ethernet frames requested to be transmitted (including those that were  discarded or not sent).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInOctetsLo" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of octets transmitted, including framing characters.
+The high-capacity counter for octets transmitted out on an interface has been split into two parts.
+This counter represents the lower part of the 62 least-significant bits of the high-capacity counter for octets transmitted out on the interface.
+The two most significant bits of this 64-bit counter are discarded.
+This 64-bit counter is presented as 2*31 bits: pmIfInOctetsHi (bit 62-31) and pmIfInOctetsLo (bit 30-0) in the MOM.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfOutOctetsLo" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of octets transmitted out on the interface, including framing characters.
+The high-capacity counter for octets transmitted out on an interface has been split into two parts.
+This counter represents the lower part of the 62 least-significant bits of the high-capacity counter for octets transmitted out on the interface.
+The two most-significant bits of this 64-bit counter are discarded.
+This 64-bit counter is presented as 2*31 bits: pmIfOutOctetsHi (bit 62-31) and pmIfOutOctetsLo (bit 30-0) in the MOM.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInOctetsHi" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of octets transmitted, including framing characters.
+The high-capacity counter for octets transmitted out on an interface has been split into two parts.
+This counter represents the higher part of the 62 least significant bits of the high capacity counter for octets transmitted out on the interface.
+The two most significant bits of this 64-bit counter are discarded.
+This 64-bit counter is presented as 2*31 bits: pmIfInOctetsHi (bit 62-31) and pmIfInOctetsLo (bit 30-0) in the MOM.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfOutOctetsHi" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of octets transmitted out on the interface, including framing characters.
+The high-capacity counter for octets transmitted out on an interface has been split into two parts.
+This counter represents the higher part of the 62 least-significant bits of the high-capacity counter for octets transmitted out on the interface.
+The two most-significant bits of this 64-bit counter are discarded.
+This 64-bit counter is presented as 2*31 bits: pmIfOutOctetsHi (bit 62-31) and pmIfOutOctetsLo (bit 30-0) in the MOM.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

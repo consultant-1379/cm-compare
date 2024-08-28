@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="Mtp3bSpTtc" ns1:ns="CPP_MODEL" ns1:version="3.12.75" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>The MTP3b Signalling Point for the TTC standard.
+
+Represents a Signalling Point (SP), when used in an SS7 or an E-SIGTRAN configuration, or a Signalling Point Management Cluster (SPMC), when used in an IETF M3UA configuration.
+
+Each instance of this MO may represent both an SP and an SPMC simultaneously.
+
+Any MO created under a certain Mtp3bSp MO cannot refer to an MO created under another Mtp3bSp MO, and vice versa.
+
+An Mtp3bSp MO must have a unique combination of the attributes signallingPointCode, networkInd, networkAppearance and rpuId. These attributes uniquely identify the MTP3 Signalling Point.
+
+- SS7 and E-SIGTRAN specific:
+
+An SP is a logical node in the signalling network. The SP represented by this MO is a Local SP. The combination of Network Indicator (NI) and Signalling Point Code (SPC) must be unique for each Signalling Point, within a signalling standard.
+
+For an SS7 or E-SIGTRAN configuration, the networkAppearance attribute is not applicable.
+
+
+- IETF M3UA specific:
+
+An SPMC is the complete set of Application Servers, providing complete support for the upper layer service for a given point code, in one specific Network Appearance.
+
+In an IETF M3UA configuration, only the following attributes are applicable: availabilityStatus, operationalState, networkAppearance, networkInd, rpuId, signallingPointCode. Other attributes are ignored and PM counters are not counting.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="noOfAttempsOfAssociationEstablishment" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The maximum number of attempts to establish an M3UA association.
+
+Applicable only for an E-SIGTRAN configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="4" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="Mtp3bSpTtcId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="operationalState" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The operational state.
+
+The operational state is ENABLED, if the SP is handled by at least one MTP3 instance.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/OperState/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="availabilityStatus" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The availability status.
+
+It contains details about operationalState.
+
+Possible values for operational state ENABLED:
+
+- NO_STATUS: the MO is fully operable.
+
+Possible values for operational state DISABLED:
+
+- FAILED: the SP is not handled by any MTP3 instance.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/AvailabilityStatus/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="signallingPointCode" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The Signalling Point Code (SPC) .
+
+When setting this attribute, the following preconditions must be fulfilled:
+- An SCCP user cannot reference any SccpApLocal MO related to this Mtp3bSp MO instance. 
+- No external MTP3 user can have a reference to an Mtp3bAp related to this MO.
+- All related Mtp3bSlTtc instances must be stopped using the action deactivate or the action deactivateLinkSet on the parent Mtp3bSls.
+E-SIGTRAN specific:
+- All related M3uAssociation instances must be stopped using the action setAutoDown.
+IETF M3UA specific: 
+- In an IPSP configuration, in case of double exchange mode, and in an SGP configuration, all related M3uaRemoteSp instances must be LOCKED.
+- In an IPSP configuration, in case of single exchange mode, and in an ASP configuration, either all related M3uaRemoteSp instances or the related M3uaLocalAs instance must be LOCKED.
+- In an IPSP configuration, there must be no related M3uaRkGrouping instances for any of the related M3uaLocalAs instances.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="nodeBehaviour" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The type of MTP3 signalling point.
+
+When setting this attribute, the following preconditions must be fulfilled:
+- An SCCP user cannot reference any SccpApLocal MO related to this Mtp3bSp MO instance. 
+- All related Mtp3bSlTtc instances must be stopped using the action deactivate or the action deactivateLinkSet on the parent Mtp3bSls.
+E-SIGTRAN specific:
+- All related M3uAssociation instances must be stopped using the action setAutoDown.
+IETF M3UA specific: 
+- In an IPSP configuration, in case of double exchange mode, and in an SGP configuration, all related M3uaRemoteSp instances must be LOCKED.
+- In an IPSP configuration, in case of single exchange mode, and in an ASP configuration, either all related M3uaRemoteSp instances or the related M3uaLocalAs instance must be LOCKED.
+
+IETF M3UA specific: 
+If set to SEP, and this signalling point is used by SGP, the signalling gateway can serve only shared point code. That is, if this attribute is equal to SEP and this Mtp3bSp is referenced by M3uaRemoteAs, then all M3uaRkGrouping MOs related to that remote AS have to be configured with the attribute dpc equal to the attribute signallingPointCode in this Mtp3bSp.
+
+Can be set only to SEP on the HD stack.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/NodeBehaviourType/3.12.75" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="SEP" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="routeSetCongestTestFlag" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies the congestion handling procedure to be used for national networks, which have congestion priorities.
+
+If set to 0, the congestion handling procedure described by the TTC standard is applied. In this case the attribute timerTc is used.
+
+If set to 1, the congestion handling procedure described by the ANSI, ITU and China standards is applied. In this case the Route Set Congestion Test function is used.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="1" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="resendTfcInterval" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The resend TFC and SCON interval.
+
+The number of messages received from the peer side, before the Transfer Controlled (TFC) message or Signalling Congestion (SCON) message is sent to the originating signalling point, indicating that the destination is congested.
+
+If set to 0, sending of TFC and SCON messages is suppressed.
+
+Applicable only for SS7 and E-SIGTRAN configurations.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="255" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="8" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="maxSizeReroutBuf" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The maximum size of the rerouting buffer.
+
+Applicable only for SS7 and E-SIGTRAN configurations.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="5000" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="2000" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="maxSizeChangeBuf" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The maximum size of the changeover buffer.
+
+Applicable only for SS7 and E-SIGTRAN configurations.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="5000" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="2000" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="statusIndInterval" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The status indication interval.
+
+The number of messages received from the user part, before the user part is notified that the destination is congested.
+
+Applicable only for SS7 and E-SIGTRAN configurations.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="255" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="4" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="testPatternSltm" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies the test pattern in the Signalling Link Test Message (SLTM).
+
+Allowed characters are 0-9, A-F. The pattern must contain an even number of characters.
+
+Applicable only for SS7 and E-SIGTRAN configurations.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="4" min="4"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;7711&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="spPriority" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The priority data for this signalling point.
+
+Applicable only for SS7 and E-SIGTRAN configurations.</ns1:desc>
+    <ns1:type modelUrn="/oss_cdt/CPP_MODEL/Mtp3bSpTtcPriorityData/3.12.75" xsi:type="ns1:complexRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="rpuId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Reference to an instance of ReliableProgramUniter MO (RPU).
+
+Specifies the SCC stack for the MO.
+
+If set to NULL (no value), the SP belongs to the HD stack. IETF M3UA signalling points cannot have this attribute set to NULL.
+
+Only signalling points of the same standard can have the attribute set to the same value.
+
+A maximum of 15 instances of this MO can have the attribute set to the same value.</ns1:desc>
+    <ns1:type modelUrn="/dps_primarytype/CPP_MODEL/ReliableProgramUniter/3.12.75" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains a list of MO instances that reserve this MO instance. Can be of type SccpSp.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="/dps_primarytype/CPP_MODEL/ManagedObject/3.12.75" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="spTimer" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The timer data for this signaling point.
+
+Applicable only for SS7 and E-SIGTRAN configurations.</ns1:desc>
+    <ns1:type modelUrn="/oss_cdt/CPP_MODEL/Mtp3bSpTtcTimerData/3.12.75" xsi:type="ns1:complexRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="noOfCongestLevelForNI" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The number of congestion levels for a national NI.
+
+If set to 1, only congestion level 1 is handled.
+
+This attribute is not applicable for an international NI.
+
+Applicable only for SS7 configurations.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="3" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="3" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfCBARec" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of Changeback Acknowledgement (CBA) messages received. Counts only in an SS7 configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfCBASent" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of Changeback Acknowledgement (CBA) messages sent. Counts only in an SS7 configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfECARec" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of Emergency Changeover Acknowledgement (ECA) messages received. Counts only in an SS7 configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfECASent" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of Emergency Changeover Acknowledgement (ECA) messages sent. Counts only in an SS7 configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfTRARec" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of Traffic Restart Allowed (TRA) messages received. Counts only in an SS7 configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfTRASent" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of Traffic Restart Allowed (TRA) messages sent. Counts only in an SS7 configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfECOSent" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of Emergency Changeover Order (ECO) messages sent. Counts only in an SS7 configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfCOAXCARec" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of Changeover Acknowledgement (COA) messages and Extended Changeover Acknowledgement (XCA) messages received. Counts only in an SS7 configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfCOAXCASent" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of sent Changeover Acknowledgement (COA) and Extended Changeover Acknowledgement (XCA) messages.  Counts only in an SS7 configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfChangeOverRec" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of Changeover Order (COO) messages and Extended Changeover Order (XCO) messages received. Counts only in an SS7 configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfChangeBackDeclRec" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of Changeback Declaration (CBD) messages received. Counts only in an SS7 configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="DEPRECATED" ns1:name="pmNoOfSLTAFirstTimeOutRec" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Attribute: pmNoOfSLTAFirstTimeOutRecDescription</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="DEPRECATED" ns1:name="pmNoOfSLTASecondTimeOutRec" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Attribute: pmNoOfSLTASecondTimeOutRecDescription</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfForcedRerouteSuccessPerf" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of successfully performed forced reroutings.  Counts only in SS7 and E-SIGTRAN configurations.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfControlledRerouteSuccessPerf" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of successfully performed controlled reroutings. Counts only in SS7 and E-SIGTRAN configurations.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfEmergencyChangeOverRec" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of Emergency Changeover Order (ECO) messages received. Counts only in an SS7 configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfUPMsgDiscardedDueToRoutingErr" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of user part (UP) messages discarded due to a routing error. Counts only in SS7 and E-SIGTRAN configurations.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="networkAppearance" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The network appearance.
+
+The network appearance is an M3UA local reference shared by SG and AS that, together with a Signalling Point Code, uniquely identifies an SS7 node by indicating the specific SS7 network to which it belongs. It can be used to distinguish between signalling traffic associated with different networks.
+
+If an M3UA stack is configured as an SGP, the network appearance must be unique among the Mtp3bSp MO instances.
+
+If set to 0, a network appearance is not used and is not included in the messages.
+
+When setting this attribute, the following preconditions must be fulfilled:
+- In an IPSP configuration, in case of double exchange mode, and in an SGP configuration, all related M3uaRemoteSp instances must be LOCKED.
+- In an IPSP configuration, in case of single exchange mode, and in an ASP configuration, either all related M3uaRemoteSp instances or the related M3uaLocalAs instance must be LOCKED.
+
+Applicable only for an IETF M3UA configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="4294967295" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="useSgwMgmtMapping" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Specifies whether Associated Signalling Mode in SGW function (ASM) is activated for this signalling point.
+
+The ASM is configured using SgwMgmtMapping MOs.
+
+Applicable only for SS7 and E-SIGTRAN configurations.
+
+In an IETF M3UA configuration, this attribute is not applicable and must be set to false.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfIncomingAssocEstabRequestInStateDownWhenStateEstabIsBlocked" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of requests for an SCTP association establishment received while establishment of associations is blocked.  Counts only in an E-SIGTRAN configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfMaxTrialsForAssocActivReached" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of failed attempts to activate the signalling process for an M3UA association. Counts only in an E-SIGTRAN configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfSctpAssociationRestart" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of peer restarts detected by SCTP. Counts only in an E-SIGTRAN configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfSctpBufOverflow" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of times when SCTP requested to stop sending traffic. Counts only in an E-SIGTRAN configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfSctpCommunicationErr" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of SCTP communication errors. Counts only in an E-SIGTRAN configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfSctpNetworkStatusChange" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of SCTP indications about changed availability of destination transport address. Counts only in an E-SIGTRAN configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfSctpResumeSending" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of times when SCTP requested to resume sending traffic. Counts only in an E-SIGTRAN configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfSctpSendFailure" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of times when SCTP failed to deliver a message. Counts only in an E-SIGTRAN configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfSuccessAssocAbort" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of abort association requests sent to SCTP. Counts only in an E-SIGTRAN configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfSuccessAssocEstablish" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of times when an SCTP association was successfully established. Counts only in an E-SIGTRAN configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfUnsuccessAssocEstablish" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of times when an SCTP association establishment failed. Counts only in an E-SIGTRAN configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="m3uaNoOfAttempsOfDauds" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The number of attempts to send the Destination Audit (DAUD) message.
+
+If set to 0, the DAUD message is sent continuously until a Destination Available (DAVA) message is received.
+
+Applicable only for an E-SIGTRAN configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="spTimerM3ua" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The M3UA timer data for this signaling point.
+
+Applicable only for an E-SIGTRAN configuration.</ns1:desc>
+    <ns1:type modelUrn="/oss_cdt/CPP_MODEL/M3uaTimerData/3.12.75" xsi:type="ns1:complexRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfUnsuccessForcedRerouting" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of failed forced reroutings. Counts only in SS7 and E-SIGTRAN configurations.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfMaxTrialsForAssocEstabReached" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of times when the maximum limit for trying to establish an SCTP association has been reached. Counts only in an E-SIGTRAN configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

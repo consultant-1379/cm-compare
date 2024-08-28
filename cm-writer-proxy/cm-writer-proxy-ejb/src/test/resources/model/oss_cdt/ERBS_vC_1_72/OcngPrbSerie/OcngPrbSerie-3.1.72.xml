@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:lifeCycleDesc="" ns1:name="OcngPrbSerie" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/oss_cdt/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>OcngPrbSerie</ns1:desc>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="pdschModType">
+    <ns1:desc>The supported data modulation scheme for PDSCH
+
+Takes effect: Feature start</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/DataModSchemes/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="QPSK_MOD_SCH" xsi:type="ns1:stringValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="prbFirst">
+    <ns1:desc>First PRB in the serie
+
+Resolution: 1
+
+Takes effect: Feature start</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="99" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="prbLast">
+    <ns1:desc>Last PRB in the serie
+
+Resolution: 1
+
+Takes effect: Feature start</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="99" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="usedSubFrameNo">
+    <ns1:desc>Indicates which subframes follow the OCNG pattern. For instance if indexes 3, 4 and 5 are set to TRUE in the array it means that subframe numbers 3, 4  and 5 use the OCNG pattern.
+
+Takes effect: Feature start</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="10"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:booleanType"/>
+    </ns1:type>
+    <ns1:default xsi:type="ns1:collectionValue">
+      <ns1:values>
+        <ns1:value value="true" xsi:type="ns1:booleanValue"/>
+        <ns1:value value="true" xsi:type="ns1:booleanValue"/>
+        <ns1:value value="true" xsi:type="ns1:booleanValue"/>
+        <ns1:value value="true" xsi:type="ns1:booleanValue"/>
+        <ns1:value value="true" xsi:type="ns1:booleanValue"/>
+        <ns1:value value="true" xsi:type="ns1:booleanValue"/>
+        <ns1:value value="true" xsi:type="ns1:booleanValue"/>
+        <ns1:value value="true" xsi:type="ns1:booleanValue"/>
+        <ns1:value value="true" xsi:type="ns1:booleanValue"/>
+        <ns1:value value="true" xsi:type="ns1:booleanValue"/>
+      </ns1:values>
+    </ns1:default>
+  </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="TmaSubUnit" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>This MO represents the TMA SubUnit providing low noise amplification of the uplink received by the reserving branch.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="TmaSubUnitId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.
+
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ulGain" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Internal uplink gain of the TMA Subunit as specified in 3GPP TS 25.466
+
+Unit: 0.25 dB
+Resolution: 1</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="200" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="dlTrafficDelay" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Internal traffic delay for the downlink.
+
+Unit: 0.1 ns
+Resolution: 1
+Takes effect: Cell lock/unlock</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:notNullConstraint/>
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="2000" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ulTrafficDelay" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Internal traffic delay for the uplink.
+
+Unit: 0.1 ns
+Resolution: 1
+Takes effect: Cell lock/unlock</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:notNullConstraint/>
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="2000" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Refers to the instance of the RfBranch MO to which this Tower Mounted Amplifier (TMA) Subunit is connected.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="//ERBS_vC_1_72/ManagedObject/3.1.72" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="iuantAntennaSerialNumber" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Unique hardware identifier for the antenna where the antenna near unit is installed. This attribute is part of the IUANT protocol specification (see 3GPP TS 25.466) and has no operational impact.
+
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="17" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="iuantAntennaModelNumber" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Vendor-specific antenna model identifier. This parameter is part of the IUANT protocol specification (see 3GPP 25.466) and has no operational impact.
+
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="15" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="iuantAntennaOperatingBand" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Operating band used by the Antenna Subunit connected to this TmaSubunit. This parameter is part of the IUANT protocol specification (for details on coding see table B.2 of Annex B on 3GPP 25.466) and has no operational impact.
+
+Unit: -
+Resolution: 1
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="-1000" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="iuantAntennaGain" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Since L11B. Planned to be removed.
+Antenna gain on the central frequency (resolution of 5MHz) of the band transmitted on the antenna port where this subunit is installed. The attribute is part of IUANT protocol definition (see 3GPP 25.466) and has no operational impact.
+
+Unit: 0.1 dBi
+Resolution: 1
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="4"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:longType">
+        <ns1:valueRangeConstraint>
+          <ns1:minMaxRange max="-1000" min="-1000"/>
+          <ns1:minMaxRange max="65535" min="0"/>
+        </ns1:valueRangeConstraint>
+      </ns1:collectionValuesType>
+    </ns1:type>
+    <ns1:default xsi:type="ns1:collectionValue">
+      <ns1:values>
+        <ns1:value value="-1000" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1000" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1000" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1000" xsi:type="ns1:longValue"/>
+      </ns1:values>
+    </ns1:default>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="iuantAntennaInstalledMechanicalTilt" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Antenna tilt fixed on the installation, defined as the inclination of the antenna element axis with respect to the vertical plane. It is a signed value. A positive value indicates downtilt, and a negative value indicates uptilt. This attribute is part of the IUANT protocol specification (see 3GPP TS 25.466) and has no operational impact.
+
+Unit: 0.1Â°
+Resolution: 1
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="-1000" min="-1000"/>
+        <ns1:minMaxRange max="900" min="-900"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="-1000" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="iuantAntennaBearing" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Antenna bearing expressed as bearing value x 10.
+This attribute is part of IUANT protocol definition (see 3GPP 25.466) and has no operational impact.
+
+Unit: 0.1Â°
+Resolution: 1
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="-1000" min="-1000"/>
+        <ns1:minMaxRange max="3599" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="-1000" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="iuantTmaSubunitFreqTx" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Deprecated: Since L11A. Replaced by attribute iuantTmaSubunitFreqRangeTx.
+Downlink frequency band across this Tower Mounted Amplifier (TMA) SubUnit. It is a sequence of 2 values (16-bit unsigned) stating minimum and maximum frequencies for the TMA transmission path (see 3GPP TS 25.466).
+
+Unit: 100 kHz
+Resolution: 1</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="iuantTmaSubunitFreqRx" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Deprecated: Since L11A. Replaced by attribute iuantTmaSubunitFreqRangeRx.
+Uplink frequency band across this Tower Mounted Amplifier (TMA) SubUnit. It is a sequence of 2  values (16-bit unsigned) stating minimum and maximum for the TMA transmission path (see 3GPP TS 25.466).
+
+Unit: 100 kHz
+Resolution: 1</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="iuantTmaSubunitMinGain" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Minimum gain available on this TMA Subunit.
+
+Unit: 0.25 dB
+Resolution: 1</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="255" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="iuantTmaSubunitMaxGain" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Maximum gain available on this TMA Subunit.
+
+Unit: 0.25 dB
+Resolution: 1</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="255" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="iuantTmaSubunitGainRes" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Gain resolution on the Tower Mounted Amplifier (TMA) subunit expressed in gain value [dB] times 4 (see 3GPP TS 25.466).
+
+Unit: 0.25 dB
+Resolution: 1</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="255" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="subunitNumber" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Subunit identifier carried on L7 messages. While an antenna near unit is identified by one High-Level Data Link Control (HDLC) address (L2), subunits are identified by application level (L7) identifiers.
+
+Unit: -
+Resolution: 1
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="255" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="availabilityStatus" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The availability status. It contains details about operationalState.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/AvailabilityStatus/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="operationalState" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The operational state.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/OperState/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="dlAttenuation" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Internal attenuation in downlink of the TMA Subunit
+
+Unit: 0.1 dB
+Resolution: 1
+Takes effect: Cell lock/unlock</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:notNullConstraint/>
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="20" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="iuantTmaSubunitFreqRangeTx" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Downlink frequency band across the Tower Mounted Amplifier (TMA) subunit. It is a sequence of 2 values (16-bit unsigned) stating minimum and maximum frequencies for the TMA transmission path
+.
+
+This attribute is part of the IUANT protocol specification (see 3GPP TS 25.466) and has no operational impact.
+
+Unit: 100 kHz
+Resolution: 1</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="2"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:longType">
+        <ns1:valueRangeConstraint>
+          <ns1:minMaxRange max="65535" min="0"/>
+        </ns1:valueRangeConstraint>
+      </ns1:collectionValuesType>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="iuantTmaSubunitFreqRangeRx" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Uplink frequency band across the Tower Mounted Amplifier (TMA) subunit. It is a sequence of 2  values (16-bit unsigned) stating minimum and maximum frequencies for the TMA transmission path.
+
+This attribute is part of the IUANT protocol specification (see 3GPP TS 25.466) and has no operational impact.
+
+Unit: 100 kHz
+Resolution: 1</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="2"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:longType">
+        <ns1:valueRangeConstraint>
+          <ns1:minMaxRange max="65535" min="0"/>
+        </ns1:valueRangeConstraint>
+      </ns1:collectionValuesType>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="iuantBaseStationId" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Base station ID. This attribute is part of the IUANT protocol specification (see 3GPP TS 25.466) and has no operational impact.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="32" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="iuantSectorId" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>RBS internal sector ID. This attribute is part of the IUANT protocol specification (see 3GPP TS 25.466) and has no operational impact.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="32" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="iuantAntennaOperatingGain" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Antenna gain for each of four operating bands, starting with the lowest value. This attribute is part of IUANT protocol definition (see 3GPP TS 25.466) and has no operational impact.
+
+Unit: 0.1 dBi
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="4"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:longType">
+        <ns1:valueRangeConstraint>
+          <ns1:minMaxRange max="-1000" min="-1000"/>
+          <ns1:minMaxRange max="255" min="0"/>
+        </ns1:valueRangeConstraint>
+      </ns1:collectionValuesType>
+    </ns1:type>
+    <ns1:default xsi:type="ns1:collectionValue">
+      <ns1:values>
+        <ns1:value value="-1000" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1000" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1000" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1000" xsi:type="ns1:longValue"/>
+      </ns1:values>
+    </ns1:default>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="iuantInstallationDate" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Installation date. This parameter is part of the IUANT protocol specification (see 3GPP 25.466) and has no operational impact.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="6" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="iuantInstallersId" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>ID of the responsible installer. This attribute is part of the IUANT protocol specification (see 3GPP TS 25.466) and has no operational impact.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="5" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

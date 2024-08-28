@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="Aal2PathVccTp" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>AAL2 Path and Virtual Circuit Connection Termination Point
+
+Represents an AAL2 Path, that is an ATM VC connection that carries multiplexed AAL2 links.
+
+The total number of Aal2PathVccTp MOs associated to an Aal2Ap MO, by connecting them to Aal2PathDistributionUnit MOs under that Aal2Ap MO, must not exceed 632.
+
+The total number of  Aal2PathDistributionUnit MOs associated to a ReliableProgramUniter MO, must not exceed 280.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="Aal2PathVccTpId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="vclTpId" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Reference to an instance of VclTp MO.
+
+In order to set this attribute, the administrativeState or the  related physical port must be LOCKED.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/VclTp/3.12.0" xsi:type="ns1:moRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="administrativeState" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The administrative state.
+
+When setting the admininstrativeState to SHUTTING_DOWN, 1800 seconds (30 minutes) will elapse before the MO goes into state LOCKED.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/AdmState/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="UNLOCKED" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="operationalState" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The operational state.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/OperState/3.12.0" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains an MO instance that reserves this MO instance.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/ManagedObject/3.12.0" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="availabilityStatus" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The availability status.
+
+It contains details about operationalState.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/AvailabilityStatus/3.12.0" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="continuityCheck" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies whether VC end-to-end continuity check is active.
+
+Continuity checking means that a cell is sent downstream when no user cell has been sent for a period of nominally 1 second. Continuity check both enables generation of continuity check cells as well as detection of LOC.
+
+Activation/Deactivation should be done on both ends of a VCC via management terminal.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="counterMode" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>PM mode is set to indicate the type of the performance monitoring mode used for the F5 PM OAM flow.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/AalCounterMode/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="PM_MODE_FPM_BR" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="nomPmBlocksize" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Nominal block size for PM. The minimum number of ATM cells that is sent before sending a Forward Performance Monitoring (FPM) cell.
+
+Unit: 1 Number of cells</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/AtmNomPmBlkSize/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="NOM_PM_BLKSIZE_2_10" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timerCu" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Timer that assures that CPS packets with one or more octets already packed in the ATM cell, wait at most the duration of timerCu before being scheduled for transmission.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="10" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="aal2PathId" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Identifies the path in the Q.2630 protocol.
+
+The value must be unique within all Aal2PathDistributionUnit MOs under the same Aal2Ap MO.
+
+The aal2PathId is used by the AAL2 connection control function in two AAL2 nodes to uniquely identify an AAL2 path between the two nodes. This means that the value of the attribute aal2PathId for an AAL2 path must be the same in each of the two nodes.
+
+In order to set this attribute, the Aal2PathVccTp MO must not be reserved. If an attempt is made when the Aal2PathVccTp MO is reserved, an IsReservedCanNotSetPathId exception is thrown.
+
+Setting of this attribute does not have any effect until the action addPath in the Aal2PathDistributionUnit MO is called, adding this MO to the list of Aal2PathVccTp MOs.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:notNullConstraint/>
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="2147483647" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="aal2PathOwner" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Indicates whether this AAL2 Path VCC Termination Point is considered to be the owner of the AAL2 Path in order to decide the channel selection procedure in the Q.2630 protocol.
+
+In order to set this attribute, the Aal2PathVccTp MO must not be reserved and administrativeState must be LOCKED.
+
+Setting of this attribute does not have any effect until the action addPath in the Aal2PathDistributionUnit MO is called, adding this MO to the list of Aal2PathVccTp MOs.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="alarmReport" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies which type of alarms are reported.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/AlarmReport/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="ALARM_LOC" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="aal2QoSProfileId" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Reference to an instance of Aal2QosProfile MO.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/Aal2QosProfile/3.12.0" xsi:type="ns1:moRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="aal2QoSAvailableProfiles" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies which QoS class can be supported by this MO.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/SupportedQoSClasses/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="CLASS_A_B_C_D" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmFwLostCells" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of lost forward cells on the Virtual Channel Connections (VCC) and Virtual Path Connections (VPC). The granularity period of 60 minutes is not supported.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmFwMissinsCells" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of forward miss-inserted cells on the Virtual Channel Connections (VCC) and Virtual Path Connections (VPC). The granularity period of 60 minutes is not supported.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmFwErrBlocks" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of forward errored blocks. The granularity period of 60 minutes is not supported.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmLostFpmCells" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of lost Forward Performance Monitoring (FPM) cells. The granularity period of 60 minutes is not supported.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmBwLostCells" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of lost backward cells on the Virtual Channel Connections (VCC) and Virtual Path Connections (VPC). The granularity period of 60 minutes is not supported.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmBwMissinsCells" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of backward miss-inserted cells on the Virtual Channel Connections (VCC) and Virtual Path Connections (VPC). The granularity period of 60 minutes is not supported.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmBwErrBlocks" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of backward errored blocks. The granularity period of 60 minutes is not supported.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmLostBrCells" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of lost Backward Reporting (BR) cells. The granularity period of 60 minutes is not supported.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="remoteBlockingState" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Represents whether this AAL2 Path VCC Termination Point is locked or unlocked from the remote end.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/RemoteBlockingStates/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="UNDEFINED" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="counterActivation" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Indicates whether PM counters are activated for this MO instance, when MO class activation is used in the Performance Management Service (PMS) interface.
+
+If true, this attribute activates all PM counters for this MO instance.
+
+This attribute setting is ignored, when MO instance activation has been used in the PMS interface.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="DEPRECATED" ns1:name="currentPmRegister" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Returns the current values of all PM counters.
+
+To activate the writing of statistical values to a PM counter, start a performance monitoring (scanner) on that counter for the MO instance.
+
+Alternatively start a performance monitoring (scanner) on that counter for the MO instance, and set the attribute counterActivation = true.
+
+Otherwise, the value of the PM counter is set to -1.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType xsi:type="ns1:stringType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmDiscardedEgressCpsPackets" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of discarded AAL2 CPS packets in egress direction. The granularity period of 60 minutes is not supported.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmEgressCpsPackets" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of AAL2 CPS egress packets sent. The granularity period of 60 minutes is not supported.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIngressCpsPackets" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of AAL2 CPS ingress packets received. The granularity period of 60 minutes is not supported.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

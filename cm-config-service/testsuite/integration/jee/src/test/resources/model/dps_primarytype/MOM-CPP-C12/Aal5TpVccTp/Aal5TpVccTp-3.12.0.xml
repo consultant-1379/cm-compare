@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="Aal5TpVccTp" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>AAL5 Termination Point and Virtual Circuit Connection Termination Point
+
+The point in the node where an AAL5 connection is terminated. At this point, the user of the AAL5 transport service exchanges SDUs with its peer at the remote end of the AAL5 connection.
+
+The mtuSize in the IpAtmLink MO does not include 8 bytes required for the LLC/SNAP header and this must be taken into consideration when setting the SDU sizes in the Aal5TpVccTp MO.
+
+Disturbances: Changing lower layer attributes may affect O&amp;M connectivity, if they are part of the O&amp;M connection.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="Aal5TpVccTpId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="processorId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Specifies on what processor the termination point resides. The processor can either be a board processor or a main processor (PlugInUnit MO) or an SP processor (Spm MO or PiuDevice MO).
+
+The operationalState of this MO is DISABLED, until this attribute is set. This attribute can also be set by the "application", that is, the unique software for the node type, such as RNC, RBS or M-MGW, that uses the AAL5 transport service. If this attribute is set by the application, this value overrides any previous value of the attribute.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/ManagedObject/3.12.0" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="vclTpId" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Reference to an instance of VclTp MO.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/VclTp/3.12.0" xsi:type="ns1:moRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="operationalState" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The operational state.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/OperState/3.12.0" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="fromUserMaxSduSize" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The maximum SDU size in number of octets received from the user.
+
+The allowed range for the atribute maxSduSize in UniSaalTp MO and NniSaalTp MO, is dependent on the processor type:
+
+SP: lowest maxSduSize =1, highest maxSduSize=1600
+BP: lowest maxSduSize =1, highest maxSduSize=1600
+MP: lowest maxSduSize =1, highest maxSduSize=2048</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:notNullConstraint/>
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="2048" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="toUserMaxSduSize" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The maximum SDU size in number of octets sent to the user.
+
+The allowed range for the atribute maxSduSize in UniSaalTp MO and NniSaalTp MO, is dependent on the processor type:
+
+SP: lowest maxSduSize =1, highest maxSduSize=1600
+BP: lowest maxSduSize =1, highest maxSduSize=1600
+MP: lowest maxSduSize =1, highest maxSduSize=2048</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:notNullConstraint/>
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="2048" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains an MO instance that reserves this MO instance.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/ManagedObject/3.12.0" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="alarmReport" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies which type of alarms are reported.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/AlarmReport/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="ALARM_LOC" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="continuityCheck" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies whether VC end-to-end continuity check is active.
+
+Continuity checking means that a cell is sent downstream when no user cell has been sent for a period of nominally 1 second. Continuity check both enables generation of continuity check cells as well as detection of LOC.
+
+Activation/Deactivation shall be done on both ends of a VCC via management terminal.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="nomPmBlkSize" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Nominal block size for PM. The minimum number of ATM cells that is sent before sending a Forward Performance Monitoring (FPM) cell.
+
+Unit: 1 Number of cells</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/AtmNomPmBlkSize/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="NOM_PM_BLKSIZE_2_10" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="counterMode" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>PM mode is set to indicate the type of the performance monitoring mode used for the F5 PM OAM flow.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/AalCounterMode/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="PM_MODE_FPM_BR" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmFwLostCells" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of lost forward cells on the Virtual Channel Connections (VCC) and Virtual Path Connections (VPC). The granularity period of 60 minutes is not supported.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmFwMissinsCells" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of forward miss-inserted cells on the Virtual Channel Connections (VCC) and Virtual Path Connections (VPC). The granularity period of 60 minutes is not supported.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmFwErrBlocks" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of forward errored blocks. The granularity period of 60 minutes is not supported.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmLostFpmCells" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of lost Forward Performance Monitoring (FPM) cells. The granularity period of 60 minutes is not supported.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmBwLostCells" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of lost backward cells on the Virtual Channel Connections (VCC) and Virtual Path Connections (VPC). The granularity period of 60 minutes is not supported.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmBwMissinsCells" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of backward miss-inserted cells on the Virtual Channel Connections (VCC) and Virtual Path Connections (VPC). The granularity period of 60 minutes is not supported.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmBwErrBlocks" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of backward errored blocks. The granularity period of 60 minutes is not supported.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmLostBrCells" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of lost Backward Reporting (BR) cells. The granularity period of 60 minutes is not supported.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="counterActivation" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Indicates whether PM counters are activated for this MO instance, when MO class activation is used in the Performance Management Service (PMS) interface.
+
+If true, this attribute activates all PM counters for this MO instance.
+
+This attribute setting is ignored, when MO instance activation has been used in the PMS interface.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="DEPRECATED" ns1:name="currentPmRegister" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Returns the current values of all PM counters.
+
+To activate the writing of statistical values to a PM counter, start a performance monitoring (scanner) on that counter for the MO instance.
+
+Alternatively start a performance monitoring (scanner) on that counter for the MO instance, and set the attribute counterActivation = true.
+
+Otherwise, the value of the PM counter is set to -1.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType xsi:type="ns1:stringType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

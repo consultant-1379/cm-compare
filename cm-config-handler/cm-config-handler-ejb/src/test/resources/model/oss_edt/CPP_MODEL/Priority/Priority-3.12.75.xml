@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="Priority" ns1:ns="CPP_MODEL" ns1:version="3.12.75">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/oss_edt/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Priority</ns1:desc>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="PRIO_0" value="0">
+    <ns1:desc>PRIO_0</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="PRIO_16" value="16">
+    <ns1:desc>PRIO_16</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="PRIO_32" value="32">
+    <ns1:desc>PRIO_32</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="PRIO_48" value="48">
+    <ns1:desc>PRIO_48</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="PRIO_64" value="64">
+    <ns1:desc>PRIO_64</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="PRIO_80" value="80">
+    <ns1:desc>PRIO_80</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="PRIO_96" value="96">
+    <ns1:desc>PRIO_96</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="PRIO_112" value="112">
+    <ns1:desc>PRIO_112</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="PRIO_128" value="128">
+    <ns1:desc>PRIO_128</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="PRIO_144" value="144">
+    <ns1:desc>PRIO_144</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="PRIO_160" value="160">
+    <ns1:desc>PRIO_160</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="PRIO_176" value="176">
+    <ns1:desc>PRIO_176</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="PRIO_192" value="192">
+    <ns1:desc>PRIO_192</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="PRIO_208" value="208">
+    <ns1:desc>PRIO_208</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="PRIO_224" value="224">
+    <ns1:desc>PRIO_224</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="PRIO_240" value="240">
+    <ns1:desc>PRIO_240</ns1:desc>
+  </ns2:member>
+</ns2:EnumDataTypeDefinition>

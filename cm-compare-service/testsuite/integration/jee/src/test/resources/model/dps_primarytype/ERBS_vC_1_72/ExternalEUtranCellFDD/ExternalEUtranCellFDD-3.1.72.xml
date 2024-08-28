@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="ExternalEUtranCellFDD" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>This managed object represents a neighbor EUTRAN cell (FDD) in another ENodeB in any MME pool.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ExternalEUtranCellFDDId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the Relative Distinguished Name (RDN).</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="localCellId" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>RBS internal ID attribute for the ExternalEUtranCellFDD. Must be unique in the RBS. Together with the Node ID and Public Land Mobile Network (PLMN) ID this is a globally unique eUTRAN Cell ID (ECGI).
+
+Resolution: 1</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:notNullConstraint/>
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="255" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="physicalLayerCellIdGroup" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The physical-layer cell-identity group. Physical-layer cell IDs are grouped into 168 unique physical-layer cell-identity groups, each group containing 3 unique subidentities.
+
+Resolution: 1
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:notNullConstraint/>
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="167" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="physicalLayerSubCellId" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The unique subidentity within a group. Physical-layer cell identities are grouped into 168 unique physical-layer cell-identity groups, each group containing 3 unique subidentities.
+
+Resolution: 1
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:notNullConstraint/>
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="2" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Lists EUtranCellRelation managed object instances that reserve this managed object instance.
+
+Dependencies: The managed object cannot be deleted if it is reserved.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="//ERBS_vC_1_72/ManagedObject/3.1.72" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>User-defined alphanumeric label, maximum 128 characters including spaces.
+
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="tac" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The Tracking Area Code of an external cell.
+
+Resolution: 1
+Takes effect: New connection.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:notNullConstraint/>
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="bPlmnList" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Deprecated: Replaced by activePlmnList Since L11A.
+Lists all broadcast Public Land Mobile Network (PLMN) IDs for a cell that is served by a neighboring RBS.
+
+The PLMN identity contains the following parts:
+1. MobileCountryCode, MCC, 3 digits
+2. MobileNetworkCode, MNC, 2 or 3 digits (the correct number of digits is set in the mncLength member of this Struct)
+
+Example: If MCC=125 and MNC=46, then plmnId=12546.
+
+This attribute is set by the RBS at X2 SETUP procedure.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="6"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType modelUrn="//ERBS_vC_1_72/PlmnIdentity/3.1.72" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="dlChannelBandwidth" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The downlink channel bandwidth in a cell that is served by a neighboring RBS. The parameter is set by the RBS at X2 SETUP procedure.
+
+Unit: 1 kHz</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="1400" min="1400"/>
+        <ns1:minMaxRange max="3000" min="3000"/>
+        <ns1:minMaxRange max="5000" min="5000"/>
+        <ns1:minMaxRange max="10000" min="10000"/>
+        <ns1:minMaxRange max="15000" min="15000"/>
+        <ns1:minMaxRange max="20000" min="20000"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="anrCreated" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Since L11B. Replaced by createdBy.
+Indicates if the MO was created by the Automated Neighbor Relations (ANR) function.
+
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="isRemoveAllowed" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Indicates if the Automated Neighbor Relations (ANR) function is allowed to remove this object. The setting does not restrict operator removal of the object. Objects created by ANR have this attribute set to true initially.
+
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="masterEUtranCellFDDId" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The identity of the EUtranCellFDD represented by this MO, for managed objects automatically created by ExternalEUtranCellFDD.
+
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timeOfAnrCreation" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Replaced by timeOfCreation. Since L11B.
+The date and time when the MO was created by the Automated Neighbor Relations (ANR) function.
+Format:  YYYY-MM-DD HH:MM:SS
+
+Unit: UTC
+Resolution: -
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="19" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timeOfAnrModification" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Deprecated: Replaced by timeOfLastModification. Since L11B.
+The date and time when the MO was last modified by the Automated Neighbor Relations (ANR) function.
+Format:  YYYY-MM-DD HH:MM:SS
+
+Unit: UTC
+Resolution: -
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="19" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ctrlMode" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Since L11B. Planned to be removed.
+Indicates permission to change attributes on the object and to delete the object.
+
+When set to Manual, the operator can change and delete, and the Automated Neighbor Relations (ANR) function cannot make changes.
+
+When set to Auto, the ANR function can change and delete, and the operator cannot, except to change the settings of this attribute.
+
+When the object is created by the ANR function, the value is set to Auto. This value may be changed only by the operator. The setting of this attribute controls the object itself, but not related objects.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/CtrlMode/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="MANUAL" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ulChannelBandwidth" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The uplink channel bandwidth in a cell that is served by a neighboring RBS. The attribute is set by the RBS at X2 SETUP procedure.
+
+Unit: 1 kHz</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="1400" min="1400"/>
+        <ns1:minMaxRange max="3000" min="3000"/>
+        <ns1:minMaxRange max="5000" min="5000"/>
+        <ns1:minMaxRange max="10000" min="10000"/>
+        <ns1:minMaxRange max="15000" min="15000"/>
+        <ns1:minMaxRange max="20000" min="20000"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="eutranFrequencyRef" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Reference to the EUTRAN frequency MO, EUtranFrequency. Cannot be changed as long as this MO is refered to by a EUtranCellRelation MO.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/EUtranFrequency/3.1.72" xsi:type="ns1:moRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="activePlmnList" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Lists the Public Land Mobile Network (PLMN) IDs of the External E-UTRAN Cell. The list may include up to 6 PLMNs. Tracks activePlmnList in the corresponding instance of EUtranCellFDD/TDD in another RBS. The list is updated via X2 or OSS-RC, or manually.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="6"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType modelUrn="//ERBS_vC_1_72/PlmnIdentity/3.1.72" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="createdBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates whether the MO has been created by the Automated Neighbor Relations (ANR) function or operator or X2
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/CreatedByEutran/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timeOfCreation" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates the time and date when the MO was created.
+Format: YYYY-MM-DD HH:MM:SS
+
+Unit: UTC
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="19" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="lastModification" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates whether the MO was last modified by the Automated Neighbor Relations (ANR) function or operator or X2 and if the MO is to be deleted who triggered the deletion
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/LastModificationEutran/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timeOfLastModification" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates the time and date when the MO was last modified.
+Format: YYYY-MM-DD HH:MM:SS
+
+Unit: UTC
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="19" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

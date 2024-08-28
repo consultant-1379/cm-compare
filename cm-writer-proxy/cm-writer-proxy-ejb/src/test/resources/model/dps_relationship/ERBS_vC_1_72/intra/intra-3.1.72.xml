@@ -1,0 +1,1325 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeRelationshipDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:name="intra" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_relationship/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Intra mim relationships. Mim:ERBS_vC_1_72</ns1:desc>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="ENodeBFunction_to_AnrFunction">
+    <ns1:desc>ENodeBFunction_to_AnrFunction</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/ENodeBFunction/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/AnrFunction/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="AnrFunction_to_AnrFunctionEUtran">
+    <ns1:desc>AnrFunction_to_AnrFunctionEUtran</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/AnrFunction/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/AnrFunctionEUtran/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="AnrFunction_to_AnrFunctionUtran">
+    <ns1:desc>AnrFunction_to_AnrFunctionUtran</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/AnrFunction/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/AnrFunctionUtran/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="AnrFunction_to_AnrFunctionGeran">
+    <ns1:desc>AnrFunction_to_AnrFunctionGeran</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/AnrFunction/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/AnrFunctionGeran/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="AntennaNearUnit_to_TmaSubUnit">
+    <ns1:desc>AntennaNearUnit_to_TmaSubUnit</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/AntennaNearUnit/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/TmaSubUnit/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="4" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="AntennaUnitGroup_to_RfBranch">
+    <ns1:desc>AntennaUnitGroup_to_RfBranch</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/AntennaUnitGroup/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/RfBranch/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="24" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="AntennaNearUnit_to_RetSubUnit">
+    <ns1:desc>AntennaNearUnit_to_RetSubUnit</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/AntennaNearUnit/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/RetSubUnit/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="4" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="ExternalTMA_to_ExtTmaConnector">
+    <ns1:desc>ExternalTMA_to_ExtTmaConnector</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/ExternalTMA/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ExtTmaConnector/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="2" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="AntennaUnitGroup_to_ExternalTMA">
+    <ns1:desc>AntennaUnitGroup_to_ExternalTMA</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/AntennaUnitGroup/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ExternalTMA/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="24" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="AntennaSubunit_to_AuPort">
+    <ns1:desc>AntennaSubunit_to_AuPort</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/AntennaSubunit/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/AuPort/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="8" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="AntennaUnit_to_AntennaSubunit">
+    <ns1:desc>AntennaUnit_to_AntennaSubunit</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/AntennaUnit/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/AntennaSubunit/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="3" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="AntennaUnitGroup_to_AntennaNearUnit">
+    <ns1:desc>AntennaUnitGroup_to_AntennaNearUnit</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/AntennaUnitGroup/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/AntennaNearUnit/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="48" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="CapacityLicenses_to_DlBasebandCapacity">
+    <ns1:desc>CapacityLicenses_to_DlBasebandCapacity</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/CapacityLicenses/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/DlBasebandCapacity/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="CapacityLicenses_to_UlBasebandCapacity">
+    <ns1:desc>CapacityLicenses_to_UlBasebandCapacity</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/CapacityLicenses/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/UlBasebandCapacity/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="CapacityLicenses_to_CapacityChannelBandwidth">
+    <ns1:desc>CapacityLicenses_to_CapacityChannelBandwidth</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/CapacityLicenses/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/CapacityChannelBandwidth/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="6" min="6"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="CapacityLicenses_to_CapacityOutputPower">
+    <ns1:desc>CapacityLicenses_to_CapacityOutputPower</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/CapacityLicenses/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/CapacityOutputPower/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="5" min="5"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_Cdma2000SessionContinuity">
+    <ns1:desc>OptionalFeatures_to_Cdma2000SessionContinuity</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/Cdma2000SessionContinuity/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_GsmSessionContinuity">
+    <ns1:desc>OptionalFeatures_to_GsmSessionContinuity</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/GsmSessionContinuity/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_IntraLTEHandover">
+    <ns1:desc>OptionalFeatures_to_IntraLTEHandover</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/IntraLTEHandover/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_WcdmaSessionContinuity">
+    <ns1:desc>OptionalFeatures_to_WcdmaSessionContinuity</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/WcdmaSessionContinuity/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_IntraLTEHODataFwd">
+    <ns1:desc>OptionalFeatures_to_IntraLTEHODataFwd</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/IntraLTEHODataFwd/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_DualAntDlPerfPkg">
+    <ns1:desc>OptionalFeatures_to_DualAntDlPerfPkg</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/DualAntDlPerfPkg/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="CapacityLicenses_to_CapacityConnectedUsers">
+    <ns1:desc>CapacityLicenses_to_CapacityConnectedUsers</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/CapacityLicenses/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/CapacityConnectedUsers/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_Anr">
+    <ns1:desc>OptionalFeatures_to_Anr</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/Anr/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_MultiErabsPerUser">
+    <ns1:desc>OptionalFeatures_to_MultiErabsPerUser</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/MultiErabsPerUser/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_Ul16Qam">
+    <ns1:desc>OptionalFeatures_to_Ul16Qam</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/Ul16Qam/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_Dl64Qam">
+    <ns1:desc>OptionalFeatures_to_Dl64Qam</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/Dl64Qam/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_PmInitiatedUeMeasurements">
+    <ns1:desc>OptionalFeatures_to_PmInitiatedUeMeasurements</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/PmInitiatedUeMeasurements/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_TmaSupport">
+    <ns1:desc>OptionalFeatures_to_TmaSupport</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/TmaSupport/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_RetSupport">
+    <ns1:desc>OptionalFeatures_to_RetSupport</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/RetSupport/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_RetCascading">
+    <ns1:desc>OptionalFeatures_to_RetCascading</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/RetCascading/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_RetConfigurationMgt">
+    <ns1:desc>OptionalFeatures_to_RetConfigurationMgt</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/RetConfigurationMgt/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_VswrSupervision">
+    <ns1:desc>OptionalFeatures_to_VswrSupervision</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/VswrSupervision/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_Drx">
+    <ns1:desc>OptionalFeatures_to_Drx</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/Drx/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_RbsEventStreamer">
+    <ns1:desc>OptionalFeatures_to_RbsEventStreamer</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/RbsEventStreamer/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_TimeAndPhaseSynchWithGPS">
+    <ns1:desc>OptionalFeatures_to_TimeAndPhaseSynchWithGPS</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/TimeAndPhaseSynchWithGPS/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_Irc">
+    <ns1:desc>OptionalFeatures_to_Irc</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/Irc/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_InterFrequencySessionContinuity">
+    <ns1:desc>OptionalFeatures_to_InterFrequencySessionContinuity</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/InterFrequencySessionContinuity/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_CsfbForLimitedDualRadioUE">
+    <ns1:desc>OptionalFeatures_to_CsfbForLimitedDualRadioUE</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/CsfbForLimitedDualRadioUE/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_UePosCellId">
+    <ns1:desc>OptionalFeatures_to_UePosCellId</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/UePosCellId/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_AirIfLoadGenerator">
+    <ns1:desc>OptionalFeatures_to_AirIfLoadGenerator</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/AirIfLoadGenerator/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_RlcUm">
+    <ns1:desc>OptionalFeatures_to_RlcUm</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/RlcUm/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_Aisgv2FwDownload">
+    <ns1:desc>OptionalFeatures_to_Aisgv2FwDownload</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/Aisgv2FwDownload/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_AgpsSupl">
+    <ns1:desc>OptionalFeatures_to_AgpsSupl</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/AgpsSupl/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_OtdoaSupl">
+    <ns1:desc>OptionalFeatures_to_OtdoaSupl</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/OtdoaSupl/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_SharedNetworkSupport">
+    <ns1:desc>OptionalFeatures_to_SharedNetworkSupport</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/SharedNetworkSupport/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_QosAwareScheduler">
+    <ns1:desc>OptionalFeatures_to_QosAwareScheduler</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/QosAwareScheduler/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_MaximumCellRange">
+    <ns1:desc>OptionalFeatures_to_MaximumCellRange</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/MaximumCellRange/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_CsfbToGsmWcdma">
+    <ns1:desc>OptionalFeatures_to_CsfbToGsmWcdma</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/CsfbToGsmWcdma/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_MixedMode">
+    <ns1:desc>OptionalFeatures_to_MixedMode</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/MixedMode/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_InterFrequencyLTEHandover">
+    <ns1:desc>OptionalFeatures_to_InterFrequencyLTEHandover</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/InterFrequencyLTEHandover/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_EcsCsfb">
+    <ns1:desc>OptionalFeatures_to_EcsCsfb</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/EcsCsfb/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="CapacityLicenses_to_DlPrbCapacity">
+    <ns1:desc>CapacityLicenses_to_DlPrbCapacity</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/CapacityLicenses/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/DlPrbCapacity/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="CapacityLicenses_to_UlPrbCapacity">
+    <ns1:desc>CapacityLicenses_to_UlPrbCapacity</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/CapacityLicenses/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/UlPrbCapacity/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_Pfs">
+    <ns1:desc>OptionalFeatures_to_Pfs</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/Pfs/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_WcdmaHandover">
+    <ns1:desc>OptionalFeatures_to_WcdmaHandover</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/WcdmaHandover/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_RedirectWithNacc">
+    <ns1:desc>OptionalFeatures_to_RedirectWithNacc</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/RedirectWithNacc/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_QuadAntUlPerfPkg">
+    <ns1:desc>OptionalFeatures_to_QuadAntUlPerfPkg</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/QuadAntUlPerfPkg/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_TCPOptimization">
+    <ns1:desc>OptionalFeatures_to_TCPOptimization</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/TCPOptimization/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_RadioUnitCascading">
+    <ns1:desc>OptionalFeatures_to_RadioUnitCascading</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/RadioUnitCascading/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_UlFss">
+    <ns1:desc>OptionalFeatures_to_UlFss</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/UlFss/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_LsmEcs">
+    <ns1:desc>OptionalFeatures_to_LsmEcs</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/LsmEcs/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_ServiceTriggeredMobility">
+    <ns1:desc>OptionalFeatures_to_ServiceTriggeredMobility</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ServiceTriggeredMobility/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_RateShaping">
+    <ns1:desc>OptionalFeatures_to_RateShaping</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/RateShaping/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_DynamicQoSModification">
+    <ns1:desc>OptionalFeatures_to_DynamicQoSModification</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/DynamicQoSModification/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_DBSAndSabe">
+    <ns1:desc>OptionalFeatures_to_DBSAndSabe</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/DBSAndSabe/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_UsrPrcBasedKpi">
+    <ns1:desc>OptionalFeatures_to_UsrPrcBasedKpi</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/UsrPrcBasedKpi/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_HoOscCtrlRel">
+    <ns1:desc>OptionalFeatures_to_HoOscCtrlRel</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/HoOscCtrlRel/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_HoOscCtrlUE">
+    <ns1:desc>OptionalFeatures_to_HoOscCtrlUE</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/HoOscCtrlUE/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_SpidHoWhiteList">
+    <ns1:desc>OptionalFeatures_to_SpidHoWhiteList</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/SpidHoWhiteList/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_SpidRATFreqPrio">
+    <ns1:desc>OptionalFeatures_to_SpidRATFreqPrio</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/SpidRATFreqPrio/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_ImLoadBalancing">
+    <ns1:desc>OptionalFeatures_to_ImLoadBalancing</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ImLoadBalancing/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_DifferentiatedAdmissionControl">
+    <ns1:desc>OptionalFeatures_to_DifferentiatedAdmissionControl</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/DifferentiatedAdmissionControl/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_DynamicGBRAdmCtrl">
+    <ns1:desc>OptionalFeatures_to_DynamicGBRAdmCtrl</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/DynamicGBRAdmCtrl/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_TxDataCloning">
+    <ns1:desc>OptionalFeatures_to_TxDataCloning</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/TxDataCloning/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="OptionalFeatures_to_Support6Cells">
+    <ns1:desc>OptionalFeatures_to_Support6Cells</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/Support6Cells/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="QciTable_to_LogicalChannelGroup">
+    <ns1:desc>QciTable_to_LogicalChannelGroup</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/QciTable/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/LogicalChannelGroup/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="3" min="3"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="QciTable_to_QciProfilePredefined">
+    <ns1:desc>QciTable_to_QciProfilePredefined</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/QciTable/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/QciProfilePredefined/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="10" min="10"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="ENodeBFunction_to_QciTable">
+    <ns1:desc>ENodeBFunction_to_QciTable</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/ENodeBFunction/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/QciTable/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="EUtraNetwork_to_ExternalENodeBFunction">
+    <ns1:desc>EUtraNetwork_to_ExternalENodeBFunction</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/EUtraNetwork/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ExternalENodeBFunction/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="256" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="ENodeBFunction_to_EUtraNetwork">
+    <ns1:desc>ENodeBFunction_to_EUtraNetwork</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/ENodeBFunction/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/EUtraNetwork/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="ENodeBFunction_to_PmEventService">
+    <ns1:desc>ENodeBFunction_to_PmEventService</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/ENodeBFunction/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/PmEventService/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="UeMeasControl_to_PmUeMeasControl">
+    <ns1:desc>UeMeasControl_to_PmUeMeasControl</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/UeMeasControl/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/PmUeMeasControl/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="UeMeasControl_to_ReportConfigEUtraBadCovPrim">
+    <ns1:desc>UeMeasControl_to_ReportConfigEUtraBadCovPrim</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/UeMeasControl/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ReportConfigEUtraBadCovPrim/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="UeMeasControl_to_ReportConfigEUtraBadCovSec">
+    <ns1:desc>UeMeasControl_to_ReportConfigEUtraBadCovSec</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/UeMeasControl/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ReportConfigEUtraBadCovSec/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="UeMeasControl_to_ReportConfigEUtraBestCell">
+    <ns1:desc>UeMeasControl_to_ReportConfigEUtraBestCell</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/UeMeasControl/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ReportConfigEUtraBestCell/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="UeMeasControl_to_ReportConfigEUtraIntraFreqPm">
+    <ns1:desc>UeMeasControl_to_ReportConfigEUtraIntraFreqPm</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/UeMeasControl/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ReportConfigEUtraIntraFreqPm/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="2" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="EUtranCellFDD_to_UeMeasControl">
+    <ns1:desc>EUtranCellFDD_to_UeMeasControl</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/EUtranCellFDD/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/UeMeasControl/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="EUtranCellTDD_to_UeMeasControl">
+    <ns1:desc>EUtranCellTDD_to_UeMeasControl</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/EUtranCellTDD/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/UeMeasControl/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="ENodeBFunction_to_UtraNetwork">
+    <ns1:desc>ENodeBFunction_to_UtraNetwork</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/ENodeBFunction/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/UtraNetwork/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="EUtranCellFDD_to_UtranFreqRelation">
+    <ns1:desc>EUtranCellFDD_to_UtranFreqRelation</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/EUtranCellFDD/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/UtranFreqRelation/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="16" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="EUtranCellTDD_to_UtranFreqRelation">
+    <ns1:desc>EUtranCellTDD_to_UtranFreqRelation</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/EUtranCellTDD/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/UtranFreqRelation/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="16" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="UtraNetwork_to_UtranFrequency">
+    <ns1:desc>UtraNetwork_to_UtranFrequency</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/UtraNetwork/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/UtranFrequency/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="64" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="ENodeBFunction_to_Paging">
+    <ns1:desc>ENodeBFunction_to_Paging</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/ENodeBFunction/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/Paging/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="ENodeBFunction_to_Rcs">
+    <ns1:desc>ENodeBFunction_to_Rcs</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/ENodeBFunction/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/Rcs/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="ENodeBFunction_to_SecurityHandling">
+    <ns1:desc>ENodeBFunction_to_SecurityHandling</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/ENodeBFunction/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/SecurityHandling/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="ENodeBFunction_to_GeraNetwork">
+    <ns1:desc>ENodeBFunction_to_GeraNetwork</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/ENodeBFunction/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/GeraNetwork/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="GeraNetwork_to_GeranFreqGroup">
+    <ns1:desc>GeraNetwork_to_GeranFreqGroup</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/GeraNetwork/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/GeranFreqGroup/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="16" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="EUtranCellFDD_to_GeranFreqGroupRelation">
+    <ns1:desc>EUtranCellFDD_to_GeranFreqGroupRelation</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/EUtranCellFDD/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/GeranFreqGroupRelation/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="16" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="EUtranCellTDD_to_GeranFreqGroupRelation">
+    <ns1:desc>EUtranCellTDD_to_GeranFreqGroupRelation</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/EUtranCellTDD/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/GeranFreqGroupRelation/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="16" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="GeranFreqGroup_to_GeranFrequency">
+    <ns1:desc>GeranFreqGroup_to_GeranFrequency</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/GeranFreqGroup/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/GeranFrequency/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="32" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Cdma2000Freq_to_ExternalCdma2000Cell">
+    <ns1:desc>Cdma2000Freq_to_ExternalCdma2000Cell</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/Cdma2000Freq/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ExternalCdma2000Cell/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="64" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="ExternalENodeBFunction_to_ExternalEUtranCellFDD">
+    <ns1:desc>ExternalENodeBFunction_to_ExternalEUtranCellFDD</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/ExternalENodeBFunction/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ExternalEUtranCellFDD/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="24" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="ENodeBFunction_to_EUtranCellFDD">
+    <ns1:desc>ENodeBFunction_to_EUtranCellFDD</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/ENodeBFunction/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/EUtranCellFDD/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="24" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="EUtranFreqRelation_to_EUtranCellRelation">
+    <ns1:desc>EUtranFreqRelation_to_EUtranCellRelation</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/EUtranFreqRelation/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/EUtranCellRelation/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="64" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="EUtranCellFDD_to_EUtranFreqRelation">
+    <ns1:desc>EUtranCellFDD_to_EUtranFreqRelation</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/EUtranCellFDD/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/EUtranFreqRelation/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="8" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="EUtranCellTDD_to_EUtranFreqRelation">
+    <ns1:desc>EUtranCellTDD_to_EUtranFreqRelation</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/EUtranCellTDD/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/EUtranFreqRelation/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="8" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="EUtraNetwork_to_EUtranFrequency">
+    <ns1:desc>EUtraNetwork_to_EUtranFrequency</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/EUtraNetwork/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/EUtranFrequency/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="24" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Cdma2000FreqBandRelation_to_Cdma2000CellRelation">
+    <ns1:desc>Cdma2000FreqBandRelation_to_Cdma2000CellRelation</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/Cdma2000FreqBandRelation/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/Cdma2000CellRelation/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="64" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Cdma2000FreqBand_to_Cdma2000Freq">
+    <ns1:desc>Cdma2000FreqBand_to_Cdma2000Freq</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/Cdma2000FreqBand/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/Cdma2000Freq/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="64" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Cdma2000Network_to_Cdma2000FreqBand">
+    <ns1:desc>Cdma2000Network_to_Cdma2000FreqBand</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/Cdma2000Network/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/Cdma2000FreqBand/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="18" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="EUtranCellFDD_to_Cdma2000FreqBandRelation">
+    <ns1:desc>EUtranCellFDD_to_Cdma2000FreqBandRelation</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/EUtranCellFDD/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/Cdma2000FreqBandRelation/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="32" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="EUtranCellTDD_to_Cdma2000FreqBandRelation">
+    <ns1:desc>EUtranCellTDD_to_Cdma2000FreqBandRelation</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/EUtranCellTDD/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/Cdma2000FreqBandRelation/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="16" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="ENodeBFunction_to_Cdma2000Network">
+    <ns1:desc>ENodeBFunction_to_Cdma2000Network</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/ENodeBFunction/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/Cdma2000Network/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="ENodeBFunction_to_EUtranCellTDD">
+    <ns1:desc>ENodeBFunction_to_EUtranCellTDD</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/ENodeBFunction/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/EUtranCellTDD/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="24" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="ExternalENodeBFunction_to_ExternalEUtranCellTDD">
+    <ns1:desc>ExternalENodeBFunction_to_ExternalEUtranCellTDD</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/ExternalENodeBFunction/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ExternalEUtranCellTDD/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="24" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="ENodeBFunction_to_AirIfLoadProfile">
+    <ns1:desc>ENodeBFunction_to_AirIfLoadProfile</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/ENodeBFunction/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/AirIfLoadProfile/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="24" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="UeMeasControl_to_ReportConfigA1Prim">
+    <ns1:desc>UeMeasControl_to_ReportConfigA1Prim</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/UeMeasControl/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ReportConfigA1Prim/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="UeMeasControl_to_ReportConfigA1Sec">
+    <ns1:desc>UeMeasControl_to_ReportConfigA1Sec</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/UeMeasControl/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ReportConfigA1Sec/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="UeMeasControl_to_ReportConfigA5">
+    <ns1:desc>UeMeasControl_to_ReportConfigA5</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/UeMeasControl/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ReportConfigA5/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="UeMeasControl_to_ReportConfigB2Utra">
+    <ns1:desc>UeMeasControl_to_ReportConfigB2Utra</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/UeMeasControl/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ReportConfigB2Utra/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="UeMeasControl_to_ReportConfigB2Geran">
+    <ns1:desc>UeMeasControl_to_ReportConfigB2Geran</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/UeMeasControl/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ReportConfigB2Geran/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="UeMeasControl_to_ReportConfigB2Cdma2000">
+    <ns1:desc>UeMeasControl_to_ReportConfigB2Cdma2000</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/UeMeasControl/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ReportConfigB2Cdma2000/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Cdma2000FreqBandRelation_to_Cdma2000FreqRelation">
+    <ns1:desc>Cdma2000FreqBandRelation_to_Cdma2000FreqRelation</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/Cdma2000FreqBandRelation/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/Cdma2000FreqRelation/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="64" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="ReportConfigA5_to_ReportConfigA5Anr">
+    <ns1:desc>ReportConfigA5_to_ReportConfigA5Anr</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/ReportConfigA5/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ReportConfigA5Anr/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="ReportConfigEUtraBestCell_to_ReportConfigEUtraBestCellAnr">
+    <ns1:desc>ReportConfigEUtraBestCell_to_ReportConfigEUtraBestCellAnr</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/ReportConfigEUtraBestCell/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ReportConfigEUtraBestCellAnr/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="ENodeBFunction_to_AdmissionControl">
+    <ns1:desc>ENodeBFunction_to_AdmissionControl</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/ENodeBFunction/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/AdmissionControl/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="GeranFrequency_to_ExternalGeranCell">
+    <ns1:desc>GeranFrequency_to_ExternalGeranCell</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/GeranFrequency/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ExternalGeranCell/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="64" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="GeranFreqGroupRelation_to_GeranCellRelation">
+    <ns1:desc>GeranFreqGroupRelation_to_GeranCellRelation</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/GeranFreqGroupRelation/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/GeranCellRelation/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="64" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="UtranTDDFreqRelation_to_UtranCellRelation">
+    <ns1:desc>UtranTDDFreqRelation_to_UtranCellRelation</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/UtranTDDFreqRelation/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/UtranCellRelation/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="64" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="UtranFreqRelation_to_UtranCellRelation">
+    <ns1:desc>UtranFreqRelation_to_UtranCellRelation</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/UtranFreqRelation/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/UtranCellRelation/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="64" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="UtranFrequency_to_ExternalUtranCellFDD">
+    <ns1:desc>UtranFrequency_to_ExternalUtranCellFDD</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/UtranFrequency/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ExternalUtranCellFDD/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="64" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="EUtranCellFDD_to_UtranTDDFreqRelation">
+    <ns1:desc>EUtranCellFDD_to_UtranTDDFreqRelation</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/EUtranCellFDD/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/UtranTDDFreqRelation/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="16" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="EUtranCellTDD_to_UtranTDDFreqRelation">
+    <ns1:desc>EUtranCellTDD_to_UtranTDDFreqRelation</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/EUtranCellTDD/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/UtranTDDFreqRelation/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="16" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="UtranFrequency_to_ExternalUtranCellTDD">
+    <ns1:desc>UtranFrequency_to_ExternalUtranCellTDD</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/UtranFrequency/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ExternalUtranCellTDD/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="64" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="ENodeBFunction_to_SubscriberProfileID">
+    <ns1:desc>ENodeBFunction_to_SubscriberProfileID</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/ENodeBFunction/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/SubscriberProfileID/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="SubscriberProfileID_to_HoWhiteList">
+    <ns1:desc>SubscriberProfileID_to_HoWhiteList</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/SubscriberProfileID/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/HoWhiteList/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="SubscriberProfileID_to_RATFreqPrio">
+    <ns1:desc>SubscriberProfileID_to_RATFreqPrio</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/SubscriberProfileID/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/RATFreqPrio/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="8" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="ENodeBFunction_to_LoadBalancingFunction">
+    <ns1:desc>ENodeBFunction_to_LoadBalancingFunction</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/ENodeBFunction/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/LoadBalancingFunction/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="UeMeasControl_to_ReportConfigA4">
+    <ns1:desc>UeMeasControl_to_ReportConfigA4</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/UeMeasControl/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ReportConfigA4/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="UeMeasControl_to_ReportConfigB1Geran">
+    <ns1:desc>UeMeasControl_to_ReportConfigB1Geran</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/UeMeasControl/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ReportConfigB1Geran/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="UeMeasControl_to_ReportConfigB1Utra">
+    <ns1:desc>UeMeasControl_to_ReportConfigB1Utra</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/UeMeasControl/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ReportConfigB1Utra/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="DeviceGroup_to_RfPort">
+    <ns1:desc>DeviceGroup_to_RfPort</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/DeviceGroup/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/RfPort/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="8" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="DeviceGroup_to_XmuDeviceSet">
+    <ns1:desc>DeviceGroup_to_XmuDeviceSet</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/DeviceGroup/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/XmuDeviceSet/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="ExternalENodeBFunction_to_TermPointToENB">
+    <ns1:desc>ExternalENodeBFunction_to_TermPointToENB</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/ExternalENodeBFunction/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/TermPointToENB/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="HwUnit_to_AlarmPort">
+    <ns1:desc>HwUnit_to_AlarmPort</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/HwUnit/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/AlarmPort/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="32" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="DeviceGroup_to_AlarmPort">
+    <ns1:desc>DeviceGroup_to_AlarmPort</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/DeviceGroup/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/AlarmPort/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="8" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Cabinet_to_FanGroup">
+    <ns1:desc>Cabinet_to_FanGroup</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/Cabinet/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/FanGroup/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="4" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="HwUnit_to_ControlPort">
+    <ns1:desc>HwUnit_to_ControlPort</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/HwUnit/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ControlPort/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="8" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="EquipmentSupportFunction_to_BatteryBackup">
+    <ns1:desc>EquipmentSupportFunction_to_BatteryBackup</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/EquipmentSupportFunction/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/BatteryBackup/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="EquipmentSupportFunction_to_PowerDistribution">
+    <ns1:desc>EquipmentSupportFunction_to_PowerDistribution</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/EquipmentSupportFunction/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/PowerDistribution/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="EquipmentSupportFunction_to_PowerSupply">
+    <ns1:desc>EquipmentSupportFunction_to_PowerSupply</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/EquipmentSupportFunction/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/PowerSupply/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="ExternalNode_to_EcPort">
+    <ns1:desc>ExternalNode_to_EcPort</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/ExternalNode/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/EcPort/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="2" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="HwUnit_to_EcPort">
+    <ns1:desc>HwUnit_to_EcPort</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/HwUnit/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/EcPort/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="HwUnit_to_EFuse">
+    <ns1:desc>HwUnit_to_EFuse</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/HwUnit/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/EFuse/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="16" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="AntennaUnitGroup_to_AntennaUnit">
+    <ns1:desc>AntennaUnitGroup_to_AntennaUnit</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/AntennaUnitGroup/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/AntennaUnit/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="8" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="ENodeBFunction_to_RbsConfiguration">
+    <ns1:desc>ENodeBFunction_to_RbsConfiguration</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/ENodeBFunction/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/RbsConfiguration/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="RbsSlot_to_AuxPlugInUnit">
+    <ns1:desc>RbsSlot_to_AuxPlugInUnit</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/RbsSlot/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/AuxPlugInUnit/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="RbsSubrack_to_RbsSlot">
+    <ns1:desc>RbsSubrack_to_RbsSlot</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/RbsSubrack/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/RbsSlot/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="28" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="AuxPlugInUnit_to_DeviceGroup">
+    <ns1:desc>AuxPlugInUnit_to_DeviceGroup</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/AuxPlugInUnit/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/DeviceGroup/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="DeviceGroup_to_XpProgram">
+    <ns1:desc>DeviceGroup_to_XpProgram</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/DeviceGroup/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/XpProgram/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="2" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="AuxPlugInUnit_to_RiPort">
+    <ns1:desc>AuxPlugInUnit_to_RiPort</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/AuxPlugInUnit/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/RiPort/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="14" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="ENodeBFunction_to_TermPointToMme">
+    <ns1:desc>ENodeBFunction_to_TermPointToMme</ns1:desc>
+    <ns2:parent primaryTypeUrn="//ERBS_vC_1_72/ENodeBFunction/3.1.72"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/TermPointToMme/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="64" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+</ns2:PrimaryTypeRelationshipDefinition>

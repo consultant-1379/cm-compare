@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="M3uaRemoteSp" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>A representation of an M3UA remote signalling process (SP) from a local SP perspective.
+
+Each local SP has its own view of the SP on the peer side. In other words, for each SP on the peer side, that a local SP is connected to, an instance of this MO is needed.
+
+M3uaRemoteSp also represents an SCTP association, as it references a local and a remote SCTP endpoint.
+
+The local SCTP endpoint is specified by the attributes localPortNumber and sctpEpHomingState in the related M3uaLocalSp MO. The remote SCTP endpoint  is specified by the reference to an instance of M3uaRemoteSctpEp MO. These combinations of local and remote endpoints, representing SCTP associations, must be unique in the scope of a node.
+
+If this MO references an M3uaRemoteSctpEp instance, where the attributes remoteIpAddress1 and remoteIpAddress2 are unspecified, the attribute spType must be set to ASP.
+
+If this MO references an M3uaRemoteSctpEp instance, where the attributes remoteIpAddress1 and remoteIpAddress2, or the attribute remotePortNumber, are unspecified, localAssocRole must be set to SERVER.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="aspIdentifier" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The ASP identifier, to be used in an ASP Up procedure.
+
+Contains a unique value that is locally significant among the ASPs that support an AS. If specified, this identifier is included in outgoing messages and checked in incoming messages.
+
+If set to 0, the ASP identifier is not specified.  If the referenced  M3uaRemoteSctpEp MO instance has no specified IP addresses, the ASP identifier must be specified.
+
+When setting this attribute, this MO must be LOCKED.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="4294967295" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="exchangeMode" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The IPSP exchange mode.
+
+When setting this attribute, this MO must be LOCKED.
+
+Applicable only for an IPSP configuration. For other configuration types, any value of this attribute will be interpreted internally as NOT_APPLICABLE.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/M3uaExchangeMode/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="SINGLE_EXCHANGE" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="m3uaLocalSpRef" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Reference to an instance of M3uaLocalSp MO.
+
+Specifies the local SP, for which this remote SP instance represents the peer side.
+
+The type of SP is specified by the attribute spType in both M3uaLocalSp and M3uaRemoteSp, and they must comply with the following rules:
+- If the spType is set to SGP, the spType of the referenced M3uaLocalSp must be equal to ASP or SGP.
+- If the spType is set to ASP, the spType of the referenced M3uaLocalSp must be equal to SGP.
+- If the spType is set to IPSP, the spType of the referenced M3uaLocalSp must also be equal to IPSP.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/M3uaLocalSp/3.12.0" xsi:type="ns1:moRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="localAssocRole" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The local SCTP endpoint role for initiating an SCTP association.
+
+When setting this attribute, this MO instance must be LOCKED.
+
+The SCTP endpoint roles must be coordinated between peers. The following configurations are supported:
+- CLIENT - SERVER,
+- CLIENT_PEER - CLIENT_PEER,
+- CLIENT_PEER - SERVER.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/M3uaAssocRole/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="CLIENT_PEER" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="m3uaRemoteSctpEpRef" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Reference to an instance of M3uaRemoteSctpEp MO, which represents the SCTP endpoint on the peer side.
+
+If the referenced M3uaRemoteSctpEp has unspecified IP addresses or unspecified remotePortNumber, the attribute localAssocRole must be set to SERVER.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/M3uaRemoteSctpEp/3.12.0" xsi:type="ns1:moRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="M3uaRemoteSpId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="spType" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The type of the remote signalling process (SP).
+
+It must have the same value as the SP on the peer side, that this MO represents.
+
+The applicable values for this attribute are SGP, ASP, IPSP.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/M3uaProcessType/3.12.0" xsi:type="ns1:enumRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="DEPRECATED" ns1:name="currentPmRegister" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Returns the current values of all PM counters.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType xsi:type="ns1:stringType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="availabilityStatus" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The availability status.
+
+It contains details about operationalState.
+
+Possible values for operational state ENABLED:
+
+NO_STATUS = The MO is fully operable.
+DEGRADED = The SP is in the state ASP-ACTIVE for only some of its related application servers.
+
+Possible values for operational state DISABLED:
+
+DEPENDENCY_LOCKED,
+DEPENDENCY_FAILED,
+DEPENDENCY_SHUTTINGDOWN = These values are based on the administrative state and the availability status of the Sctp MO.
+FAILED = The MO has other reasons for staying DISABLED.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/AvailabilityStatus/3.12.0" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="administrativeState" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The administrative state.
+
+Possible values are:
+
+LOCKED = The SP is kept in state ASP-DOWN. When setting this value, the following is attempted:
+- If the SP has a client or client-peer role, the ASP Down procedure is performed and an SCTP association to the peer SP is released.
+- If the SP has a server role, an SCTP association to the peer SP is released.
+
+UNLOCKED = The SP is kept in state ASP-ACTIVE. When setting this value, the following is attempted:
+- If the SP has a client or client-peer role, an SCTP association is established and the ASP Up procedure is performed. The ASP Active procedure is performed for every related application server, which is not locked and for which this SP is not manually inactivated.
+- If the SP has a server role, incoming requests to establish an SCTP association are accepted.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/AdmState/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="LOCKED" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="operationalState" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The operational state.
+
+The operational state is ENABLED, if the remote SP is in the state ASP-ACTIVE for at least one of its related application servers.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/OperState/3.12.0" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfAspacAckReceived" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of ASP Active Acknowledgement (ASPAC ACK) messages received.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfAspacAckSent" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of ASP Active Acknowledgement (ASPAC ACK) messages sent.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfAspacReceived" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of ASP Active (ASPAC) messages received.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfAspacSent" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of ASP Active (ASPAC) messages sent.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfAspdnAckReceived" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of ASP Down Acknowledgement (ASPDN ACK) messages received.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfAspdnAckSent" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of ASP Down Acknowledgement (ASPDN ACK) messages sent.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfAspdnReceived" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of ASP Down (ASPDN) messages received.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfAspdnSent" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of ASP Down (ASPDN) messages sent.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfAspiaAckReceived" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of ASP Inactive Acknowledgement (ASPIA ACK) messages received.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfAspiaAckSent" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of ASP Inactive Acknowledgement (ASPIA ACK) messages sent.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfAspiaReceived" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of ASP Inactive (ASPIA) messages received.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfAspiaSent" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of ASP Inactive (ASPIA) messages sent.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfAspupAckReceived" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of ASP Up Acknowledgement (ASPUP ACK) messages received.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfAspupAckSent" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of ASP Up Acknowledgement (ASPUP ACK) messages sent.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfAspupReceived" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of ASP Up (ASPUP) messages received.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfAspupSent" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of ASP Up (ASPUP) messages sent.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfCommunicationLost" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of SCTP communication losses.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfCongestions" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of SCTP congestion indications.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfDataMsgRec" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of Payload Data (DATA) messages received.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfDataMsgSent" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of Payload Data (DATA) messages sent.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfDaudMsgRec" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of Destination State Audit (DAUD) messages received. Counts only in an SGP configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfDaudMsgSent" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of Destination State Audit (DAUD) messages sent. Counts only in ASP and SGP configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfDavaRec" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of Destination Available (DAVA) messages received. Counts only in ASP and SGP configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfDavaSent" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of Destination Available (DAVA) messages sent. Counts only in an SGP configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfDunaRec" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of Destination Unavailable (DUNA) messages received. Counts only in ASP and SGP configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfDunaSent" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of Destination Unavailable (DUNA) messages sent. Counts only in an SGP configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfDupuRec" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of Destination User Part Unavailable (DUPU) messages received.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfDupuSent" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of Destination User Part Unavailable (DUPU) messages sent.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfErrorMsgRec" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of Error (ERR) messages received.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfErrorMsgSent" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of Error (ERR) messages sent.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfM3uaDataMsgDiscarded" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of discarded Payload Data (DATA) messages.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfNotifyMsgRec" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of Notify (NTFY) messages received. Counts only in ASP and IPSP configurations.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfSconRec" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of Signalling Congestion (SCON) messages received.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfSconSent" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of Signalling Congestion (SCON) messages sent.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfNotifyMsgSent" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of Notify (NTFY) messages sent. Counts only in SGP and IPSP configurations.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains a list of MO instances that reserve this MO instance.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="//MOM-CPP-C12/ManagedObject/3.12.0" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="remoteSgName" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The name of the remote signalling gateway.
+
+Specifies which remote signalling gateway this SP belongs to. All SPs with the same signalling gateway name, are considered to belong to the same remote signalling gateway.
+
+Applicable only for an ASP configuration, in which case it must not be set to an empty string. For other configurations, this attribute must be set to an empty string.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="31" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfDrstRec" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of Destination Restricted (DRST) messages received. Counts only in ASP and SGP configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfDrstSent" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of Destination Restricted (DRST) messages sent. Counts only in an SGP configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfRecUserData" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of octets received, including protocol overhead except the M3UA management messages.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfSentUserData" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of octets sent, including protocol overhead except the M3UA management messages.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfMaxTrialsForAssocActivReached" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of times when signalling process activation failed.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfSctpCommunicationErr" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of SCTP communication errors.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfSctpAssociationRestart" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of peer restarts detected by SCTP.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfSctpNetworkStatusChange" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of SCTP indications about changed availability of destination transport address.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfSctpResumeSending" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of times when SCTP requested to resume sending traffic.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfSctpSendFailure" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of times when SCTP failed to deliver a message.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfSuccessAssocAbort" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of abort association requests sent to SCTP.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfSuccessAssocEstablish" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of times when an SCTP association was successfully established.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfUnsuccessAssocEstablish" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of times when an SCTP association establishment failed.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfSctpBufOverflow" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of times when SCTP requested to stop sending traffic.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="congestionAlarmThreshold" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies the accumulated time limit the M3UA association is allowed to be congested before an alarm is issued.
+
+If set to 0, the alarm is issued immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="750" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="50" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

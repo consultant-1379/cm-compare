@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="VclTp" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Virtual Channel Link Termination Point
+
+Represents the termination of an external VC link in the node.
+
+A maximum of 10 000 instances of this MO can be configured in a node.
+
+The VC service category cannot be configured to UBR+ or CBR, if the parent VplTp has the service category set to UBR. The service category is set by the attribute serviceCategory in AtmTrafficDescriptor.
+
+Disturbances: Changing lower layer attributes may affect O&amp;M connectivity, if they are part of the O&amp;M connection.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="VclTpId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="externalVci" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Virtual Channel Identifier (VCI)
+
+The identifier for this Virtual Channel Link (VCL).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:notNullConstraint/>
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="32"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains an MO instance that reserve this MO instance.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/ManagedObject/3.12.0" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="operationalState" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The operational state.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/OperState/3.12.0" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmReceivedAtmCells" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of received ATM cells.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmTransmittedAtmCells" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of transmitted ATM cells.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="availabilityStatus" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The availability status.
+
+It contains details about operationalState.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/AvailabilityStatus/3.12.0" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="counterActivation" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Indicates whether PM counters of type PDF are activated for this MO instance, when a performance monitoring is created from the PMS interface.
+
+If true, and if included in an active performance monitoring, this attribute activates the PDF counters.
+
+If false, the PDF counters are not active, even when included in an active performance monitoring.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmBwUtilizationTx" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The counter shows the utilization of the virtual connection in the transmitting direction represented by a histogram, consisting of a list of 21 numbers, indexed from zero. The first number is Peak Cell Rate (PCR) and the next 20 numbers are different load ranges (range counters) for the VclTp MO. The load is sampled every 10s and depending on the sampled value, the corresponding range counter is increased.
+
+PDF ranges: The number is rounded upwards to the nearest integer.
+[0]: PCR, [1]: [0..5.0]%, [2]: [&gt;5.0..10.0]%, [3]: [&gt;10.0..15.0]%, [4]: [&gt;15.0..20.0]%, [5]: [&gt;20.0..25.0]%, [6]: [&gt;25.0..30.0]%, [7]: [&gt;30.0..35.0]%, [8]: [&gt;35.0..40.0]%, [9]: [&gt;40.0..45.0]%, [10]: [&gt;45.0..50.0]%, [11]: [&gt;50.0..55.0]%, [12]: [&gt;55.0..60.0]%, [13]: [&gt;60.0..65.0]%, [14]: [&gt;65.0..70.0]%, [15]: [&gt;70.0..75.0]%, [16]: [&gt;75.0..80.0]%, [17]: [&gt;80.0..85.0]%, [18]: [&gt;85.0..90.0]%, [19]: [&gt;90.0..95.0]%, [20]: [&gt;95.0..100]%</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="21"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:longType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmBwUtilizationRx" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The counter shows the utilization of the virtual connection in the receiving direction represented by a histogram, consisting of a list of 21 numbers. The first number is Peak Cell Rate (PCR) and the next 20 numbers are different load ranges (range counters) for the VclTp MO. The load is sampled every 10s and depending on the sampled value, the corresponding range counter is increased.
+
+PDF ranges: The number is rounded upwards to the nearest integer.
+[0]: PCR, [1]: [0..5.0]%, [2]: [&gt;5.0..10.0]%, [3]: [&gt;10.0..15.0]%, [4]: [&gt;15.0..20.0]%, [5]: [&gt;20.0..25.0]%, [6]: [&gt;25.0..30.0]%, [7]: [&gt;30.0..35.0]%, [8]: [&gt;35.0..40.0]%, [9]: [&gt;40.0..45.0]%, [10]: [&gt;45.0..50.0]%, [11]: [&gt;50.0..55.0]%, [12]: [&gt;55.0..60.0]%, [13]: [&gt;60.0..65.0]%, [14]: [&gt;65.0..70.0]%, [15]: [&gt;70.0..75.0]%, [16]: [&gt;75.0..80.0]%, [17]: [&gt;80.0..85.0]%, [18]: [&gt;85.0..90.0]%, [19]: [&gt;90.0..95.0]%, [20]: [&gt;95.0..100]%</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="21"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:longType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="DEPRECATED" ns1:name="currentPmRegister" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Returns the current values of all PM counters.
+
+To read the values of the PM counter, start a measurement on that PM counter for the MO instance. Otherwise, the value of the PM counter is set to -1.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType xsi:type="ns1:stringType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="atmTrafficDescriptorId" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Reference to an instance of AtmTrafficDescriptor MO.
+
+If this reference is set to an new AtmTrafficDescriptor and the VclTp is linked to (reserved by) an Aal2PathVccTp, the Aal2PathVccTp must be locked in order to allow other than bandwidth changes.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/AtmTrafficDescriptor/3.12.0" xsi:type="ns1:moRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

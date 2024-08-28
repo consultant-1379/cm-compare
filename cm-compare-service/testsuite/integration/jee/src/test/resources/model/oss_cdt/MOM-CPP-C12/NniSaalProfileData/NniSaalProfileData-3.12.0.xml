@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:lifeCycleDesc="" ns1:name="NniSaalProfileData" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/oss_cdt/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Struct holding the values for an NniSaalProfile MO.
+
+Congestition Levels 1 - 3 are supported.</ns1:desc>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerPoll">
+    <ns1:desc>The timer that specifies the maximum time between sending of POLL PDUs to the peer receiver during other traffic (active phase).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100000" min="10"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="50" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="maxCC">
+    <ns1:desc>The maximum number of retransmissions of Protocol Data Units (PDU): BGN, END, ER, RS.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="4" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="maxPD">
+    <ns1:desc>The maximum number of SD PDUs before a poll is sent.
+
+This attribute must follow the rule, maxPD &lt; initialCredit.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="10000" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="25" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="maxStat">
+    <ns1:desc>The maximum number, odd integer value, of list elements placed in a STAT PDU.
+
+The maxStat attribute is controlled by the AAL5 maximum SDU size defined in the Aal5TpVccTp MO. The maxStat times 4 (octets) plus additional 12 octets (for header) must not exceed the AAL5 maximum SDU size (lower of the two directions, fromUserMaxSduSize and toUserMaxSduSize).
+
+The consistency check is performed when the NniSaalTp MO is created, as there is no relation between the NniSaalProfile MO and the Aal5TpVccTp MO.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="1001" min="3"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="67" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="initialCredit">
+    <ns1:desc>The initial number of credits.
+
+For 64 kbit/s, use 30.
+
+This attribute must follow the rule, initialCredit &gt; maxPD.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="1000" min="10"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="250" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerKeepAlive">
+    <ns1:desc>The timer to be used during a period of no outstanding acknowledgements or new data pending receipt of credit. At timeout, the peer is polled to see if it is alive. The timer determines the interval between polls in the transient phase. This timer should be greater than the roundtrip delay and also greater than timerPoll.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="10000" min="10"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="100" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerNoResponse">
+    <ns1:desc>The timer to determine the maximum time interval, during which reception of at least one STAT PDU is expected as a response to a poll.
+
+This attribute must follow the rule, timerNoResponse &gt;= timerKeepAlive + one roundtrip delay</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100000" min="10"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="500" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerIdle">
+    <ns1:desc>The timer running when there are no PDUs to transmit and there are no outstanding acknowledgements or data pending for credit. When this timer is running, no POLL PDUs are sent.
+This timer should be significantly greater than the value of timerKeepAlive.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="10000" min="10"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="100" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerCC">
+    <ns1:desc>The timer determining the time between retransmission of PDUs: BGN, END, ER, RS.
+
+It should be more than the roundtrip delay.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="10000" min="10"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="200" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="mps">
+    <ns1:desc>The Management Proving Status (MPS) which is used to determine whether for proving is done during setup of the SAAL connection.
+
+mps = 0 (NORMAL) If set to 0, normal proving is done regardless of the incoming SSCOP-UU or the local User Part Proving Status set by MTPL3
+
+mps = 1 (EMERGENCY) If set to 1, emergency proving is done regardless of the incoming SSCOP-UU or the local User Part Proving Status set by MTPL3
+
+mps = 2 (NEUTRAL) If set to 2, proving depends on the incoming SSCOP-UU as well as the local User Part Proving Status set by MTPL3.
+
+More information on MPS can be found in table 7 of ITU specification Q.2140</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="2" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="2" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="congestionLevel1OnSet">
+    <ns1:desc>When the current send buffer occupancy increases above the congestionLevel1Onset, a congestion indication is sent to MTP3b and the MTP3b congestion status of the internal signalling link changes from 0 to 1.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="70" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="congestionLevel2OnSet">
+    <ns1:desc>When the current send buffer occupancy increases above the congestionLevel2Onset, a congestion indication is sent to MTP3b and the MTP3b congestion status of the internal signalling link changes from 1 to 2.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="80" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="congestionLevel3OnSet">
+    <ns1:desc>When the current send buffer occupancy increases above the congestionLevel3Onset, a congestion indication is sent to MTP3b and the MTP3b congestion status of the internal signalling link changes from 2 to 3.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="90" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="congestionLevel1Abatement">
+    <ns1:desc>When the current send buffer occupancy decreases below congestionLevel1Abatement, the MTP3b congestion status of the internal signalling link changes from 1 to 0.
+
+This attribute must follow the rule: 0 &lt;= congestionLevel1Abatement &lt; congestionLevel1OnSet.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="60" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="congestionLevel2Abatement">
+    <ns1:desc>When the current send buffer occupancy decreases below congestionLevel2Abatement, but is not below congestionLevel1Abatement, the MTP3b congestion status of the internal signalling link changes from 2 to 1.
+
+This attribute must follow the rule: congestionLevel1OnSet &lt;= congestionLevel2Abatement &lt; congestionLevel2OnSet.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="71" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="congestionLevel3Abatement">
+    <ns1:desc>When the current send buffer occupancy decreases below congestionLevel3Abatement, but is not below congestionLevel2Abatement, the MTP3b congestion status of the internal signalling link changes from 3 to 2.
+
+This attribute must follow the rule: congestionLevel2OnSet &lt;= congestionLevel3Abatement &lt; congestionLevel3OnSet.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="81" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="nrOfPDUsDuringProving">
+    <ns1:desc>The length of proving in terms of number of transmitted PDUs (n1).
+
+This attribute must follow the rule, timerT2 &gt; 2 * nrOfPDUsDuringProving * timerT3 * t3Factor.
+The t3Factor describes (approximately) the relationship between the configured value and the actual value of timerT3, and is determined as follows:
+
+timerT3(ms)
+5-6 ms (t3Factor 2.5)
+7-13 ms (t3Factor 2.0)
+14- ms (t3Factor 1.5)</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100000" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1000" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="maxNRP">
+    <ns1:desc>The maximum number of retransmissions of PDUs during proving to consider proving successful.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerNoCredit">
+    <ns1:desc>The maximum time of no credit. If the timer expires, the assured data transfer mode is released.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100000" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1500" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerRepeatSrec">
+    <ns1:desc>The timer which is set whenever a report of SSCOP recovery is received from the SSCF. If the timer is running when another report of recovery is received, the assured data transfer mode is released. If the timer expires, nothing is done.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="86400000" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="3600000" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerT1">
+    <ns1:desc>The timer between the link release action and the next link re-establish action during the alignment. When  timer T1 expires, a new attempt is made to set up assured data transfer mode to the peer.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100000" min="10"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="5000" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerT2">
+    <ns1:desc>The total time that SSCF attempts alignment. When timer T2  expires, the alignment procedure is interrupted.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="200000" min="10"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="30000" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerT3">
+    <ns1:desc>The time between proving PDUs. The timer is set so that loading of the signalling link is approximately 50% of it's nominal rate.
+
+This attribute must follow the rule, timerT2 &gt; 2 * nrOfPDUsDuringProving * timerT3 * t3Factor.
+The t3Factor describes (approximately) the relationship between the configured value and actual value of the timerT3, and is determined as follows:
+
+timerT3(ms) t3Factor
+5-6                2.5
+7-13              2.0
+14 -               1.5</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="1000" min="5"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="5" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="discardMessagesLevel1">
+    <ns1:desc>When the current send buffer occupancy exceeds discardMessagesLevel1, but does not exceed discardMessagesLevel2, the MTP3b will discard messages with priority 0.
+
+This attribute must follow the rule: congestionLevel1OnSet &lt; discardMessagesLevel1 &lt;= congestionLevel2OnSet.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="80" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="discardMessagesLevel2">
+    <ns1:desc>When the current send buffer occupancy exceeds discardMessagesLevel2, but does not exceed discardMessagesLevel3, the MTP3b will discard messages with priority 0 and 1.
+
+This attribute must follow the rule: congestionLevel2OnSet &lt; discardMessagesLevel2 &lt;= congestionLevel3OnSet.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="90" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="discardMessagesLevel3">
+    <ns1:desc>When the current send buffer occupancy exceeds discardMessagesLevel3, the MTP3b will discard messages with priority 0, 1 and 2.
+
+This attribute must follow the rule: congestionLevel3OnSet &lt; discardMessagesLevel3 &lt;= 100.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="95" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

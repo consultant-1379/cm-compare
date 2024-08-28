@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:lifeCycleDesc="" ns1:name="Mtp3bSpTtcTimerData" ns1:ns="CPP_MODEL" ns1:version="3.12.75">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/oss_cdt/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>TTC timers for Mtp3bSpTtc. Timervalues in 1/10 s (deciseconds).</ns1:desc>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerT1">
+    <ns1:desc>Delay to avoid message mis-sequencing on changeover.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="10" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerT2">
+    <ns1:desc>Timer for waiting for a COO or a COA.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="10" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerT3">
+    <ns1:desc>Delay to avoid message mis-sequencing on a time controlled diversion change back.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="10" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerT4">
+    <ns1:desc>Timer for waiting for CBA, first attempt.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="10" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerT6">
+    <ns1:desc>Timer for delay to avoid message mis-sequencing on controlled rerouting.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="9" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerT8">
+    <ns1:desc>Timer for delay to prohibit sending of TFP messages via the response method. This is a STP specific parameter, which is ignored when configured as an endpoint.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="8" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerT10">
+    <ns1:desc>Timer for sending RST periodically.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="400" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerT17">
+    <ns1:desc>Delay to avoid oscillation of initial alignment failure and link restart.
+
+The value for this timer should be less than the value for timerT2.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="9" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerSrt">
+    <ns1:desc>Timer for waiting for Signalling Route Test Acknowledgement.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="100" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerTBsnt">
+    <ns1:desc>Waiting for BSNT value from MTP2 or NNI-SAAL at changeover (not standard timer).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="10" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerTRetrieval">
+    <ns1:desc>Timer for waiting for completion of buffer retrieval from MTP2 or NNI-SAAL at changeover (not standard timer).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="10" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerTStart">
+    <ns1:desc>Timer for the interval between attempts to start a link. Timing starts when timerT17 expires (not standard timer).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1200" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerTc">
+    <ns1:desc>Timer controlling the period a route set is considered congested when a Transfer Controlled message has been received.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="50" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerT15">
+    <ns1:desc>Supervision timer for start signaling route set congestiontest. Used only if the "Route Set Congestion Test Selection" option is set to "Use Route Set Congestion test".
+
+Guiding value 20 - 30.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="20" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerT16">
+    <ns1:desc>Supervision timer for route set congestion status update. Used only if the "Route Set Congestion Test Selecton" option is set to "Use Route Set Congestion test".
+
+Guiding value 14 - 22.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="14" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="DEPRECATED" ns1:name="timerTDlack">
+    <ns1:desc>Timer pending an acknowledge from the network layer for a DL_ACK_REQ.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="20" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

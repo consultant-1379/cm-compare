@@ -1,0 +1,42 @@
+<suite name="Suite">
+	<!-- Please put a name for your testcases in the line below -->
+	<test name="Testcases" preserve-order="true"> 
+		<classes>
+			<class name="com.ericsson.america.integrationtest.test.cases.CMRestToolTestCase" />
+			<methods>
+				<include name="getASpecificMeContextDotStar" />
+				<include name="getStarMeContextDotStar" />
+				<include name="getStarManagedElementDotStar" />
+				<include name="getStarENodeBFunctionDotStar" />
+				<include name="getIpSyncRefDotStar" />
+				<include name="getQciProfilePredefinedDotStar" />
+				<include name="getStarTermPointToMmeDotStar" />
+				<include name="getStarExternalCdma2000CellDotStar" />
+				<include name="getLTE01ERBS429StarENodeBFunctionDotStar" />
+				<include name="getLTE01ERBS42StarENodeBFunctionDotStar" />
+				<include name="getLTE01ERBS1StarENodeBFunctionDotStar" />
+				<include name="getLTE01ERBS42StarExternalCdma2000CellDotStar" />
+				<include name="getLTE01ERBS3StarTermPointToMmeDotStar" />				
+				<!--<include name="simpleCreateTest" />-->
+			</methods>
+		</classes>
+	</test>
+</suite>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

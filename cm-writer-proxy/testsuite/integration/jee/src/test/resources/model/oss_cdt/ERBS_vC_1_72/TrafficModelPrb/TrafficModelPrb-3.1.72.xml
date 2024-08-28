@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:lifeCycleDesc="" ns1:name="TrafficModelPrb" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/oss_cdt/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>TrafficModelPrb</ns1:desc>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="bufferStatus">
+    <ns1:desc>The status of the RLC buffer
+
+Takes effect: Feature start</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/RlcBufferStatus/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="FULL_BUFFER" xsi:type="ns1:stringValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="noOfArtificialUsers">
+    <ns1:desc>Number of artificial users
+
+Resolution: 1
+
+Takes effect: Feature start</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="400" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="qciDistSinrHigh">
+    <ns1:desc>Distribution of UEs per QCI when SINR is HIGH
+
+Unit: %
+
+Resolution: 1
+
+Takes effect: Feature start
+
+Dependencies: The sum of all values through the distributions qciDistSinrHigh, qciDistSinrMedium and qciDistSinrLow must be 100%.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="9"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:longType">
+        <ns1:valueRangeConstraint>
+          <ns1:minMaxRange max="100" min="0"/>
+        </ns1:valueRangeConstraint>
+      </ns1:collectionValuesType>
+    </ns1:type>
+    <ns1:default xsi:type="ns1:collectionValue">
+      <ns1:values>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+      </ns1:values>
+    </ns1:default>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="qciDistSinrMedium">
+    <ns1:desc>Distribution of UEs per QCI when SINR is MEDIUM
+
+Unit: %
+
+Resolution: 1
+
+Takes effect: Feature start
+
+Dependencies: The sum of all values through the distributions qciDistSinrHigh, qciDistSinrMedium and  qciDistSinrLow must be 100%.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="9"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:longType">
+        <ns1:valueRangeConstraint>
+          <ns1:minMaxRange max="100" min="0"/>
+        </ns1:valueRangeConstraint>
+      </ns1:collectionValuesType>
+    </ns1:type>
+    <ns1:default xsi:type="ns1:collectionValue">
+      <ns1:values>
+        <ns1:value value="100" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+      </ns1:values>
+    </ns1:default>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="qciDistSinrLow">
+    <ns1:desc>Distribution of UEs per QCI when SINR is LOW.
+
+Unit: %
+
+Resolution: 1
+
+Takes effect: Feature start
+
+Dependencies: The sum of all values through the distributions qciDistSinrHigh, qciDistSinrMedium and  qciDistSinrLow must be 100%.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="9"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:longType">
+        <ns1:valueRangeConstraint>
+          <ns1:minMaxRange max="100" min="0"/>
+        </ns1:valueRangeConstraint>
+      </ns1:collectionValuesType>
+    </ns1:type>
+    <ns1:default xsi:type="ns1:collectionValue">
+      <ns1:values>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+      </ns1:values>
+    </ns1:default>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="ulDlRatioPerQci">
+    <ns1:desc>UL bit rate related to DL bit rate, per QCI. The value 100% means that UL has same load as DL. The value 0% means that there is no UL load.
+
+Resolution: 1
+
+Takes effect: Feature start</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="9"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:longType">
+        <ns1:valueRangeConstraint>
+          <ns1:minMaxRange max="100" min="0"/>
+        </ns1:valueRangeConstraint>
+      </ns1:collectionValuesType>
+    </ns1:type>
+    <ns1:default xsi:type="ns1:collectionValue">
+      <ns1:values>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+      </ns1:values>
+    </ns1:default>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="bitRatePerQci">
+    <ns1:desc>Average required bit rate needed by the service
+
+Unit: kbit/s
+
+Resolution: 1
+
+Takes effect: Feature start</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="9"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:longType">
+        <ns1:valueRangeConstraint>
+          <ns1:minMaxRange max="65535" min="0"/>
+        </ns1:valueRangeConstraint>
+      </ns1:collectionValuesType>
+    </ns1:type>
+    <ns1:default xsi:type="ns1:collectionValue">
+      <ns1:values>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+        <ns1:value value="0" xsi:type="ns1:longValue"/>
+      </ns1:values>
+    </ns1:default>
+  </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

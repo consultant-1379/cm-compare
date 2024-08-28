@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="Mtp2HslProfileChina" ns1:ns="CPP_MODEL" ns1:version="3.12.75" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>MTP2 High Speed Link (HSL) Profile for the China standard
+
+Specifies MTP2 High Speed Link (HSL) parameters used by one or more Mtp2HslTpChina.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains a list of MO instances that reserve this MO instance.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="/dps_primarytype/CPP_MODEL/ManagedObject/3.12.75" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="tin" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Normal AERM threshold, called Tin. Number of signal unit errors that cause abortion of a normal proving peroid.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="7" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="4" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="tie" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The threshold for the Emergency Alignment Error Rate Monitor (AERM), called Tie. The number of signal unit errors that causes abortion of an emergency proving period.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="7" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="de" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Value by which the counter for downcount Errored Interval Monitor (EIM) is decreased.
+
+Recommended values are:
+E1 bitRate 1984kbit/s:  11
+T1 bitRate 1536kbit/s: 9</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="20" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="te" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>EIM threshold value
+
+The number of intervals where signal units are received in error and that will cause an error rate high indication.
+
+Recommended  values are:
+E1 bitRate 1984kbit/s:793
+T1 bitRate 1536kbit/s:577</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="1198" min="396"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="provings" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Proving abort limit. Number of consecutive aborted proving periods that will cause a return to the state, Out of service.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="7" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="5" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timerT8" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Defines the error rate monitoring interval.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="255" min="50"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="100" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timerT1" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The maximum time to stay in the state, Aligned Ready, before signalling link failure.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="350000" min="25000"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="300000" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timerT2" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The maximum time to stay in the state, Not Aligned, before signalling link failure.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="150000" min="5000"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="130000" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timerT3" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The maximum time to stay in state, Aligned, before signalling link failure.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="2000" min="1000"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1000" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timerT4n" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The length of the normal proving period.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="70000" min="3000"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="30000" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timerT4e" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The length of the emergency proving period.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="600" min="400"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="500" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timerT5" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The time between sending Status Indication "B" (SIB) while in the Congested state.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="120" min="80"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="100" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timerT6" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The maximum time a remote site may remain in the Congested state before signalling link failure.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="6000" min="3000"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="5000" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timerT7" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The maximum time to wait for an expected acknowledgement of an MSU, before signalling link failure.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="2000" min="500"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="800" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ue" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Value by which the counter for upcount Errored Interval Monitor (EIM) is increased.
+
+Recommended values are:
+E1 bitRate 1984kbit/s: 198
+T1 bitRate 1536kbit/s: 144</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="300" min="100"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="Mtp2HslProfileChinaId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="congestionData" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Struct containing congestion data.</ns1:desc>
+    <ns1:type modelUrn="/oss_cdt/CPP_MODEL/Mtp2HslCongestChina/3.12.75" xsi:type="ns1:complexRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

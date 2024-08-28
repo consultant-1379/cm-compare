@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:lifeCycleDesc="" ns1:name="ProductData" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/oss_cdt/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>ProductData</ns1:desc>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="productionDate">
+    <ns1:desc>The production date is represented in two ways:
+
+- the preferred syntax is four-digits for the year, two digits for the month, and two digits for the day, a total of eight characters.
+Example: 19991231
+
+- the date is also be represented by two digits for the year, followed by the letter W for week, and two digits for the number of the week, a total of five characters.
+Example: 99W52
+
+The production date is mandatory for the MOs: ConfigurationVersion, UpgradePackage and LoadModule.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="8" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="productName">
+    <ns1:desc>The name of the product.
+
+The product name is mandatory for the MOs: ConfigurationVersion, UpgradePackage, LoadModule, PiuType, Subrack and SubrackProdType.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="12" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="productNumber">
+    <ns1:desc>The product number of the product or document.
+
+Examples: ABC 101 001, CXC 123 456, 1/BFD 101 999
+
+For UpgradePackage, this is the document number of the upgrade package.
+
+Maximum length for a product number is 36 when referring to a document.
+
+The product number is mandatory for the MOs: ConfigurationVersion, UpgradePackage, LoadModule, PiuType, Subrack and SubrackProdType.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="24" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="productRevision">
+    <ns1:desc>The revision state of the product.
+
+Examples: R1, R1A, R1A02, P7B
+
+The product revision is mandatory for the MOs: ConfigurationVersion, UpgradePackage, LoadModule, PiuType, Subrack and SubrackProdType.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="7" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="serialNumber">
+    <ns1:desc>The serial number consists of 13 alphanumerical characters grouped as 6 plus 7 characters. The first 6 characters are to be used for factory codes and the last 7 characters are used for an individual number or batch number.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="13" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

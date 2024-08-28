@@ -1,0 +1,83 @@
+<litp:cluster-def id="cluster1">
+    <litp:service-group-def id="Serv">
+        <availability_model>nway-active</availability_model>
+        <node_list>sc1,sc2</node_list>
+        <version>1.0.0</version>
+	<litp:notification-def id="pib_notification">
+      <binary>/opt/ericsson/dms/upgrade/healthcheck.sh</binary>
+      <timeout>180</timeout>
+      <user>litp_admin</user>
+    </litp:notification-def>
+        <litp:service-unit-def id="su">
+            <active-count>2</active-count>
+            <version>1.0.0</version>
+		    <litp:component-ref id="jee">
+                <component-name>jee_containers/jee_ENMServices</component-name>
+            </litp:component-ref>
+            <litp:component-ref id="pres_serv_app">
+                <component-name>tor_sw/pres_serv</component-name>
+            </litp:component-ref>
+			<litp:component-ref id="script_engine">
+                <component-name>tor_sw/scripteng</component-name>
+            </litp:component-ref>
+			<litp:component-ref id="dps_trigger">
+            <component-name>tor_sw/dps_trigger</component-name>
+            </litp:component-ref>
+			<litp:component-ref id="pmic">
+                <component-name>tor_sw/pmic</component-name>
+            </litp:component-ref>
+			<litp:component-ref id="pib_app">
+                <component-name>tor_sw/pib</component-name>
+            </litp:component-ref>
+			<litp:component-ref id="cm_read">
+                <component-name>tor_sw/cmread</component-name>
+			</litp:component-ref>
+			<litp:component-ref id="cm_write">
+                <component-name>tor_sw/cmwrite</component-name>
+            </litp:component-ref>			
+			<litp:component-ref id="cm_edit">
+                <component-name>tor_sw/cmedit</component-name>
+			</litp:component-ref>
+            <litp:component-ref id="topology_search">
+                <component-name>tor_sw/topsearch</component-name>
+            </litp:component-ref>
+            <litp:component-ref id="topology_collections">
+                <component-name>tor_sw/topcollect</component-name>
+            </litp:component-ref>
+            <litp:component-ref id="aicore_svc">
+                <component-name>tor_sw/aicore_svc</component-name>
+            </litp:component-ref>
+            <litp:component-ref id="aiweb_svc">
+                <component-name>tor_sw/aiweb_svc</component-name>
+            </litp:component-ref>
+            <litp:component-ref id="caasweb_svc">
+                <component-name>tor_sw/caasweb_svc</component-name>
+            </litp:component-ref>			
+            <litp:component-ref id="nodesec_svc">
+                <component-name>tor_sw/nodesec_svc</component-name>
+            </litp:component-ref>
+            <litp:component-ref id="medcore">
+                <component-name>tor_sw/medcore</component-name>
+            </litp:component-ref>
+			<litp:component-ref id="nss">
+                <component-name>tor_sw/nss</component-name>
+            </litp:component-ref>
+			<litp:component-ref id="smrsservice_svc">
+                <component-name>tor_sw/smrsservice_svc</component-name>
+            </litp:component-ref>
+	    <litp:component-ref id="cmconfighandler">
+                <component-name>tor_sw/cm-config-handler</component-name>
+            </litp:component-ref>
+ 	    <litp:component-ref id="cmconfigservice">
+                <component-name>tor_sw/cm-config-service</component-name>
+            </litp:component-ref>
+
+			<!--litp:component-ref id="apservicecore">
+                <component-name>tor_sw/apservicecore</component-name>
+            </litp:component-ref>
+            <litp:component-ref id="apservicemacro">
+                <component-name>tor_sw/apservicemacro</component-name>
+            </litp:component-ref-->
+        </litp:service-unit-def>
+    </litp:service-group-def>
+</litp:cluster-def>

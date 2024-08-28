@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="CertEnrollState" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/oss_edt/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Certificate Enrollment State</ns1:desc>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="IDLE" value="0">
+    <ns1:desc>Idle. An initCertEnrollment request will be accepted.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="PREPARING_REQUEST" value="1">
+    <ns1:desc>The node is preparing the certificate enrollment sequence.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="POLLING" value="2">
+    <ns1:desc>An enrollment request has been sent to the enrollment server. The node is polling for a new certificate but the requested certificate has not yet been issued.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NEW_CREDS_AWAIT_CONF" value="3">
+    <ns1:desc>Awaiting confirmation for the use of new credentials. An event is issued.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="ERROR" value="4">
+    <ns1:desc>An error has occurred. An alarm is issued.
+
+See the certEnrollErrorMsg attribute for a description of the error.
+
+The only way to leave this state is by using the action, cancelCertEnrollment.</ns1:desc>
+  </ns2:member>
+</ns2:EnumDataTypeDefinition>

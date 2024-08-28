@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.ericsson.nms</groupId>
+    <artifactId>integration</artifactId>
+    <version>13.2.0.244</version>
+  </parent>
+
+
+  <groupId>com.ericsson.oss.services.cm.config</groupId>
+  <artifactId>cm-config-dependency-bom</artifactId>
+  <version>1.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name> cm-config-dependency-bom</name>
+
+
+  <properties>
+    <!-- Platform dependencies version -->
+    <version.dps>1.7.7</version.dps>
+    <version.service.framework>2.1.1</version.service.framework>
+    <version.model.deployment.tool>1.2.12</version.model.deployment.tool>
+    <version.modeling.bom>1.3.8</version.modeling.bom>
+    <!-- Service dependencies version -->
+    <version.cm-common>1.5.283</version.cm-common>
+    <version.cm-reader>1.8.39</version.cm-reader>
+    <version.cm-writer>1.8.44</version.cm-writer>
+    <version.script-engine>1.8.30</version.script-engine>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <!-- here we specify what version of Service Framework we want to use. All modules will be imported -->
+      <dependency>
+        <groupId>com.ericsson.oss.itpf.sdk</groupId>
+        <artifactId>ServiceFrameworkBOM</artifactId>
+        <version>${version.service.framework}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.ericsson.oss.itpf.modeling</groupId>
+        <artifactId>Modeling-BOM</artifactId>
+        <version>${version.modeling.bom}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.ericsson.oss.itpf.datalayer.dps</groupId>
+        <artifactId>data-persistence-service-bom</artifactId>
+        <version>${version.dps}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.ericsson.oss.services.cm</groupId>
+        <artifactId>cm-common-modelservice-extensions</artifactId>
+        <version>${version.cm-common}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ericsson.oss.services.cm</groupId>
+        <artifactId>cm-common-dtomapping</artifactId>
+        <version>${version.cm-common}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ericsson.oss.services.cm</groupId>
+        <artifactId>cm-common-testutil</artifactId>
+        <version>${version.cm-common}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.ericsson.oss.services.cm</groupId>
+        <artifactId>cm-common-api</artifactId>
+        <version>${version.cm-common}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ericsson.oss.services.cm</groupId>
+        <artifactId>cm-common-search</artifactId>
+        <version>${version.cm-common}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ericsson.oss.services.cm</groupId>
+        <artifactId>script-engine-editor-spi</artifactId>
+        <version>${version.script-engine}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ericsson.oss.services.cm</groupId>
+        <artifactId>cm-common-log</artifactId>
+        <version>${version.cm-common}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ericsson.oss.services.cm</groupId>
+        <artifactId>cm-reader-ear</artifactId>
+        <version>${version.cm-reader}</version>
+        <type>ear</type>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.ericsson.oss.services.cm</groupId>
+        <artifactId>cm-writer-ear</artifactId>
+        <version>${version.cm-writer}</version>
+        <type>ear</type>
+        <scope>test</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+</project>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="Slot" ns1:ns="CPP_MODEL" ns1:version="3.12.75" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>This MO represents a slot in a subrack. A slot can hold a plug-in-unit, a board represented by the PlugInUnit MO.
+
+The number of slots in a subrack is specified when defining the Subrack MO.
+
+The required number of Slot MOs are created automatically at creation of the Subrack MO, and cannot be deleted.
+
+The RDN of this MO is selected with Slot=1 at the leftmost slot, and with incremental numbering towards the right hand side of the subrack.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="SlotId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.
+
+It is set automatically when the MO instance is created.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="slotState" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates the state of the slot.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/SlotState/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="slotNumber" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The number of the slot position from the left hand side, starting with 1.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains a list of MO instances that reserve this MO instance.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="/dps_primarytype/CPP_MODEL/ManagedObject/3.12.75" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="productData" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Describes the plug-in-unit that is currently inserted. The information is only available when slotState = USED.
+
+If the board inserted in the slot stops working or is pulled out of the slot, the productData attribute will not change its value. The value of this attribute is changed when a new board is inserted into the slot.</ns1:desc>
+    <ns1:type modelUrn="/oss_cdt/CPP_MODEL/OperProductData/3.12.75" xsi:type="ns1:complexRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="activeSwAllocation" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The SwAllocation instance, among the predefined instances, which is active.
+
+The SwAllocation instance which is active is the one currently used by the PlugInUnit, configured in this Slot. If no PlugInUnit is configured or if no matching SwAllocation, containing the specific PiuType, is found, the value of this attribute is null.</ns1:desc>
+    <ns1:type modelUrn="/dps_primarytype/CPP_MODEL/ManagedObject/3.12.75" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:lifeCycleDesc="" ns1:name="CertInfo" ns1:ns="CPP_MODEL" ns1:version="3.12.75">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/oss_cdt/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>CertInfo</ns1:desc>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="category">
+    <ns1:desc>category</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/CertCategory/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="issuer">
+    <ns1:desc>A string representation of the X.509 name of the authority that has issued the certificate.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="subject">
+    <ns1:desc>A string representation of the X.509 name denoting the entity for which the certificate was issued.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="serialNumber">
+    <ns1:desc>A string representation of the certificate serial number (up to 40 digits long).</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="notValidBefore">
+    <ns1:desc>The time format is specified in UTC time. The format is : YYYYMMDDHHMMSS
+
+Example: The valid format for UTC time 6 minutes, 27 seconds after 21:00 on 6 November 1985 is 19851106210627</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="notValidAfter">
+    <ns1:desc>The time format is specified in UTC time. The format is : YYYYMMDDHHMMSS
+
+Example: The valid format for UTC time 6 minutes, 27 seconds after 21:00 on 6 November 1985 is 19851106210627</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="fingerprint">
+    <ns1:desc>A string in the following format: &lt;hash-algorithm&gt; [Fingerprint] = &lt;bb1&gt;:&lt;bb2&gt;: .. :&lt;bbn&gt;
+
+where:  &lt;hash-algorithm&gt; is MD5, SHA-1 or SHA1, and the substring Fingerprint is optional.
+The equals sign is mandatory and is followed by 16 (MD5) or 20 (SHA-1 or SHA1) bytes encoded in hexadecimal and separated by colon signs.
+
+Examples:
+
+MD5 Fingerprint=A4:AA:A6:35:70:AB:57:DC:34:27:8B:65:BE:CF:9B:9C
+
+SHA-1 Fingerprint=B6:12:31:B4:C7:03:20:62:F2:2A:B3:3D:E8:2D:0C:8F:C9:73:BC:39
+
+SHA1 Fingerprint=B6:12:31:B4:C7:03:20:62:F2:2A:B3:3D:E8:2D:0C:8F:C9:73:BC:39
+
+The fingerprint hash value is computed on the DER encoding of the X.509 certificate.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="127" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

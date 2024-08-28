@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="IpSecTunnel" ns1:ns="CPP_MODEL" ns1:version="3.12.75" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>This MO represents a tunnel for traffic that shall be protected. Multiple Child SAs may be created for each tunnel.
+
+All IpSecTunnel MOs referring to the same IkePeer MO must refer to VpnInterface MOs that refer to the same IpAccessHostEt MO.
+
+IpSecTunnel MOs referring to two IkePeer MOs with the same value of peerIpAddress, must not refer to VpnInterface MOs that refer to the same IpAccessHostEt MO.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="IpSecTunnelId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmOutDiscSeqOw" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of outgoing packets which are discarded due to sequence number overflow.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="tsLocalIpAddressRanges" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The local IP address range that is part of the traffic selector which specifies the traffic allowed through the tunnel.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="1"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType modelUrn="/oss_cdt/CPP_MODEL/TsIpAddressRange/3.12.75" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="tsProtocols" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The protocol that is part of the traffic selector which specifies the traffic allowed through the tunnel.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="1"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType modelUrn="/oss_edt/CPP_MODEL/ProtocolType/3.12.75" xsi:type="ns1:enumRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="tsRemoteIpAddressRanges" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The remote IP address range that is part of the traffic selector which specifies the traffic allowed through the tunnel.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="25"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType modelUrn="/oss_cdt/CPP_MODEL/TsIpAddressRange/3.12.75" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="priority" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Specifies the priority of the tunnel with respect to other configured tunnel in the node.
+
+If outgoing traffic that matches the traffic selectors in more than one tunnel, the traffic will be sent on the tunnel with the highest priority. If the tunnels have same priority, traffic will be send out on a randomly selected tunnel.
+
+1 is the highest priority.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="200" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmOutPkt" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of outgoing packets for the tunnel.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmInPkt" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of incoming packets for the tunnel.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmOutEspData" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of MB of outgoing data which are processed by ESP.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmInEspData" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of MB of incoming data which are processed by ESP.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmInDiscNoSa" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of incoming packets, which are discarded due to mismatch of the traffic selectors for the Child SA through which they are received.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmInDiscAReFail" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of incoming packets (after reassembly) which are discarded due to failed anti-replay check.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmInDiscIntCh" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of incoming packets (after reassembly) which are discarded due to failure in integrity check.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmInDiscDec" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of incoming packets (after reassembly) which are discarded due to failure in decryption.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmOutDiscNoSa" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of outgoing packets which are discarded because the applicable SA is not established. 
+During normal operation, when an applicable SA does not exist for a stream of outgoing packets, packets will be discarded until an SA has been established.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="allowedTransforms" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies possible transforms that can be used for this tunnel.
+The selected transform depends on the Ike negotiations with the peer node. There must be at least one allowed transform.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="10"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType modelUrn="/oss_cdt/CPP_MODEL/ChildSaTransform/3.12.75" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="securityAssociations" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates the used Child SAs.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="/oss_cdt/CPP_MODEL/ChildSa/3.12.75" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ikePeerRef" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Reference to an instance of IkePeer.</ns1:desc>
+    <ns1:type modelUrn="/dps_primarytype/CPP_MODEL/IkePeer/3.12.75" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="vpnInterfaceRef" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Reference to an instance of VpnInterface.</ns1:desc>
+    <ns1:type modelUrn="/dps_primarytype/CPP_MODEL/VpnInterface/3.12.75" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="antiReplayProtection" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies if anti-replay protection is enabled.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="true" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="TransmissionMode" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/oss_edt/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>L stands for long-haul interface and S stands for short-haul interface.
+The subsequent figure specifies the cable distance in feet.</ns1:desc>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="S_133" value="0">
+    <ns1:desc>Short Haul 0..133 ft</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="S_266" value="1">
+    <ns1:desc>Short Haul 134..266 ft</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="S_399" value="2">
+    <ns1:desc>Short Haul 267..399 ft</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="S_533" value="3">
+    <ns1:desc>Short Haul 400..533 ft</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="S_655" value="4">
+    <ns1:desc>Short Haul 534..655 ft</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="L_0" value="5">
+    <ns1:desc>Long Haul 0 ft, -22 dB</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="L_2000" value="6">
+    <ns1:desc>Long Haul 2000 ft, -15 dB</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="L_4000" value="7">
+    <ns1:desc>Long Haul 4000 ft, -7 dB</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="L_6000" value="8">
+    <ns1:desc>Long Haul 6000 ft, -0 dB</ns1:desc>
+  </ns2:member>
+</ns2:EnumDataTypeDefinition>

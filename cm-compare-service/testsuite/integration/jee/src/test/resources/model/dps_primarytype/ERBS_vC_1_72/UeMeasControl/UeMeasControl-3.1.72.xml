@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="UeMeasControl" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Models the manageable characteristics for UE measurements.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="UeMeasControlId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="bestCellReleaseActive" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Since L11B. Planned to be removed.
+Indicates if the best cell release function is active.
+
+Takes effect: New connection.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="sMeasure" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Serving cell quality threhold controlling whether or not the UE is required to perform measurements. 
+
+Value "-140" indicates to disable s-Measure.
+Value "0" indicates to not broadcast s-Measure.
+
+Unit: dBm
+Resolution: 1
+Takes effect: New connection.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="-44" min="-140"/>
+        <ns1:minMaxRange max="0" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="badCoverageMeasSelection" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Since L11B. Has no functional behaviour. Planned to be removed.
+Indicates if primary, secondary or both A2 measurement thresholds are used. The option to use two measurements for eventA2 is needed since the UE is not always able to use both RSRP and RSRQ measurement quantities when moving in a cell. The primary measurements default to RSRP and secondary measurements default to RSRQ. Both primary and secondary measurements can use the same measurement quantity.
+
+Takes effect: New connection.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/BadCoverageMeasSelection/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="BOTH" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="filterCoefficientEUtraRsrp" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The filtering coefficient for E-UTRA using the measured quantity Reference Signal Received Power (RSRP). The coefficient filters measurements before event evaluation.
+
+Takes effect: New connection.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="0" min="0"/>
+        <ns1:minMaxRange max="1" min="1"/>
+        <ns1:minMaxRange max="2" min="2"/>
+        <ns1:minMaxRange max="3" min="3"/>
+        <ns1:minMaxRange max="4" min="4"/>
+        <ns1:minMaxRange max="5" min="5"/>
+        <ns1:minMaxRange max="6" min="6"/>
+        <ns1:minMaxRange max="7" min="7"/>
+        <ns1:minMaxRange max="8" min="8"/>
+        <ns1:minMaxRange max="9" min="9"/>
+        <ns1:minMaxRange max="11" min="11"/>
+        <ns1:minMaxRange max="13" min="13"/>
+        <ns1:minMaxRange max="15" min="15"/>
+        <ns1:minMaxRange max="17" min="17"/>
+        <ns1:minMaxRange max="19" min="19"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="4" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="filterCoefficientEUtraRsrq" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The filtering coefficient for E-UTRA using the measured quantity Reference Signal Received Quality (RSRQ). The coefficient filters measurements before event evaluation.
+
+Takes effect: New connection.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="0" min="0"/>
+        <ns1:minMaxRange max="1" min="1"/>
+        <ns1:minMaxRange max="2" min="2"/>
+        <ns1:minMaxRange max="3" min="3"/>
+        <ns1:minMaxRange max="4" min="4"/>
+        <ns1:minMaxRange max="5" min="5"/>
+        <ns1:minMaxRange max="6" min="6"/>
+        <ns1:minMaxRange max="7" min="7"/>
+        <ns1:minMaxRange max="8" min="8"/>
+        <ns1:minMaxRange max="9" min="9"/>
+        <ns1:minMaxRange max="11" min="11"/>
+        <ns1:minMaxRange max="13" min="13"/>
+        <ns1:minMaxRange max="15" min="15"/>
+        <ns1:minMaxRange max="17" min="17"/>
+        <ns1:minMaxRange max="19" min="19"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="11" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ueMeasurementsActive" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Activates or deactivates A5/B2 measurements on EUTRAN inter-frequencies, GERAN, UTRA and CDMA2000 frequencies for mobility purposes.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="measurementPriority" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Prioritizes between Automated Neighbor Relations (ANR) measurements and Performance Management (PM) measurements.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/MeasurementPrio/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="ANR_PRIO" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="a5B2MobilityTimer" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The length of time the eNodeB waits for reports from A5/B2 measurements configured in the UE for mobility reasons.
+If the value 0 is given, the timer will not be started.
+
+Unit: ms
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="12000" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="maxMeasInterFreqEUtra" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The number of measurements that can be concurrently performed by the UE on E-UTRA frequencies other than the serving cell frequency.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="7" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="7" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="maxMeasEUtraOther" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The number of measurements that can be concurrently performed by the UE on E-UTRA frequencies of a type (FDD - TDD) other than the serving cell frequency.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="5" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="5" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="maxMeasGeran" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The number of measurements that can be concurrently performed by the UE on GERAN measurement objects.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="5" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="5" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="maxMeasUtraFdd" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The number of measurements that can be concurrently performed by the UE on UTRA FDD measurement objects.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="5" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="5" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="maxMeasCdma2000eHrpd" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The number of measurements that can be concurrently performed by the UE on CDMA2000 eHRPD measurement objects.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="5" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="5" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="measQuantityUtraFDD" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Measurement quantity used for all types of UTRA FDD measurements.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/ThresholdUtra/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="RSCP" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="zzzTemporary1" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="zzzTemporary2" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="zzzTemporary3" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="zzzTemporary4" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="zzzTemporary5" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="-2000000000" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="zzzTemporary6" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="-2000000000" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="zzzTemporary7" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="-2000000000" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="maxMeasUtraTdd" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The number of measurements that can be concurrently performed by the UE on UTRA TDD measurement objects.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="5" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="5" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

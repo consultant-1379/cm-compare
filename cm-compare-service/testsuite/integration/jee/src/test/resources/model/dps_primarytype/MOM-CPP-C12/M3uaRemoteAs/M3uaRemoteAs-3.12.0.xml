@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="M3uaRemoteAs" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>The M3UA Remote Application Server (AS).
+
+Each remote AS can be created only for an SGP or an IPSP configuration, but not for both at the same time.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="m3uaLocalAsRef" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Reference to an instance of M3uaLocalAs.
+
+This attribute is valid only for an IPSP configuration and describes the peer-to-peer connection between application servers. For the SGP configuration this attribute is not applicable, and must be empty.
+
+A referenced M3uaLocalAs must not belong to an ASP configuration. That is, it must have an empty list in the attribute m3uaRemoteSpRefs and it must not be referenced by any Mtp3bAp MO instances.
+
+An M3uaLocalAs instance can be referenced by only one M3uaRemoteAs.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/M3uaLocalAs/3.12.0" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="mtp3bSpRef" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Reference to an instance of Mtp3bSpAnsi, Mtp3bSpChina, Mtp3bSpItu or Mtp3bSpTtc MO.
+
+In an SGP configuration, this attribute specifies the SS7 network for the further routing of traffic, coming from the IP network.
+
+The RPU identities in the parent M3ua MO and in the MO referenced by this attribute, must be identical. That is, both sides of a signalling gateway (SS7 configuration and SGP configuration) must reside on the same SCC stack.
+
+Applicable only for an SGP configuration. For an IPSP configuration, this attribute is not applicable and must be set to null.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/ManagedObject/3.12.0" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="m3uaRemoteSpRefs" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>A list of remote signalling processes (SP).
+
+Used for traffic routing toward the remote application and for receiving traffic from it in SGP and IPSP configurations. All referenced M3uaRemoteSp instances must belong to the same configuration type as this application server.
+
+The listed SPs are kept in state ASP-ACTIVE for this AS, unless they are LOCKED.
+
+There can be a maximum of 16 processes in the list.
+
+If the routing context used for the M3uaRemoteSp is equal to 0, the referenced M3uaRemoteSp instances can serve only this M3uaRemoteAs.
+
+When deleting an M3uaRemoteSp instance from the list, the following preconditions must be fulfilled:
+- In an SGP configuration and in an IPSP configuration, in case of double exchange mode, the M3uaRemoteSp instance must be LOCKED.
+- In an IPSP configuration, in case of single exchange mode, either all related M3uaRemoteSp instances or the related M3uaLocalAs instance must be LOCKED.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="//MOM-CPP-C12/M3uaRemoteSp/3.12.0" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="trafficModeType" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The traffic mode type.
+
+The traffic mode type configuration must be aligned between peers. For this implementation of  IETF M3UA, it means that:
+
+- In an SGP configuration, the trafficModeType in M3uaRemoteAs must be equal to the trafficModeType in M3uaLocalAs on the peer ASP.
+- In an SGP configuration, in case of SG-SG configuration:
+1) the trafficModeType in M3uaRemoteAs instances must be equal on both peer sides, and
+2) only LOADSHARE is supported.
+
+- In an IPSP configuration, in case of double exchange mode, the trafficModeType in M3uaRemoteAs must be equal to the trafficModeType in M3uaLocalAs on the peer side.
+- In an IPSP configuration, in case of single exchange mode, the trafficModeType in this MO is not used.
+
+When setting this attribute, all related M3uaRemoteSp instances must be LOCKED.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/M3uaTrafficModeType/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="LOADSHARE" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="routingContext" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The routing context.
+
+The routingContext must be unique among all M3uaRemoteAs instances in one M3UA stack, unless it is equal to 0.
+
+If set to 0, the routing context is not specified, that is, it is not sent in outgoing messages and is not checked in incoming messages.
+
+An SP can serve several ASes with unique routing contexts or only one AS if it has routing context equal to 0.
+
+The routing context configuration must be aligned between peers. For this implementation of  IETF M3UA,  it means that:
+- In an SGP configuration, the routingContext in M3uaRemoteAs must be equal to the routingContext in M3uaLocalAs on the peer ASP.
+
+- In an SGP configuration, in case of SG-SG configuration, the routingContext in M3uaRemoteAs instances must be equal on both peer sides.
+- In an IPSP configuration, in case of double exchange mode, the routingContext in M3uaRemoteAs must be equal to the routingContext in M3uaLocalAs on the peer side. Both local and remote routing contexts are used for the connection.
+
+In an IPSP configuration, in case of single exchange mode, the routingContext in this MO is not used.
+
+When setting this attribute, the following preconditions must be fulfilled:
+- In an IPSP configuration, in case of double exchange mode, and in an SGP configuration, all related M3uaRemoteSp instances must be LOCKED.
+- In an IPSP configuration, in case of single exchange mode, either all related M3uaRemoteSp instances or the related M3uaLocalAs instance must be LOCKED.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="4294967295" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="minNoOfRemoteSp" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The minimum number of remote SPs required to be active for this AS, in order to consider the AS as active.
+
+If remote SPs of several types are active, only active SPs of preferred type, specified in the attribute preferredRemoteSpType in the parent M3ua MO, are taken into account.
+
+Represents the "n" in the "n+k" redundancy model.
+
+This value should be less or equal to the number of references to
+M3uaRemoteSp MOs configured in the attribute m3uaRemoteSpRefs.
+
+When setting this attribute in an SGP configuration, all related M3uaRemoteSp instances must be LOCKED.
+
+In an IPSP configuration, this attribute is not applicable and must be set to 1.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="16" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="asState" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The state of the remote AS according to the standard specification.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/M3uaAsState/3.12.0" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="M3uaRemoteAsId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains a list of MO instances that reserve this MO instance.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="//MOM-CPP-C12/ManagedObject/3.12.0" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

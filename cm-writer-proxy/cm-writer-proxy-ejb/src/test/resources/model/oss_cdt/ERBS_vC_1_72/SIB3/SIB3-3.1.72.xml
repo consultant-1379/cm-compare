@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:lifeCycleDesc="" ns1:name="SIB3" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/oss_cdt/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>SIB3</ns1:desc>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="qHyst">
+    <ns1:desc>Cell reselection parameter that defines the hysteresis value for ranking criteria. 
+
+Corresponds to Qhyst in TS 36.304.
+
+Unit: dB
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="0" min="0"/>
+        <ns1:minMaxRange max="1" min="1"/>
+        <ns1:minMaxRange max="2" min="2"/>
+        <ns1:minMaxRange max="3" min="3"/>
+        <ns1:minMaxRange max="4" min="4"/>
+        <ns1:minMaxRange max="5" min="5"/>
+        <ns1:minMaxRange max="6" min="6"/>
+        <ns1:minMaxRange max="8" min="8"/>
+        <ns1:minMaxRange max="10" min="10"/>
+        <ns1:minMaxRange max="12" min="12"/>
+        <ns1:minMaxRange max="14" min="14"/>
+        <ns1:minMaxRange max="16" min="16"/>
+        <ns1:minMaxRange max="18" min="18"/>
+        <ns1:minMaxRange max="20" min="20"/>
+        <ns1:minMaxRange max="22" min="22"/>
+        <ns1:minMaxRange max="24" min="24"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="4" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="tEvaluation">
+    <ns1:desc>The duration for evaluating criteria to enter mobility states. 
+
+Corresponds to TCRmax in TS 36.304.
+
+Unit: s
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="30" min="30"/>
+        <ns1:minMaxRange max="60" min="60"/>
+        <ns1:minMaxRange max="120" min="120"/>
+        <ns1:minMaxRange max="180" min="180"/>
+        <ns1:minMaxRange max="240" min="240"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="240" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="tHystNormal">
+    <ns1:desc>The additional duration for evaluating criteria to enter Normal-mobility state. 
+
+Corresponds to TCRmaxHyst in TS 36.304.
+
+Unit: s
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="30" min="30"/>
+        <ns1:minMaxRange max="60" min="60"/>
+        <ns1:minMaxRange max="120" min="120"/>
+        <ns1:minMaxRange max="180" min="180"/>
+        <ns1:minMaxRange max="240" min="240"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="240" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="nCellChangeMedium">
+    <ns1:desc>The number of cell reselections during tEvaluation to enter Medium-mobility state. 
+
+Corresponds to NCR_M in TS 36.304.
+
+Resolution: 1
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="16" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="16" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="nCellChangeHigh">
+    <ns1:desc>The number of cell reselections during tEvaluation to enter High-mobility state. 
+
+Corresponds to NCR_H in TS 36.304.
+
+Resolution: 1
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="16" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="16" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="qHystSfMedium">
+    <ns1:desc>The additional hysteresis to be added, in Medium-mobility state, to qHyst. 
+
+Corresponds to 'Speed dependent ScalingFactor for Qhyst' in TS 36.304.
+
+Unit: dB
+Resolution: 2
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="0" min="-6"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="qHystSfHigh">
+    <ns1:desc>The additional hysteresis to be added, in High-mobility state, to qHyst.
+
+Corresponds to 'Speed dependent ScalingFactor for Qhyst' in TS 36.304.
+
+Unit: dB
+Resolution: 2
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="0" min="-6"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="sIntraSearch">
+    <ns1:desc>Specifies the threshold when intra-frequency measurements are required.
+
+Corresponds to SIntraSearchP in TS 36.304
+
+Value 1000 means that the parameter is not present in System Information Block 3 and the UE applies the default value of infinity for SIntraSearchP.
+
+Unit: dB
+Resolution: 2
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="62" min="0"/>
+        <ns1:minMaxRange max="1000" min="1000"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1000" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="sNonIntraSearch">
+    <ns1:desc>Specifies the threshold when inter-frequency and inter RAT measurements are required.
+
+Corresponds to SNonIntraSearchP in TS 36.304
+
+Value 1000 means that the parameter is not present in System Information Block 3 and the UE applies the default value of infinity for SNonIntraSearchP.
+
+Unit: dB
+Resolution: 2
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="62" min="0"/>
+        <ns1:minMaxRange max="1000" min="1000"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="threshServingLow">
+    <ns1:desc>Deprecated: Since L12A. Replaced by new parameter (same name) in MOC EUtranCellFDD::threshServingLow and in MOC EUtranCellTDD::threshServingLow
+Specifies the threshold used by the UE on the serving cell when reselecting towards a lower priority RAT/ frequency.
+
+Corresponds to ThreshServingLowP in TS 36.304.
+
+Unit: dB
+Resolution: 2
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="62" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="sIntraSearchQ">
+    <ns1:desc>Parameter "SIntraSearchQ" in TS 36.304. If the field is not present, the UE applies the (default) value of 0 dB for SIntraSearchQ.
+
+Unit: dB
+Resolution: 1
+Dependencies: Including in system information depends on parameter sIntraSearchv920Active.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="31" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="sIntraSearchP">
+    <ns1:desc>Parameter "SIntraSearchP" in TS 36.304. See descriptions under s-IntraSearch.
+
+Unit: dB
+Resolution: 2
+Dependencies: Including in system information depends on parameter sIntraSearchv920Active.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="62" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="62" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="sNonIntraSearchQ">
+    <ns1:desc>s-NonIntraSearchQ-r9
+Parameter "SnonIntraSearchQ" in TS 36.304. If the field is not present, the UE applies the (default) value of 0 dB for SnonIntraSearch.
+
+Unit: dB
+Resolution: 1
+Dependencies: Including in system information depends on parameter sNonIntraSearchv920Active.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="31" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="sNonIntraSearchP">
+    <ns1:desc>Parameter "SnonIntraSearchP" in TS 36.304. See descriptions under s-NonIntraSearch.
+
+Unit: dB
+Resolution: 2
+Dependencies: Including in system information depends on parameter sNonIntraSearchv920Active.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="62" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="threshServingLowQ">
+    <ns1:desc>Parameter "ThreshServing, LowQ" in TS 36.304. 
+
+Value 1000 means the parameter is not included in system information.
+
+Unit: dB
+Resolution: 1</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="31" min="0"/>
+        <ns1:minMaxRange max="1000" min="1000"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="sIntraSearchv920Active">
+    <ns1:desc>Enables sending of sIntraSearch v920 parameters in SIB3</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="sNonIntraSearchv920Active">
+    <ns1:desc>Enables sending of sNonIntraSearch v920 parameters in SIB3</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

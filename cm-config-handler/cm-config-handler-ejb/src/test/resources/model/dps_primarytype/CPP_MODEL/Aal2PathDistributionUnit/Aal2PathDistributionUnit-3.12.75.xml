@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="Aal2PathDistributionUnit" ns1:ns="CPP_MODEL" ns1:version="3.12.75" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>AAL2 Path Distribution Unit
+
+This MO handles a set of Aal2PathVccTp instances that belong to the same AAL2 AP and that are handled by the same AAL2 Path Resource Control Program. This AAL2 Path Resource Control Program is referenced by the "rpuId".
+
+To delete the MO all AAL2 paths in the aal2PathVccTpList must have administrativeState set to LOCKED.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="Aal2PathDistributionUnitId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="rpuId" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The location of an AAL2 Path Resource Control Program represented by a reference to a ReliableProgramUniter MO.
+
+When setting the "rpuId", the "reliableProgramLabel" for the new "rpuId" must be the same as for the previous "rpuId".
+
+This attribute must be set if the parent Aal2Ap MO has "allocationMode" set to MANUAL. This attribute must not be set if the parent MO has "allocationMode" set to AUTOMATIC, but the value of this attribute can still be read.</ns1:desc>
+    <ns1:type modelUrn="/dps_primarytype/CPP_MODEL/ReliableProgramUniter/3.12.75" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="aal2PathVccTpList" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>List of references to Aal2PathVccTp MOs.
+
+Setting of this attribute removes the current list of Aal2PathVccTp MOs.
+
+The value of "aal2PathId" must be unique amongst all paths within all Aal2PathDistributionUnit MOs that belong to the same Aal2Ap MO.
+
+If the "aal2pathVccTpList" is changed, all Aal2PathVccTp MOs in the old list that are not in the new list must have "administrativeState" = LOCKED.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="/dps_primarytype/CPP_MODEL/Aal2PathVccTp/3.12.75" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

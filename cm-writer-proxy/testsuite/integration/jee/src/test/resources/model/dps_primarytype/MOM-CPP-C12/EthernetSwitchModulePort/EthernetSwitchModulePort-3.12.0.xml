@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="EthernetSwitchModulePort" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>A port on an Ethernet Switch Module
+
+When the MO is created, the physical port becomes active and can handle traffic. When the MO is deleted, the physical port becomes inactive and stops handling traffic.
+
+Disturbances:
+If this port is preconfigured, but there is no physical connection, and 
+- externalPort = true, and 
+- attribute edgePortMode in MO SwitchPortStp = ADMIN_EDGE_BPDU_GUARD or ADMIN_EDGE_BPDU_FILTER, 
+then any ongoing traffic using the internal Ethernet switch will be lost.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfOutMulticastPkts" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of transmitted good packets, with a multicast address, that are delivered to a higher sub-layer.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfOutBroadcastPkts" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of good packets with a broadcast address, which are transmitted and delivered to a higher sublayer.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfOutUcastPkts" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of good packets addressed to a unicast address, which are transmitted and delivered to a higher sublayer.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInMulticastPkts" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of packets, delivered by this sub-layer to a higher (sub-)layer, which were addressed to a multicast address at this sub-layer.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInBroadcastPkts" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of good packets received with a broadcast address delivered to a higher sublayer.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInUcastPkts" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of good packets addressed to a unicast address, which are received and delivered to a higher sublayer.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfOutErrors" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of transmitted packets, discarded due to errors found in the packets.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInErrors" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of received packets, discarded due to errors found in the packets.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfOutDiscards" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of transmitted good packets, discarded due to lack of resources (for example, buffer space).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInDiscards" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of received good packets, discarded even though no error had been detected (for example, lack of buffer space, discarding port state, VLAN membership).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfOutOctetsHi" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of octets transmitted by a port, including framing characters and bad packets, but excluding preamble sequences.
+
+The high capacity counter for octets transmitted out on an interface is split into two parts.
+This counter represents the higher part of the 62 least significant bits of the high capacity counter for octets transmitted out on the interface. The two most significant bits of this 64 bits counter are discarded.
+This 64-bit counter is presented as 2*31 bits: pmIfOutOctetsHi (bit 61-31) and pmIfOutOctetsLo (bit 30-0) in the MOM.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInOctetsHi" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of octets received by a port, including framing characters and bad packets, but excluding preamble sequences.
+
+The high capacity counter for received octets on an interface is split into two parts.
+This counter represents the higher part of the 62 least significant bits of the high capacity counter for received octets. The two most significant bits of this 64 bit counter are discarded.
+This 64-bit counter is presented as 2*31 bits: pmIfInOctetsHi (bit 61-31) and pmIfInOctetsLo (bit 30-0) in the MOM.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="portNo" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Physical Port number associated with this MO instance.
+
+Each EthernetSwitchPort instance belonging to the same EthernetSwitch must have a unique portNo, which maps the MO instance to exactly one physical port.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:notNullConstraint/>
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="8" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="untaggedIngressPriority" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>All packets that ingress the port untagged, will have a VLAN tag inserted with this priority in the 802.1p value field of the VLAN tag.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="7" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="actualSpeedDuplex" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The mode in which the port is actually operating.
+
+The value NO_LINK means that the link is disabled. See the attribute operatingMode for values of configured speed.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/ActualEthModSpeedDuplex/3.12.0" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="availabilityStatus" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The availability status.
+
+It contains details about operationalState.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/AvailabilityStatus/3.12.0" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="operationalState" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The operational state.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/OperState/3.12.0" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="administrativeState" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The administrative state.
+
+Setting this attribute to LOCKED will suppress port alarms. However, it does not stop traffic or impact RSTP.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/AdmState/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="LOCKED" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="EthernetSwitchModulePortId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pbitQueueMap" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Maps the 802.1p values to switch queues for this port. Queue 0 has the lowest priority and queue 7 has the highest priority.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="8"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType modelUrn="//MOM-CPP-C12/PbitQueue8/3.12.0" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="operatingMode" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Contains the configured speed duplex for the port.
+
+If the port is a member of a LAG, that is if lagRef is set, this attribute cannot be changed.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/EthModOperatingMode/3.12.0" xsi:type="ns1:complexRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="DEPRECATED" ns1:name="currentPmRegister" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Returns the current values of all PM counters.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType xsi:type="ns1:stringType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInOctetsLo" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of octets received by a port, including framing characters and bad packets, but excluding preamble sequences.
+
+The high capacity counter for received octets on an interface is split into two parts.
+This counter represents the lower part of the 62 least significant bits of the high capacity counter for octets transmitted out on the interface. The two most significant bit of this 64 bits counter are discarded.
+This 64-bit counter is presented as 2*31 bits: pmIfInOctetsHi (bit 61-31) and pmIfInOctetsLo (bit 30-0) in the MOM.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfOutOctetsLo" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of octets transmitted by a port, including framing characters and bad packets, but excluding preamble sequences.
+
+The high capacity counter for octets transmitted out on an interface is split into two parts.
+This counter represents the lower part of the 62 least significant bits of the high capacity counter for octets transmitted out on the interface. The two most significant bits of this 64 bit counter are discarded.
+This 64-bit counter is presented as 2*31 bits: pmIfOutOctetsHi (bit 61-31) and pmIfOutOctetsLo (bit 30-0) in the MOM.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="externalPort" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies if the port is external.
+
+If set to false, the port is defined to be connected to an ESL.
+If set to true, the port is defined to be connected to an external equipment.
+
+If there is a link failure on an external port where RSTP is deactivated (by setting the edgePortMode in MO SwitchPortStp to ADMIN_EDGE_BPDU_FILTER or ADMIN_EDGE_BPDU_GUARD), any GigaBitEthernet MO connected to this Ethernet switch over the backplane is redirected to use the backplane to the other Ethernet switch in the subrack.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="egressUntagVlanRef" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Reference to a list of Vlan MOs.
+
+If a packet contains a vid with the same value as one of the referenced Vlan MOs, the packet will be untagged at egress.
+
+If this attribute is set to null, the default value 1 is used for the vid.
+
+The maximum number of Vlan MO references is 256.
+
+Dependency: Any member of this list must also be a member of the list specified by the attribute vlanRef. Set this attribute in a different transaction from where the attribute vlanRef is set.
+
+Dependency:  If externalPort is set to false, this attribute must not be set.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="//MOM-CPP-C12/Vlan/3.12.0" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="vlanRef" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Reference to a list of Vlan MOs.
+
+The referenced instances represent the VLANs that are opened on this port.
+
+The maximum number of Vlan MO references is 256.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="//MOM-CPP-C12/Vlan/3.12.0" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="untaggedIngressVlanRef" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Reference to a Vlan MO.
+
+In all packets that ingress the ethernet port untagged, a VLAN tag is inserted, with the vid of the referenced Vlan MO.
+
+If this attribute is set to null, the default value 1 is used for the vid.
+
+Dependency: The port must be a member of the specified VLAN, that is, the value of this attribute must be a member of the list in the attribute vlanRef. Set this attribute in a different transaction from where the attribute vlanRef is set.
+
+Dependency:  If externalPort is set to false, this attribute must not be set.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/Vlan/3.12.0" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="trafficState" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies if traffic is admitted on this port.
+
+If set to true, traffic is admitted.
+If set to false, traffic is not admitted and the physical layer will be taken down.
+
+Disturbances: It is strongly recommended to activate the robust rollback function, by setting the attribute configCountdownActivated on the ConfigurationVersion MO first.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/TrafficState/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="ON" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="lagRef" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Reference to an instance of a Lag MO.
+
+Specifies which LAG this port belongs to.
+
+All ports in a LAG must fulfill the following conditions:
+- they must have identical configuration
+- they must be of the same physical type
+- they must belong to the same Ethernet switch, that is, have the same instance of EthernetSwitchModule MO as parent. 
+
+There can also exist HW specific restrictions, with respect to the number of allowed ports in a LAG and how the ports may be paired together. For details, see the description of the relevant board.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/Lag/3.12.0" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

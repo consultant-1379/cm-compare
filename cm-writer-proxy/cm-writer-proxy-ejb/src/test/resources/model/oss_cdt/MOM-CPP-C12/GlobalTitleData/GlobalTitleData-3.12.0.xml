@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:lifeCycleDesc="" ns1:name="GlobalTitleData" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/oss_cdt/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>The data for the Global Title.</ns1:desc>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="indicator">
+    <ns1:desc>Global title indicator can have value 1-4 for ITU/China/TTC and value 5-6 for ANSI.
+The values for the GT Indicator are:
+
+0 = No new global title
+1 = NOA only
+2 = TT only
+3 = TT-NP-ES
+4 = TT-NP-ES-NOA
+5 = ANSI_TT_NP_ES
+6 = ANSI_TT_ONLY
+
+Explanation:
+TT = translation type
+NP = numbering plan
+ES = encoding scheme
+NOA = nature of address indication</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="6" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="natureOfAddress">
+    <ns1:desc>Indicates the number type, that is if it is a national or international number.
+Coding of the Nature Address:
+
+0 = Unknown.
+1 = Subscriber number.
+2 = Reserved for national use.
+3 = National significant number.
+4 = International number.
+112 -126 = Reserved for national use.
+127 = Reserved.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="127" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="numberingPlan">
+    <ns1:desc>Indicates which numbering plan that is used.
+
+Coding of the Numbering Plan:
+
+0 = Unknown
+1 = ISDN/Telephony Numbering Plan
+2 = Spare
+3 = Data Numbering Plan
+4 = Telex Numbering Plan
+5 = Maritime Mobile Numbering Plan
+6 = Land Mobile Numbering Plan
+7 = ISDN/Mobile Numbering Plan
+8-13 = Spare
+14 = Private network or network-specific numbering plan
+15 = Reserved</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="15" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="translationType">
+    <ns1:desc>Used to direct the message to the appropriate Global Title translation function.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="254" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="addressInformation">
+    <ns1:desc>Digit string of 1-37 digits, where each digit is 0-9. "B", "C" and "F" can be used for for Code 11, 12 and 15.
+The addressInformation may also contain wild card symbols: "*" or "?".
+Wild cards are only allowed for defining Global Title Translations, they are not allowed for specifying SCCP SAPs (built with SPC and Global Title or SPC + SSN + Global Title). A "*" can only be used at the end of an addressInformation.
+
+The number of digits in the addressInformation must be even if gtIndicator=2 or 6 is used. This means that a filler (zero) must be added to the addressInformation if the address i even (for example, 040231240 must be configured as 0402312400). No filler is needed if "*" is used.
+
+The attributes addressInformation, gtIndicator and numberingPlan have to be unique among all the SccpGlobalTitle MOs created under the same SccpSp MO.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="37" min="1"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="DEPRECATED" ns1:name="encodingScheme">
+    <ns1:desc>encodingScheme</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="2" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

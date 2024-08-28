@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="AvailabilityStatus" ns1:ns="CPP_MODEL" ns1:version="3.12.75">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/oss_edt/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Indicates possible status values of a corresponding availabilityStatus attribute. Since more than one status may be present at the same time while only one is shown, they are shown in the following order of priority (highest first):
+
+NOT_INSTALLED
+POWER_OFF
+IN_TEST
+DEPENDENCY_LOCKED
+DEPENDENCY_FAILED
+FAILED
+OFF_LINE
+DEGRADED
+OFF_DUTY
+LOG_FULL
+NO_STATUS</ns1:desc>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NO_STATUS" value="0">
+    <ns1:desc>No other availability status for this resource is currently present.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="IN_TEST" value="1">
+    <ns1:desc>The resource is undergoing a test procedure. Tests that do not exclude additional users can be present in any operational state or administrative state.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="FAILED" value="2">
+    <ns1:desc>The resource has an internal fault that prevents it from operating. The operational state is disabled.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="POWER_OFF" value="4">
+    <ns1:desc>The resource requires power to be applied and is not powered on. The operational state is disabled.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="OFF_LINE" value="8">
+    <ns1:desc>The resource requires a routine operation to be performed to place it online and make it available for use. The operation may be manual, automatic, or both. The operational state is disabled or enabled.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="OFF_DUTY" value="16">
+    <ns1:desc>The resource has been made inactive by some internal control process in accordance with a predetermined time schedule. Under normal conditions the control process can be expected to reactivate the resource at some scheduled time, and it is therefore considered to be optional. The operational state is enabled or disabled.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="DEGRADED" value="64">
+    <ns1:desc>The service available from the resource is degraded in some respect, such as in speed or operating capacity. However, the resource remains available for service, either because some services are satisfactory or because degraded service is preferable to no service at all. The operational state is enabled.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NOT_INSTALLED" value="128">
+    <ns1:desc>The resource represented by the managed object is not present, or is incomplete. For example, a plug-in unit is missing, a cable is disconnected, or a software module is not loaded. The operational state is disabled.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="LOG_FULL" value="256">
+    <ns1:desc>This indicates a log full condition. Currently not used.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="DEPENDENCY_LOCKED" value="544">
+    <ns1:desc>The administrative state of a resource that this resource depends on is locked or the availability status of the other resource is dependency locked. The operational state is disabled.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="DEPENDENCY_FAILED" value="1056">
+    <ns1:desc>The availability status of a resource that this resource depends on is failed or dependency failed. The operational state is disabled.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="DEPENDENCY_SHUTTINGDOWN" value="2080">
+    <ns1:desc>The administrative state of a resource that this resource depends on is shutting down or the availability status of the other resource is dependency shutting down. The operational state is disabled.</ns1:desc>
+  </ns2:member>
+</ns2:EnumDataTypeDefinition>

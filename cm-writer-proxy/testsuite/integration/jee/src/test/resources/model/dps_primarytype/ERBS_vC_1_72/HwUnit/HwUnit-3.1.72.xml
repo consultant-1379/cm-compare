@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="HwUnit" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>This MO represents one Support System HW Unit, e.g. SCU, SAU, PSU.
+
+Dependencies: Can only exist in the node when the attribute supportSystemControl on MO EquipmentSupportFunction is set to true.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="piuType" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Refers to the corresponding PiuType MO. Indirectly used to control the auto-configuration of HwUnit-contained MOs.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/PiuType/3.1.72" xsi:type="ns1:moRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="productData" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The product data for the hardware unit. Matches the product data on the hardware unit label.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/ProductData/3.1.72" xsi:type="ns1:complexRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="HwUnitId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="unitType" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Mirrors the attribute PiuType::productData(productName).</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="administrativeState" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The administrative state.
+
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/AdminState/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="UNLOCKED" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="availabilityStatus" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The availability status containing details about operationalState.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/AvailabilityStatus/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="operationalState" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Defines the operational state.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/OperState/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="greenLed" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Deprecated: Since 11A. Replaced by operationalIndicator.
+Indicates the operational status of the HW Unit.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/LedStatus/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="redLed" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Deprecated: Since 11A. Replaced by faultIndicator.
+Indicates the fault status of the HW unit.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/LedStatus/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="position" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The absolute position of the hardware unit in a shelf. Positions start from left or ground with the first position numbered 1. A board can occupy more than one position, depending on its width. When a board occupies more than one position, its position number is the left-most position it occupies.
+
+Undefined value: 0
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="30" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="positionInformation" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The position of a hardware unit can be:
+
+- In a shelf 
+- Not in a shelf but inside or outside the cabinet
+- At a remote site
+
+If the hardware is contained in a shelf, the attribute position is used. Otherwise this attribute can be used, for example, to provide the address of a remote site, or to indicate that the hardware unit is installed in connection to a specific shelf.
+
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="255" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="positionRef" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Refers to the cabinet or shelf in which the hardware unit is placed or belongs.
+
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/ManagedObject/3.1.72" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="operationalIndicator" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The operational status of the hardware unit as shown by the optical operational indicator on the unit.
+
+Valid values:
+• NOT_APPLICABLE = This indicator is not supported.
+• NOT_AVAILABLE = The indicator state is currently not available.
+• OFF = No power.
+• STEADY_ON = Operational.
+• SLOW_BLINK = Dependent resource missing.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/IndicatorStatus/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="faultIndicator" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The fault status of the hardware unit as shown by the optical fault indicator on the unit.
+
+Valid values:
+• NOT_APPLICABLE = This indicator is not supported.
+• NOT_AVAILABLE = The indicator state is currently not available.
+• OFF = No HW fault.
+• STEADY_ON = HW Fault.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/IndicatorStatus/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="batteryFaultIndicator" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The current fault indicator status of the battery shown by the optical battery fault indicator on the corresponding Battery Fuse Unit (BFU).
+
+Possible values:
+• NOT_APPLICABLE = The indicator is not supported.
+• NOT_AVAILABLE = The indicator state is currently unavailable.
+• OFF = The battery is connected and no fault exists in the unit.
+• STEADY_ON = The battery is potentially faulty and must be examined.
+• SLOW_BLINK = The battery is manually disconnected or the circuit breaker has tripped and the battery is disconnected from the system voltage.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/IndicatorStatus/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="powerDistrFaultIndicator" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The current fault indicator status of power distribution. The indicator is lit if any of the e-fuses have been tripped. The indicator is physically located on the corresponding Power Distribution Unit (PDU).
+
+Valid values:
+• NOT_APPLICABLE = This indicator is not supported.
+• NOT_AVAILABLE = The indicator state is currently not available.
+• OFF = No power distribution fault.
+• SLOW_BLINK = Power distribution fault.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/IndicatorStatus/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

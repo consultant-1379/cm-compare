@@ -1,0 +1,16 @@
+	------
+	CM-Config Service
+	------
+	
+Purpose
+		
+	The CM-Config service enables a user to manage and work with multiple versions of network configurations. 
+	The service allows to work with CM data in isolation from the “live” network data. This means providing them with a sand-box to freely create, view & modify CM data without affecting the live network.
+	The service allows to manage, compare and link configurations; however population of such configurations should be done through the {{{http://eselivm2v553l.lmera.ericsson.se:8080/jenkins/view/All/job/CM-Reader_CM-Writer_Site/site/}CM-editor}}
+
+Relevant CA docs
+
+	{{{http://cdmweb.ericsson.se/WEBLINK/ViewDocs?DocumentName=1%2F1551-FCP1302584&Revision=PA3} CM SAD}}
+	
+	{{{http://erilink.ericsson.se/eridoc/erl/objectId/09004cff86d5f8d6?docno=6/10268-FCP1302584Uen&action=current&format=pdf} CM Compare PSS}}
+~~~~

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:lifeCycleDesc="" ns1:name="AcBarringInfo" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/oss_cdt/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>AcBarringInfo</ns1:desc>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="acBarringTimeForMoSignalling">
+    <ns1:desc>Mean access barring time.
+
+Unit: s
+Takes effect: Object lock/unlock</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="4" min="4"/>
+        <ns1:minMaxRange max="8" min="8"/>
+        <ns1:minMaxRange max="16" min="16"/>
+        <ns1:minMaxRange max="32" min="32"/>
+        <ns1:minMaxRange max="64" min="64"/>
+        <ns1:minMaxRange max="128" min="128"/>
+        <ns1:minMaxRange max="256" min="256"/>
+        <ns1:minMaxRange max="512" min="512"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="64" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="acBarringSpecialAcForMoSignalling">
+    <ns1:desc>Access class barring for AC 11-15. The first instance in the list is for AC 11, second is for AC 12, and so on.
+
+Takes effect: Object lock/unlock</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="5"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:booleanType"/>
+    </ns1:type>
+    <ns1:default xsi:type="ns1:collectionValue">
+      <ns1:values>
+        <ns1:value value="false" xsi:type="ns1:booleanValue"/>
+        <ns1:value value="false" xsi:type="ns1:booleanValue"/>
+        <ns1:value value="false" xsi:type="ns1:booleanValue"/>
+        <ns1:value value="false" xsi:type="ns1:booleanValue"/>
+        <ns1:value value="false" xsi:type="ns1:booleanValue"/>
+      </ns1:values>
+    </ns1:default>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="acBarringMoSignallingPresent">
+    <ns1:desc>Boolean for declaring presence of access barring signalling information.
+
+Takes effect: Object lock/unlock</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="acBarringFactorForMoSignalling">
+    <ns1:desc>If the random number drawn by the UE is lower than this value, access is allowed. Otherwise the access is barred. The values are interpreted in the range [0,1]: 0 = 0, 5 = 0.05, 10 = 0.10,. .,95 = 0.95.
+
+Unit: %
+Takes effect: Object lock/unlock</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="0" min="0"/>
+        <ns1:minMaxRange max="5" min="5"/>
+        <ns1:minMaxRange max="10" min="10"/>
+        <ns1:minMaxRange max="15" min="15"/>
+        <ns1:minMaxRange max="20" min="20"/>
+        <ns1:minMaxRange max="25" min="25"/>
+        <ns1:minMaxRange max="30" min="30"/>
+        <ns1:minMaxRange max="40" min="40"/>
+        <ns1:minMaxRange max="50" min="50"/>
+        <ns1:minMaxRange max="60" min="60"/>
+        <ns1:minMaxRange max="70" min="70"/>
+        <ns1:minMaxRange max="75" min="75"/>
+        <ns1:minMaxRange max="80" min="80"/>
+        <ns1:minMaxRange max="85" min="85"/>
+        <ns1:minMaxRange max="90" min="90"/>
+        <ns1:minMaxRange max="95" min="95"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="95" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="acBarringTimeForMoData">
+    <ns1:desc>Mean access barring time in seconds for mobile originating signalling.
+
+Unit: s
+Takes effect: Object lock/unlock</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="4" min="4"/>
+        <ns1:minMaxRange max="8" min="8"/>
+        <ns1:minMaxRange max="16" min="16"/>
+        <ns1:minMaxRange max="32" min="32"/>
+        <ns1:minMaxRange max="64" min="64"/>
+        <ns1:minMaxRange max="128" min="128"/>
+        <ns1:minMaxRange max="256" min="256"/>
+        <ns1:minMaxRange max="512" min="512"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="64" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="acBarringSpecialAcForMoData">
+    <ns1:desc>Access class barring for AC 11-15. The first instance in the list is for AC 11, second is for AC 12, and so on.
+
+Takes effect: Object lock/unlock</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="5"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:booleanType"/>
+    </ns1:type>
+    <ns1:default xsi:type="ns1:collectionValue">
+      <ns1:values>
+        <ns1:value value="false" xsi:type="ns1:booleanValue"/>
+        <ns1:value value="false" xsi:type="ns1:booleanValue"/>
+        <ns1:value value="false" xsi:type="ns1:booleanValue"/>
+        <ns1:value value="false" xsi:type="ns1:booleanValue"/>
+        <ns1:value value="false" xsi:type="ns1:booleanValue"/>
+      </ns1:values>
+    </ns1:default>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="acBarringMoDataPresent">
+    <ns1:desc>Boolean for declaring presence of access barring mobile originating data information.
+
+Takes effect: Object lock/unlock</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="acBarringFactorForMoData">
+    <ns1:desc>If the random number drawn by the UE is lower than this value, access is allowed. Otherwise the access is barred. The values are interpreted in the range [0,1]: 0 = 0, 5 = 0.05, 10 = 0.10,. .,95 = 0.95.
+
+Unit: %
+Takes effect: Object lock/unlock</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="0" min="0"/>
+        <ns1:minMaxRange max="5" min="5"/>
+        <ns1:minMaxRange max="10" min="10"/>
+        <ns1:minMaxRange max="15" min="15"/>
+        <ns1:minMaxRange max="20" min="20"/>
+        <ns1:minMaxRange max="25" min="25"/>
+        <ns1:minMaxRange max="30" min="30"/>
+        <ns1:minMaxRange max="40" min="40"/>
+        <ns1:minMaxRange max="50" min="50"/>
+        <ns1:minMaxRange max="60" min="60"/>
+        <ns1:minMaxRange max="70" min="70"/>
+        <ns1:minMaxRange max="75" min="75"/>
+        <ns1:minMaxRange max="80" min="80"/>
+        <ns1:minMaxRange max="85" min="85"/>
+        <ns1:minMaxRange max="90" min="90"/>
+        <ns1:minMaxRange max="95" min="95"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="95" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="acBarringInfoPresent">
+    <ns1:desc>Boolean for declaring presence of access barring information.
+
+Takes effect: Object lock/unlock</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="acBarringForEmergency">
+    <ns1:desc>Access class barring for AC 10.
+
+Takes effect: Object lock/unlock</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="UniSaalTp" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>User Network Interface (UNI) Signaling ATM Adaptation Layer (SAAL) Termination Point (TP).
+
+This MO represents an access point for an user where an UNI SAAL connection is terminated. The access point depends on an AAL5 connection termination located on the same processor.
+
+UNI SAAL termination points can only terminate on an MP processor. There can be a maximum of 750 UniSaaTp MOs on the same MP.
+
+The performance monitoring counters found in NniSaalTp MO is set to zero when the MO and its RO are created.
+These counters are not reset unless there occurs a fault situation that demands a restart and recreation of the ROs.
+Also note that some of these counters are reset based on other conditions. For more details please refer to the descriptions of the performance monitoring counters in this MO.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="UniSaalTpId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="operationalState" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The operational state.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/OperState/3.12.0" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains an MO instance that reserves this MO instance.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/ManagedObject/3.12.0" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="uniSaalProfileId" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Contains a reference to an UniSaalProfile MO.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/UniSaalProfile/3.12.0" xsi:type="ns1:moRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="aal5TpVccTpId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Contains a reference to an Aal5TpVccTp MO instance.
+
+The AAL5 termination point must terminate on a main processor, MP.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/Aal5TpVccTp/3.12.0" xsi:type="ns1:moRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="maxSduSize" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Maximum SAAL SDU size.
+
+When setting the value of maxSduSize the 4 bytes used by the SAAL layer for the SAAL header has to be considered.
+
+Example: If fromUserMaxSduSize is set to 256 and toUserMaxSduSize is set to 512 in the Aal5TpVccTp MO, the maxSduSize may not exceed 252.
+(maxSduSize &lt;= the UserMaxSduSize from Aal5TpVccTp MO - 4 bytes)
+
+The upper limit of 2044 (2048 including the SAAL header) is due to limitations on the AAL5 layer.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="2044" min="128"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="128" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfSentSDUs" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of successfully sent Service Data Units (SDU).
+Counts the number of successfully sent messages to the application using SAAL.
+Reset when the link goes InService or the counter "overflows".</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfReceivedSDUs" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of successfully received Service Data Units (SDU).
+Counts the number of successfully received messages from the application using SAAL.
+Reset when the link goes InService or the counter overflows.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmLinkInServiceTime" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The accumulated time (in seconds) the signalling link has been in service (in assured data transfer mode) since it was created.
+If the link is down, the value is 0.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfAllSLFailures" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of all Signalling Link failures. Is a total sum of the error counters:
+Number of protocol errors - Number of unsuccessfully retransmissions - Number of NoResponse - Number of other errors.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfNoResponses" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of no responses. Counts the number of no responses detected during the last 30 minutes.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfLocalCongestions" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of local congestions.
+This counter is incremented when the number of messages, stored in SAAL send and retransmission buffers, exceeds the value of the congestionOnSet attribute that is defined as used buffer percentage. The counter represents the number of times the congestionOnSet level is reached. The counter is reset when the link becomes in service.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfRemoteCongestions" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of remote congestions.
+This counter is incremented when the remote side gives SAAL no credit.
+Reset when the link goes InService or when the counter "overflows".</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfSequenceDataLosses" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of Sequences Data (SD) loss. Counts the number of SD loss detected during the last 30 minutes.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfProtocolErrors" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of unsolicited or inappropriate Protocol Data Units (PDU).
+Counts the number of protocol errors detected during the last 30 minutes.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfUnsuccReTransmissions" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of unsuccessful retransmissions.
+Counts the number of unsuccessful retransmissions detected during the last 30 minutes.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfOtherErrors" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of other list element errors. Counts the number of other errors detected during the last 30 minutes.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

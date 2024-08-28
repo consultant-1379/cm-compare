@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="Aal1TpVccTp" ns1:ns="CPP_MODEL" ns1:version="3.12.75" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>AAL1 Termination Point and Virtual Circuit Connection Termination Point
+
+Represents the AAL1 interworking function in a circuit emulation. The MO refers to a Ds0Bundle MO, which represents one end of the circuit emulation, and to a VclTp MO which represents the other end.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="Aal1TpVccTpId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="availabilityStatus" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The availability status.
+
+It contains details about operationalState.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/AvailabilityStatus/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ds0BundleId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Reference to an instance of Ds0Bundle MO.</ns1:desc>
+    <ns1:type modelUrn="/dps_primarytype/CPP_MODEL/Ds0Bundle/3.12.75" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="partialFill" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Indicates how many bytes are filled in each ATM cell. The value 47 indicates that cells are not partially filled, that is, all cells are filled completely.
+
+Partial filling of cells is used in circuit emulation, to reduce packetization delay. Refer to the ATM Forum specifications for more details.
+
+If partial filling is used, a maximum of 10 time slots can be configured on the MO Ds0Bundle that is used by the MO Aal1TpVccTp.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="47" min="23"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="47" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="cdvt" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Specifies the Cell Delay Variation Tolerance (CVDT). Refer to ATM Forum for more details.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="4000" min="100"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1000" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="operationalState" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The operational state.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/OperState/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="continuityCheck" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies whether VC end-to-end continuity check is active.
+
+Continuity checking means that a cell is sent downstream when no user cell has been sent for a period of nominally 1 second. Continuity check both enables generation of continuity check cells as well as detection of LOC.
+
+Activation/Deactivation should be done on both ends of a VCC via management terminal.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="counterMode" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>PM mode is set to indicate the type of the performance monitoring mode used for the F5 PM OAM flow.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/AalCounterMode/3.12.75" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="PM_MODE_FPM_BR" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="nomPmBlockSize" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Nominal block size for PM. The minimum number of ATM cells that is sent before sending a Forward Performance Monitoring (FPM) cell.
+
+Unit: 1 Number of cells</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/AtmNomPmBlkSize/3.12.75" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="NOM_PM_BLKSIZE_2_10" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmFwLostCells" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of lost forward cells on the Virtual Channel Connections (VCC) and Virtual Path Connections (VPC). The granularity period of 60 minutes is not supported.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmFwMissinsCells" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of forward miss-inserted cells on the Virtual Channel Connections (VCC) and Virtual Path Connections (VPC). The granularity period of 60 minutes is not supported.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmFwErrBlocks" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of forward errored blocks. The granularity period of 60 minutes is not supported.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmLostFpmCells" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of lost Forward Performance Monitoring (FPM) cells. The granularity period of 60 minutes is not supported.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmBwLostCells" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of lost backward cells on the Virtual Channel Connections (VCC) and Virtual Path Connections (VPC). The granularity period of 60 minutes is not supported.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmBwMissinsCells" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of backward miss-inserted cells on the Virtual Channel Connections (VCC) and Virtual Path Connections (VPC). The granularity period of 60 minutes is not supported.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmBwErrBlocks" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of backward errored blocks. The granularity period of 60 minutes is not supported.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmLostBrCells" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of lost Backward Reporting (BR) cells. The granularity period of 60 minutes is not supported.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="vclTpId" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Reference to an instance of VclTp MO.</ns1:desc>
+    <ns1:type modelUrn="/dps_primarytype/CPP_MODEL/VclTp/3.12.75" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="alarmReport" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies which type of alarms are reported.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/AlarmReport/3.12.75" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="ALARM_LOC" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="counterActivation" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Indicates whether PM counters are activated for this MO instance, when MO class activation is used in the Performance Management Service (PMS) interface.
+
+If true, this attribute activates all PM counters for this MO instance.
+
+This attribute setting is ignored, when MO instance activation has been used in the PMS interface.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="DEPRECATED" ns1:name="currentPmRegister" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Returns the current values of all PM counters.
+
+To activate the writing of statistical values to a PM counter, start a performance monitoring (scanner) on that counter for the MO instance.
+
+Alternatively start a performance monitoring (scanner) on that counter for the MO instance, and set the attribute counterActivation = true.
+
+Otherwise, the value of the PM counter is set to -1.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType xsi:type="ns1:stringType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

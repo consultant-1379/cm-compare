@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="SecurityLevel" ns1:ns="CPP_MODEL" ns1:version="3.12.75">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/oss_edt/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>The security level of the node. Describes both the requested and the operational security levels.</ns1:desc>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="LEVEL_UNDEFINED" value="0">
+    <ns1:desc>Undefined. Equivalent to level 1.
+
+Use the action adaptSecurityLevel to set the attribute requestedSecurityLevel to LEVEL_1, or the secmode command.
+
+This value applies only during initial configuration of the node and does not normally occur in operation.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="LEVEL_1" value="1">
+    <ns1:desc>Security Level 1, which is the lowest level. Corba security is not activated.
+
+It is possible to login to the node remotely using Telnet, FTP, SSH, SFTP. Debug and Trace Port access may be enabled.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="LEVEL_2" value="2">
+    <ns1:desc>Security Level 2 adds secure Corba communication with authentication using an external database.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="LEVEL_3" value="3">
+    <ns1:desc>At Security Level 3, Authentication and Authorization using an external data base, is added to all remote access points. Telnet, FTP and debug access is not possible at this level (Timeout value is specified when calling the setSecurityLevel3 action).</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="LEVEL_3_UNCONFIRMED" value="4">
+    <ns1:desc>Security Level 3 has been activated, but it has not yet been confirmed with the command, secmode.
+
+If the confirmation is not made within the timeout, the security level drops back to level 2.</ns1:desc>
+  </ns2:member>
+</ns2:EnumDataTypeDefinition>

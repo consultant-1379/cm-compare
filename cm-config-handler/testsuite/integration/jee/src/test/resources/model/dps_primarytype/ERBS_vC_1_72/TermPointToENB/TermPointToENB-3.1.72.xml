@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="TermPointToENB" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Models the local eNB termination point of an X2 link between the eNB and a neighbour eNB.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="TermPointToENBId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the Relative Distinguished Name (RDN).</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ipAddress" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The IP address of the neighboring RBS. The input format is four fields of digits, separated by dots. Each field may consist of three digits. The value of each field is in the range 0-255.
+
+Dependencies: To set this attribute, administrativeState must be LOCKED.
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="15" min="7"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="0.0.0.0" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="administrativeState" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The administrative state.
+
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/AdminState/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="LOCKED" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="availabilityStatus" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The availability status. It contains details about operational state. This attribute is set by the application in the RBS.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/AvailabilityStatus/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="operationalState" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The operational state. This attribute is set by the application in the RBS.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/OperState/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="anrCreated" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Since L11B. Replaced by createdBy.
+Indicates whether the MO has been created by the ANR (automatic neighbor relations) function.
+
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="domainName" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The fully-qualified domain name of the RBS.
+
+A valid domain name consists of 1 or more labels separated by dots (.). Valid characters for a label are limited to letters a-z, A-Z, digits 0-9, and the character - (dash).
+
+The following format is used for automatically created domain names:
+
+x2.enbidDDDDD.enb.tac-lbEE.tac-hbFF.tac.eutran.mncBBB.mccCCC.3gppnetwork.org.
+
+The D's (five or seven) represent hexadecimal coding of ENBID (enodeB Identity) without padding.
+
+B &amp; C represent BCD (binary coded decimal) coding of MNC (mobile network code) and MCC (mobile country code) respectively.
+
+E &amp; F represent hexadecimal coding of the least and most significant bytes (low &amp; high byte) of the tracking area code.
+
+B, C, E &amp; F are always padded with leading zeros to match the number of characters in the format above.
+
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="255" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timeOfAnrCreation" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Replaced by timeOfCreation. Since L11B.
+The date and time when the MO was created by the Automated Neighbor Relations (ANR) function.
+Format:  YYYY-MM-DD HH:MM:SS
+
+Unit: UTC
+Resolution: -
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="19" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timeOfAnrModification" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Deprecated: Replaced by timeOfLastModification. Since L11B.
+The date and time when the MO was last modified by the Automated Neighbor Relations (ANR) function.
+Format:  YYYY-MM-DD HH:MM:SS
+
+Unit: UTC
+Resolution: -
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="19" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ctrlMode" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Since L11B. Planned to be removed.
+Indicates permission to change attributes on the object and to delete the object.
+
+If set to Manual, the operator can change and delete, and the Automated Neighbor Relations (ANR) function cannot make changes.
+
+If set to Auto, the ANR function can change and delete, and the operator cannot, except to change the settings of this parameter.
+
+When the object is created by the ANR function, the value is set to Auto. Otherwise the value may be changed only by the operator. The setting of this parameter controls the object itself, but not related objects.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/CtrlMode/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="MANUAL" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="usedIpAddress" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The IP address that is currently used to connect to the RBS. The IP address can be an IPv4 or an IPv6 address.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="39" min="2"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ipv6Address" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The IP address of the neighboring RBS. The format is eight fields, separated by colons.
+ 
+Each field consists of four hexadecimal characters. The value of each field is in the range 0-FFFF.
+
+Leading zeroes can be omitted in a field, and multiple groups of 16 bits of zeroes can be compressed to ::
+
+The :: can appear only once in an address.
+
+To set this attribute, administrativeState must be LOCKED.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="39" min="2"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="::" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="x2locallyInitiated" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Deprecated: Since L12A. Planned to be removed.
+Indicates if the local eNB initiated the SCTP association and X2 Setup Procedure, and not the remote eNB.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="createdBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates whether the MO has been created by the Automated Neighbor Relations (ANR) function or operator or X2
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/CreatedByEutran/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timeOfCreation" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates the time and date when the MO was created.
+Format: YYYY-MM-DD HH:MM:SS
+
+Unit: UTC
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="19" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="lastModification" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates whether the MO was last modified by the Automated Neighbor Relations (ANR) function or operator or X2 and if the MO is to be deleted who triggered the deletion
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/LastModificationEutran/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timeOfLastModification" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates the time and date when the MO was last modified. 
+Format: YYYY-MM-DD HH:MM:SS
+
+Unit: UTC
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="19" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

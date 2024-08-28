@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faqs id="FAQ" title="Common CM Service FAQs">
+  <part id="General">
+    <faq id="question1">
+      <question>Generic Question?</question>
+      <answer>
+        <p>
+          Generic Answer
+        </p>
+      </answer>
+    </faq>
+  </part>
+</faqs>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:lifeCycleDesc="" ns1:name="ChangeNotificationSIBs" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/oss_cdt/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>ChangeNotificationSIBs</ns1:desc>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="changeNotificationSIB2">
+    <ns1:desc>Indicates, when the SIB2 content is changed, if SI Change Notification shall be broadcasted prior to broadcast of updated SI.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="changeNotificationSIB3">
+    <ns1:desc>Indicates, when the SIB3 content is changed, if SI Change Notification shall be broadcasted prior to broadcast of updated SI.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="changeNotificationSIB4">
+    <ns1:desc>Indicates, when the SIB4 content is changed, if SI Change Notification shall be broadcasted prior to broadcast of updated SI.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="changeNotificationSIB5">
+    <ns1:desc>Indicates, when the SIB5 content is changed, if SI Change Notification shall be broadcasted prior to broadcast of updated SI.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="changeNotificationSIB6">
+    <ns1:desc>Indicates, when the SIB6 content is changed, if SI Change Notification shall be broadcasted prior to broadcast of updated SI.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="changeNotificationSIB7">
+    <ns1:desc>Indicates, when the SIB7 content is changed, if SI Change Notification shall be broadcasted prior to broadcast of updated SI.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="changeNotificationSIB8">
+    <ns1:desc>Indicates, when the SIB8 content is changed, if SI Change Notification shall be broadcasted prior to broadcast of updated SI.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="changeNotificationSIB1">
+    <ns1:desc>Indicates, when the SIB1 content is changed, if SI Change Notification shall be broadcasted prior to broadcast of updated SI.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

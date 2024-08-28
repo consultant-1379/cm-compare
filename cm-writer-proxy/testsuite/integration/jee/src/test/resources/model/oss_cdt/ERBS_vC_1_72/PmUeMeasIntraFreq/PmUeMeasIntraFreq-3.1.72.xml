@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:lifeCycleDesc="" ns1:name="PmUeMeasIntraFreq" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/oss_cdt/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>PmUeMeasIntraFreq</ns1:desc>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="eutranFrequencyRef">
+    <ns1:desc>The reference to an instance of a EUtranFrequency MO containing the measurement object parameters to use for this intra frequency measurement.
+
+Takes effect: New connection
+
+Disturbance: None</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/EUtranFrequency/3.1.72" xsi:type="ns1:moRefType"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="reportConfigEUtraIntraFreqPmRef">
+    <ns1:desc>Reference to an instance of a ReportConfigEUtraIntraFreqPm MO containing the report configuration parameters to use for this intra frequency measurement.
+
+Takes effect: New connection
+
+Disturbance: None</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/ReportConfigEUtraIntraFreqPm/3.1.72" xsi:type="ns1:moRefType"/>
+  </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="InvokedAction" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/oss_edt/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>The invoked action.</ns1:desc>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VERIFY_UPGRADE" value="1">
+    <ns1:desc>The verifyUpgrade action has been invoked.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="UPGRADE" value="2">
+    <ns1:desc>An upgrade action (one of the variants) has been invoked.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="INSTALL" value="3">
+    <ns1:desc>An install action (one of the variants) has been invoked.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CANCEL_INSTALL" value="4">
+    <ns1:desc>The cancelInstall action has been invoked.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="SHRINK" value="5">
+    <ns1:desc>The action shrink has been invoked.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="READREFERRINGCVINFORMATION" value="6">
+    <ns1:desc>The action readReferringCvInformation has been invoked.</ns1:desc>
+  </ns2:member>
+</ns2:EnumDataTypeDefinition>

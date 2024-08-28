@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="ReliableProgramUniter" ns1:ns="CPP_MODEL" ns1:version="3.12.75" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Reliable Program Uniter (RPU)
+
+This is a controlling and addressing entity with one common addressing unit for parts of two Reliable Programs. Each part is called a Resource Suite Handler (RSH). The RSH is implemented and owned by the application. It is not a function or concept within CPP.
+
+Instances of this MO are created automatically during system upgrade. It is also possible to create instances manually, but this is not recommended.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ReliableProgramUniterId" readBehavior="FROM_MEDIATION" restricted="true" writeBehavior="MEDIATE">
+    <ns1:desc>The value component of the RDN.
+
+It is set automatically during system upgrade.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reliableProgramLabel" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Compare this label to the reliableProgramLabel in the LoadModule MO.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="admActiveSlot" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Reference to a Slot, contains the running "Normal" relation to a slot. If the reference is set to the passive slot, the passive slot is cleared and only one relation is set.</ns1:desc>
+    <ns1:type modelUrn="/dps_primarytype/CPP_MODEL/Slot/3.12.75" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="admPassiveSlot" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Reference to a Slot, contains the running "Stand-by" relation to a slot. If the reference is set to the active slot or a NULL value, the passive slot will be cleared.</ns1:desc>
+    <ns1:type modelUrn="/dps_primarytype/CPP_MODEL/Slot/3.12.75" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="switchOver" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Controls when to switch the RPU if a certain error occurs.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/RPUSwitchOverMode/3.12.75" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="AT_PIU_FAULT" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="normalisation" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Controls when to switch back the RPU after error recovery has been done.
+
+Normalisation at PIU unlock is always done, regardless of the value of this attribute.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/RPUNormalisationMode/3.12.75" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="AUTOMATIC" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="replication" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Specifies the level of data replication that is associated with the RPU.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/RPUReplicationMode/3.12.75" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="APPL_CONTROLLED" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="operationalMode" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies if the RSH execution mode (active/passive) in the two Reliable Programs, matches the normal/stand-by relations set on the corresponding RPU.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/RPUOperationalMode/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains a list of MO instances that reserve this MO instance.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="/dps_primarytype/CPP_MODEL/ManagedObject/3.12.75" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="rpuId" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The ReilableProgramUniter identity on the resource layer.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

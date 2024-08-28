@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="AtmNomPmBlkSize" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/oss_edt/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Nominal performance monitoring, PM, blocksize. The minimum number of ATM cells to send before sending a Forward Performance Monitoring, FPM, cell.</ns1:desc>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NOM_PM_BLKSIZE_2_7" value="128">
+    <ns1:desc>Nominal performance monitoring, PM, block size, 2e7 (2 to the power of 7).</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NOM_PM_BLKSIZE_2_8" value="256">
+    <ns1:desc>Nominal performance monitoring, PM, block size, 2e8 (2 to the power of 8).</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NOM_PM_BLKSIZE_2_9" value="512">
+    <ns1:desc>Nominal performance monitoring, PM, block size, 2e9 (2 to the power of 9).</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NOM_PM_BLKSIZE_2_10" value="1024">
+    <ns1:desc>Nominal performance monitoring, PM, block size, 2e10 (2 to the power of 10).</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NOM_PM_BLKSIZE_2_11" value="2048">
+    <ns1:desc>Nominal performance monitoring, PM, block size, 2e11 (2 to the power of 11).</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NOM_PM_BLKSIZE_2_12" value="4096">
+    <ns1:desc>Nominal performance monitoring, PM, block size, 2e12 (2 to the power of 12).</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NOM_PM_BLKSIZE_2_13" value="8192">
+    <ns1:desc>Nominal performance monitoring, PM, block size, 2e13 (2 to the power of 13).</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NOM_PM_BLKSIZE_2_14" value="16384">
+    <ns1:desc>Nominal performance monitoring, PM, block size, 2e14 (2 to the power of 14).</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NOM_PM_BLKSIZE_2_15" value="32768">
+    <ns1:desc>Nominal performance monitoring, PM, block size, 2e15 (2 to the power of 15).</ns1:desc>
+  </ns2:member>
+</ns2:EnumDataTypeDefinition>

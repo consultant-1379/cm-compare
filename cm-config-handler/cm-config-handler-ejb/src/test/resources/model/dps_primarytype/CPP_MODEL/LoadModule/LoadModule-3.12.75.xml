@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="LoadModule" ns1:ns="CPP_MODEL" ns1:version="3.12.75" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>This MO models software which is installed, or is possible to install, in the file system.
+
+The files are:
+- executable code
+- text information (COI) or
+- directories in the CPP file system.
+
+LoadModule MOs are created automatically during system upgrade. It is also possible to create MOs manually but this is not recommended.
+
+A program may be configured as reliable (see MO ReliableProgramUniter) if the following conditions are fulfilled:
+- attribute loaderType = OSE_LOADER
+- attribute oseProgramLoadClass is set to a value &gt; 100
+- the program executes on an MP (Main Processor).</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="LoadModuleId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.
+
+It is set automatically during system upgrade.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="productData" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Product information data.</ns1:desc>
+    <ns1:type modelUrn="/oss_cdt/CPP_MODEL/AdminProductData/3.12.75" xsi:type="ns1:complexRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="loadModuleFilePath" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Specifies the path to this load module in the file system, including the file name.
+
+Example:
+/c/load_modules/CXC112874R1A01, where /c/load_modules/ is the directory, and CXC112874R1A01 is the file name.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="loaderType" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Specifies the type of the program loader.
+
+This is the LoaderName in the UCF.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/LoadModuleLoaderType/3.12.75" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="OSE_LOADER" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="otherLoaderName" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The name of the load module, with loaderType = OTHER.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="preLoad" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Enables faster loading at restart of programs referring to this load module if preLoad = MUST.
+
+Recommended: Cache this load module close to where its program(s) execute(s), for example, in a flash file system.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/LoadModulePreLoadType/3.12.75" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="NO" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="fileFormat" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The file format.
+
+Example: RPDOUT, html, java, fpga</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="oseProgramLoadClass" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Specifies in which load phase, programs of this load module is started.
+
+If the LoadModule MO is a Java archive file (.jar), it will be loaded in the load phase of the Java machine rather than according to its own oseProgramLoadClass.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/LoadClass/3.12.75" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="APPLICATION" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reliableProgramLabel" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Reliable program identity.
+
+Compare this label to the reliableProgramLabel in ReliableProgramUniter MO.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="isDirectory" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Specifies if the load module is a file or a directory.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="oseProgramPoolSize" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies the Program pool size.
+
+The LoadModule MO has a default size defined at compile time. This value is used if no other value is submitted when the LoadModule MO is created.
+
+This value is fetched by the Program MO and used if no other value is submitted, when the Program MO is created.
+
+This value is overwritten during Software Upgrade.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="oseProgramHeapSize" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Sets the Program heap size.
+
+The LoadModule MO has a default size defined at compile time. This value is used if no other value is submitted when the LoadModule MO is created.
+
+This value is fetched by the Program MO and used if no other value is submitted, when the Program MO is created.
+
+This value is overwritten during Software Upgrade.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="programMustBeSingleton" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Indicates if the (OSE) program must be a Singleton, or not.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="moppletEntries" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Contains all classes that are to be initialized and started when the JVM restarts.
+
+The class name must specify the full package and class name in standard Java syntax.
+Example: se.ericsson.cello.X
+
+The interface, se.ericsson.cello.moframework.Mopplet, must be implemented, and stored in this LoadModule.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType xsi:type="ns1:stringType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedByUpgradePackage" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates if this MO is reserved by the UpgradePackage MO or not.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="fileState" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies if the load module file(s) is installed or not.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/FileState/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="deviceLoaderInformation" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>If loaderType is set to DEVICE_LOADER, this attribute can have a value. It is transferred to the device loader.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="255" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="deviceLoaderName" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>If loaderType is set to DEVICE_LOADER, this attribute must have a value.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="80" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

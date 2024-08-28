@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="PiuType" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Plug-In Unit (PIU) Type
+
+This MO specifies the product information of a plug-in-unit, and its execution resources. It is created or deleted during a software upgrade.
+
+The PiuType is used when:
+- execution MOs connected to a PlugInUnit are created, and
+- software to this resource are allocated.
+
+Instances of this MO are created automatically during system upgrade. It is also possible to create instances manually, but this is not recommended.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="PiuTypeId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.
+
+It is set automatically during system upgrade.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="productData" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Specifies the product number, short product revision, product name and product information of the plug-in-unit. The production date is not used.
+
+Recommended: Exclude the trailing letters in the revision of the PiuType.
+
+Example:
+
+- R2B = R2 without trailing letter
+- R2B/3 = R2B/3 in the PiuType
+- R2B/A = R2 in the PiuType.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/AdminProductData/3.12.0" xsi:type="ns1:complexRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="boardWidth" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The width of the plug-in-unit board in steps of 5 mm.
+A plug-in-unit can use more space than the slot that it occupies.
+
+Example: boardWidth=3 corresponds to 3*5 = 15 mm.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="role" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>This value is:
+
+- MP if a board has the role of a Main processor
+- BP if a board has the role of a device board, or
+- CMXB if a board has the role of a CMXB board, or
+- OTHERS, otherwise.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/PiuRole/3.12.0" xsi:type="ns1:enumRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains a list of MO instances that reserve this MO instance.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="//MOM-CPP-C12/ManagedObject/3.12.0" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="defAllowedSeqRestarts" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Default value for the PlugInUnit attribute, allowedSeqRestarts.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/SeqRestarts/3.12.0" xsi:type="ns1:enumRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="lmFilesInstallState" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies the "sum" of the file states for all load modules required for this PiuType.
+
+Example:
+If all required load modules are installed, then this attribute = INSTALLED.
+If no required load modules are installed, then this attribute = NOT_INSTALLED.
+Otherwise, if partly installed, this attribute = PARTLY_INSTALLED.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/LmFilesInstallState/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="NOT_INSTALLED" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

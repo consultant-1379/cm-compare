@@ -1,0 +1,132 @@
+Command#Expected Response#Valid#User Story Number#Comments
+get MeContext=123456#OSS_TOP#TRUE#getMeContext#http://jira-oss.lmera.ericsson.se/browse/TORF-933
+get MeContext=123456,ManagedElement=epatmah3#CPP_NODE_MODEL#TRUE#getMeContextAndManagedElement#http://jira-oss.lmera.ericsson.se/browse/TORF-1234565
+get MeContext=OSS_TOP#OSS_TOP#TRUE#57485#This test should be a negative test case once completed.
+create MeContext=123456 MeContextId=123456, neType=ENODEB, generationCounter=2, mirrorSynchronizationStatus=SYNCING -namespace=OSS_TOP -version=1.1.0#OSS_TOP#TRUE#createMeContext#
+create MeContext=123456,ManagedElement=epatmah3 ManagedElementId=epatmah -namespace=CPP_NODE_MODEL -version=3.12.0#CPP_NODE_MODEL##createMeContextAndManagedElement#
+create MeContext=invalid,ManagedElement=epatmah3 ManagedElementId=epatmah -namespace=CPP_NODE_MODEL -version=3.12.0#null##createMeContextAndManagedElementWithInvalidParent#
+get MeContext=nonExistant#null##getMeContextWhichDoesNotExist#
+create MeContext=mgYonc5WglIlvUewKkW4oVrmCrUfZ5s8LVMVfGYP83nWDa8vdHnm6RBLSUOIzZCCvJn3belNu2xqcZotb1MkN0ARmifUiB0yL5yhXEYbs3EOmi1qQ5ufbeq7BZPNWhdc2dBFWIbSJvE3ySDvmuZ6EmXlP3CThWBkMGbg1Fj6ZRfKnHmgRvJklMvFqtQhzELbHkWX8NWpXIRNbhIa5VQHTwb4tv1FRoCC49QxrP036OhPNuE6BmxpqLn7Pzk29MKJLnAOKMxUhE4s9M1yOJUxFWfAbOQmNip3b9JfPjGig1yILQC8KfmHUS1rI7uQc8gZDEbEQqcqcb8x4EmbaYm59gNEBdZ93rqRbm7cbde3mtKErBvEu2lJgYJQHOrWeKGNMTGR4Z3nmp383GDLi7li07u8HIFu8GpZzc1f1c0zxVPwLlCyuvDvjsbVh1ziODIhHCLY3DGh6rUdxwpJAWcL7ybmMuIRoFhR736f0dIxERLV26PIMHJ1qqTom60pkghjRwQ7huPIwjVUFwITfhgeJ1ki9X1VFKRKmW265iWtn0H47N1cD4NcHRQfqWMGhzggzAw0O3niH5TRD2BoSY0oVIwpmBtnMFxnoKenQPMz8i4k7Bv5wS3P5VnQhmZ49hcyVBcpE7phI1qgc67fPCRRIrrd9uJGThQqIgVCPthJNQIM79bHBk242EfEbnh76xh1IShsg48kEnYf8Dt3yEKuMPRamLG0Xw0ywR2sXJWPojKbpTtg2xefRYDa3FJemOYRLaHvS6rhVQ0xMgx7nX2giAKhVlIkfCeZX66oTe5fPhIRsC1daGJWNKh1uzoM29z4tdDYRc5QC1L6Qs3YxeIxD2xDoaWBK2MxfeEH0L2zH1dchRNmn7o5osjl4rGi8gHMwpgm9gDyf6YASvQS3dWBIq8CXbkVlDfBoafiYkmiObOfNJyvKHYhyt4bPB7EuG2xIdaHeY07mHsbS781FM4tD6KYEbqy9f1F5KNNVJ5iN5bD6qGI6KoHXLdMgl81DkdNmlrIyLtjiICcZliUS0QtTjab40WrmpSr6XiMikSj3N0loZDUmwzsNtuMHgprclF5lXpTdIyHu1I7tGRtQILD1XSgjdJL4LT7sStlMrHgpY2SRxFdxvaJ2lCF2aOeDYKSH4ejWzcDbeNWst7l6u4cqyDVyWrzoqfFjn5jgG2UapWGlaohrhavJAFNPieRHN8R7ImlRuctwKqNVeTso5m0wLKZ5U61BwqWqOjTjG0dGPTVia8fSdkVnG60oZQPG7ygM0SohKkeFWnaC5go9f98u528EE0JwU2NxAPr4AAfaeZISdHD6RBzUqjf8Zk73AQERKhuu4HGYBLXKWcI8L4E6NB6iMcOyk3OilWNx8MaiOa90Ob3OYHUCWMeciz2sUqApfNgLnWElHuWHRtkfSvLlk3yrb6mNOgJc9T254lS5sDb1G49Uq3ifXxugweeWa3StlK5YDKqvYv1mxvM38GHekzX5GB9 -namespace=OSS_TOP -version=1.1.0#null##createMeContextWith150CharacterLongName#
+create MeContext=123456,ManagedElement=epatmah3,ENodeBFunction=78910 ENodeBFunctionId=78910, userLabel=Ireland -namespace=ERBS_NODE_MODEL -version=3.1.72#ERBS_NODE_MODEL##create_MeContext_And_Managed_Element_And_ENodeBFunction#
+create MeContext=123abc456 MeContextId=123abc456, neType=ENODEB, generationCounter=2, mirrorSynchronizationStatus=SYNCING -namespace=OSS_TOP -version=1.1.0#OSS_TOP##createASecondMeContextInstance#
+create MeContext=123abc456,ManagedElement=epatmah3 ManagedElementId=epatmah3 -namespace=CPP_NODE_MODEL -version=3.12.0#CPP_NODE_MODEL##createASecondManangedElementInstance#
+get MeContext=123456,ManagedElement=epatmah3,ENodeBFunction=78910###get_MeContext_And_ManagedElement_And_ENodeBFunction_Expecting_False_As_Result#
+create MeContext=123abc456,ManagedElement=epatmah3,ENodeBFunction=2 ENodeBFunctionId=2,eNodeBPlmnId=(mcc=1, mnc=2,mncLength=2) -namespace=ERBS_NODE_MODEL -version=3.1.72#ERBS_NODE_MODEL##createENodeBFunctionChildMO#
+create MeContext=123456,ManagedElement=epatmah3,ENodeBFunction=78910,SectorEquipmentFunction=1###create_EnodeBFunction_With_ChildMO_From_ManagedElement_Expecting_Fail_As_Result#
+create MeContext=123abc456,ManagedElement=epatmah3,ENodeBFunction=2 ENodeBFunctionId=2,eNodeBPlmnId=(mcc=1,mnc=2,mncLength=2) -namespace=ERBS_NODE_MODEL -version=3.1.72#ERBS_NODE_MODEL##createENodeBFunctionWithComplexAttributes#
+KAOS CREATE EUTRANCELLFDD####
+create MeContext=123456,ManagedElement=epatmah3,SectorEquipmentFunction=1 SectorEquipmentFunctionId=1 -namespace=ERBS_NODE_MODEL -version=3.1.72#ERBS_NODE_MODEL##create_MeContext_And_Managed_Element_And_ENodeBFunction_And_SectorEquipmentFunction#
+create MeContext=123abc456,ManagedElement=epatmah3,SectorEquipmentFunction=1 SectorEquipmentFunctionId=1 -namespace=ERBS_NODE_MODEL -version=3.1.72#ERBS_NODE_MODEL##create_MeContext_And_Managed_Element_And_ENodeBFunction_And_SectorEquipmentFunction_MeContext_123abc456#
+create MeContext=123456,ManagedElement=epatmah3,ENodeBFunction=78910,EUtranCellFDD=EUC001 cellId=1,earfcndl=17000,earfcnul=19000,EUtranCellFDDId=EUC001,physicalLayerCellIdGroup=153,physicalLayerSubCellId=0,tac=13634,sectorFunctionRef="MeContext=123456,ManagedElement=epatmah3,SectorEquipmentFunction=2",ulInterferenceManagementActive=false,userLabel=KAOS -namespace=ERBS_NODE_MODEL -version=3.1.72###createFirstEUtranCellFDD#
+create MeContext=123456,ManagedElement=epatmah3,ENodeBFunction=78910,EUtranCellFDD=EUC002 cellId=2,earfcndl=17000,earfcnul=19000,EUtranCellFDDId=EUC002, physicalLayerCellIdGroup=153,physicalLayerSubCellId=0,tac=13634,sectorFunctionRef="MeContext=123456,ManagedElement=epatmah3,SectorEquipmentFunction=1",ulInterferenceManagementActive=false,userLabel=KAOS -namespace=ERBS_NODE_MODEL -version=3.1.72###createSecondEUtranCellFDD#
+create MeContext=123abc456,ManagedElement=epatmah3,ENodeBFunction=2,EUtranCellFDD=EUC003 cellId=1,earfcndl=17000,earfcnul=19000,EUtranCellFDDId=EUC003, physicalLayerCellIdGroup=153,physicalLayerSubCellId=0,tac=13634,sectorFunctionRef="MeContext=123abc456,ManagedElement=epatmah3,SectorEquipmentFunction=1",ulInterferenceManagementActive=false,userLabel=KAOS -namespace=ERBS_NODE_MODEL -version=3.1.72###createThirdEUtranCellFDD#
+get * ENodeBFunction -namespace=ERBS_NODE_MODEL#ERBS_NODE_MODEL##getStarENodeBFunction#
+get 123456 ENodeBFunction -namespace=ERBS_NODE_MODEL#ERBS_NODE_MODEL##getSpecificENodeBFunction#
+get 123* ENodeBFunction -namespace=ERBS_NODE_MODEL#ERBS_NODE_MODEL##getENodeBFunctionNameFollowedByStar#
+get *456 ENodeBFunction -namespace=ERBS_NODE_MODEL#ERBS_NODE_MODEL##getENodeBFunctionNamePreceededByStar#
+get 123456 ENodeBFunction.*  -namespace=ERBS_NODE_MODEL#ERBS_NODE_MODEL##getENodeBFunctionDotStar#
+get 123456 ENodeBFunction.(ENodeBFunctionId, dscpLabel) -namespace=ERBS_NODE_MODEL#ERBS_NODE_MODEL##getENodeBFunctionDotAttributes#
+get * ENodeBFunction.(dnsLookupOnTai==ON) -namespace=ERBS_NODE_MODEL#ERBS_NODE_MODEL##getENodeBFunctionDotAttributeEqualsValueVerifyingDnsLookupOnTai#
+get * ENodeBFunction.(dnsLookupTimer==0) -namespace=ERBS_NODE_MODEL#ERBS_NODE_MODEL##getENodeBFunctionDotAttributeEqualsValueVerifyingDnsLookupTimer#
+get * ENodeBFunction.(userLabel==Ir*, dnsLookupTimer==0 ) -namespace=ERBS_NODE_MODEL#ERBS_NODE_MODEL##getENodeBFunctionDotAttributeEqualsValueVerifyingUserLabelAndDnsLookupTimerCombined#
+create MeContext=MeContext3 MeContextId=MeContext3, neType=ENODEB, generationCounter=2, mirrorSynchronizationStatus=SYNCING -namespace=OSS_TOP -version=1.1.0###createThirdMeContextInstance#
+create MeContext=MeContext3,ManagedElement=ManagedElement3 ManagedElementId=ManagedElement3 -namespace=CPP_NODE_MODEL -version=3.12.0###createThirdManagedElementInstance#
+create MeContext=MeContext4 MeContextId=MeContext4, neType=ENODEB, generationCounter=2, mirrorSynchronizationStatus=SYNCING -namespace=OSS_TOP -version=1.1.0###createFourthMeContextInstance#
+create MeContext=MeContext4,ManagedElement=ManagedElement4 ManagedElementId=ManagedElement4 -namespace=CPP_NODE_MODEL -version=3.12.0###createFourthManagedElementInstance#
+create MeContext=MeContext4,ManagedElement=ManagedElement4,ENodeBFunction=ENodeBFunction4 ENodeBFunctionId=4 -namespace=ERBS_NODE_MODEL -version=3.1.72###createFourthENodeBFunctionInstance#
+create MeContext=MeContext3,ManagedElement=ManagedElement3,ENodeBFunction=3 ENodeBFunctionId=3, userLabel=TORF6964_TAF01,x2BlackList=[(enbId=1,mcc=1,mnc=123,mncLength=2),(enbId=2,mcc=2,mnc=258,mncLength=3)] -namespace=ERBS_NODE_MODEL -version=3.1.72###createSequenceAttributes#
+create MeContext=MeContext4,ManagedElement=ManagedElement4,ENodeBFunction=ENodeBFunction4,QciTable=QciTable7 QciTableId=7, reservedBy=["a=1,b=2"] -namespace=ERBS_NODE_MODEL -version=3.1.72###createAttributesOfTypeMORef#
+get 123* ENodeBFunction -namespace=ERBS_NODE_MODEL -version=3.1.72###getENodeBFunctionNameWithNamepsaceAndVersion#
+get * ENodeBFunction###getStarENodeBFunctionNoNameSpace#
+get 123456;123abc456 ENodeBFunction.* -namespace=ERBS_NODE_MODEL###getMultipleNodeIds#
+get 123456;123abc456 ENodeBFunction,EUtranCellFDD,EUtranFreqRelation,*###getOneOrMoreChildMOIs#
+get 123456 ENodeBFunction -namespace=ERBS_NODE_MODEL -t###getStarENodeBFunctionTableFormat#
+Performance Test Commands #Performance Test Commands#Performance Test Commands#Performance Test Commands#
+get LTE01ERBS1* ENodeBFunction.* -namespace=ERBS_NODE_MODEL###getLTE01ERBS1StarENodeBFunctionDotStar#
+get LTE01ERBS42* ENodeBFunction.* -namespace=ERBS_NODE_MODEL###getLTE01ERBS42StarENodeBFunctionDotStar#
+get LTE01ERBS429* ENodeBFunction.* -namespace=ERBS_NODE_MODEL###getLTE01ERBS429StarENodeBFunctionDotStar#
+get LTE01ERBS42* ExternalCdma2000Cell.* -namespace=ERBS_NODE_MODEL###getLTE01ERBS42StarExternalCdma2000CellDotStar#
+get LTE01ERBS3* TermPointToMme.* -namespace=ERBS_NODE_MODEL###getLTE01ERBS3StarTermPointToMmeDotStar#
+cmedit get * MeContext.(MeContextId==123abc456) -namespace=OSS_TOP###getASpecificMeContextDotStar#
+get * MeContext.* -namespace=OSS_TOP###getStarMeContextDotStar#
+get * ManagedElement.* -namespace=CPP_NODE_MODEL###getStarManagedElementDotStar#
+get * ENodeBFunction.* -namespace=ERBS_NODE_MODEL###getStarENodeBFunctionDotStar#
+get * TermPointToMme.* -namespace=ERBS_NODE_MODEL#ERBS_NODE_MODEL##getStarTermPointToMmeDotStar#
+get * ExternalCdma2000Cell .* -namespace=ERBS_NODE_MODEL#ERBS_NODE_MODEL##getStarExternalCdma2000CellDotStar#
+get * QciProfilePredefined .* -namespace=ERBS_NODE_MODEL#ERBS_NODE_MODEL##getQciProfilePredefinedDotStar#
+get * IpSyncRef.* -namespace=CPP_NODE_MODEL#CPP_NODE_MODEL##getIpSyncRefDotStar#
+get * MeContext.MeContextId==123456 -namespace=OSS_TOP###getAllMeContextMeContextIdEqEq#
+KAOS TEST CASES####
+TORF-1365####
+set MeContext=123456 generationCounter=20###setMeContextGenerationCounter#
+set MeContext=123456 generationCounter=20###setDuplicateMeContextAttributeGenerationCounterToSameValue#
+set MeContext=123456 userLabel=test5###setMeContextAttributeUserLabel#
+set MeContext=123456 userLabel=""###setMeContextAttributeUserLabelToNullValue#
+set MeContext=123456,ManagedElement=epatmah3,ENodeBFunction=78910 dnsLookupTimer=999###setAttributednsLookupTimerOnENodeBFunction#
+TORF-1354####
+set MeContext=123456 userLabel=test6,generationCounter=26,mirrorSynchronizationStatus=SYNCHRONIZED###setMeContextListOfAttributes#
+set MeContext=123456 generationCounter=27,mirrorSynchronizationStatus=SYNCING,userLabel=test7###setMeContextDuplicateListOfReorderedAttributesToDifferentValues#
+set MeContext=123456,ManagedElement=epatmah3,ENodeBFunction=78910 dnsLookupTimer=500, s1RetryTimer=250, userLabel=TORF-1354###setListOfAttributesOnENodeBFunction#
+TORF-5305####
+set MeContext=123456,ManagedElement=epatmah3,ENodeBFunction=78910 eNodeBPlmnId=(mcc=2, mnc=2, mncLength=3)###seteNodeBPlmnIdComplexAttribute#
+set MeContext=123456,ManagedElement=epatmah3,ENodeBFunction=78910 eNodeBPlmnId=(mcc=1, mnc=1, mncLength=2)###seteNodeBPlmnIdComplexAttributesToDifferentValues#
+TORF-6582####
+set MeContext=123456,ManagedElement=epatmah3,ENodeBFunction=78910 dnsLookupOnTai=ON###setEnumAttributednsLookupOnTaiONENodeBFunction#
+set MeContext=123456,ManagedElement=epatmah3,ENodeBFunction=78910 dnsLookupOnTai=OFF###setEnumAttributednsLookupOnTaiOFFENodeBFunction#
+set MeContext=123456,ManagedElement=epatmah3,ENodeBFunction=78910 dnsLookupOnTai=ON###setEnumAttributednsLookupOnTaiONAgainENodeBFunction#
+set MeContext=123456,ManagedElement=epatmah3,ENodeBFunction=78910 nnsfMode=SPLMN###setEnumAttributennsfModeToSPLMNENodeBFunction#
+action MeContext=123456,ManagedElement=epatmah3,EnodeBFunction=78910 deleteAllRepertoires###actionMeContextDeleteAllRepertoires#
+action MeContext=123456,ManagedElement=epatmah3,EnodeBFunction=78910 deleteAllSlots###actionMeContextDeleteAllSlots#
+action MeContext=123456 sync###actionMeContextSyncs#
+action * EnodeBFunction.EnodeBFunctionId==78910 deleteAllSlots###actionMeContextDeleteAllSlotsAllEnodebFuncEqEqEnodebFuncId#
+get * MeContext.MeContextId==123456 -namespace=OSS_TOP###getStarMeContextDotMeContextId#
+TORF-690####
+delete MeContext=123456###deleteMOWithChildMONoParmALLExpectingFail#
+delete MeContext=123456 -ALL###deleteMOWithChildMOWithParmALL#
+get MeContext=123456###getMOAfterDeleteMOWithParmALLExpectingFail#
+delete MeContext=123abc456,ManagedElement=epatmah3,ENodeBFunction=2,EUtranCellFDD=EUC003###deleteMO#
+get MeContext=123abc456,ManagedElement=epatmah3,ENodeBFunction=2,EUtranCellFDD=EUC003###getMOAfterDeleteMOExpectingFail#
+delete MeContext=123abc456,ManagedElement=epatmah3,ENodeBFunction=2,EUtranCellFDD=EUC003###deleteNonExistentMOExpectingFail#
+delete MeContext=MeContext4,ManagedElement=ManagedElement4 -ALL###deleteMOWithOneChildMOWithParmALL#
+delete MeContext=MeContext3, ManagedElement=ManagedElement3, ENodeBFunction=3 -ALL###deleteMOWithNoChildMOWithParmALL#
+delete MeContext=123456 -ALL###delete123456ALL#
+delete MeContext=123abc456 -ALL###delete123abc456ALL#
+delete MeContext=MeContext3 -ALL###deleteMeContext3ALL#
+delete MeContext=MeContext4 -ALL###deleteMeContext4ALL#
+TORF-6924####
+set * ENodeBFunction userLabel=TORF6924_TAF01 -namespace=ERBS_NODE_MODEL#set * ENodeBFunction userLabel=TORF6924_TAF01 -namespace=ERBS_NODE_MODEL##setAttributeOnAllNodesOfENodeBFunctionType#
+set 123456 ENodeBFunction userLabel=TORF6924_TAF02 -namespace=ERBS_NODE_MODEL#set 123456 ENodeBFunction userLabel=TORF6924_TAF02 -namespace=ERBS_NODE_MODEL##setAttributeOnAllNodesOfSpecifiedENodeBFunctionType#
+set MeContext* ENodeBFunction userLabel=TORF6924_TAF03 -namespace=ERBS_NODE_MODEL#set MeContext* ENodeBFunction userLabel=TORF6924_TAF03 -namespace=ERBS_NODE_MODEL##setAttributeOnNodesOfENodeBFunctionTypeStartingWithString#
+set *ontext4 ENodeBFunction userLabel=TORF6924_TAF04 -namespace=ERBS_NODE_MODEL#set *ontext4 ENodeBFunction userLabel=TORF6924_TAF04 -namespace=ERBS_NODE_MODEL##setAttributeOnNodesOfENodeBFunctionTypeEndingWithString#
+TORF-7037####
+set MeContext=123456,ManagedElement=epatmah3,ENodeBFunction=78910 x2BlackList=[(enbId=0,mcc=100,mnc=60,mncLength=2),(enbId=100,mcc=999,mnc=999,mncLength=3),(enbId=100000,mcc=500,mnc=10,mncLength=2)]###setSequencedComplexDataForSpecifiedNode#
+TORF-1358####
+set 123456 EUtranCellFDD.id==* lac=25###setDataForSpecifiedNodeWithAttributeSetToAnyValue#
+TORF-6964####
+set MeContext4 ENodeBFunction.userLabel==TORF6924_TAF04 x2IpAddrViaS1Active=false -namespace=ERBS_NODE_MODEL###setSingleValueFALSEForNodeIDFilteredOnSingleAttributeValueCriteria#
+set MeContext4 ENodeBFunction.userLabel==TORF6924_TAF04 x2IpAddrViaS1Active=true -namespace=ERBS_NODE_MODEL###setSingleValueTRUEForNodeIDFilteredOnSingleAttributeValueCriteria#
+set MeContext4 ENodeBFunction.userLabel==TORF6924_TAF04 x2IpAddrViaS1Active=false,tHODataFwdReordering=1000 -namespace=ERBS_NODE_MODEL###setMultipleValuesForNodeIDFilteredOnSingleAttributeValueCriteria#
+TORF-1355####
+set MeContext4 ENodeBFunction.(userLabel==TORF6924_TAF04,x2IpAddrViaS1Active==false) tHODataFwdReordering=2000 -namespace=ERBS_NODE_MODEL###setSingleIntegerValueForNodeIDFilteredOnMultipleAttributeValueCriteria#
+set MeContext4 ENodeBFunction.(userLabel==TORF6924_TAF04,x2IpAddrViaS1Active==false) x2IpAddrViaS1Active=true -namespace=ERBS_NODE_MODEL###setSingleEnumValueForNodeIDFilteredOnMultipleAttributeValueCriteria#
+TORF-1358####
+set 123456 ENodeBFunction.userLabel==* tHODataFwdReordering=85 -namespace=ERBS_NODE_MODEL###setAttributetHODataFwdReorderingOnAllMOInstancesOfENodeBFunctionWithuserLabelOfNode#
+KAOS PERFORMANCE TEST CASES####
+set * ENodeBFunction.userLabel==* userLabel=TORF6255_1 -namespace=ERBS_NODE_MODEL -version=3.1.72###setStarAllENodeBFunctionuserLabel#
+set LTE01ERBS1 ENodeBFunction.userLabel==* userLabel=TORF6255_2 -namespace=ERBS_NODE_MODEL -version=3.1.72###setMeContextENodeBFunctionuserLabel#
+set LTE* ENodeBFunction.userLabel==* userLabel=TORF6255_3 -namespace=ERBS_NODE_MODEL -version=3.1.72###setMeContextPartialEndStarENodeBFunctionuserLabel#
+set *01ERBS1 ENodeBFunction.userLabel==* userLabel=TORF6255_4 -namespace=ERBS_NODE_MODEL -version=3.1.72###setMeContextPartialStartStarENodeBFunctionuserLabel#
+set *LTE* ENodeBFunction.userLabel==* userLabel=TORF6255_5 -namespace=ERBS_NODE_MODEL -version=3.1.72###setMeContextPartialStarContainsStarENodeBFunctionuserLabel#
+TORF-1350,1351,1352,1353####
+delete * EUtranCellFDD.(noOfPucchSrUsers==160, cellSubscriptionCapacity==72) -namespace=ERBS_NODE_MODEL -version=3.1.72###deleteMOsWithCriteria#
+delete * ENodeBFunction.userLabel==EQUALS -namespace=ERBS_NODE_MODEL -version=3.1.72###deleteMOsWithCriteriaHavingChildFail#
+delete * ENodeBFunction.userLabel==EQUALS -ALL -namespace=ERBS_NODE_MODEL -version=3.1.72###deleteMOsWithCriteriaHavingChildALLParamFail#
+TORF-1356####
+set KAOS001;KAOS002 ENodeBFunction.dscpLabel>=21 ENodeBFunctionId=1, userLabel=EQUALS, dscpLabel=21 -namespace=ERBS_NODE_MODEL -version=3.1.72###setMultipleMOsWithFilteredOnRangeOfAttributeValues#
+set KAOS001;KAOS002 ENodeBFunction.dscpLabel<>21 ENodeBFunctionId=1, userLabel=EQUALS, dscpLabel=21 -namespace=ERBS_NODE_MODEL -version=3.1.72###setMultipleMOsWithFilteredOnRangeOfAttributeValuesWithUnsupportedComparatorFail#
+TORF-1358/TORF-6924/TORF-1355/TORF-6964####
+set * EUtranCellFDD.userLabel==*AO* userLabel=TORF_1358  -namespace=ERBS_NODE_MODEL -version=3.1.72# ##setAttributeuserLabelOnAllEUtranCellcontainAttributeFilter#
+set *abc456 EUtranCellFDD.userLabel==TORF_1358 userLabel=TORF_6964 -namespace=ERBS_NODE_MODEL -version=3.1.72# ##setAttributePartialNodeFilteruserLabelOnEUtranCellFDDcontainsSpecifieduserLabel#
+set *23* EUtranCellFDD.(userLabel==TORF_1358,ulInterferenceManagementActive==false) ulInterferenceManagementActive=true -namespace=ERBS_NODE_MODEL -version=3.1.72# ##setAttributeulInterferenceManagementActivePartialNodeFilterContainsEUtranCellFDDcontainsSpecifieduserLabelAndulInterferenceManagementActiveFalse#
+set * EUtranCellFDD.(userLabel==*,ulInterferenceManagementActive==false) ulChannelBandwidth=20000  -namespace=ERBS_NODE_MODEL -version=3.1.72# ##setAttributeulChannelBandwidthNodeStarContainsEUtranCellFDDcontainsuserLabelAndulInterferenceManagementActiveFalse#
+get * EUtranCellFDD.cellRange>12###searchWithAttributeFilterOnGreaterThanReturnsCorrectFDNs#

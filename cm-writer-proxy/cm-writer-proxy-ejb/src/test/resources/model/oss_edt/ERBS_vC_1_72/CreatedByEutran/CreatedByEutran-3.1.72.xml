@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns5:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns5="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="CreatedByEutran" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/oss_edt/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>CreatedByEutran</ns1:desc>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="ANR" value="0">
+    <ns1:desc>ANR</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="X2" value="1">
+    <ns1:desc>X2</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="OPERATOR" value="2">
+    <ns1:desc>OPERATOR</ns1:desc>
+  </ns5:member>
+</ns5:EnumDataTypeDefinition>

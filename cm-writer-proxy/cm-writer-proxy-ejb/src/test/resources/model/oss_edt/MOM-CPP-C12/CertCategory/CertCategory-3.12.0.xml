@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="CertCategory" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/oss_edt/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>These certificate usage categories distinguish between different kinds of root certificates which can be installed as trusted certificates in the node.</ns1:desc>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="LOCAL_AA_DB_FILE_SIGNERS" value="0">
+    <ns1:desc>Trusted certificates for verifying signatures on local AA database and authorization files.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="AA_SERVERS" value="1">
+    <ns1:desc>Trusted certificates for verifying authenticity of AA servers in the network.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CORBA_PEERS" value="2">
+    <ns1:desc>Trusted certificates for verifying the authenticity of CORBA peers in the network.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="ERICSSON_1" value="3">
+    <ns1:desc>Trusted Ericsson certificate for verifying the classification files and the permission files. This certificate cannot be removed or changed.</ns1:desc>
+  </ns2:member>
+</ns2:EnumDataTypeDefinition>

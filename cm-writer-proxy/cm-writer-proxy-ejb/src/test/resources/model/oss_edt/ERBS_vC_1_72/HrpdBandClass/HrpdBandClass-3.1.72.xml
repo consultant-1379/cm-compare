@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns5:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns5="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="HrpdBandClass" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/oss_edt/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>HrpdBandClass</ns1:desc>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="BAND_CLASS_0" value="0">
+    <ns1:desc>800 MHz cellular band</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="BAND_CLASS_1" value="1">
+    <ns1:desc>1.8 to 2.0 GHz PCS band</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="BAND_CLASS_2" value="2">
+    <ns1:desc>872 to 960 MHz TACS band</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="BAND_CLASS_3" value="3">
+    <ns1:desc>832 to 925 MHz JTACS band</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="BAND_CLASS_4" value="4">
+    <ns1:desc>1.75 to 1.87 GHz Korean PCS band</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="BAND_CLASS_5" value="5">
+    <ns1:desc>450 MHz NMT band</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="BAND_CLASS_6" value="6">
+    <ns1:desc>2 GHz IMT-2000 band</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="BAND_CLASS_7" value="7">
+    <ns1:desc>700 MHz band</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="BAND_CLASS_8" value="8">
+    <ns1:desc>1800 MHz band</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="BAND_CLASS_9" value="9">
+    <ns1:desc>900 MHz band</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="BAND_CLASS_10" value="10">
+    <ns1:desc>Secondary 800 MHz band</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="BAND_CLASS_11" value="11">
+    <ns1:desc>400 MHz European PAMR band</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="BAND_CLASS_12" value="12">
+    <ns1:desc>800 MHz PAMR band</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="BAND_CLASS_13" value="13">
+    <ns1:desc>2.5 GHz IMT-2000 Extension Band</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="BAND_CLASS_14" value="14">
+    <ns1:desc>US PCS 1.9GHz Band</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="BAND_CLASS_15" value="15">
+    <ns1:desc>AWS Band</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="BAND_CLASS_16" value="16">
+    <ns1:desc>US 2.5GHz Band</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="BAND_CLASS_17" value="17">
+    <ns1:desc>US 2.5GHz Forward Link Only Band</ns1:desc>
+  </ns5:member>
+</ns5:EnumDataTypeDefinition>

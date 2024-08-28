@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="ManagedElementData" ns1:ns="CPP_MODEL" ns1:version="3.12.75" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>This object contains attributes and actions on node level.
+
+This MO is created automatically and cannot be deleted.
+
+The RDN of this MO is ManagedElementData=1.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ManagedElementDataId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.
+
+It is set automatically when the MO instance is created.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="autoConfigurationAllowed" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>This attribute specifies if the system is allowed to automatically configure detected com.ericsson.oss.services.cm.mocking. 
+
+Autoconfiguration is supported for upgradable hardware connected to CPP Subrack and Slot.
+
+When setting this attribute from true to false the system creates a new CV.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="true" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="documentServerAddress" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The base URL for the documentation server.
+
+The attribute is read by the Element Management application to find the documentation server in the network. The URL shall contain the document server, for example:
+
+http://cpi2.al.sw.ericsson.se/alexserv
+
+The syntax "http://cpi.al.sw.ericsson.se/alexserv?LI=EN/LZN7450008R2A" is deprecated, and will not be supported in a future release. Please use the attribute docLibUserDefined if docLibSystemDefined is not available.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="logonServerAddress" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>A list of node names or IP addresses of the single logon servers (SLSs). The list uses commas to seperate the single logon server addresses, e.g. "https://SLS1,https://SLS2,https://SLS3", these addresses consists of the URLs to the concerned SLS servers. The attribute is read by Element Management application to find the single logon server in the network.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ntpServerAddressPrimary" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>This is the IP address to the NTP server.
+
+If this NTP server is not configured, this attribute responds with 0.0.0.0.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ntpServiceActivePrimary" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies if the node should poll the primary NTP server for information.
+
+Even if this NTP server is not configured, this attribute still responds with its default value.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ntpMinPollPrimary" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>This value states the minimum interval (in seconds) for polling the primary NTP server.
+
+This value must be &gt; 0.
+
+Even if this NTP server is not configured, this attribute still responds with its default value.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="131072" min="16"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="64" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ntpMaxPollPrimary" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>This value states the maximum interval (in seconds) for polling the primary NTP server.
+
+This value must be &gt; 0.
+
+Even if this NTP server is not configured, this attribute still responds with its default value.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="131072" min="16"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1024" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ntpBurstFlagPrimary" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>This is the burst flag used towards the primary NTP server.
+
+Even if this NTP server is not configured, this attribute still responds with its default value.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ntpServerAddressSecondary" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>This is an alternative IP address to an NTP server.
+
+If this NTP server is not configured, this attribute responds with 0.0.0.0.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ntpServiceActiveSecondary" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies if the node should poll the secondary NTP server for information.
+
+Even if this NTP server is not configured, this attribute still responds with its default value.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ntpMinPollSecondary" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>This value states the minimum interval (in seconds) for polling the secondary NTP server.
+
+This value must be &gt; 0.
+
+Even if this NTP server is not configured, this attribute still responds with its default value.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="131072" min="16"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="64" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ntpMaxPollSecondary" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>This value states the maximum interval (in seconds) for polling the secondary NTP server.
+
+This value must be &gt; 0.
+
+Even if this NTP server is not configured, this attribute still responds with its default value.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="131072" min="16"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1024" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ntpBurstFlagSecondary" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>This is the burst flag used towards the secondary NTP server.
+
+Even if this NTP server is not configured, this attribute still responds with its default value.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="nodeUTCTime" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>This attribute specifies the UTC time used in the node.
+
+It is the number of milliseconds elapsed since the epoch time (January 1, 1970, 00:00:00 GMT).
+
+To set this attribute, all the three attributes, ntpServiceActive for Primary, Secondary and Third, must be false.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="nodeLocalTimeZone" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies the time zone of the node. This attribute is needed by management application to convert UTC time from a log or NTP service to local time. 
+It will not change the real time clock on the node.
+
+Choose a time zone abbreviation, three characters, in the list below, or specify a node local time in the format "+/-" and "hh:mm", where "hh" is hours and "mm" is minutes. 
+Example: GMT or +01:30
+
+Time zone and its offset in hours:
+
+GMT (Greenwich Mean Time) 0
+UTC (Coordinated Universal Time) 0
+ECT (Central European Standard Time) + 1
+EET (Eastern European Time) + 2
+ART (Eastern European Time) + 2
+EAT (Eastern African Time) + 3
+MET (Iran Time) + 3.5
+NET (Armenia Time) + 4
+PLT (Pakistan Time) + 5
+IST (India Standard Time) + 5.5
+BST (Bangladesh Time) + 6
+VST (Indochina Time) + 7
+CTT (China Standard Time) + 8
+JST (Japan Standard Time) + 9
+CST (Central Standard Time) + 9.5
+EST (Eastern Standard Time) + 10
+AET (Eastern Standard Time) + 10
+SST (Solomon Is. Time) + 11
+NST (New Zealand Standard Time) + 12
+CAT (Central Alaska Time) - 1
+AGT (Argentina Time) - 3
+BET (Brazil Time) - 3
+CNT (Newfoundland Standard Time) - 3.5
+PRT (Atlantic Standard Time) - 4
+IET (Eastern Standard Time) - 5
+ACT (Central Standard Time) - 6
+PNT (Mountain Standard Time) - 7
+MST (Mountain Standard Time) - 7
+PST (Pacific Standard Time) - 8
+AST (Alaska Standard Time) - 9
+HST (Hawaii Standard Time) - 10
+MIT (West Saoma Time) - 11
+--
+
+Reference: http://www.greenwichmeantime.com</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="daylightSavingTime" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>This attribute states if daylight saving time is used on this node. It is used by the node, and will not change the real time clock on the node.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="DEPRECATED" ns1:name="hdVolumeCSize" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Attribute: hdVolumeCSizeDescription</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="DEPRECATED" ns1:name="hdVolumeCFreespace" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Attribute: hdVolumeCFreespaceDescription</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="nodeUniqueID" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>This is a unique node identity to be set only in the factory.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="swServerUrlList" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>A comma-separated list of URLs, ending with the folder name containing CXC folders.
+
+Example: Entering URL "http://111.222.333.444:8080/Ericsson" makes the node look for files located in "http://111.222.333.444:8080/Ericsson/CXC112233/Rxxx/jarfile.jar"
+
+For downloading of software for system upgrade, see the attribute ftpServerIpAddress in MO UpgradePackage.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="piuGroupEscalationType" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The type of node restart when it is a problem with the last PIU in a PIU group.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/NodeRestartType/3.12.75" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="WARM_AT_PIU_RESTART" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="minimumHdVolumeCFreespace" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Minimum number of Megabytes of free space on C volume before an alarm is issued. 0 means that no alarm will be sent.
+
+It is used as a threshold that triggers alarms when the C volume is about to be full (i.e. when the attribute hdVolumeCFreespaceExt exceeds this value).
+
+The value should be set large enough so that an alarm is raised when the C volume is starting to have too little space for the new files of the next upgrade package.
+
+The value should be small enough, so that the alarm is not sent unnecessarily when there is a lot of free space.
+
+Alarm is raised if the value of hdVolumeCFreespaceExt becomes less than or equal to this value. But in order to cease the alarm, the free space must become at least 1 Megabyte larger than this value. To free space on the C volume, some old UpgradePackage MOs should be deleted.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="999" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="docLibSystemDefined" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The identity of the ALEX document library defined for this node type and version, set by the system.
+
+The attribute is read by the Element Management application to find the documentation library.
+The value must contain the used library identity, without spaces, for example:
+EN/LZN7450008R2A</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="docLibUserDefined" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The identity of an ALEX document library that can be defined by the user.
+
+Use this attribute to set the library identity, if the attribute docLibSystemDefined is not available, or if the system-defined ALEX library is not available on the document server. If this attribute is set, it is used by the Element Manager to indentify the documentation library, instead of the value of docLibSystemDefined.
+
+The value contains the library identity, without spaces, for example:
+EN/LZN7450008R2A</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ntpBurstFlagThird" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>This is the burst flag used towards the third NTP server.
+
+Even if this NTP server is not configured, this attribute still responds with its default value.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ntpMaxPollThird" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>This value states the maximum interval (in seconds) for polling the third NTP server.
+
+This value must be &gt; 0.
+
+Even if this NTP server is not configured, this attribute still responds with its default value.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="131072" min="16"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1024" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ntpMinPollThird" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>This value states the minimum interval (in seconds) for polling the third NTP server.
+
+This value must be &gt; 0.
+
+Even if this NTP server is not configured, this attribute still responds with its default value.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="131072" min="16"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="64" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ntpServerAddressThird" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>This is an alternative IP address to an NTP server.
+
+If this NTP server is not configured, this attribute responds with 0.0.0.0.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ntpServiceActiveThird" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies if the node should poll the third NTP server for information.
+
+Even if this NTP server is not configured, this attribute still responds with its default value.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="autoConfigurationStatus" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Displays if autoconfiguration is in progress or not.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/AutoConfStatus/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="hdVolumeCSizeExt" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total size of the C volume on the node in Megabytes. The C volume may be replicated on several hard disks.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="hdVolumeCFreespaceExt" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of Megabytes of free space available on the C volume. The C volume may be replicated on several hard disks in a node.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

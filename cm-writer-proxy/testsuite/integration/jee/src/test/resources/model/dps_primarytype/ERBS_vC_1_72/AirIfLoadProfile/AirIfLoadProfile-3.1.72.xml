@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="AirIfLoadProfile" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Contains parameters and constraints for Air Interface Load Generator needed to start the function in a Cell.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains a list of managed object instances that reserves this managed object instance.
+
+Dependencies: The MO may not be deleted if it is reserved.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="//ERBS_vC_1_72/ManagedObject/3.1.72" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="AirIfLoadProfileId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the (Relative Distinguished Name) RDN</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="dlPrbLoadLevel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Minimal load level associated with downlink Physical Resource Block (PRB) use.
+ 
+If the sum of higher priority artificial load defined according to ailgHighPrio and real UE is below this level, lower priority artificial load is generated to reach the minimal load level.
+
+0 means that no minimal load level is defined
+
+Unit: %
+Takes effect: Feature start</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ailgLowPrioModType" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Supported modulation type for lower priority artificial load.
+
+Takes effect: Feature start</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/DataModSchemes/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="QPSK_MOD_SCH" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="noOfOcngPrbSeries" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The number of series (where each series is defined in ocngPrbSerie) to be allocated for the OFDMA Channel Noise Generator (OCNG) pattern, as defined in 3GPP TS 36.133.
+
+Dependencies: Valid if ailgHighPrio = OCNG
+Takes effect: Feature start</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="10" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ocngPrbSerie" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Contains the attributes required to configure the OFDMA Channel Noise Generator (OCNG) Frequency Division Duplex (FDD) pattern to use for filling the Physical Resource Blocks (PRBs), according to 3GPP TS 36.133.
+
+Dependencies: Valid if ailgHighPrio = OCNG
+Takes effect: Feature start</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="10"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType modelUrn="//ERBS_vC_1_72/OcngPrbSerie/3.1.72" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="trafficModelPrb" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Contains the attributes required to configure a traffic model pattern to  use for filling the Physical Resource Blocks (PRBs).
+
+Dependencies: Valid if ailgHighPrio = TRAFFIC_MODEL
+Takes effect: Feature start</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/TrafficModelPrb/3.1.72" xsi:type="ns1:complexRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ailgHighPrio" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The method used to generate high priority artificial load.
+
+Takes effect: Feature start</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/PrbPatternModel/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="NO_HIGH_PRIO_LOAD" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="zzzTemporary1" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="zzzTemporary2" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="zzzTemporary3" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="zzzTemporary4" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="zzzTemporary5" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="-2000000000" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="zzzTemporary6" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="-2000000000" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="zzzTemporary7" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="-2000000000" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

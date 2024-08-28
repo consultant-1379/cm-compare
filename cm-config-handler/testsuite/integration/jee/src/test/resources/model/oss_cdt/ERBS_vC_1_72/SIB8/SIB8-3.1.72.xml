@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:lifeCycleDesc="" ns1:name="SIB8" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/oss_cdt/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>SIB8</ns1:desc>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="searchWindowSizeCdma">
+    <ns1:desc>Specifies the search window size for assisting in the search for neighbouring pilots in a CDMA2000 network.
+
+Resolution: 1
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="15" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="8" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="tReselectionCdmaHrpd">
+    <ns1:desc>Specifies the cell reselection timer value which is applicable when evaluating cell reselection towards CDMA2000 HRPD.
+
+Corresponds to TreselectionCDMA_HRPD in TS 36.304.
+
+Unit: s
+Resolution: 1
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="7" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="2" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="tReselectionCdmaHrpdSfMedium">
+    <ns1:desc>Specifies scaling factor for TreselectionCDMA_HRPD for Medium-mobility state.The parameter tReselectionCdmaHrpd is multiplied with this factor if the UE is in Medium-mobility state.
+Value mapping:
+25 = 0.25
+50 = 0.5
+75 = 0.75
+100 = 1.0
+
+Corresponds to "Speed dependent ScalingFactor for TreselectionCDMA_HRPD" in TS 36.304
+
+If both tReselectionCdmaHrpdSfMedium and tReselectionCdmaHrpdSfHigh is set to 100 they will not be broadcasted in System Information.
+
+Unit: %
+Resolution: 25
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="25"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="100" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="tReselectionCdmaHrpdSfHigh">
+    <ns1:desc>Specifies scaling factor for TreselectionCDMA_HRPD for High-mobility state. The parameter tReselectionCdmaHrpd is multiplied with this factor if the UE is in High-mobility state.
+Value mapping:
+25 = 0.25
+50 = 0.5
+75 = 0.75
+100 = 1.0
+
+Corresponds to "Speed dependent ScalingFactor for TreselectionCDMA_HRPD" in TS 36.304
+
+If both tReselectionHrpdSfMedium and tReselectionHrpdSfHigh is set to 100 they will not be broadcasted in System Information.
+
+Unit: %
+Resolution: 25
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="25"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="100" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

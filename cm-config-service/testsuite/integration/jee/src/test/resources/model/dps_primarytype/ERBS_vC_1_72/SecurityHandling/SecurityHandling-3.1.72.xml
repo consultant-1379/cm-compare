@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="SecurityHandling" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Models the manageable characteristics of the security handling except security handling during X2 handover and S1 handover. These characteristics are then used by all instances of the RRC dedicated protocol.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmRrcSecFailUnexpectedMsg" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of unexpected RRC messages received in the RBS.
+
+Unit: -
+Condition: The counter will be incremented every time an RRC message is received in a state where the message is not expected.
+Counter type: PEG
+Scanner: Not included in any predefined scanner
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="SecurityHandlingId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="countWrapSupervisionActive" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Parameter for controlling whether or not to supervise if COUNT-C is about to wrap.
+
+Takes effect: Cell lock/unlock.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="true" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="rbIdSupervisionActive" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Controls supervision when the same radio bearer ID with the same set of parameters occurs in the ciphering algorithm.
+
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="true" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="integrityProtectionAlgorithms" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The priority of the algorithms 128-EIA1 (based on SNOW 3G) and 128-EIA2 (based on AES). A single algorithm or both algorithms can be used.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/IntegrityPriority/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="EIA2_EIA1" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmRrcSecFailIntegrity" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of verification failures of RRC messages in the RBS.
+
+Unit: -
+Condition: The counter will be incremented every time an RRC verification failure is reported.
+Counter type: PEG
+Scanner: Not included in any predefined scanner
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="cipheringAlgorithms" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The priority of ciphering algorithms 128-EEA1 (based on SNOW 3G), 128-EEA2 (based on AES), and EEA0 (null ciphering, no ciphering  applied). It is also possible to specify that one or more of the algorithms should not be used at all.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/CipheringPriority/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="EEA1_EEA2_EEA0" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmZtemporary45" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Normally this counter is not used, it can however sometimes be temporarily used for very late additions in a release. If so, for description see Network Impact Report in the CPI.
+
+Unit: -
+Condition: -
+Counter type: PEG
+Sampling rate: -
+Scanner: Not included in any predefined scanner 
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

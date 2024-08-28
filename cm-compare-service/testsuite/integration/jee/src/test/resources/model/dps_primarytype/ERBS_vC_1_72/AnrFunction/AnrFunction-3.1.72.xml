@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="AnrFunction" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Contains parameters and constraints for Automatic Neighbor Relations (ANR) functions, such as adding or removing neighbor cells.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="AnrFunctionId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the Relative Distinguished Name (RDN).</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="cellAddRankLimitEutran" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Since L11B. Planned to be removed.
+Threshold value for reported rank for a cell to be automatically added as neighbor.
+
+Unit: no of cells
+Resolution: -
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="cellAddRsrpOffsetEutran" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Since L11B. Has no functional behavior, planned to be removed.
+Threshold offset value for reported power for a cell to be automatically added as neighbor.
+
+Unit: 0.1 dBm
+Resolution: -
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="300" min="-300"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="-10" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="cellAddRsrpThresholdEutran" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Since L11B. Replaced by AnrFunctionEUtran::cellAddRsrpThresholdEutran.
+Threshold value for reported power for a cell to be automatically added as neighbor.
+
+Unit: 0.1 dBm
+Resolution: -
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="0" min="-1440"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="-1440" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="cellAddRsrqOffsetEutran" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Since L11B. Has no functional behavior, planned to be removed.
+Threshold offset value for reported quality for a cell to be automatically added as neighbor.
+
+Unit: 0.1 dB
+Resolution: -
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="300" min="-300"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="-10" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="cellAddRsrqThresholdEutran" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Since L11B. Replaced by AnrFunctionEUtran::cellAddRsrqThresholdEutran.
+Threshold value for reported quality for a cell to be automatically added as neighbor.
+
+Unit: 0.01 dB
+Resolution: -
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="0" min="-1920"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="-1920" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="hoAllowedEutranPolicy" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Since L11B. Replaced by AnrFunctionEUtran::hoAllowedEutranPolicy.
+Starting value of the attribute isHoAllowed when a EUtranCellRelation is created by Automated Neighbor Relations (ANR).
+
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="true" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="removeNcellTime" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The length of time that neighbor cells without any neighbor relations remain in the RBS. 1000 means no automatic removal is performed. If set to 0, the neighbor cell MO is removed within 1 minute.
+
+Unit: 1 day
+Resolution: -
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="1000" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="30" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="removeNenbTime" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The length of time that neighbor RBSs without any neighbor cells remain in the RBS. 1000 means no automatic removal is performed. If set to 0, the neighbor RBS MO is removed within 1 minute.
+
+Unit: 1 day
+Resolution: -
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="1000" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="7" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="removeNrelTime" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The length of time that neighbor relations without any communication to the neighbor cell remain in the RBS. 1000 means no automatic removal is performed. If set to 0, the neighbor relation MO is removed within 1 minute.
+
+Unit: 1 day
+Resolution: -
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="1000" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="30" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="x2SetupPolicy" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Since L11B. Replaced by AnrFunctionEUtran::x2SetupPolicy.
+Indicates if X2 is set up when an ExternalEnbFunction not in the x2BlackList is created by Automated Neighbor Relations (ANR).
+
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="true" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="anrUesEUtraIntraFMax" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Since L11B. Replaced by AnrFunctionEUtran::anrUesEUtraIntraFMax.
+The maximum target number of UEs in each cell that are assigned Automated Neighbor Relations (ANR)-specific thresholds for E-UTRAN intra-frequency neighbor cell reports. The actual number of UEs with these thresholds may deviate from the target.
+
+Unit: UE
+Resolution: 1
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="20" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="anrUesEUtraIntraFMin" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Since L11B. Replaced by AnrFunctionEUtran::anrUesEUtraIntraFMin.
+The minimum target number of UEs in each cell that are assigned Automated Neighbor Relations (ANR)-specific thresholds for E-UTRAN intra-frequency neighbor cell reports. The actual number of UEs with these thresholds may deviate from the target.
+
+Unit: UE
+Resolution: 1
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="anrUesEUtraIntraFDecr" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Since L11B. Replaced by AnrFunctionEUtran::anrUesEUtraIntraFDecr. 
+The decrease in the target number of UEs in each cell that are assigned Automated Neighbor Relations (ANR)-specific thresholds for E-UTRAN intra-frequency neighbor cell reports, every time a neighbor cell report is received with only known neighbor cells.
+
+Unit: centiUE
+Resolution: 1
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="1000" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="10" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="anrUesEUtraIntraFIncrHo" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Since L11B. Replaced by AnrFunctionEUtran::anrUesEUtraIntraFIncrHo.
+The increase in the target number of UEs in each cell that are assigned Automated Neighbor Relations (ANR)-specific thresholds for E-UTRAN intra-frequency neighbor cell reports, every time a neighbor cell report for handover is received with unknown neighbor cells.
+
+Unit: centiUE
+Resolution: 1
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="1000" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="100" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="anrUesEUtraIntraFIncrAnr" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Since L11B. Replaced by AnrFunctionEUtran::anrUesEUtraIntraFIncrAnr.
+The increase in the target number of UEs in each cell that are assigned Automated Neighbor Relations (ANR)-specific thresholds for E-UTRAN intra-frequency neighbor cell reports, every time a neighbor cell report for ANR is received with unknown neighbor cells.
+
+Unit: centiUE
+Resolution: 1
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="1000" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="20" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="zzzTemporary1" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="zzzTemporary2" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="zzzTemporary3" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="zzzTemporary4" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="zzzTemporary5" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="-2000000000" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="zzzTemporary6" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="-2000000000" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="zzzTemporary7" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="-2000000000" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

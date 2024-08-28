@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:lifeCycleDesc="" ns1:name="OperatingMode" ns1:ns="CPP_MODEL" ns1:version="3.12.75">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/oss_cdt/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>The operating mode</ns1:desc>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="autoNegotiation">
+    <ns1:desc>Specifies if autonegotiation is enabled or disabled on this port.
+
+Autonegotiation must be enabled for SFP ports and when port speed and duplex settings are configured as ETH_1000_MB_FULL or ETH_1000_MB_HALF.
+
+Changing autonegotiation to OFF (manual mode), affects the automatic MDI/MDI-X configuration, which will change into manual mode as well (forcing a need to consider whether straight through or crossover cables shall be used).</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="true" xsi:type="ns1:booleanValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="configuredSpeedDuplex">
+    <ns1:desc>If autoNegotiation is false, this attribute specifies the fixed operating mode for the port. If autoNegotiation is true, it specifies the minimum acceptable operating mode for the port. If the minimum mode is not achieved, a link failure alarm is raised on the port.
+
+If ETH_1000_MB_HALF or ETH_1000_MB_FULL is selected, autoNegotiation must be true. 
+Selecting ETH_1000_MB_HALF or ETH_1000_MB_FULL when autoNegotiation is false, will disable the port.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/EthernetSpeedDuplex/3.12.75" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="ETH_10_MB_HALF" xsi:type="ns1:stringValue"/>
+  </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

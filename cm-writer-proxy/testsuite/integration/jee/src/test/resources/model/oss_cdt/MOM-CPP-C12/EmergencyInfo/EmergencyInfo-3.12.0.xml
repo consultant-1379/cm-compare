@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:lifeCycleDesc="" ns1:name="EmergencyInfo" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/oss_cdt/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>This attribute provides information about the current EmergencyState.
+
+For the states NEVER_USED and USE_DISABLED the return value for time is insignificant.</ns1:desc>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="state">
+    <ns1:desc>The current emergency state of the license server.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/EmergencyStatus/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="NEVER_USED" xsi:type="ns1:stringValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="time">
+    <ns1:desc>Indicates the remaining time in state ACTIVE or ACTIVE_AGAIN.
+
+The time out values for the states ACTIVE and ACTIVE_AGAIN is 7 days.
+
+The time out value is 0 when the state is NEVER_USED, USE_DEGRADED and USE_DISABLED.
+
+1 day = 86400 s
+7 days = 604800 s</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

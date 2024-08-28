@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="GeranFreqGroupRelation" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>This Managed Object represents a mobility relation between an EUtranCellFDD or an EUtranCellTDD and a GeranFreqGroup. It contains parameters that are specific for this relation.
+
+Deleting this MO while the parent EUtranCellFDD/EUtranCellTDD has operationalState set to ENABLED is not recommended as it may affect traffic.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="GeranFreqGroupRelationId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the Relative Distinguished Name (RDN).</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="geranFreqGroupRef" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Reference to the GERAN frequency group MO, GeranFreqGroup.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/GeranFreqGroup/3.1.72" xsi:type="ns1:moRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="qRxLevMin" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The required minimum received Rx level in the GERAN frequency used in cell reselection. Corresponds to parameter Qrxlevmin in 3GPP TS 36.304.
+
+Unit: dBm
+Resolution: 2
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="-25" min="-115"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="-115" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pMaxGeran" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Calculates the parameter Pcompensation (defined in 3GPP TS 36.304) at cell reselection to a GERAN cell.
+Value 1000 means the parameter is not included in system information.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="39" min="0"/>
+        <ns1:minMaxRange max="1000" min="1000"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1000" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="threshXHigh" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The threshold used by the UE when reselecting towards a higher priority frequency from the current serving frequency. Each frequency of GERAN may have a specific threshold. Corresponds to parameter Thresx,high in 3GPP TS 36.304.
+
+Resolution: 2
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="62" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="4" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="threshXLow" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The threshold used by UE when reselecting towards a lower priority frequency from the current serving frequency. Corresponds to parameter Thresx,low in 3GPP TS 36.304.
+
+Resolution: 2
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="62" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="nccPermitted" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Field encoded as a bit map.
+
+Bit N is set to 0 if a BCCH carrier with NCC = N-1 is not permitted for monitoring.
+
+Bit N is set to 1 if the BCCH carrier with NCC = N-1 is permitted for monitoring.
+
+Bit N = 1 to 8; bit 1 of the bitmap is the right-most bit of the bit string.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="8" min="8"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="11111111" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="cellReselectionPriority" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Absolute priority of the radio access technology. 0 means lowest priority. Corresponds to parameter priority in 3GPP TS 36.304.
+
+Resolution: 1
+Dependencies: The value must be uniqe and not already used by other RAT, i.e. equal priorities between RATs are not supported.
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="7" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="5" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="allowedPlmnList" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Lists all Public Land Mobile Network (PLMN) IDs allowed for this frequency relation.
+
+A UE that does not support one of the IDs included in allowedPlmnList does not measure on this frequency, according to the UE Handover Restriction List.
+
+No values in the list imply that the frequency has no restrictions for PLMN.
+
+The PLMN identity contains the following parts: 
+1. MobileCountryCode, MCC, 3 digits
+2. MobileNetworkCode, MNC, 2 or 3 digits (the correct number of digits is set in the mncLength member of this Struct)
+
+For example, if MCC=125 and MNC=46, then plmnId=12546.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="15"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType modelUrn="//ERBS_vC_1_72/PlmnIdentity/3.1.72" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="includeInSystemInformation" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: L11A. Has no functional behaviour.
+Indicates if the GERAN frequency group referred to is included in System Information.
+
+When the includeinSystemInformation is set to false, the GERAN frequency group is not included in SIB7. A maximum of 16 GERAN frequency groups can be included in SIB7.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="true" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="csFallbackPrio" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Prioritizes GERAN Frequency group among all frequencies related to the cell for UEs in connected mode.
+Sets the priority to which frequency/frequency group to make CS Fallback to. 
+The value 0 means the lowest priority.
+The value 7 means the highest priority.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="7" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="connectedModeMobilityPrio" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Prioritizes GERAN frequencies among all frequencies related to the cell for UEs in connected mode.
+(0 means the lowest priority)
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="7" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="5" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="qOffsetFreq" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Indicates a frequency-specific offset to apply when evaluating triggering conditions for measurement reporting.
+
+Unit: 1 dB
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="15" min="-15"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="csFallbackPrioEC" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Prioritizes GERAN Frequency group among all frequencies/frequency groups for emergency calls related to the cell for UEs in connected mode.
+Sets the priority to which frequency group to make emergency call CS Fallback to. 
+The value 0 means the lowest priority.
+The value 7 means the highest priority.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="7" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="mobilityActionCsfb" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The preferred way to transfer a UE in connected mode to a GERAN frequency group in case of CS Fallback.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/MobilityActionCsfbGeran/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="RELEASE_WITH_REDIRECT" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="mobilityAction" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The preferred way to transfer a UE in connected mode to a GERAN frequency group in case of coverage triggered mobility.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/MobilityActionGeran/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="RELEASE_WITH_REDIRECT" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="M3ua" ns1:ns="CPP_MODEL" ns1:version="3.12.75" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>The M3UA Stack Representation.
+
+Contains general information for the M3UA configuration of a certain stack.
+
+According to the standard, there are three possible configurations of an IETF M3UA stack:
+- Signalling Gateway Process  (SGP)
+- Application Server Process (ASP)
+- IP Server Process (IPSP)
+
+In the SGP configuration, the following MOs have to be configured:
+- a normal SS7 configuration of an SGW
+- M3ua, Mtp3bSrs, M3uaRemoteAs, M3uaRk, M3uaRkGrouping, M3uaLocalSp, M3uaRemoteSp, M3uaRemoteSctpEp
+
+In the ASP configuration, the following MOs have to be configured:
+- Mtp3bSpAnsi, Mtp3bSpChina, Mtp3bSpItu or Mtp3bSpTtc
+- Mtp3bSrs, Mtp3bAp, M3ua,  M3uaLocalAs,  M3uaLocalSp, M3uaRemoteSp, M3uaRemoteSctpEp
+
+In the IPSP configuration, the following MOs have to be configured:
+- Mtp3bSpAnsi, Mtp3bSpChina, Mtp3bSpItu or Mtp3bSpTtc
+- Mtp3bSrs, Mtp3bAp, M3ua, M3uaLocalAs, M3uaRemoteAs, M3uaRk, M3uaRkGrouping,  M3uaLocalSp, M3uaRemoteSp, M3uaRemoteSctpEp
+
+Specification: RFC 4666</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="M3uaId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="rpuRef" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Reference to an instance of ReliableProgramUniter MO.
+
+The rpuRef must be unique among all M3ua MO instances.</ns1:desc>
+    <ns1:type modelUrn="/dps_primarytype/CPP_MODEL/ReliableProgramUniter/3.12.75" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="stackType" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The M3UA stack type.
+
+Specifies which configurations are allowed for the stack, that is the types of local Signalling Processes (SP) allowed to be configured.
+
+The value of this attribute must include all child M3uaLocalSp types, which are found in the attribute spType.
+
+If set to:
+- IPSP: only IPSP local SPs are allowed,
+- ASP: only ASP local SPs are allowed,
+- SGP: only SGP local SPs are allowed,
+- ASP_IPSP: ASP and IPSP local SPs are allowed,
+- SGP_IPSP: SGP and IPSP local SPs are allowed.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/M3uaProcessType/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="failoverBufSize" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The size of the failover buffer.
+
+Specifies the size of the failover buffer for each SCTP association, to buffer messages for failover timer, during rerouting between bearers or between signalling processes in an application server.
+
+If set to 0, no messages are buffered.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="5000" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="2000" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="allowDynamicRegRemoteAsps" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Allows dynamic registration of remote Application Server Processes (ASP).
+
+Specifies whether a dynamic registration of ASPs is supported or not. Applicable only for an SGP configuration.
+
+If this MO has a child M3uaRemoteSctpEp without configured IP addresses, this attribute must be set to true.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="useHeartbeats" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Use the M3UA heartbeat function.
+
+This function shall be enabled, if the heartbeat function is disabled on the SCTP layer.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timerData" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The timer data for this M3UA stack.</ns1:desc>
+    <ns1:type modelUrn="/oss_cdt/CPP_MODEL/M3uaIetfTimerData/3.12.75" xsi:type="ns1:complexRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="attemptsOfAssocEstablish" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The maximum number of attempts to establish an SCTP association in one set of attempts.
+
+If set to 0, the number of attempts is infinite.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="4" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="attemptsOfDauds" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The number of attempts to send the Destination Audit (DAUD) message.
+
+If set to 0, the DAUD message is sent continuously until a Destination Available (DAVA) message is received.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="5" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="preferredRemoteSpType" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The preferred remote signalling process (SP) type.
+
+In an SGP configuration, this attribute specifies the preferred remote SP type for routing outgoing messages, if the destination is available:
+- directly, as an ASP
+- via another SGP, as an SS7 destination.
+
+The specified SP type is used if available.  A rerouting between SP types is performed automatically.
+
+Applicable only for an SGP configuration, and normally during migration.
+
+Possible values are: ASP, SGP.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/M3uaProcessType/3.12.75" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="ASP" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="resendSconInterval" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The resend SCON interval.
+
+Specifies the number of messages received from the peer side, before the Signalling Congestion (SCON) message is sent to the originating signalling point, indicating that the destination is congested.
+
+If set to 0, sending of SCON messages is suppressed.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="255" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="8" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="statusIndInterval" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The status indication interval.
+
+Specifies the number of messages received from the user part, before M3UA indicates to the user part that the destination is congested.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="255" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="8" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains a list of MO instances that reserve this MO instance.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="/dps_primarytype/CPP_MODEL/ManagedObject/3.12.75" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="allowSendDupuOnAspIpsp" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Allows Destination User Part Unavailable (DUPU) messages to be sent from ASP and IPSP.
+
+If set to false, DUPU messages are not sent from ASP and IPSP. This behavior is compliant with the standard specification.
+
+If set to true, and the Application Server (AS) is configured to serve several service indicators, the ASP or IPSP can issue DUPU messages. This is done in response to each incoming message, for which the user part is not available.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="true" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

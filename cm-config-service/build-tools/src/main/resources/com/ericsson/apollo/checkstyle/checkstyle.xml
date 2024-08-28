@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC
+  "-//Puppy Crawl//DTD Check Configuration 1.2//EN"
+  "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
+<module name="Checker">
+
+  <module name="SuppressionFilter">
+    <property name="file" value="/com/ericsson/apollo/checkstyle/suppressions.xml" />
+  </module>
+
+  <module name="FileTabCharacter" />
+  <module name="JavadocPackage" />
+  <module name="NewlineAtEndOfFile">
+    <property name="lineSeparator" value="lf" />
+  </module>
+
+  <!-- Copyright headers -->
+  <module name="RegexpSingleline">
+    <property name="format" value="^(\s|\*)*\s+COPYRIGHT\s+Ericsson\s+[0-9]+\s*$" />
+    <property name="minimum" value="1" />
+    <property name="maximum" value="1" />
+    <property name="message" value="missing copyright header" />
+  </module>
+
+  <!-- Copyright headers -->
+  <module name="RegexpSingleline">
+    <property name="format" value="NOPMD" />
+    <property name="ignoreCase" value="true" />
+    <property name="message" value="use of NOPMD is prohibited" />
+  </module>
+
+  <!-- Unmaintainable Javadoc tags -->
+  <module name="RegexpSingleline">
+    <property name="format" value="(@(version)|@(since)|\(non-Javadoc\)|@(author))" />
+    <property name="ignoreCase" value="true" />
+    <property name="message" value="unmaintainable Javadoc tags: @version, @since, (non-Javadoc), @author" />
+  </module>
+
+  <!-- IDE-generated comment -->
+  <module name="RegexpSingleline">
+    <property name="format" value="Auto-generated method stub" />
+    <property name="message" value="IDE-generated TODO - Auto-generated method stub" />
+  </module>
+
+  <module name="RegexpMultiline">
+    <property name="format" value="\r" />
+    <property name="message" value="non-Unix line separator" />
+  </module>
+
+  <!-- No trailing whitespace (except in eclipse formatted JavaDocs) -->
+  <module name="RegexpSingleline">
+    <metadata name="net.sf.eclipsecs.core.comment" value="MAZ" />
+    <property name="format" value="\s+$" />
+    <property name="message" value="Line has trailing whitespace." />
+  </module>
+
+  <!-- Prohibit consecutive empty lines (except the lines after package/import) -->
+  <module name="RegexpMultiline">
+    <property name="format" value="\n *(?!package )(?!import )[^\n]+\n{3,}" />
+    <property name="message" value="two or more consecutive empty lines" />
+  </module>
+  <!-- Prohibit an empty after { or before } -->
+  <module name="RegexpMultiline">
+    <property name="format" value="\n\n\s+\}[^\n]{0,10}\n" />
+    <property name="message" value="an empty line before '}'" />
+  </module>
+  <module name="RegexpMultiline">
+    <property name="format" value="\n\s+[^\n]{1,8}\{\n\n" />
+    <property name="message" value="an empty line after a short line that ends with '{'" />
+  </module>
+
+  <module name="SuppressWarningsFilter" />
+
+  <module name="TreeWalker">
+
+    <module name="SuppressWarningsHolder" />
+
+    <module name="LineLength">
+      <property name="max" value="150" />
+    </module>
+    <module name="WhitespaceAfter" />
+
+    <module name="WhitespaceAround">
+      <property name="tokens"
+        value="ASSIGN, BAND, BAND_ASSIGN, BOR, BOR_ASSIGN, BSR, BSR_ASSIGN, BXOR, BXOR_ASSIGN, DIV, DIV_ASSIGN, EQUAL, GE, GT, LAND, LCURLY, LE, LITERAL_ASSERT, LITERAL_CATCH, LITERAL_DO, LITERAL_ELSE, LITERAL_FINALLY, LITERAL_FOR, LITERAL_IF, LITERAL_RETURN, LITERAL_SYNCHRONIZED, LITERAL_TRY, LITERAL_WHILE, LOR, LT, MINUS, MINUS_ASSIGN, MOD, MOD_ASSIGN, NOT_EQUAL, PLUS, PLUS_ASSIGN, RCURLY, SL, SLIST, SL_ASSIGN, SR, SR_ASSIGN, STAR, STAR_ASSIGN, TYPE_EXTENSION_AND, DEC, INC" />
+    </module>
+
+    <module name="MissingOverride" />
+    <module name="MissingDeprecated" />
+    <module name="PackageAnnotation" />
+    <module name="EmptyBlock">
+      <property name="option" value="text" />
+    </module>
+    <module name="LeftCurly" />
+    <module name="RightCurly" />
+    <module name="NeedBraces" />
+    <module name="AvoidNestedBlocks">
+      <property name="allowInSwitchCase" value="true" />
+    </module>
+
+    <module name="FinalClass" />
+    <module name="InterfaceIsType" />
+    <module name="MutableException" />
+    <module name="InnerTypeLast" />
+    <!-- <module name="DesignForExtension"/> -->
+    <module name="HideUtilityClassConstructor" />
+
+    <module name="CovariantEquals" />
+    <module name="EmptyStatement" />
+    <module name="EqualsHashCode" />
+    <module name="FinalLocalVariable">
+      <property name="tokens" value="VARIABLE_DEF,PARAMETER_DEF" />
+    </module>
+    <module name="StringLiteralEquality" />
+    <module name="RedundantThrows">
+      <property name="logLoadErrors" value="false" />
+      <property name="suppressLoadErrors" value="false" />
+    </module>
+
+    <module name="SimplifyBooleanExpression" />
+    <module name="SimplifyBooleanReturn" />
+    <module name="NoFinalizer" />
+    <module name="SuperFinalize" />
+    <module name="PackageDeclaration" />
+    <module name="ExplicitInitialization" />
+    <module name="DefaultComesLast" />
+    <module name="UnnecessaryParentheses" />
+
+    <module name="AvoidStarImport">
+      <property name="allowClassImports" value="false" />
+      <property name="allowStaticMemberImports" value="false" />
+    </module>
+    <module name="RedundantImport" />
+    <module name="UnusedImports" />
+    <module name="RequireThis">
+      <property name="checkMethods" value="false" />
+    </module>
+    <module name="UpperEll" />
+    <module name="ArrayTypeStyle" />
+    <module name="OuterTypeFilename" />
+    <module name="ModifierOrder" />
+    <module name="RedundantModifier" />
+    <module name="GenericWhitespace" />
+    <module name="EmptyForInitializerPad" />
+    <module name="EmptyForIteratorPad" />
+    <module name="MethodParamPad" />
+    <module name="ParenPad" />
+    <module name="TypecastParenPad" />
+    <module name="DeclarationOrder" />
+
+    <module name="ParameterName">
+      <property name="format" value="^(?!arg[0-9])[_a-z][_a-zA-Z0-9]*$" />
+    </module>
+    <module name="StaticVariableName" />
+    <module name="TypeName" />
+    <!-- <module name="ConstantName" /> -->
+    <module name="LocalFinalVariableName" />
+    <module name="LocalVariableName" />
+    <module name="MemberName" />
+    <module name="MethodName">
+      <property name="format" value="^[a-z][a-zA-Z0-9_]*$" />
+    </module>
+    <module name="MethodTypeParameterName">
+      <property name="format" value="^[A-Z0-9]+$" />
+    </module>
+    <module name="PackageName">
+      <property name="format" value="^[a-z]+(\.[a-z][a-z0-9]*)*$" />
+    </module>
+
+    <module name="ImportOrder">
+      <property name="groups" value="/^javax?\./,org,com" />
+      <property name="ordered" value="true" />
+      <property name="separated" value="true" />
+      <property name="option" value="top" />
+    </module>
+
+    <!-- JAVADOCS specific rules.
+      The scope is treated inclusively (as javadoc does):
+      'package' means all 'package', 'protected' and 'public' methods/fields/classes.
+      The valid options are: nothing, public, protected, package, private, anoninner.
+    -->
+    <module name="JavadocMethod">
+      <property name="severity" value="error" />
+      <property name="scope" value="package" />
+      <property name="allowUndeclaredRTE" value="true" />
+      <property name="suppressLoadErrors" value="true" />
+      <property name="allowThrowsTagsForSubclasses" value="true" />
+      <property name="allowMissingPropertyJavadoc" value="true" />
+    </module>
+
+    <module name="JavadocType">
+      <property name="severity" value="error" />
+      <property name="scope" value="package" />
+    </module>
+
+    <module name="JavadocVariable">
+      <property name="scope" value="package" />
+    </module>
+
+    <module name="JavadocStyle">
+      <property name="scope" value="package" />
+      <property name="checkFirstSentence" value="true" />
+      <property name="checkEmptyJavadoc" value="true" />
+      <property name="checkHtml" value="true" />
+      <property name="tokens" value="INTERFACE_DEF, CLASS_DEF, METHOD_DEF, CTOR_DEF, VARIABLE_DEF" />
+    </module>
+
+  </module>
+
+</module>
+

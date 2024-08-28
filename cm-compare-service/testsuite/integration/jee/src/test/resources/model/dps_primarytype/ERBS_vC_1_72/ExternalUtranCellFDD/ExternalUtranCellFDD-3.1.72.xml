@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="ExternalUtranCellFDD" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>This Managed Object contains a UTRAN cell for Frequency Division Duplex (FDD).</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ExternalUtranCellFDDId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the Relative Distinguished Name (RDN).</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="physicalCellIdentity" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Indicates the physical layer identity of the cell, that is, the primary scrambling code.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:notNullConstraint/>
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="511" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="cellIdentity" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>UTRAN Cell Identity.
+Used to identity the cell uniquely within UTRAN Iu mode.
+
+Disturbances: Changes may affect traffic
+Takes effect: Object unlocked</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/CellIdentityUtra/3.1.72" xsi:type="ns1:complexRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="plmnIdentity" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>PLMN ID supported by the cell
+
+Disturbances: Changes may affect traffic
+Takes effect: Immediately</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/PlmnIdentity/3.1.72" xsi:type="ns1:complexRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains a list of MO instances that reserve this MO instance.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="//ERBS_vC_1_72/ManagedObject/3.1.72" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="createdBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates whether the MO has been created by the Automated Neighbor Relations (ANR) function or operator.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/CreatedByIrat/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timeOfCreation" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates the time and date when the MO was created by the Automated Neighbor Relations (ANR) function or operator. Format: YYYY-MM-DD HH:MM:SS
+
+Unit: UTC
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="19" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="masterUtranCellId" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The identity of the UtranCell represented by this MO, particularly for automatically created ExternalUtranCell managed objects. The masterUtranCellId is set to the Full Distinguished Name (FDN).
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="lac" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The Location Area Code of the external UTRAN cell. A fixed-length code identifying the location area within a PLMN. Refer to 3GPP TS 23.003. 
+The value 0 of the attribute is used to mark invalid/unusable lac information for the cell. For example, handover to an external UTRAN cell (that is part of a Utran cell relation) can be considered only if the value of the lac attribute is NOT 0.
+
+Disturbances: Changes may affect traffic
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65533" min="0"/>
+        <ns1:minMaxRange max="65535" min="65535"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="rac" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The Routing Area Code of a routing area.
+The value -1 of the attribute is used to mark that the optional RAC IE should NOT be sent in the Target ID IE of the HANDOVER REQUIRED S1 message. Refer to 3GPP TS 36.413.
+
+Disturbances: Changes may affect traffic
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="255" min="-1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="-1" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="lastModification" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates whether the MO has been last modified by the Automated Neighbor Relations (ANR) function or operator.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/LastModificationUtran/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timeOfLastModification" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The date and time when the MO was last modified by the Automated Neighbor Relations (ANR) function or operator. Format: YYYY-MM-DD HH:MM:SS
+
+Unit: UTC
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="19" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="rimCapable" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>This parameter indicates if the external UTRAN cell is RIM capable. If the value is RIMIncapable, no attempt will be made to create a RIM association to the external UTRAN cell, other values will result in a attempt to create a RIM association.
+
+Disturbances: If the value is other than RIMIncapable the eNB will try to set up a RIM association to the external cell
+Takes effect: Immediately</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/RIMCapability/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="RIM_CAPABLE" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="rimAssociationStatus" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>This parameter indicates the current status of the RIM association to this external cell.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/RIMAssociationStatus/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

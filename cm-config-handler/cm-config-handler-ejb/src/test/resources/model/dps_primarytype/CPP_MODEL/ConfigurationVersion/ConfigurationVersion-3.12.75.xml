@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="ConfigurationVersion" ns1:ns="CPP_MODEL" ns1:version="3.12.75" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Configuration Version (CV)
+
+This MO manages all the node configurations saved on the disk. It keeps all the administrative data about the CVs, including the path and file-names of the configuration files. There may be more than one CV on the disk but only one is used at a time. A CV is always based on one Upgrade Package.
+
+This MO is created automatically and cannot be deleted.
+
+The RDN of this MO is ConfigurationVersion=1.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ConfigurationVersionId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.
+
+It is set automatically when the MO instance is created.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="storedConfigurationVersions" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Lists the stored configuration versions in the node.
+These CVs are stored in, and read from the file system.
+
+The CV list is formatted as a sequence of ConfigurationVersionAttributes.
+Each structure contains one CV with the following fields:
+- name
+- identity
+- type
+- upgrade package id
+- operator name
+- operator comment
+- date
+- status
+
+Each field in the structure has a string format with a maximum length of 40 characters.
+Only the characters "A - Z", "a -z", "0 - 9", "-" and "_" are allowed, other characters are removed.
+White spaces are allowed within the strings for the fields, operator comment and operator name.
+The format for the field date is:
+weekday month date hour:min:seconds year (DAY MMM DD HH:mm:ss YYYY).
+
+Example of a CV:
+
+{ name: Rb_SU_CPP6_LSV22_HW_PB4_070621_1731 }
+{ identity: no value (cv product id) }
+{ type: other }
+{ upgradePackageId: CPP6_LSV22_HW_PB4 }
+{ operatorName: Cello Packet Platform }
+{ operatorComment: Rollb. CV autocreated at System Upgrade. }
+{ date: Thu Jun 21 17:32:05 2007 }
+{ status: CELLO_CV_OK }</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="/oss_cdt/CPP_MODEL/ConfigurationVersionAttributes/3.12.75" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="currentLoadedConfigurationVersion" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies the name of the currently loaded configuration version.
+
+This is stored in, and read from the file system.
+
+This is the configuration version that the system started with, that is, the configuration version that was able to start at the last node restart.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="startableConfigurationVersion" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies the name of the configuration version to use at the next node restart.
+
+This is stored in, and read from the file system.
+
+This attribute is set by the action, setStartable. It is also set at rollback by the system. The first CV in the rollback list is then used.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="rollbackList" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies a list of configuration versions to rollback to (configuration version name).
+
+The first CV on the list is used at the next rollback. This entry is then automatically removed from the rollback list.
+
+This attribute is modified by the actions, setFirstRollbackList and removeFromRollbackList.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType xsi:type="ns1:stringType"/>
+    </ns1:type>
+    <ns1:default xsi:type="ns1:collectionValue">
+      <ns1:values>
+        <ns1:value value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+      </ns1:values>
+    </ns1:default>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="currentUpgradePackage" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>This is a reference to the upgrade package that is executing currently.</ns1:desc>
+    <ns1:type modelUrn="/dps_primarytype/CPP_MODEL/UpgradePackage/3.12.75" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="autoCreatedCVIsTurnedOn" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>This flag indicates that a configuration version is created automatically once a day, if it is set to true.
+
+The value of this attribute must be set to false, if the node has limited disk space.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="true" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timeForAutoCreatedCV" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies the time (HH:MM) when the configuration versions are automatically created (once a day).
+
+See also the attribute, autoCreatedCVIsTurnedOn.
+
+If the clock on the node is changed, this attribute must be set or else the JVM MP must be restarted.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;04:00&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="rollbackOn" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>This flag indicates if rollback is enabled or not.
+
+If true, the system automatically sets the rollback counter. If cyclic restarts, a rollback is issued after x restarts (x is defined by the rollbackInitCounterValue).</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="true" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="rollbackInitTimerValue" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies the time used by the system when rollback is switched on (rollbackOn = true). After the given time, the node is not in a cyclic restart mode. The rollback counter, rollbackInitCounterValue, is then reset to its initial value.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="10000" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="30" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="rollbackInitCounterValue" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies the initial value of the rollback counter. This is used when rollback is switched on (rollbackOn = true).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="10000" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="5" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="executingCv" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies the name of the executing Configuration Version.
+
+This is the same as the attribute, currentLoadedConfigurationVersion, after a node restart, where this is changed to the value of the lastCreatedCv, when a CV is created.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="lastCreatedCv" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies the name of the last created Configuration Version.
+
+A CV of type downloaded is not considered as last created.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="actionResult" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains the result from the latest invoked action. Additional information is stored in the attribute additionalActionResultData.
+
+This attribute is only valid for the non-blocking actions:
+- putToFtpServer
+- getFromFtpServer
+- verifyRestore
+- restore
+- forcedRestore
+- confirmRestore.</ns1:desc>
+    <ns1:type modelUrn="/oss_cdt/CPP_MODEL/CVActionResultData/3.12.75" xsi:type="ns1:complexRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="additionalActionResultData" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains additional action result information.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="/oss_cdt/CPP_MODEL/CVActionAdditionalResultData/3.12.75" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="corruptedUpgradePackages" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies the upgrade packages which contain load modules that are corrupted.
+
+To correct this problem, a forced installation of these upgrade packages is done.
+
+This attribute is set at the execution of the actions verifyRestore, restore and forcedRestore.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="/oss_cdt/CPP_MODEL/AdminProductData/3.12.75" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="currentDetailedActivity" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies the current detailed activity (within the main activity) at the execution of a non-blocking action.
+
+Example: RETREIVING_BACKUP_FROM_REMOTE_SERVER.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/CVCurrentDetailedActivity/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="currentMainActivity" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies the current main activity at the execution of CV related actions (not the actions that handle the command log).
+
+Example: CREATING_CV.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/CVCurrentMainActivity/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="listOfHtmlResultFiles" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies the absolute file paths to the verify restore html result files.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType xsi:type="ns1:stringType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="missingUpgradePackages" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies the upgrade packages that are included in the downloaded CV, but do not exist in the node. This attribute is set at the execution of the actions verifyRestore, restore and forcedRestore.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="/oss_cdt/CPP_MODEL/AdminProductData/3.12.75" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="restoreConfirmationDeadline" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies the deadline, date and time for an operator confirmation of a restore action.
+
+If the deadline is not met, then an automatic rollback to a previous configuration is issued by the system. The date and time is in UTC format.
+
+Unit: 1 min</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="configAdmCountdown" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="MEDIATE">
+    <ns1:desc>Specifies the number of seconds until node restart, that is until a confirmation of the latest change must be made.
+
+If the countdown mechanism is already activated (if the attribute configCountdownActivated is set to true), changing this attribute will not have any effect until the next countdown.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="86400" min="300"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="900" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="configOpCountdown" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Displays the number of seconds until node restart, that is until a confirmation of the latest change must have been made.
+
+When the value of this attribute has reached 0, the node restarts. If configCountdownActivated is false, the value of this attribute is equal to that of configAdmCountdown.
+
+When 180 seconds remain to node restart, an event is sent.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="86400" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="configCountdownActivated" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="MEDIATE">
+    <ns1:desc>Activates or deactivates the robust rollback function, that is a countdown mechanism for confirmation of a configuration change.
+
+If set to true, the countdown mechanism is activated.
+If set to false, the latest configuration change is regarded as confirmed, and the countdown mechanism is deactivated.
+
+When countdown is ongoing, the attribute configOpCountdown will decrease by 1 every second, until one of the following conditions occurs:
+- the latest configuration change is confirmed, by setting this attribute to false
+- the value of configOpCountdown reaches 0, a warm restart takes place and the system rolls back to the previously startable configuration.
+
+When the countdown is started, a backup CV is automatically created. If the countdown is stopped, a confirm CV is created. During countdown, it is not possible to manually create a CV or set a CV as startable and the function to create automatic CVs (autoCreatedCVIsTurnedOn) is temporarily deactivated.
+
+Setting this attribute takes effect immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

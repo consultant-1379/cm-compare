@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="SccpPolicing" ns1:ns="CPP_MODEL" ns1:version="3.12.75" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Policing of undesired SCCP traffic.
+
+Policing is used in order to prohibit undesired SCCP traffic from remote nodes. Policing is also used to count the number of undesired SCCP traffic attempts, originating from remote nodes.
+
+It is not possible to prohibit SCCP traffic towards an MTP Signalling Point with Destination Point Code (DPC) equal to 0, because value 0 is used as a wildcard to indicate that all DPC are allowed.
+
+If the originating SCCP SP is not specified, the OPC is mandatory. The originating SCCP SP must be configured for internal policing on an SRP between two networks (two Mtp3bSp MOs with different NI), where the OPC is replaced by the originating SCCP SP.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="SccpPolicingId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="originatingMtp3bSpc" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value of the Signaling Point Code (SPC).
+
+If the originatingSccpSpId is specified, the originatingMtp3bSpc is invalid.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="16777215" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="destinationMtp3bSpc" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value of the destination Signaling Point Code (SPC).
+
+The default value 0 (zero) means that no SPC is defined.
+
+If no destinationSccpSpId is defined and the value of destinationMtp3bSpc is set to 0 (zero), all SPCs are valid.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="16777215" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="originatingSccpSpId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The identity of the originating SccpSp MO must be used for policing between local nodes.
+
+If the originatingSccpSpId is specified, the originatingMtp3bSpc is invalid.</ns1:desc>
+    <ns1:type modelUrn="/dps_primarytype/CPP_MODEL/ManagedObject/3.12.75" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="originatingSccpSsn" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value of SSN in Calling Party Address (CgPA).
+
+The value 0 (zero) means that all SSNs are valid.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="destinationSccpSpId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The identity of the destination SccpSp MO can be used for policing between local nodes.
+
+If the destinationSccpSpId is specified, the destinationMtp3bSpc is invalid.
+
+If no destination destinationSccpSpId is defined and the value of destinationMtp3bSpc is set to 0, all local nodes are valid.</ns1:desc>
+    <ns1:type modelUrn="/dps_primarytype/CPP_MODEL/ManagedObject/3.12.75" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="destinationSccpSsn" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value of SSN in Called Party Address (CdPA).
+
+The value 0 (zero) means that all ssN (Subsystem Numbers) are valid.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="policingGlobalTitle" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Allows to optionally police on Global Title.
+
+Default value is considered if there is no policing Global Title and then all GTs are valid.</ns1:desc>
+    <ns1:type modelUrn="/oss_cdt/CPP_MODEL/GlobalTitleData/3.12.75" xsi:type="ns1:complexRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfRejectMsg" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of rejected messages.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

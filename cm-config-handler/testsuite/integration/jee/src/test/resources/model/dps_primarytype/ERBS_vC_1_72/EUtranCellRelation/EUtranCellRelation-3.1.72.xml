@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="EUtranCellRelation" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>This managed object represents the handover relationship between two neighboring EUTRAN cells.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmHoPrepSuccLteIntraF" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of successful intra LTE intra frequency handover preparations.
+
+Unit: -
+Condition: HANDOVER COMMAND message is received by the source eNodeB from the MME (S1 handover)
+or
+HANDOVER REQUEST ACKNOWLEDGE message is received by the source eNodeB from the target eNodeB (X2 handover)
+or
+Internal eNodeB trigger (corresponding to HANDOVER REQUEST ACKNOWLEDGE) received when target cell informs source cell that UE resources has been reserved (intra eNodeB handover)
+Counter type: PEG
+Scanner: Primary
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmHoPrepAttLteIntraF" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of attempts to start intra LTE intra frequency handover preparation.
+
+Unit: -
+Condition: A better LTE cell is reported by the UE.
+Counter type: PEG
+Scanner: Primary
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmHoExeSuccLteIntraF" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of successful intra LTE intra frequency handovers.
+
+Unit: -
+Condition: UE CONTEXT RELEASE COMMAND received in the source eNodeB from the MME with the cause Handover Triggered (S1 handover)
+or
+UE CONTEXT RELEASE received in the source eNodeB from the target eNodeB (X2 handover)
+or
+Internal eNodeB trigger (corresponding to UE CONTEXT RELEASE) received when the UE has changed cell during a intra eNodeB handover
+Counter type: PEG
+Scanner: Primary
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmHoExeAttLteIntraF" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of intra LTE intra frequency handover execution attempts.
+
+Unit: -
+Condition: RRC CONNCECTION RECONFIGURATION including the mobilityControlInformation is sent to the UE from the source cell.
+Counter type: PEG
+Scanner: Primary
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="EUtranCellRelationId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the Relative Distinguished Name (RDN).</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="cellIndividualOffsetEUtran" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Offset value for the neighbor cell. Used when UE is in connected mode. This attribute is modified by SON function HoOscCtrlRel.
+
+Unit: dB
+Takes effect: New connection.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="-24" min="-24"/>
+        <ns1:minMaxRange max="-22" min="-22"/>
+        <ns1:minMaxRange max="-20" min="-20"/>
+        <ns1:minMaxRange max="-18" min="-18"/>
+        <ns1:minMaxRange max="-16" min="-16"/>
+        <ns1:minMaxRange max="-14" min="-14"/>
+        <ns1:minMaxRange max="-12" min="-12"/>
+        <ns1:minMaxRange max="-10" min="-10"/>
+        <ns1:minMaxRange max="-8" min="-8"/>
+        <ns1:minMaxRange max="-6" min="-6"/>
+        <ns1:minMaxRange max="-5" min="-5"/>
+        <ns1:minMaxRange max="-4" min="-4"/>
+        <ns1:minMaxRange max="-3" min="-3"/>
+        <ns1:minMaxRange max="-2" min="-2"/>
+        <ns1:minMaxRange max="-1" min="-1"/>
+        <ns1:minMaxRange max="0" min="0"/>
+        <ns1:minMaxRange max="1" min="1"/>
+        <ns1:minMaxRange max="2" min="2"/>
+        <ns1:minMaxRange max="3" min="3"/>
+        <ns1:minMaxRange max="4" min="4"/>
+        <ns1:minMaxRange max="5" min="5"/>
+        <ns1:minMaxRange max="6" min="6"/>
+        <ns1:minMaxRange max="8" min="8"/>
+        <ns1:minMaxRange max="10" min="10"/>
+        <ns1:minMaxRange max="12" min="12"/>
+        <ns1:minMaxRange max="14" min="14"/>
+        <ns1:minMaxRange max="16" min="16"/>
+        <ns1:minMaxRange max="18" min="18"/>
+        <ns1:minMaxRange max="20" min="20"/>
+        <ns1:minMaxRange max="22" min="22"/>
+        <ns1:minMaxRange max="24" min="24"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="neighborCellRef" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Reference to an instance of EUtranCellFDD, ExternalEUtranCellFDD, EUtranCellTDD or ExternalEUtranCellTDD managed object.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/ManagedObject/3.1.72" xsi:type="ns1:moRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="isHoAllowed" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies if handover between the cells in this relation is allowed.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="true" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="qOffsetCellEUtran" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Offset value applied to a specific cell in idle mode mobility state.
+
+Unit: dB
+Resolution: -
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="-24" min="-24"/>
+        <ns1:minMaxRange max="-22" min="-22"/>
+        <ns1:minMaxRange max="-20" min="-20"/>
+        <ns1:minMaxRange max="-18" min="-18"/>
+        <ns1:minMaxRange max="-16" min="-16"/>
+        <ns1:minMaxRange max="-14" min="-14"/>
+        <ns1:minMaxRange max="-12" min="-12"/>
+        <ns1:minMaxRange max="-10" min="-10"/>
+        <ns1:minMaxRange max="-8" min="-8"/>
+        <ns1:minMaxRange max="-6" min="-6"/>
+        <ns1:minMaxRange max="-5" min="-5"/>
+        <ns1:minMaxRange max="-4" min="-4"/>
+        <ns1:minMaxRange max="-3" min="-3"/>
+        <ns1:minMaxRange max="-2" min="-2"/>
+        <ns1:minMaxRange max="-1" min="-1"/>
+        <ns1:minMaxRange max="0" min="0"/>
+        <ns1:minMaxRange max="1" min="1"/>
+        <ns1:minMaxRange max="2" min="2"/>
+        <ns1:minMaxRange max="3" min="3"/>
+        <ns1:minMaxRange max="4" min="4"/>
+        <ns1:minMaxRange max="5" min="5"/>
+        <ns1:minMaxRange max="6" min="6"/>
+        <ns1:minMaxRange max="8" min="8"/>
+        <ns1:minMaxRange max="10" min="10"/>
+        <ns1:minMaxRange max="12" min="12"/>
+        <ns1:minMaxRange max="14" min="14"/>
+        <ns1:minMaxRange max="16" min="16"/>
+        <ns1:minMaxRange max="18" min="18"/>
+        <ns1:minMaxRange max="20" min="20"/>
+        <ns1:minMaxRange max="22" min="22"/>
+        <ns1:minMaxRange max="24" min="24"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="anrCreated" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Since L11B. Replaced by createdBy.
+Indicates if the MO was created by the Automated Neighbor Relations (ANR) function.
+
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="isRemoveAllowed" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Indicates if the Automated Neighbor Relations (ANR) function is allowed to remove this object. It does not restrict operator removal of the object. Objects created by ANR have this parameter set to true initially.
+
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timeOfAnrCreation" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Replaced by timeOfCreation. Since L11B.
+The date and time when the MO was created by the Automated Neighbor Relations (ANR) function.
+Format:  YYYY-MM-DD HH:MM:SS
+
+Unit: UTC
+Resolution: -
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="19" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timeOfAnrModification" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Deprecated: Replaced by timeOfLastModification. Since L11B.
+The date and time when the MO was last modified by the Automated Neighbor Relations (ANR) function.
+Format:  YYYY-MM-DD HH:MM:SS
+
+Unit: UTC
+Resolution: -
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="19" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ctrlMode" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Since L11B. Planned to be removed.
+Indicates permission to change attributes on the object and to delete the object.
+
+When set to Manual, the operator can change and delete, and the Automated Neighbor Relations (ANR) function cannot make changes.
+
+When set to Auto, the ANR function can change and delete, and the operator cannot, except to change the settings of this parameter.
+
+When the object is created by the ANR function, the value is set to Auto. The value may be changed only by the operator. The setting of this parameter controls the object itself, but not related objects.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/CtrlMode/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="MANUAL" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="supportedMobilityRelationType" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Since L11B. Has no functional behaviour. Planned to be removed.
+Type of the mobility relation.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/SupportedMobilityRelationType/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="HANDOVER_AND_CELL_RESELECTION" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="includeInSystemInformation" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Indicates if the referred cell is included in System Information.
+
+When the attribute is set to false, the cell is not included in either freqNeighList or blackCellList in SIB4 or SIB5.
+
+Specification: See 3GPP 36.331 for freqNeighList and blackCellList.
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="true" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="coverageIndicator" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Indicates whether the coverage area of the cell indicated by the relation has approximately the same coverage area (overlap) as this cell, or whether it fully covers this cell, or if it is fully contained in this cell.
+
+Disturbances: Changes may affect traffic
+Takes effect: Immediately</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/SupportedCoverage/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="NONE" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmHoExeAttLteInterF" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of outgoing intra LTE inter frequency handover execution attempts.
+
+Unit: -
+Condition: RRC CONNCECTION RECONFIGURATION including the mobilityControlInformation is sent to the UE from the source cell
+Counter type: PEG
+Sampling rate: -
+Scanner: Primary
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmHoExeSuccLteInterF" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of successful outgoing intra LTE inter frequency handovers.
+
+Unit: -
+Condition: UE CONTEXT RELEASE COMMAND received in the source eNodeB from the MME with the cause Handover Triggered (S1 handover)
+or
+UE CONTEXT RELEASE received in the source eNodeB from the target eNodeB (X2 handover)
+or
+Internal eNodeB trigger (corresponding to UE CONTEXT RELEASE) received when the UE has changed cell during a intra eNodeB handover
+Counter type: PEG
+Sampling rate: -
+Scanner: Primary
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmHoPrepAttLteInterF" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of attempts to start outgoing intra LTE inter frequency handover preparation.
+
+Unit: -
+Condition: A better LTE cell is reported by the UE.
+Counter type: PEG
+Sampling rate: -
+Scanner: Primary
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmHoPrepSuccLteInterF" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of successful outgoing intra LTE inter frequency handover preparations.
+
+Unit: -
+Condition: HANDOVER COMMAND message is received by the source eNodeB from the MME (S1 handover)
+or
+HANDOVER REQUEST ACKNOWLEDGE message is received by the source eNodeB from the target eNodeB (X2 handover)
+or
+Internal eNodeB trigger (corresponding to HANDOVER REQUEST ACKNOWLEDGE) received when target cell informs source cell that UE resources has been reserved (intra eNodeB handover)
+Counter type: PEG
+Sampling rate: -
+Scanner: Primary
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="createdBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates whether the MO has been created by the Automated Neighbor Relations (ANR) function or operator or X2
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/CreatedByEutran/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timeOfCreation" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates the time and date when the MO was created . 
+Format: YYYY-MM-DD HH:MM:SS
+
+Unit: UTC
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="19" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="lastModification" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates whether the MO was last modified by the Automated Neighbor Relations (ANR) function or operator or X2 and if the MO is to be deleted who triggered the deletion
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/LastModificationEutran/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timeOfLastModification" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates the time and date when the MO was last modified. 
+Format: YYYY-MM-DD HH:MM:SS
+
+Unit: UTC
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="19" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmHoOscIntraF" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Counter pmHoOscIntraF counts every intra-frequency HO that is considered to be an oscillating HO. pmHoOscIntraF is incremented when handover preparation is attempted.
+
+Unit: -
+Condition: When a UE measurement has resulted in a HO attempt decision, and the HO is classified as oscillating HO, and the HO is an intra-LTE intra-frequency HO, then the counter is stepped. The HO is classified as an oscillating HO, if the UE History indicates that an earlier HO from the current cell to the same target cell has been performed within the time period indicated by parameter oscPeriodLimit.
+Counter type: PEG
+Sampling rate: -
+Scanner: Not included in any predefined scanner 
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmHoOscInterF" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Counter pmHoOscInterF counts every inter-frequency HO that is considered to be an oscillating HO. pmHoOscInterF is incremented when handover preparation is attempted.
+
+Unit: -
+Condition: When a UE measurement has resulted in a HO attempt decision, and the HO is classified as oscillating HO, and the HO is an intra-LTE inter-frequency HO, then the counter is stepped. The HO is classified as an oscillating HO, if the UE History indicates that an earlier HO from the current cell to the same target cell has been performed within the time period indicated by parameter oscPeriodLimit.
+Counter type: PEG
+Sampling rate: -
+Scanner: Not included in any predefined scanner 
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmHoPrepTNotAllowedLteIntraF" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Deprecated: Since L12A. Has no functional behaviour. Planned to be removed.
+Unit: -
+Condition: Stepped at reception of message S1: HANDOVER PREPARATION FAILURE or X2: HANDOVER PREPARATION FAILURE with the cause "Handover Target not allowed".
+Counter type: PEG
+Sampling rate: -
+Scanner: Not included in any predefined scanner 
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmHoPrepTNotAllowedLteInterF" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Deprecated: Since L12A. Has no functional behaviour. Planned to be removed.
+Unit: -
+Condition: Stepped at reception of message S1: HANDOVER PREPARATION FAILURE or X2: HANDOVER PREPARATION FAILURE with the cause "Handover Target not allowed".
+Counter type: PEG
+Sampling rate: -
+Scanner: Not included in any predefined scanner 
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="imLoadBalancingActive" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Idle Mode Load balancing function is activated by setting this parameter to true. Idle mode load balancing function is deactivated by setting this parameter to false. Idle mode load balancing can only be sucessfully activated by the cell with the higher cell reselection priority (HPC), but either cell can disable the load balancing (HPC and LPC).
+
+Dependencies: Activation of the idle mode load balancing feature (value "true") requires that the ImLoadBalancing::serviceStateImLoadBalancing is "operable". Idle mode loadbalancing can only be activated between two co-located cells.
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmHoTooEarlyHoIntraF" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Counts every detected event of too early HO on an intra frequency relation.
+
+Unit: -
+Condition: The counter is stepped when a too early handover from the cell to the neighbor cell of the relation is detected in accordance to 3GPP TS 36.300, if the cell relation is an intra-frequency cell relation.
+Counter type: PEG
+Sampling rate: -
+Scanner: Not included in any predefined scanner 
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmHoTooEarlyHoInterF" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Counts every detected event of too early HO on an inter frequency relation.
+
+Unit: -
+Condition: The counter is stepped when a too early handover from the cell to the neighbor cell of the relation is detected in accordance to 3GPP TS 36.300, if the cell relation is an inter-frequency cell relation.
+Counter type: PEG
+Sampling rate: -
+Scanner: Not included in any predefined scanner 
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmHoTooLateHoIntraF" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Counts every detected event of too late HO on an intra frequency relation.
+
+Unit: -
+Condition: The counter is stepped when a too late handover from the cell to the neighbor cell of the relation is detected in accordance to 3GPP TS 36.300, if the cell relation is an intra-frequency cell relation.
+Counter type: PEG
+Sampling rate: -
+Scanner: Not included in any predefined scanner 
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmHoTooLateHoInterF" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Counts every detected event of too late HO on an inter frequency relation.
+
+Unit: -
+Condition: The counter is stepped when a too late handover from the cell to the neighbor cell of the relation is detected in accordance to 3GPP TS 36.300, if the cell relation is an inter-frequency cell relation.
+Counter type: PEG
+Sampling rate: -
+Scanner: Not included in any predefined scanner 
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmHoWrongCellIntraF" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Counts every detected event of HO to the wrong cell on an intra frequency relation, when this neighbor cell is the attempted target cell.
+
+Unit: -
+Condition: The counter is stepped when a "handover to wrong cell" is detected in accordance to 3GPP TS 36.300, if this cell is the source cell, and the neighbor cell of the relation is the target cell of the failed handover, and the cell relation is an intra frequency cell relation.
+Counter type: PEG
+Sampling rate: -
+Scanner: Not included in any predefined scanner 
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmHoWrongCellInterF" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Counts every detected event of HO to the wrong cell on an inter frequency relation, when this neighbor cell is the attempted target cell.
+
+Unit: -
+Condition: The counter is stepped when a "handover to wrong cell" is detected in accordance to 3GPP TS 36.300, if this cell is the source cell, and the neighbor cell of the relation is the target cell of the failed handover, and the cell relation is an inter frequency cell relation.
+Counter type: PEG
+Sampling rate: -
+Scanner: Not included in any predefined scanner 
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmHoWrongCellReestIntraF" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Counts every detected event of HO to the wrong cell on an intra frequency relation, when this neighbor cell is where the UE reestablished connection after the failed HO.
+
+Unit: -
+Condition: The counter is stepped when a "handover to wrong cell" is detected in accordance to 3GPP TS 36.300, if this cell is the source cell, and the neighbor cell of the relation is the cell where the UE attempted reestablishment after RLF, and the cell relation is an intra frequency cell relation.
+Counter type: PEG
+Sampling rate: -
+Scanner: Not included in any predefined scanner 
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmHoWrongCellReestInterF" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Counts every detected event of HO to the wrong cell on an inter frequency relation, when this neighbor cell is where the UE reestablished connection after the failed HO.
+
+Unit: -
+Condition: The counter is stepped when a "handover to wrong cell" is detected in accordance to 3GPP TS 36.300, if this cell is the source cell, and the neighbor cell of the relation is the cell where the UE attempted reestablishment after RLF, and the cell relation is an intra frequency cell relation.
+Counter type: PEG
+Sampling rate: -
+Scanner: Not included in any predefined scanner 
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmZtemporary36" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Normally this counter is not used, it can however sometimes be temporarily used for very late additions in a release. If so, for description see Network Impact Report in the CPI.
+
+Unit: -
+Condition: -
+Counter type: ACC
+Sampling rate: -
+Scanner: Not included in any predefined scanner 
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

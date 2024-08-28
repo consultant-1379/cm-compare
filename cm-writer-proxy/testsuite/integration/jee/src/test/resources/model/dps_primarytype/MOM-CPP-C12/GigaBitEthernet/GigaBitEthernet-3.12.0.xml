@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="GigaBitEthernet" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>This MO type models a GigaBit Ethernet interface on an ET board for IP.
+
+The MO can handle two physical interfaces. 
+
+For boards that do not support link redundancy, only attributes and pm counters for link1 are applicable.
+
+For details on links and portNo, see the description of the relevant board.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="GigaBitEthernetId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value componenet of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="operationalState" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The operational state.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/OperState/3.12.0" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="availabilityStatus" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The availability status.
+
+It contains details about operationalState.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/AvailabilityStatus/3.12.0" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="administrativeState" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The administrative state.
+
+Traffic is not stopped if administrativeState is set to LOCKED.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/AdmState/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="LOCKED" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="link1State" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Operational state of the link 1.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/OperState/3.12.0" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="link2State" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Operational state of the link 2.
+
+This attribute is applicable only if the board supports link redundancy.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/OperState/3.12.0" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="dscpPbitMap" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Specifies the value of the DSCP and corresponding pbit (priority).
+
+The number of members in this sequence is 64.
+
+All the 64 possible DscpPbit structs must be defined when setting this attribute. If no values are submitted, the default values from struct DscpPbit are used.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="//MOM-CPP-C12/DscpPbit/3.12.0" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="macAddressLink1" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The MAC address of link 1.
+
+If the board is not available, the attribute has the value "00:00:00:00:00:00".</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;00:00:00:00:00:00&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="macAddressLink2" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The MAC address of link 2.
+
+If the board is not available, the attribute has the value "00:00:00:00:00:00".
+
+This attribute is applicable only if the board supports link redundancy.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;00:00:00:00:00:00&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="frameFormat" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Ethernet outgoing frame format.
+
+Before changing the value from ETHERNET_2_DIX to IEEE_802_3_LLC_SNAP, ensure that the attribute mtu of the related IpInterface MO or Ipv6Interface MO is not higher than 1492. If this is the case, reduce the mtu to 1492 before changing this attribute.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/EthFrameFormat/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="ETHERNET_2_DIX" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="primaryLink" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies which link is primary and which is secondary.
+
+This attribute is applicable only on boards where link redundancy is supported.
+
+If linkType = FRONT_PORTS then link 1 is the lower port and link 2 is the upper port. 
+For details regarding port numbering, see the description of the relevant board.
+
+If linkType = BACKPLANE_PORTS then link1 is connected to the EthernetSwitchModule with the lowest slot number in the subrack, and link2 is connected to the EthernetSwitchModule with the highest slot number in the subrack.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/LinkPrimary/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="LINK_ONE_PRIMARY_LINK_TWO_SECONDARY" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="activeLink" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies the active link.
+
+This attribute is applicable only if the board supports link redundancy.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/LinkActive/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="PRIMARY_ACTIVE" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="autoNegotiation" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Indicates whether auto-negotiation is performed.
+
+In normal traffic situations this attribute is set to true.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="true" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="protectiveMode" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Indicates whether a switchover to the secondary link is allowed.
+
+If link redundancy is supported and this attribute is set to false, it means that a board with two Ethernet connectors works as if it had one connector.
+
+This attribute is applicable only if the board supports link redundancy.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="true" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="switchBackTimer" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The switch-back timer, after the primary link has returned to state ENABLED (working).
+
+This attribute is applicable only on boards where link redundancy is supported.
+
+The value 0 (zero) means that the system does not switch back from the secondary link to the primary link. Traffic continues to run on the secondary link until
+- a manual switch is performed, or
+- an automatic switch is performed by the Link Switch Supervision Function (in case of link failure on the secondary link, while the primary link is up).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="3600" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="30" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInOctetsLink1Lo" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of octets received on the link 1, including framing characters.
+The high-capacity counter for received octets an interface has been split into two parts.
+This counter represents the lower part of the 62 least significant bits of the high-capacity counter for received octets.
+The two most significant bit of this 64 bit counter is discarded.
+This 64-bit counter is presented as 2*31 bits: pmIfInOctetsLinkxHi (bit 62-31) and pmIfInOctetsLinkxLo (bit 30-0) in the MOM.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfOutOctetsLink1Lo" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of octets transmitted out on link 1, including framing characters.
+The high capacity counter for octets transmitted out on an interface has been split into two parts.
+This counter represents the lower part of the 62 least significant bits of the high capacity counter for octets transmitted out on the interface.
+The two most significant bit of this 64 bit counter is discarded.
+This 64-bit counter is presented as 2*31 bits: pmIfOutOctetsLinkxHi (bit 62-31) and pmIfOutOctetsLinkxLo (bit 30-0) in the MOM.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInOctetsLink1Hi" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of octets received on the link 1, including framing characters.
+The high-capacity counter for received octets on an interface has been split into two parts.
+This counter represents the higher part of the 62 least significant bits of the high-capacity counter for received octets.
+The two most significant bit of this 64 bit counter is discarded.
+This 64-bit counter is presented as 2*31 bits: pmIfInOctetsLinkxHi (bit 62-31) and pmIfInOctetsLinkxLo (bit 30-0) in the MOM.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfOutOctetsLink1Hi" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of octets transmitted out on link 1, including framing characters.
+The high capacity counter for octets transmitted out on an interface has been split into two parts.
+This counter represents the higher part of the 62 least significant bits of the high capacity counter for octets transmitted out on the interface.
+The two most significant bit of this 64 bit counter is discarded.
+This 64-bit counter is presented as 2*31 bits: pmIfOutOctetsLinkxHi (bit 62-31) and pmIfOutOctetsLinkxLo (bit 30-0) in the MOM.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInUnknownProtosLink1" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of packets received on link 1, which had a protocol not supported or unknown.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInErrorsLink1" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of packets received on link 1, which were discarded due to errors found in the packets.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfOutErrorsLink1" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of packets requested to be transmitted on link 1, but which were discarded due to errors found in the packets.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInUcastPktsLink1" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of incoming unicast ethernet frames on link 1.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInDiscardsLink1" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of received packets discarded on link 1, due to lack of resources (for example, buffer space).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfOutUcastPktsLink1" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of outgoing unicast ethernet frames requested to be transmitted on link 1 (including those that were  discarded or not sent).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfOutDiscardsLink1" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of packets requested to be transmitted on link 1, but which were discarded due to lack of resources (for example, buffer space).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInMulticastPktsLink1" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of packets on link 1, delivered by this sub-layer to a higher (sub-)layer, which were addressed to a multicast address at this sub-layer.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInBroadcastPktsLink1" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of packets received on link1, with a broadcast address delivered to a higher sub-layer.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfOutMulticastPktsLink1" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of outgoing multicast ethernet frames requested to be transmitted on link 1 (including those that were  discarded or not sent).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfOutBroadcastPktsLink1" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of outgoing broadcast ethernet frames requested to be transmitted on link 1 (including those that were  discarded or not sent).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmDot1qTpVlanPortInDiscardsLink1" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of valid frames discarded on link 1, due to reasons related to VLAN (for example, the VLAN ID is not configured).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInOctetsLink2Lo" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of octets received on link 2, including framing characters.
+The high-capacity counter for received octets an interface has been split into two parts.
+This counter represents the lower part of the 62 least significant bits of the high-capacity counter for received octets.
+The two most significant bit of this 64 bit counter is discarded.
+This 64-bit counter is presented as 2*31 bits: pmIfInOctetsLinkxHi (bit 62-31) and pmIfInOctetsLinkxLo (bit 30-0) in the MOM.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfOutOctetsLink2Lo" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of octets transmitted out on link 2, including framing characters.
+The high capacity counter for octets transmitted out on an interface has been split into two parts.
+This counter represents the lower part of the 62 least significant bits of the high capacity counter for octets transmitted out on the interface.
+The two most significant bit of this 64 bit counter is discarded.
+This 64-bit counter is presented as 2*31 bits: pmIfOutOctetsLinkxHi (bit 62-31) and pmIfOutOctetsLinkxLo (bit 30-0) in the MOM.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInOctetsLink2Hi" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of octets received on link 2, including framing characters.
+The high-capacity counter for received octets on an interface has been split into two parts.
+This counter represents the higher part of the 62 least significant bits of the high-capacity counter for received octets.
+The two most significant bit of this 64 bit counter is discarded.
+This 64-bit counter is presented as 2*31 bits: pmIfInOctetsLinkxHi (bit 62-31) and pmIfInOctetsLinkxLo (bit 30-0) in the MOM.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfOutOctetsLink2Hi" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of octets transmitted out on link 2, including framing characters.
+The high capacity counter for octets transmitted out on an interface has been split into two parts.
+This counter represents the higher part of the 62 least significant bits of the high capacity counter for octets transmitted out on the interface.
+The two most significant bit of this 64 bit counter is discarded.
+This 64-bit counter is presented as 2*31 bits: pmIfOutOctetsLinkxHi (bit 62-31) and pmIfOutOctetsLinkxLo (bit 30-0) in the MOM.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInUnknownProtosLink2" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of packets received on link 2, which had a protocol not supported or unknown.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInErrorsLink2" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of packets received on link 2, which were discarded due to errors found in the packets.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfOutErrorsLink2" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of packets requested to be transmitted on link 2, but which were discarded due to errors found in the packets.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInDiscardsLink2" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of received packets discarded on link 2, due to lack of resources (for example, buffer space).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfOutUcastPktsLink2" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of outgoing unicast ethernet frames requested to be transmitted on link 2 (including those that were  discarded or not sent).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfOutDiscardsLink2" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of packets requested to be transmitted on link 2, but which were discarded due to lack of resources (for example, buffer space).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInMulticastPktsLink2" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of packets on link 2, delivered by this sub-layer to a higher (sub-)layer, which were addressed to a multicast address at this sub-layer.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInBroadcastPktsLink2" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of packets received on link 2, with a broadcast address delivered to a higher sub-layer.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfOutMulticastPktsLink2" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of outgoing multicast ethernet frames requested to be transmitted on link 2 (including those that were  discarded or not sent).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfOutBroadcastPktsLink2" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of outgoing broadcast ethernet frames requested to be transmitted on link 2 (including those that were  discarded or not sent).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmDot1qTpVlanPortInDiscardsLink2" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of valid frames discarded on link 2, due to reasons related to VLAN (for example, the VLAN ID is not configured).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="shutDownTimeout" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The shutting-down timer. It is used when administrativeState is set to SHUTTING_DOWN.
+
+This value must be positive.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100000" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1800" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="statePropagationDelay" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>This attribute is used to delay the propagation of fault on both links.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="25" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="DEPRECATED" ns1:name="currentPmRegister" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Returns the current values of all PM counters.
+
+To activate the writing of statistical values in a PM counter, start a performance monitoring (scanner) on that counter. Otherwise, the value of the PM counter is set to -1.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType xsi:type="ns1:stringType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="linkType" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Indicates if the GigaBitEthernet link for external traffic is using the front ports or the backplane ports.
+
+If the backplane ports are used, the link is a 10G link.
+
+This attribute is only valid on ETs, that have Ethernet backplane connections. Other ETs use  the front ports only.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/LinkType/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="FRONT_PORTS" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfInUcastPktsLink2" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of incoming unicast ethernet frames on link 2.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="sfpInformation" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Information about the SFP port. Valid only if the attribute sfpPort is set to true.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/SfpInformation/3.12.0" xsi:type="ns1:complexRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="sfpPort" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies if the port is an SFP port. Autonegotiation must be configured to true for an SFP port. Otherwise, the port may be disabled.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="portNo" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Port number associated with this MO instance.
+
+This attribute is applicable only on boards where link redundancy is not supported.
+
+For details regarding port numbering, see the description of the relevant board.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="2" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="actualSpeedDuplex" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The mode, in which the port is actually operating.
+
+The value NO_LINK means that the link is disabled or that autonegotiation is in progress.
+
+The following values are possible for this attribute, for electrical interfaces:
+- ETH_100_MB_FULL
+- ETH_1000_MB_FULL
+
+The following values are possible for this attribute, for optical interfaces:
+- ETH_1000_MB_FULL</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/ActualEthernetSpeedDuplex/3.12.0" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains a list of MO instances that reserve this MO instance.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="//MOM-CPP-C12/ManagedObject/3.12.0" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="configuredSpeedDuplex" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies the wanted fixed speed for the port.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/EthernetSpeedFullDuplex/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="ETH_1000_MB_FULL" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="masterMode" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies master/slave mode.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="true" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

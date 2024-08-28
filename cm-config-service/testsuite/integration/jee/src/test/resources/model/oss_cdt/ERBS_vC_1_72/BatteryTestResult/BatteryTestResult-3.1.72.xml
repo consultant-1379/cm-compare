@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:lifeCycleDesc="" ns1:name="BatteryTestResult" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/oss_cdt/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>BatteryTestResult</ns1:desc>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="initiation">
+    <ns1:desc>Describes how the battery test was initiated.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/BatteryTestInitiation/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="startDate">
+    <ns1:desc>The date the battery test was started. Format: "YYYYMMDD"
+
+Undefined value: "000000"</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="8" min="8"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="startTime">
+    <ns1:desc>The time the battery test was started. Format: "HH:MM", 24 h format
+
+Undefined value: "--:--"</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="5" min="5"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="measuredConsumedCapacity">
+    <ns1:desc>Measured total consumed capacity from test start until end of test
+
+Unit: 1 Ah
+Undefined value: -1</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="99999999" min="-1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="measuredBackupTime">
+    <ns1:desc>The measured time from test start until end of test
+
+Unit: 1 minute
+Undefined value: -1</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="99999999" min="-1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="estimatedNominalBatteryCapacity">
+    <ns1:desc>Estimated nominal battery capacity of the tested battery
+Dependencies: The parameter value is undefined if a battery backup time test was executed.
+
+Unit: 1 Ah
+Undefined value: -1</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="99999999" min="-1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="estimatedBatteryStateOfHealth">
+    <ns1:desc>Estimated state-of-health of the tested battery. State-Of-Health is calculated as: estimatedNominalBatteryCapacity  / referenceBatteryCapacity * 100
+Dependencies: The parameter value is undefined if a battery backup time test was executed.
+
+Unit: 1%
+Undefined value: -1</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="-1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="outcome">
+    <ns1:desc>Outcome of the automatic evaluation of the battery test
+Possible values:
+•	UNDEFINED
+•	PASSED
+•	FAILED
+
+Dependencies: For a battery capacity test, the evaluation is done by comparing the estimatedBatteryStateOfHealth with the minimumStateOfHealth, if test mode is set to CONFIGURED. If testMode is set to AUTOMATIC, the estimatedBatteryStateOfHealth is compared with 70%.
+For a battery backup time test, the evaluation is done by comparing the measuredBackupTime with the minimumBackupTime.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/BatteryTestOutcome/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

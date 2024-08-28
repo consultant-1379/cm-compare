@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="ImaGroup" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Inverse Multiplexing over ATM (IMA) Group
+
+IMA makes it possible to group several physical interfaces together to form a virtual physical pipe for ATM. The capacity of this pipe is equal to the sum of each of the physical interfaces included in the group.
+
+When IMA is configured, an AtmPort MO is created with reference to an ImaGroup MO rather than a pure physical interface MO.
+The ImaGroup MO in turn is created with a list of the physical port MOs that are included in the group. The physical port MOs must be of the same type and be located on the same ET board.
+
+For each of the physical port MOs included in the ImaGroup, an ImaLink object is automatically created. The ImaLink MO is responsible for handling link specific performance and fault management related to IMA.
+
+The ports can be of type: E1PhysPathTerm, J1PhysPathTerm, T1PhysPathTerm, E1Ttp and T1Ttp.
+
+The performance monitoring counters in the ImaGroup MO is set to 0 (zero) at start or restart of the node.
+When the value is to large too fit in to a long (31bit) the counter turns over and starts from 0 again.
+
+A general restriction is that ports being part of the same IMA group must be located on the same board.
+
+If any of the ImaLinks under the ImaGroup MO refers to the E1PhysPathTerm, J1PhysPathTerm, T1PhysPathTerm, E1Ttp or T1Ttp MO, which is already in use by AtmPort MO (through the attribute uses), then the reference from AtmPort MO (uses) is moved to the newly created ImaGroup MO.
+
+If the ImaGroup is created with the PhysPathTerms which are already reserved by two different AtmPort MOs, then the create request for the ImaGroup is rejected.
+
+Disturbances: Changing lower layer attributes may affect O&amp;M connectivity, if they are part of the O&amp;M connection.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ImaGroupId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="physicalPortList" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Contains a list of physical port MOs connected to this ImaGroup MO.
+
+The physical port MOs can be of type:
+- E1PhysPathTerm,
+- J1PhysPathTerm,
+- T1PhysPathTerm,
+- E1Ttp,
+- T1Ttp.
+
+Add or remove physical port MOs in one set-operation, not both in the same set-operation.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:notNullConstraint/>
+      <ns1:collectionValuesType modelUrn="//MOM-CPP-C12/ManagedObject/3.12.0" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="requiredNumberOfLinks" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies the number of ImaLinks that needs to be operational in order for the complete group to be operational. The bandwidth available for the AtmPort (and thus for the creation of VP/VC connections) is defined by this number.
+
+Setting the requiredNumberOfLinks to K less than the number of physical links included in the ImaGroup, reduces the guaranteed bandwidth available to the AtmPort with the corresponding bandwidth. This will also have the effect that K link failures can be tolerated.
+
+The bandwith associated with the number of available links in the group above the required number of links is usable only by UBR or UBR+ VP.
+
+The maximum range of this attribute can vary between the boards. See the description of the relevant board for details.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="28" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="activeLinks" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of active links.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="operationalState" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The operational state.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/OperState/3.12.0" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="availabilityStatus" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The availability status.
+
+It contains details about operationalState.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/AvailabilityStatus/3.12.0" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmGrUasIma" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of one-second intervals where the group traffic state machine is down.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmGrFc" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of Near-End (NE) group failure conditions.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmGrFcFe" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of Far-End (FE) group failure conditions.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains an AtmPort MO instance that reserves this MO instance.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/AtmPort/3.12.0" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

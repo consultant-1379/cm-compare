@@ -1,0 +1,112 @@
+<suite name="Suite">
+	<!-- Please put a name for your testcases in the line below -->
+	<test name="Testcases" preserve-order="true"> 
+		<classes>
+			<class name="com.ericsson.america.integrationtest.test.cases.CMRestToolTestCase" />
+			<methods>
+				<include name="getMeContextExpectingFalseAsResult" />
+				<include name="createMeContext" />
+				<include name="getMeContextExpectingTrueAsResult" />
+				<include name="getMeContextAndManagedElementExpectingFalseAsResult" />
+				<include name="createMeContextAndManagedElement" />
+				<include name="getMeContextAndManagedElementExpectingTrueAsResult" />
+				<include name="get_MeContext_And_ManagedElement_And_ENodeBFunction_Expecting_False_As_Result" />
+				<include name="create_MeContext_And_Managed_Element_And_ENodeBFunction" />
+				<include name="get_MeContext_And_ManagedElement_And_ENodeBFunction_Expecting_True_As_Result" />
+				<include name="createASecondMeContextInstance" />
+				<include name="createASecondManangedElementInstance" />
+				<include name="createDuplicateMeContext" />
+				<include name="createDuplicateMeContextAndManagedElement" />
+				<include name="create_Duplicate_MeContext_And_Managed_Element_And_ENodeBFunction" />
+				<include name="createMeContextAndManagedElementWithInvalidParent" />
+				<include name="getMeContextWhichDoesNotExist" />
+				<include name="createENodeBFunctionWithComplexAttributes" />
+				<include name="getStarENodeBFunction" />
+				<include name="getSpecificENodeBFunction" />
+				<include name="getENodeBFunctionNameFollowedByStar" />
+				<include name="getENodeBFunctionNamePreceededByStar" />
+				<include name="getENodeBFunctionDotStar" />
+				<include name="getENodeBFunctionDotAttributes" />
+				<include name="getENodeBFunctionDotAttributeEqualsValueVerifyingUserLabelAndDnsLookupTimerCombined" />
+				<include name="getENodeBFunctionNameWithNamepsaceAndVersion" />
+				<include name="getStarENodeBFunctionNoNameSpace" />
+				<include name="getMultipleNodeIds" />
+				<include name="getOneOrMoreChildMOIs" />
+				<!--<include name="simpleCreateTest" />-->
+								<!-- KAOS Test Cases -->
+				<!-- Following Test Cases added for creation of UtranCell -->				
+				<include name="create_MeContext_And_Managed_Element_And_ENodeBFunction_And_SectorEquipmentFunction" />
+				<include name="create_MeContext_And_Managed_Element_And_ENodeBFunction_And_SectorEquipmentFunction_MeContext_123abc456" />
+				<include name="createFirstEUtranCellFDD" />				
+				<include name="createSecondEUtranCellFDD" />
+				<include name="createThirdEUtranCellFDD" />
+				<include name="searchWithAttributeFilterOnGreaterThanReturnsCorrectFDNs" />				
+				<!-- Following Test Cases added for KAOS User Story TORF-1365-->				
+				<include name="setMeContextGenerationCounter" />
+				<include name="setDuplicateMeContextAttributeGenerationCounterToSameValue" />
+				<include name="setMeContextAttributeUserLabel" />
+				<include name="setMeContextAttributeUserLabelToNullValue" />
+				<include name="setAttributednsLookupTimerOnENodeBFunction" />
+				<!-- Following Test Cases added for KAOS User Story TORF-1354-->				
+				<include name="setMeContextListOfAttributes" />
+				<include name="setMeContextDuplicateListOfReorderedAttributesToDifferentValues" />
+				<include name="setListOfAttributesOnENodeBFunction" />
+				<!-- Following Test Cases added for KAOS User Story TORF-5305-->								
+				<include name="seteNodeBPlmnIdComplexAttribute" />
+				<include name="seteNodeBPlmnIdComplexAttributeToDifferentValues" />
+				<!-- Following Test Cases added for KAOS User Story TORF-6582-->								
+				<include name="setEnumAttributednsLookupOnTaiONENodeBFunction" />
+				<include name="setEnumAttributednsLookupOnTaiOFFENodeBFunction" />	
+				<include name="setEnumAttributednsLookupOnTaiONAgainENodeBFunction" />	
+				<include name="setEnumAttributennsfModeToSPLMNENodeBFunction" />
+				<include name="createThirdMeContextInstance" />
+				<include name="createThirdManagedElementInstance" />
+				<include name="createSequenceAttributes" />
+				<include name="createFourthMeContextInstance" />
+				<include name="createFourthManagedElementInstance" />
+				<include name="createFourthENodeBFunctionInstance" />
+				<include name="createAttributesOfTypeMORef" />	
+				<include name="getStarMeContextDotMeContextId" />				
+				<!-- Following Test Cases added for KAOS User Story TORF-6924 -->
+				<include name="setAttributeOnAllNodesOfSpecifiedENodeBFunctionType" />
+				<include name="setAttributeOnAllNodesOfTypeENodeBStartingWithString" />				
+				<include name="setAttributeOnAllNodesOfTypeENodeBEndingWithString" />				
+				<!-- Following Test Cases added for KAOS User Story TORF-6964 -->
+				<include name="setSingleValueFALSEForNodeIDFilteredOnSingleAttributeValueCriteria" />
+				<include name="setSingleValueTRUEForNodeIDFilteredOnSingleAttributeValueCriteria" />
+				<include name="setMultipleValuesForNodeIDFilteredOnSingleAttributeValueCriteria" />
+				<!-- Following Test Cases added for KAOS User Story TORF-1355 -->
+				<include name="setSingleIntegerValueForNodeIDFilteredOnMultipleAttributeValueCriteria" />
+				<include name="setSingleEnumValueForNodeIDFilteredOnMultipleAttributeValueCriteria" />
+				<!-- Following Test Cases added for KAOS User Story TORF-1358-->
+				<include name="setAttributetHODataFwdReorderingOnAllMOInstancesOfENodeBFunctionWithuserLabelOfNode" />
+			   <!-- Following Test Cases added for KAOS User Story TORF-1358/TORF-6924/TORF-1355/TORF-6924-->
+			   	<include name="setAttributeuserLabelOnAllEUtranCellcontainAttributeFilter" />
+			   	<include name="setAttributePartialNodeFilteruserLabelOnEUtranCellFDDcontainsSpecifieduserLabel" />
+			   	<include name="setAttributeulInterferenceManagementActivePartialNodeFilterContainsEUtranCellFDDcontainsSpecifieduserLabelAndulInterferenceManagementActiveFalse" />
+			   	<include name="setAttributeulChannelBandwidthNodeStarContainsEUtranCellFDDcontainsuserLabelAndulInterferenceManagementActiveFalse" />				
+				<!-- Following Test Cases added for KAOS User Story TORF-7037-->
+				<include name="setSequencedComplexDataForSpecifiedNode" />
+			   	<!-- Following Test Cases added for KAOS User Story TORF-690 and TORF-10209-->
+				<include name="deleteMOWithChildMONoParmALLExpectingFail" />					
+				<include name="deleteMOWithChildMOWithParmALL" />
+				<include name="getMOAfterDeleteMOWithParmALLExpectingFail" />						
+				<include name="deleteMO" />
+				<include name="getMOAfterDeleteMOExpectingFail" />	
+				<include name="deleteNonExistentMOExpectingFail" />	
+				<include name="deleteMOWithOneChildMOWithParmALL" />	
+				<include name="deleteMOWithNoChildMOWithParmALL" />	
+				<include name="delete123abc456ALL" />	
+				<include name="deleteMeContext3ALL" />	
+				<include name="deleteMeContext4ALL" />
+				<!-- Following Test Cases added for KAOS User Story TORF-1356-->
+				<include name="setMultipleMOsWithFilteredOnRangeOfAttributeValues" />	
+				<include name="setMultipleMOsWithFilteredOnRangeOfAttributeValuesWithUnsupportedComparatorFail"/>
+				<!-- Following Test Cases added for KAOS User Story TORF-1350, 1351, 1352, 1353-->
+				<include name="deleteMOsWithCriteria" />
+				<include name="deleteMOsWithCriteriaHavingChildFail" />
+				<include name="deleteMOsWithCriteriaHavingChildALLParamFail" />							
+			</methods>
+		</classes>
+	</test>
+</suite>

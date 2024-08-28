@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns5:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns5="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="RbsConfigLevel" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/oss_edt/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>RbsConfigLevel</ns1:desc>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="UNDEFINED" value="0">
+    <ns1:desc>The RBS has not been configured.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="BASIC_CV" value="1">
+    <ns1:desc>The RBS has basic configuration version.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="SITE_BASIC" value="3">
+    <ns1:desc>O&amp;M access MOs are configured.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="SITE_EQUIPMENT" value="4">
+    <ns1:desc>All Equipment MOs are configured.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="SITE_CONFIG_COMPLETE" value="5">
+    <ns1:desc>Site Configuration is completed. The RBS is ready for integration by OSS.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="OSS_ACTIVATING_CONFIGURATION" value="6">
+    <ns1:desc>OSS continues with configuration.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="OSS_CONFIGURATION_SUCCESSFUL" value="7">
+    <ns1:desc>Node successfully configured by OSS.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="OSS_CONFIGURATION_FAILED" value="8">
+    <ns1:desc>Node configuration by OSS failed.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="S1_COMPLETE" value="9">
+    <ns1:desc>The S1 interface is configured.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="INTEGRATION_COMPLETE" value="10">
+    <ns1:desc>The RBS is integrated in OSS.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="NPC_CONFIGURATION" value="11">
+    <ns1:desc>NPC config data is configured.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="NPC_COMPLETE" value="12">
+    <ns1:desc>NPC test configuration is complete.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="CERTIFICATE_ENROLLMENT_COMPLETE" value="13">
+    <ns1:desc>Deprecated: Since L10B. Planned to be removed.
+
+Installation of security credentials is completed.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="SECURITY_LEVEL_3_ACTIVE" value="14">
+    <ns1:desc>Deprecated: Since L10B. Planned to be removed.
+
+The RBS is running in security level 3.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="GIGABIT_LINK_DETECTED" value="15">
+    <ns1:desc>GIGABIT_LINK_DETECTED</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="SECURITY_PREPARATION_COMPLETE" value="16">
+    <ns1:desc>Installation of security configuration is completed.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="SECURITY_ACTIVE" value="17">
+    <ns1:desc>The RBS is running at requested security level.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="INITIAL_IPSEC_FOR_OAM_ACTIVE" value="18">
+    <ns1:desc>The initial IPsec for OAM has been activated.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="FEATURES_ACTIVATED" value="19">
+    <ns1:desc>All features that have a valid license installed are activated.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="ACTIVATING_FEATURES" value="20">
+    <ns1:desc>All features that have a valid license installed are going to be activated</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="ACTIVATING_FEATURES_FAILED" value="21">
+    <ns1:desc>Not all features that have a valid license installed has been activated correctly</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="CELLS_UNLOCKED" value="22">
+    <ns1:desc>All cells in the node are unlocked</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="UNLOCKING_CELLS" value="23">
+    <ns1:desc>All cells in the node are going to be unlocked</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="UNLOCKING_CELLS_FAILED" value="24">
+    <ns1:desc>Not all cells in the node have been possible to unlock</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="READY_FOR_SERVICE" value="25">
+    <ns1:desc>The node is ready to carry traffic.  Integration is complete and all cells and sectors in the node have the operationalState set to ENABLED.</ns1:desc>
+  </ns5:member>
+</ns5:EnumDataTypeDefinition>

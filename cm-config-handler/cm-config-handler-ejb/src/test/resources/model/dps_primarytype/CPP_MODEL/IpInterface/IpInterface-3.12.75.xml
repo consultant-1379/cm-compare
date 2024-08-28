@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="IpInterface" ns1:ns="CPP_MODEL" ns1:version="3.12.75" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Internet Protocol (IP) Interface
+
+This MO models the interface between an IP access host and Gigabit Ethernet, and between the default routers and their supervision.
+
+A logical network is the LAN, priority tagged or untagged, or a VLAN that is vlan-tagged. A subnet is defined by networkPrefixLength and defaultRouter0.
+
+For some boards, the Virtual LAN identity, vid, must be unique for each IP interface on the same board. For other boards, the same vid can be used for more than one IP interface on the same board. See the description of the relevant board.
+
+All IP hosts connected to the same IP interface must belong to the same subnet. This also applies for a number of addresses describing the IpInterface MO. The attributes concerned are the following:
+- defaultRouter0
+- defaultRouter1
+- defaultRouter2
+- ownIpAddressActive
+- ownIpAddressPassive
+
+A maximum of 16 IpInterface MOs can be connected to one GigabitEthernet or InternalEthernetPort MO. For some boards, the maximum number can be lower.
+
+A maximum of 128 hosts (IpAccessHostGpb, IpAccessHostSpb and IpAccessHostEt) can be connected to the 16 IP interfaces on the same board. However, one IpInterface can also be shared by all the 128 hosts.
+A maximum of two instances of IpAccessHostEt MO can be connected to one IpInterface MO.
+
+An IpAccessHostEt MO and an IpHostLink MO can refer to the same IpInterface MO.
+
+A maximum of 2500 host MOs (IpAccessHostGpb, IpAccessHostSpb and IpAccessHostEt) can be configured in a node.
+
+If the node is configured using DHCP, the IP address of the IpHostLink MO is temporarily set to 0.0.0.0. All traffic for all IpInterface MOs on the board is distributed to this host. The PM counters of the IpInterface MOs are not always incremented when this option is set.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="IpInterfaceId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="logging" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies whether logging of traffic events shall be performed for the IpInterface.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/StateVals/3.12.75" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="DISABLED" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmInDiscPolicy" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of packets received on the IP interface that matches a policy rule with action discard.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmInPassedPolicy" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of packets received on the IP interface that matches a policy rule with action pass.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmInEsp" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of packets received on the IP interface with protocol ESP.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="operationalState" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The operational state.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/OperState/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="availabilityStatus" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The availability status.
+
+It contains details about operationalState.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/AvailabilityStatus/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="vid" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The Virtual LAN (VLAN) identifier.
+
+This attribute is applicable only when:
+- vLan is set to true
+- front ports are configured, that is the attribute linkType of the GigaBitEthernet MO is set to FRONT_PORTS.
+
+vid 0 = priority tag only
+vid 1 - 4094 = with priority tag and vlan id
+
+If vlanRef is set to a non-NULL value, it resets the value of this attribute to 1.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="4094" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="vLan" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies whether VLAN tagging is used on this interface.
+
+This attribute is applicable only when front ports are configured, that is, when one of the following conditions is fulfilled:
+
+- This instance is related to a GigaBitEthernet MO, which has the attribute linkType set to FRONT_PORTS.
+- This instance is related to the InternalEthernetPort MO.
+
+If set to false, the Ethernet frames are untagged.
+If set to true, the Ethernet frames are tagged.
+
+If vlanRef is set to a non-NULL value, it resets the value of this attribute to false.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="rps" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Router Path Supervision
+
+Router Path Supervision is done on the links defined by ownIpAddressActive and ownIpAddressPassive, if they have valid IP addresses defined when they are created.
+
+It is possible to enable Router Path Supervision after the creation of the IpInterface MO, if it is disabled when the MO is created (rps = false) and if ownIpAddressActive is set.
+
+It is possible to disable Router Path Supervision when the IpInterface MO has been created, by setting this attribute to false.
+
+If this attribute is set to false, the egress traffic is directed to defaultRouter0, which means that traffic disturbances will occur if the default router 0 is unavailable.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="true" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="mtu" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The maximum transfer unit, that is the maximum number of Ethernet payload octets sent in an Ethernet frame.
+
+The actual MTU used by the hardware might be lower than the configured value due to HW limitations. See the description of the relevant board for details.
+
+Dependencies:
+The maximum value for mtu depends on the attributes frameFormat and linkType in the parent MO GigaBitEthernet or frameFormat in the parent MO InternalEthernetPort. It also depends on if jumbo frames are supported.
+
+If the attribute frameFormat = IEEE_802_3_LLC_SNAP, the maximum value of mtu is 1492. 
+
+The maximum value of mtu is 2000, if at least one of the following conditions are fulfilled:
+- the parent MO is GigaBitEthernet and linkType = BACKPLANE_PORTS
+- the board supports jumbo frames. See the description of the relevant board.
+
+In other cases, the maximum value of mtu is 1500.
+
+As a general rule, IpInterface MOs belonging to the same InternalEthernetPort MO or the same GigaBitEthernet MO must have the same MTU value, that is the same value on this attribute. However, some boards allow for a more flexible setting of MTU. See the description of the relevant board.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="2000" min="576"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1500" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="networkPrefixLength" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The subnet mask.
+
+Example: networkPrefixLength = 24, subnet mask is 255.255.255.0
+Example: networkPrefixLength = 28, subnet mask is 255.255.255.240</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="30" min="8"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="defaultRouter0" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The IP address of the default router 0.
+
+It is not allowed to set the value of this attribute to 0.0.0.0. The attributes defaultRouter0, defaultRouter1 and defaultRouter2 must not indicate the same IP address.
+
+If rps is set to false, the egress traffic is always directed to this default router.
+
+If the address of the defaultRouter0 is changed, it has to belong to the subnet defined by the networkPrefixLength and attribute rps must be set to false.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="defaultRouter1" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The IP address of the default router 1.
+
+The attributes defaultRouter0, defaultRouter1 and defaultRouter2 must not indicate the same IP address.
+
+If the address of the defaultRouter1 is changed, it has to belong to the subnet defined by the networkPrefixLength or set to value 0.0.0.0. The attribute rps must have value false when the change is performed.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;0.0.0.0&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="defaultRouter2" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The IP address of the default router 2.
+
+The attributes defaultRouter0, defaultRouter1 and defaultRouter2 must not indicate the same IP address.
+
+If the address of the defaultRouter2 is changed, it has to belong to the subnet defined by the networkPrefixLength or set to value 0.0.0.0. The attribute rps must have value false when the change is performed.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;0.0.0.0&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="defaultRouter0State" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates whether ping supervision is successful toward default router 0.
+
+If router path supervision is turned off (rps = false) the value of this attribute is ENABLED.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/OperState/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="defaultRouter1State" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates whether ping supervision is successful toward default router 1.
+
+If no default router 1 is configured, the value of this attribute is DISABLED.
+
+If router path supervision is turned off (rps = false) the value of this attribute is ENABLED.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/OperState/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="defaultRouter2State" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates whether ping supervision is successful toward default router 2.
+
+If no default router 2 is configured, the value of this attribute is DISABLED.
+
+If router path supervision is turned off (rps = false) the value of this attribute is ENABLED.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/OperState/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="defaultRouterTraffic" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates which of the default routers is selected for egress traffic.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/DefaultTraffic/3.12.75" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="TRAFFIC_DEF_ROUTER_0" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="defaultRouterPingInterval" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The interval at which the default router is ping-ed.
+
+Must be larger than or equal to maxWaitForPingReply.
+
+The value of this attribute is irrelevant, if rps = false.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="3"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="4" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="maxWaitForPingReply" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>If echo reply is not received within this time, ping supervision is considered to be failed.
+
+This value is irrelevant, if rps = false.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="3"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="3" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="maxNoOfFailedPings" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Maximum number of consecutive failed pings before the contact with the default router is considered to be lost.
+
+This value is irrelevant, if rps = false.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="10" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="2" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="noOfPingsBeforeOk" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Minimum number of consecutive successful pings before a default router is considered to be reachable, after having been considered unreachable.
+
+This value is irrelevant, if rps = false.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="10" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="2" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="switchBackTimer" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Switchback timer
+
+When a higher-priority router has become reachable, the traffic switches back to default router 0 or default router 1, after expiry of the switchback timer.
+
+This value is irrelevant, if rps = false.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="3600" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="180" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ownIpAddressActive" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The IP address of Router Path Supervision on the active link.
+
+The active link is the one where traffic is handled.
+
+This IP address must be set, if rps = true.
+
+This IP address can be shared with a host that is connected to the IP interface, but apart from that, the IP address must be unique.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;0.0.0.0&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ownIpAddressPassive" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The IP address of Router Path Supervision on the passive link.
+
+This IP address must be unique in the node if the attribute rps is set to true.
+
+The attribute is not valid if the IpInterface belongs to an InternalEthernetPort MO.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;0.0.0.0&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="subnet" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>This attribute contains the subnet address of the IpInterface MO.
+
+The subnet address is constructed from the address in defaultRouter0 and the attribute networkPrefixLength.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;0.0.0.0&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains a list of MO instances that reserve this MO instance.
+
+A maximum of 96 users can reserve the IpInterface MOs configured on the same logical network.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="/dps_primarytype/CPP_MODEL/ManagedObject/3.12.75" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfStatsIpInReceives" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of received IP datagrams, including those with errors.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfStatsIpInHdrErrors" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of received IP datagrams with an error in the header.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfStatsIpAddrErrors" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of received IP datagrams discarded due to invalid header address.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfStatsIpInDiscards" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of received IP datagrams discarded due to resource problems (for example, lack of buffer space).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfStatsIpUnknownProtos" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of IP datagrams received, with an unknown or not supported protocol.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfStatsIpOutRequests" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of IP datagrams requested by the IP user protocol to be processed for sending.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIfStatsIpOutDiscards" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of IP datagrams that should be sent, but which were discarded due to resource problems (for example, lack of buffer space).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmDot1qTpVlanPortOutFrames" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of valid frames transmitted from this port, belonging to this VLAN and IP interface. If there are more than one IP interface belonging to the same VLAN,  the total number of frames for a specific VLAN is the sum of the pmDot1qTpVlanPortOutFrames counter for all IP interfaces belonging to the VLAN.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="trafficType" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The type of traffic on this interface.
+
+This attribute is only for information, setting it does not affect traffic or system behaviour.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/IpTrafficType/3.12.75" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="NOT_USED" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmDot1qTpVlanPortInFrames" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of valid frames received on this port, belonging to this VLAN and IP interface. If there are more than one IP interface belonging to the same VLAN,  the total number of frames for a specific VLAN is the sum of the pmDot1qTpVlanPortInFrames counter for all IP interfaces belonging to the VLAN.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfFailedPingsDefaultRouter0" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of failed pings towards the defaultRouter0 on the active link only. The counter value survives the link switch when applicable.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfFailedPingsDefaultRouter1" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of failed pings towards the defaultRouter1 on the active link only. The counter value survives the link switch when applicable.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfFailedPingsDefaultRouter2" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of failed pings towards the defaultRouter2 on the active link only. The counter value survives the link switch when applicable.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="DEPRECATED" ns1:name="currentPmRegister" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Returns the current values of all PM counters.
+
+To activate the writing of statistical values in a PM counter, start a performance monitoring (scanner) on that counter. Otherwise, the value of the PM counter is set to -1.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType xsi:type="ns1:stringType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="vlanRef" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Reference to an instance of a Vlan MO.
+
+The referenced instance represents an external VLAN that is opened on this port.
+
+This attribute is applicable only when this instance is related to a GigaBitEthernet MO.
+
+When configuring backplane ports, that is if the attribute linkType in the GigaBitEthernet MO is set to BACKPLANE_PORTS, this attribute is mandatory.
+
+When configuring front ports, that is if the attribute linkType in the GigaBitEthernet MO is set to FRONT_PORTS, this attribute can be used. If this attribute is set to a non-NULL value, it overrides the values of the attribute pair vid and vLan, which are cleared and reset to 1 and false respectively and ignored by the system.</ns1:desc>
+    <ns1:type modelUrn="/dps_primarytype/CPP_MODEL/ManagedObject/3.12.75" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="accessControlListRef" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Reference to an instance of an AccessControlList MO.</ns1:desc>
+    <ns1:type modelUrn="/dps_primarytype/CPP_MODEL/AccessControlList/3.12.75" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="trafficSchedulerRef" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Reference to an instance of a TrafficScheduler MO.</ns1:desc>
+    <ns1:type modelUrn="/dps_primarytype/CPP_MODEL/ManagedObject/3.12.75" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIpIfStatsHCInOctets" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of received IP octets, including those with errors.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIpIfStatsHCOutOctets" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of transmitted IP octets.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIpIfStatsHCOutTransmits" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The total number of transmitted IP datagrams.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmIpIfStatsHCInReceives" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of received IP datagrams, including those with errors.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

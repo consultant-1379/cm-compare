@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="EdgePortMode" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/oss_edt/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>The behavior of an edge port.</ns1:desc>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="ADMIN_EDGE_OFF" value="0">
+    <ns1:desc>The port is an active member of a spanning tree network and expects to receive BPDUs.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="AUTO_EDGE" value="1">
+    <ns1:desc>The port expects to be situated at the edge of the spanning tree enabled network and transits rapidly into forwarding state. The system automatically detects if it is an edge port.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="ADMIN_EDGE_ON" value="2">
+    <ns1:desc>The port expects to be situated at the edge of the spanning tree enabled network and transits rapidly into forwarding state. If the port receives BPDUs, it becomes a participant in the spanning tree network. It differs from AUTO_EDGE, in that once the port has become a participant in the spanning tree network, it remains so, regardless of further BPDU reception.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="ADMIN_EDGE_BPDU_GUARD" value="3">
+    <ns1:desc>The port expects to be situated at the edge of the spanning tree enabled network and transits rapidly into forwarding state. If the port receives BPDUs, it is temporarily disabled.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="ADMIN_EDGE_BPDU_FILTER" value="4">
+    <ns1:desc>The port expects to be situated at the edge of the spanning tree enabled network and transits rapidly into forwarding state. The port discards any received BPDUs.</ns1:desc>
+  </ns2:member>
+</ns2:EnumDataTypeDefinition>

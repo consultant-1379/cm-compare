@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:lifeCycleDesc="" ns1:name="ChildSa" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/oss_cdt/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>The properties of a child security association.</ns1:desc>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="encryptionAlgorithm">
+    <ns1:desc>Specifies the algorithm used for encryption.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/ChildSaEncryptionAlgorithm/3.12.0" xsi:type="ns1:enumRefType"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="localTrafficSelectors">
+    <ns1:desc>Specifies the local traffic selectors used by the SA. The traffic selectors are separated by a linefeed character. Each traffic selector is formated as follows:
+
+IP Address Range = &lt;min IP address&gt; - &lt;max IP address&gt;, Protocol = &lt;protocol&gt;, Port Range = &lt;min port number&gt; - &lt;max port number&gt;
+
+The port range is only included if the specified protocol supports port numbers.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="direction">
+    <ns1:desc>Specifies the direction of packet going into the tunnel or going out of the tunnel.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/ChildSaDirection/3.12.0" xsi:type="ns1:enumRefType"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="remoteTrafficSelectors">
+    <ns1:desc>Specifies the remote traffic selectors used by the SA. The traffic selectors are separated by a linefeed character. Each traffic selector is formated as follows:
+
+IP Address Range = &lt;min IP address&gt; - &lt;max IP address&gt;, Protocol = &lt;protocol&gt;, Port Range = &lt;min port number&gt; -&lt;max port number&gt;
+
+The port range is only included if the specified protocol supports port numbers.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="integrityAlgorithm">
+    <ns1:desc>Specifies the algorithm used for integrity check.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/ChildSaIntegrityAlgorithm/3.12.0" xsi:type="ns1:enumRefType"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="spiValue">
+    <ns1:desc>Specifies the SPI value.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

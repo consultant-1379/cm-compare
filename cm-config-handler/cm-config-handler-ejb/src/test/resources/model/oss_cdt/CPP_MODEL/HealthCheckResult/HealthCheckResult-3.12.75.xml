@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:lifeCycleDesc="" ns1:name="HealthCheckResult" ns1:ns="CPP_MODEL" ns1:version="3.12.75">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/oss_cdt/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>HealthCheckResult</ns1:desc>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="message">
+    <ns1:desc>Provides additional results.
+
+The initial value is an emtpy string ("").</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="startTime">
+    <ns1:desc>The time the health check starts.
+
+Format:  yyyy:MM:dd HH:mm
+
+The initial value is an empty string ("").</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="healthCheckResultCode">
+    <ns1:desc>The result of the health check.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/HealthCheckResultCode/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

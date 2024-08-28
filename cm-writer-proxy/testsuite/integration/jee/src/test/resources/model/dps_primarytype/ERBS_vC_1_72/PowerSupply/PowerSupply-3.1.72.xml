@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="PowerSupply" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>This MO represents the logical resource providing configuration and supervision support for the cabinet power supply. Examples include configuration of charging algorithms and supervision levels and switching functions on/off etc.
+
+Dependencies: Can only exist in the node when the attribute supportSystemControl on MO EquipmentSupportFunction is set to true.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="PowerSupplyId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="nominalVoltage" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The desired system voltage.
+
+Unit: 0.1 V
+Resolution: 1
+Dependencies: Superseded by chargingVoltage when MO BatteryBackup is created
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="-480" min="-570"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="-545" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="systemUndervoltageAlarmCeaseOffset" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The offset for the system under voltage level above which the system undervoltage alarm ceases.
+
+The alarm cease condition is true when systemVoltage &lt; SystemUndervoltageAlarmLevel – SystemUndervoltageAlarmCeaseOffset.
+
+Unit: 0.1 V
+Resolution: 1
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="50" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="30" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="systemUndervoltageAlarmLevel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Alarm level for system undervoltage.
+The alarm is raised when systemVoltage is lower than SystemUndervoltageAlarmLevel.
+
+Unit: 0.1 V
+Resolution: 1
+Dependencies: systemUndervoltageAlarmLevel shall be higher than the mainLoadUnderVoltageDisconnectLevel.
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="-380" min="-480"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="-440" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="systemVoltage" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The measured system voltage. It is equal to the attribute batteryVoltage, MO BatteryBackup, when the battery is connected.
+
+Unit: 0.1 V
+Resolution: 1
+Undefined value: -1 (no connection with neither PDU, BFU nor PSU)</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="-380" min="-600"/>
+        <ns1:minMaxRange max="-1" min="-1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

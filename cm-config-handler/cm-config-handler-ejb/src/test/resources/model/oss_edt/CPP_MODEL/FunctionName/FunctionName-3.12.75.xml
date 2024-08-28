@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="FunctionName" ns1:ns="CPP_MODEL" ns1:version="3.12.75">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/oss_edt/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>FunctionName</ns1:desc>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CREATE_UP" value="0">
+    <ns1:desc>Creation of a MO Upgrade Package.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CREATE_VIRTUAL_UP" value="1">
+    <ns1:desc>Creation of a virtual MO Upgrade Package during recovery.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="INSTALL_UP" value="2">
+    <ns1:desc>Installation of an upgrade package.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="DELETE_UP" value="3">
+    <ns1:desc>Deletion of a upgrade package.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VER_UPGRADE_FROM_VERSION" value="4">
+    <ns1:desc>Verifying that the upgrade window defined in the Upgrade Control File allows an upgrade.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VER_UPGRADE_CV" value="5">
+    <ns1:desc>Verifying that it is possible to create the required number of CV's during the upgrade phase.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VER_UPGRADE_PIU_SUPPORTED" value="6">
+    <ns1:desc>Verifying that the used plugin-units in the node are supported according to the Upgrade Control File.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VER_UPGRADE_CHECKSUM_FOR_LM" value="7">
+    <ns1:desc>Verifying the checksum for all load modules that have a checksum value defined in the Upgrade Control File.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VER_UPGRADE_PIU_NOT_FAULTY" value="8">
+    <ns1:desc>Verifying that plugin-units on the node are not faulty before the upgrade is initiated.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="RECONF_MO_REP_HANDLING" value="9">
+    <ns1:desc>Reconfiguring instancies of the MO Repertoire as specified to the Upgrade Control File.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="RECONF_MO_PIU_TYPE_HANDLING" value="10">
+    <ns1:desc>Reconfiguring instancies of the MO PiuType as specified to the Upgrade Control File.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="RECONF_MO_RPU_HANDLING" value="11">
+    <ns1:desc>Reconfiguring instancies of the MO ReliableProgramUniter as specified to the Upgrade Control File.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="TRIGGER_INITIATE" value="12">
+    <ns1:desc>Executing trigger Initiate.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="TRIGGER_EXECUTE" value="13">
+    <ns1:desc>Executing trigger Execute.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="TRIGGER_FINISH" value="14">
+    <ns1:desc>Executing trigger Finish.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="TRIGGER_HANDLING" value="15">
+    <ns1:desc>Trigger handling.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="SAVING_CV" value="16">
+    <ns1:desc>Saving a configuration version.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="REBOOT_NODE_UPGRADE" value="17">
+    <ns1:desc>UCF operation RebootNodeUpgrade handling.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="REBOOT_JVM_UPGRADE" value="18">
+    <ns1:desc>UCF operation RebootJvmUpgrade handling.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="REBOOT_PIU_UPGRADE" value="19">
+    <ns1:desc>UCF operation RebootPiuUpgrade handling.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="SOFT_PIU_UPGRADE" value="20">
+    <ns1:desc>UCF operation SoftPiuUpgrade handling.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="PLUG_AND_PLAY_PIU" value="21">
+    <ns1:desc>Plug-and-play handling of a plugin-unit.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="PLUG_AND_PLAY_FAN" value="22">
+    <ns1:desc>Plug-and-play handling of a fan.</ns1:desc>
+  </ns2:member>
+</ns2:EnumDataTypeDefinition>

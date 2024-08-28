@@ -1,0 +1,2 @@
+Good Command#Expected Result#Bad Command#Expected Result#Specific ERBS Command#Specific ERBS Expected Result
+cmedit get *#Subnetwork=ONRM_R,MeContext=ERBS72Subnetwork=ONRM_R,MeContext=ERBS21#get !!!#(ScriptEngineLanguageModel) unknown command; get#CMEDIT GET ERBS21 EUtranCellFDD.*#Specific ERBS Expected Result

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="CapacityConnectedUsers" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Contains information about the capacity license, Number of connected users.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="CapacityConnectedUsersId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Identity attribute for the MO.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="licenseCapacityConnectedUsers" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The licensed capacity limit for the Connected Users feature. It reflects the capacity value in the license key file.
+
+Unit: 1
+Resolution: 1</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="capacityUnitConnectedUsers" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Defines the unit for the Connected Users feature.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="30" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="keyIdConnectedUsers" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The product ID in the license key for the feature Connected Users.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="30" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="licConnectedUsersPercentileConf" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The attribute that specifies the percent to use for the counter pmLicConnectedUsersActual.
+
+Unit: %
+Resolution: 1
+Takes effect: At the next ROP.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="90" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="capacityConnectedHardLimit" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The hard limit for the number of connected users for the Connected Users feature.
+
+Unit: 1
+Resolution: 1</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="licenseStateConnectedUsers" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The license status of the Connected Users feature, ENABLED or DISABLED. The value is ENABLED when a license key is installed.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/StateVals/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmLicConnectedUsersDistr" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Shows the utilization for the number of connected users in the RBS.
+
+PDF ranges:
+[0]: [0..5]%,
+[1]: ]5..10]%,
+[2]: ]10..15]%,
+[3]: ]15..20]%,
+[4]: ]20..25]%,
+[5]: ]25..30]%,
+[6]: ]30..35]%,
+[7]: ]35..40]%,
+[8]: ]40..45]%,
+[9]: ]45..50]%,
+[19]: ]50..55]%,
+[11]: ]55..60]%,
+[12]: ]60..65]%,
+[13]: ]65..70]%,
+[14]: ]70..75]%,
+[15]: ]75..80]%,
+[16]: ]80..85]%,
+[17]: ]85..90]%,
+[18]: ]90..95]%,
+[19]: ]95..100]%
+[20]: ]100..125]%
+[21]: ]125..150]%
+[22]: ]150..200]%
+[23]: ]200..65535]%
+
+Unit: %
+Counter type: PDF
+Scanner: Primary
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="24"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:longType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmLicConnectedUsersLicense" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The licensed value for connected users. The value reflects the capacity value in the license key file i.e. the value of the parameter licenseCapacityConnectedUsers.
+
+Source Attribute: licenseCapacityConnectedUsers
+
+Unit: -
+Condition: Is changed when a new license key file with a new value for number of connected users is installed on the RBS.
+Counter type: Gauge
+Scanner: Primary
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmLicConnectedUsersHardLimit" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates the hard limit for the number of connected users i.e. the value of the parameter capacityConnectedHardLimit.
+
+Source Attribute: capacityConnectedHardLimit
+
+Unit: -
+Counter type: Gauge
+Scanner: Primary
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmLicConnectedUsersTimeCong" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Accumulated time during the ROP when the number of connected users is equal to the licensed value.
+
+Unit: s
+Condition: Is stepped each second when the number of connected users is equal to the licensed limit for number of connected users.
+Counter type: PEG
+Scanner: Primary
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmLicConnectedUsersActual" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The X percentile of the utilization for connected users during a measurement period. The value for X is set in the parameter LicConnectedUsersPercentileConf.
+
+Source Data: licConnectedUsersPercentileConf and pmLicConnectedUsersDistr
+
+Unit: %
+Condition: Is calculated at the end of a ROP period.
+Counter type: Gauge
+Scanner: Primary
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="gracePeriodActive" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates if licensing grace period is activated for the Connected Users feature.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="gracePeriodTimeLeft" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Remaining time for the grace period. Irrelevant if gracePeriodActive is not activated.
+
+Unit: 1 Hour</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="gracePeriodAvailable" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates if grace period is available for the Connected Users feature.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="gracePeriodOriginalLicenseLimit" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The value of the Connected Users license when grace period was activated.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmZtemporary38" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Normally this counter is not used, it can however sometimes be temporarily used for very late additions in a release. If so, for description see Network Impact Report in the CPI.
+
+Unit: -
+Condition: -
+Counter type: GAUGE
+Sampling rate: -
+Scanner: Not included in any predefined scanner 
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmZtemporary39" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Normally this counter is not used, it can however sometimes be temporarily used for very late additions in a release. If so, for description see Network Impact Report in the CPI.
+
+Unit: -
+Condition: -
+Counter type: PDF
+Sampling rate: -
+Scanner: Not included in any predefined scanner 
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="24"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:longType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmLicConnectedUsersMax" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Peak number of Connected Users.
+
+Unit: -
+Condition: This counter is based on an internal level counter maintained by eNB. The internal level counter maintains the current number of Connected Users. pmLicConnectedUsersMax is updated when the internal level counter shows a higher level.
+Counter type: GAUGE
+Sampling rate: -
+Scanner: Primary
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmLicConnectedUsersLevSamp" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of times the corresponding Sum counter has been incremented. Associated ACC pmCounter pmLicConnectedUsersLevSum .
+
+Unit: -
+Condition: The counter is increased at every occasion when the corresponding sum counter is increased.
+Counter type: SCAN
+Sampling rate: 5 seconds
+Scanner: Primary
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmLicConnectedUsersLevSum" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Sum of all sample values recorded for "Connected Users".
+
+Unit: -
+Condition: This counter is based on an internal level counter maintaining the current number of Connected Users. Values are read periodically and accumulated.
+Counter type: ACC
+Sampling rate: 5 seconds
+Scanner: Primary
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

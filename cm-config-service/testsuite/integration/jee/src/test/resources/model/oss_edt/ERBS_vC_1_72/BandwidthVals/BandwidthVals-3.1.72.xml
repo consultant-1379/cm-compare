@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns5:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns5="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="BandwidthVals" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/oss_edt/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>BandwidthVals</ns1:desc>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="N6" value="0">
+    <ns1:desc>N6 denotes 6 resource blocks bandwidth correponding to 1.4 MHz.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="N15" value="1">
+    <ns1:desc>N15 denotes 15 resource blocks  bandwidth correponding to 3 MHz.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="N25" value="2">
+    <ns1:desc>N25 denotes 25 resource blocks bandwidth correponding to 5 MHz.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="N50" value="3">
+    <ns1:desc>N50 denotes 50 resource blocks bandwidth correponding to 10 MHz.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="N75" value="5">
+    <ns1:desc>N75 denotes 75 resource blocks bandwidth correponding to 15 MHz.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="N100" value="4">
+    <ns1:desc>N100 denotes 100 resource blocks bandwidth correponding to 20 MHz.</ns1:desc>
+  </ns5:member>
+</ns5:EnumDataTypeDefinition>

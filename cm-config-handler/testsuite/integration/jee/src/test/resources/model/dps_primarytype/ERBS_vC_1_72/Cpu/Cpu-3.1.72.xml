@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="Cpu" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Deprecated: Since L11B. Has no funtional behaviour.
+This MO abstracts one CPU on the Plug In Board</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="CpuId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Since L11B. Planned to be removed.
+The value component of the Relative Distinguished Name (RDN).
+
+Disturbances: None</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmProcessorLoadDistr" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Deprecated: Since L11B. Planned to be removed.
+A distribution of the main processor load.
+
+PDF ranges:
+[0]: 0 &lt;= Cpu Load &lt; 20 %
+[1]: 20 &lt;= Cpu Load &lt; 30 %
+[2]: 30 &lt;= Cpu Load &lt; 40 %
+[3]: 40 &lt;= Cpu Load &lt; 50 %
+[4]: 50 &lt;= Cpu Load &lt; 60 %
+[5]: 60 &lt;= Cpu Load &lt; 70 %
+[6]: 70 &lt;= Cpu Load &lt; 80 %
+[7]: 80 &lt;= Cpu Load &lt; 85 %
+[8]: 85 &lt;= Cpu Load &lt; 90 %
+[9]: 90 &lt;= Cpu Load &lt; 95 %
+[10]:95 &lt;= Cpu Load
+
+Unit: Percentage of CPU load
+Condition: Automatic and continuous measurement, where a sample for the distribution is obtained every 10 seconds.
+Counter type: PDF
+Sampling rate: -
+Scanner: Not included in any predefined scanner 
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="11"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:longType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

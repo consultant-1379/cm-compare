@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="EUtranFreqRelation" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>This MO represents a mobility relation between a EUtranCellFDD and a EUtranFrequency. It contains parameters that are specific for this relation.
+To include SIB3 in System Information, one instance of this MO must be created which refers to a EUtranFrequency MO with the parameter arfcnValueEUtranDl set to the same value as the parent EUtranCellFDD/EUtranCellTDDs parameter earfcndl.
+
+ It is only allowed to remove the EUtranFreqRelation, refering to the same frequency as the parent MO EUtranCellFDD/EUtranCellTDD has, when the EUtranCellFDD/EUtranCellTDD is locked.
+
+Deleting this MO while the parent EUtranCellFDD/EUtranCellTDD has operationalState set to ENABLED is not recommended as it may affect traffic.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="EUtranFreqRelationId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the Relative Distinguished Name (RDN).</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="eutranFrequencyRef" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Refers to the EUTRAN frequency MO, EUtranFrequency.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/EUtranFrequency/3.1.72" xsi:type="ns1:moRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="qRxLevMin" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The required minimum received Reference Symbol Received Power 
+(RSRP) level in the (E-UTRA) frequency for cell reselection. Corresponds to parameter Qrxlevmin in 3GPP TS 36.304. This attribute is broadcast in SIB3 or SIB5, depending on whether the related frequency is intra- or inter-frequency.
+
+Unit: dBm
+Resolution: 2
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="-44" min="-140"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="-140" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pMax" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Calculates the parameter Pcompensation (defined in 3GPP TS 36.304), at cell reselection to an E-UTRAN Cell. Corresponds to parameter PEMAX in 3GPP TS 36.101.
+Value 1000 means the parameter is not sent in the system information block.
+
+Unit: dBm
+Resolution: 1
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="33" min="-30"/>
+        <ns1:minMaxRange max="1000" min="1000"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1000" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="tReselectionEutra" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The cell reselection timer TreselectionRAT for E-UTRA. Value in seconds.
+
+Unit: s
+Resolution: 1
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="7" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="2" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="tReselectionEutraSfHigh" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The attribute t-ReselectionEUTRA is multiplied with this factor if the UE is in high mobility state. Corresponds to the parameter Speed dependent ScalingFactor for TreselectionEUTRAN for medium high state in 3GPP TS 36.304. 
+Value mapping:
+25 = 0.25
+50 = 0.5
+75 = 0.75
+100 = 1.0
+
+Unit: %
+Resolution: 25
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="25"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="100" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="tReselectionEutraSfMedium" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The attribute t-ReselectionEUTRA is multiplied with this factor if the UE is in medium mobility state. Corresponds to the parameter Speed dependent ScalingFactor for TreselectionEUTRAN for medium mobility state in 3GPP TS 36.304. 
+Value mapping:
+25 = 0.25
+50 = 0.5
+75 = 0.75
+100 = 1.0
+
+Unit: %
+Resolution: 25
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="25"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="100" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="cellReselectionPriority" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The absolute priority of the carrier frequency used by the cell reselection procedure. Corresponds to the parameter priority in 3GPP TS 36.304.
+
+Value 0 means: lowest priority. The UE behavior when no value is entered is specified in 3GPP TS 36.304.
+
+Resolution: 1
+Dependencies: The value must be uniqe and not already used by other RAT, i.e. equal priorities between RATs are not supported.
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="7" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="7" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="threshXHigh" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The threshold used by the UE when reselecting towards the higher priority frequency X from the current serving frequency. Each frequency of E-UTRAN can have a specific threshold. Refer to the parameter Thresx,high in 3GPP TS 36.304.
+
+Unit: dB
+Resolution: 2
+Dependencies: If an EUtranCellRelation::isImLoadBalancingActive, associated with a neighbor EUtranCell, is set to value "true", and the corresponding EUtranFreqRelation::cellReselectionPriority is greater than the cell reselection priority of the frequency of the own EUtranCell, the threshXHigh parameter is "read only" and the idle mode load balancing function controls the parameter value (SON parameter).
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="62" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="4" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="threshXLow" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The threshold used in reselection towards frequency X priority from a higher priority frequency. Each frequency of E-UTRAN can have a specific threshold. Corresponds to parameter Thresx,low in 3GPP TS 36.304.
+
+Unit: dB
+Resolution: 2
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="62" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="allowedMeasBandwidth" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The maximum allowed measurement bandwidth on a carrier frequency.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="6" min="6"/>
+        <ns1:minMaxRange max="15" min="15"/>
+        <ns1:minMaxRange max="25" min="25"/>
+        <ns1:minMaxRange max="50" min="50"/>
+        <ns1:minMaxRange max="75" min="75"/>
+        <ns1:minMaxRange max="100" min="100"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="6" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="qOffsetFreq" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Frequency specific offset for E-UTRAN frequencies used in idle and connected mode.Â See 36.331.
+
+Unit: dB
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="-24" min="-24"/>
+        <ns1:minMaxRange max="-22" min="-22"/>
+        <ns1:minMaxRange max="-20" min="-20"/>
+        <ns1:minMaxRange max="-18" min="-18"/>
+        <ns1:minMaxRange max="-16" min="-16"/>
+        <ns1:minMaxRange max="-14" min="-14"/>
+        <ns1:minMaxRange max="-12" min="-12"/>
+        <ns1:minMaxRange max="-10" min="-10"/>
+        <ns1:minMaxRange max="-8" min="-8"/>
+        <ns1:minMaxRange max="-6" min="-6"/>
+        <ns1:minMaxRange max="-5" min="-5"/>
+        <ns1:minMaxRange max="-4" min="-4"/>
+        <ns1:minMaxRange max="-3" min="-3"/>
+        <ns1:minMaxRange max="-2" min="-2"/>
+        <ns1:minMaxRange max="-1" min="-1"/>
+        <ns1:minMaxRange max="0" min="0"/>
+        <ns1:minMaxRange max="1" min="1"/>
+        <ns1:minMaxRange max="2" min="2"/>
+        <ns1:minMaxRange max="3" min="3"/>
+        <ns1:minMaxRange max="4" min="4"/>
+        <ns1:minMaxRange max="5" min="5"/>
+        <ns1:minMaxRange max="6" min="6"/>
+        <ns1:minMaxRange max="8" min="8"/>
+        <ns1:minMaxRange max="10" min="10"/>
+        <ns1:minMaxRange max="12" min="12"/>
+        <ns1:minMaxRange max="14" min="14"/>
+        <ns1:minMaxRange max="16" min="16"/>
+        <ns1:minMaxRange max="18" min="18"/>
+        <ns1:minMaxRange max="20" min="20"/>
+        <ns1:minMaxRange max="22" min="22"/>
+        <ns1:minMaxRange max="24" min="24"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="presenceAntennaPort1" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Indicates if all the neighboring cells use Antenna Port 1.  When set to TRUE, the UE expects that at least two cell-specific antenna ports are used in all neighboring cells.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="allowedPlmnList" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Lists all Public Land Mobile Network (PLMN) IDs allowed for this frequency relation.
+
+A UE that does not support a PLMN included in allowedPlmnList does not measure on this frequency according to the UE Handover Restriction List.
+
+No values in allowedPlmnList imply that the frequency has no restrictions for PLMN.
+
+The PLMN identity consists of the following parts: 
+1. MobileCountryCode, MCC, 3 digits
+2. MobileNetworkCode, MNC, 2 or 3 digits (the correct number of digits is set in the mncLength member of this Struct)
+
+For example, if MCC=125 and MNC=46, then plmnId=12546.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="15"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType modelUrn="//ERBS_vC_1_72/PlmnIdentity/3.1.72" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="includeInSystemInformation" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: L11A. Has no functional behaviour.
+States if the referred frequency is included in System Information.
+
+When the includeInSystemInformation is set to false for a EUtranFreqRelation that points at an inter-frequency EUtranFrequency MO, the frequency is not included in SIB5. The maximum number of frequencies that can be included in SIB5 is 8.
+
+For the EUtranFreqRelation that points to the intra frequency EUtranFrequency MO, the attribute is invalid, that is, this attribute does not affect SIB3.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="true" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="connectedModeMobilityPrio" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Prioritizes EUTRAN frequencies among all frequencies related to the cell for UEs in connected mode.
+(0 means the lowest priority)
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="7" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="7" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="mobilityAction" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The preferred way to transfer a UE in connected mode to this EUTRA frequency.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/MobilityActionEUtran/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="HANDOVER" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="createdBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates whether the MO has been created by the Automated Neighbor Relations (ANR) function or operator or X2
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/CreatedByEutran/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timeOfCreation" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates the time and date when the MO was created. 
+Format: YYYY-MM-DD HH:MM:SS
+
+Unit: UTC
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="19" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="lastModification" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates whether the MO was last modified by the Automated Neighbor Relations (ANR) function or operator or X2 and if the MO is to be deleted who triggered the deletion
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/LastModificationEutran/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timeOfLastModification" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates the time and date when the MO was last modified. 
+Format: YYYY-MM-DD HH:MM:SS
+
+Unit: UTC
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="19" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="threshXHighQ" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Parameter "ThreshX, HighQ" in TS 36.304.
+
+For the EUtranFreqRelation that points to the intra frequency EUtranFrequency MO, the attribute is invalid, that is, this attribute does not affect SIB3.
+
+Unit: dB
+Resolution: 1
+Dependencies: The field is mandatory present if the Struct Member threshServingLowQ in SIB3 is used in systemInformationBlockType3.
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="31" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="2" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="threshXLowQ" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Parameter "ThreshX, LowQ" in TS 36.304.
+
+For the EUtranFreqRelation that points to the intra frequency EUtranFrequency MO, the attribute is invalid, that is, this attribute does not affect SIB3.
+
+Unit: dB
+Resolution: 1
+Dependencies: The field is mandatory present if the Struct Member threshServingLowQ in SIB3 is used in systemInformationBlockType3.
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="31" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="qQualMin" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Parameter “Qqualmin” in TS 36.304. 
+
+Value 0 means that it is not sent and UE applies in such case the (default) value of negative infinity for Qqualmin. Sent in SIB3 or SIB5.
+
+Unit: dB
+Resolution: 1
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="-3" min="-34"/>
+        <ns1:minMaxRange max="0" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

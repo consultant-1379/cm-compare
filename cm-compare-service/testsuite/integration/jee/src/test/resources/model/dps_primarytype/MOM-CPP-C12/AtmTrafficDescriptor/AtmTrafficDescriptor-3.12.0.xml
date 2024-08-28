@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="AtmTrafficDescriptor" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>This MO specifies traffic and QoS parameters for virtual channel connections and virtual path connections.
+
+The attributes can only be set in certain combinations:
+
+CBR:
+ingressAtmQos /egressAtmQos:
+1, 2
+
+ingressAtmPcr /egressAtmPcr:
+mandatory (must be specified)
+
+ingressAtmMcr /egressAtmMcr:
+optional (not used, any value submitted will be ignored)
+
+UBR+:
+ingressAtmQos /egressAtmQos:
+3
+
+ingressAtmPcr /egressAtmPcr:
+optional (if shaping is used the desired rate is specified, 0 means no shaping)
+
+ingressAtmMcr /egressAtmMcr:
+mandatory (must be specified)
+
+UBR:
+ingressAtmQos /egressAtmQos:
+4
+
+ingressAtmPcr /egressAtmPcr:
+optional (not used, any value submitted will be ignored)
+
+ingressAtmMcr /egressAtmMcr:
+optional (not used, any value submitted will be ignored)
+
+Only one UBR VP or only one UBR+ VP per ATM Port is supported.
+
+The VP sub layer only supports QoS = 1.
+
+Disturbances: Changing lower layer attributes may affect O&amp;M connectivity, if they are part of the O&amp;M connection.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="AtmTrafficDescriptorId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ingressAtmPcr" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Ingress ATM Peak cell rate (cells/s).
+
+Only non-negative values are allowed. The attribute is only mandatory when serviceCategory is CBR.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ingressAtmQos" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Ingress ATM quality of service.
+
+This attribute can be set to Class 1 and 2 if attribute serviceCategory is set to CBR.
+
+This attribute can be set to Class 3 if attribute serviceCategory is set to UBR+.
+
+This attribute can be set to Class 4 if attribute serviceCategory is set to UBR.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/AtmQos/3.12.0" xsi:type="ns1:enumRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="egressAtmPcr" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Egress ATM Peak cell rate (cells/s).
+
+Only non-negative values are allowed. This attribute is only mandatory when serviceCategory is CBR.
+
+When serviceCategory is set to UBR+, egressAtmPcr &lt; egressAtmMcr disables shaping. egressAtmPcr &gt;= egressAtmMcr enables shaping to the rate specified.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="egressAtmQos" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Egress ATM quality of service.
+
+This attribute can be set to Class 1 and 2 if attribute serviceCategory is set to CBR.
+
+This attribute can be set to Class 3 if attribute serviceCategory is set to UBR+.
+
+This attribute can be set to Class 4 if attribute serviceCategory is set to UBR.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/AtmQos/3.12.0" xsi:type="ns1:enumRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains a list of MO instances that reserve this MO instance.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="//MOM-CPP-C12/ManagedObject/3.12.0" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="egressAtmMcr" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Egress ATM minimum desired cell rate.
+
+Only non-negative values are allowed. The attribute is only mandatory when serviceCategory is UBR+.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ingressAtmMcr" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Ingress minimum desired cell rate (cells/s).
+
+Only non-negative values are allowed. This attribute is mandatory only when serviceCategory is UBR+.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="serviceCategory" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The service category.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/ServiceCategory/3.12.0" xsi:type="ns1:enumRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="packetDiscard" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Controls the functions Early Packet Discard (EPD) and Partial Packet Discard (PPD) used in AAL5 for traffic classes UBR and UBR+. N.B. should never be enabled for non-AAL5 traffic.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

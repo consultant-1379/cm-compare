@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="M3uaLocalAs" ns1:ns="CPP_MODEL" ns1:version="3.12.75" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>The M3UA Local Application Server (AS).
+
+A local AS can be created only for an ASP or an IPSP configuration, but not for both at the same time.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="inactivatedRemoteSpRefs" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>A list of remote SPs manually inactivated for this local AS.
+
+The listed SPs are kept in state ASP-INACTIVE for this AS or in state ASP-DOWN, until they are manually activated.
+
+This list contains a subset of the list in the attribute m3uaRemoteSpRefs.
+
+There can be a maximum of 16 processes in the list.
+
+Applicable only for an ASP configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="/dps_primarytype/CPP_MODEL/M3uaRemoteSp/3.12.75" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="m3uaRemoteSpRefs" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>A list of remote signalling processes (SP).
+
+Used for traffic routing toward the remote application and for receiving traffic from it in an ASP configuration. All referenced M3uaRemoteSp instances must belong to the ASP configuration.
+
+There can be a maximum of 16 processes in the list.
+
+The routingContext must be unique among all M3uaLocalAs instances referencing the same M3uaRemoteSp.
+
+If the routingContext of this MO is equal to 0, the referenced M3uaRemoteSp instances can serve only this M3uaLocalAs.
+
+In an ASP configuration, when deleting an M3uaRemoteSp instance from the list, one of the following preconditions must be fulfilled:
+- the M3uaRemoteSp instance must be manually inactivated for the AS,
+- the M3uaRemoteSp instance must be LOCKED,
+- this MO instance must be LOCKED.
+
+If an M3uaRemoteSp is deleted from this list, it will be also deleted from the list in the attribute inactivatedRemoteSpRefs, if it was previously manually inactivated.
+
+Applicable only for an ASP configuration. For other configuration types, the list must be empty.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="/dps_primarytype/CPP_MODEL/M3uaRemoteSp/3.12.75" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="mtp3bSpRef" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Reference to an instance of Mtp3bSpAnsi, Mtp3bSpChina, Mtp3bSpItu or Mtp3bSpTtc MO.
+
+The referenced instance represents the Signalling Point Management Cluster (SPMC) that this local application server belongs to.
+
+Referenced Mtp3bSp must have value of the attribute rpuId equal to the attribute rpuRef in the parent M3ua MO. That is, these MO instances must belong to the same SCC stack.</ns1:desc>
+    <ns1:type modelUrn="/dps_primarytype/CPP_MODEL/ManagedObject/3.12.75" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="trafficModeType" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The traffic mode type.
+
+The traffic mode type configuration must be aligned between peers. For this implementation of  IETF M3UA,  it means that:
+- In an ASP configuration, the trafficModeType in M3uaLocalAs must be equal to the trafficModeType in M3uaRemoteAs on the peer SGP.
+- In an IPSP configuration, in case of single exchange mode, the trafficModeType in M3uaLocalAs instances must be equal on both sides of the IPSP pair.
+- In an IPSP configuration, in case of double exchange mode, the trafficModeType in M3uaLocalAs must be equal to the trafficModeType in M3uaRemoteAs on the peer side.
+
+For this MO, only LOADSHARE is supported.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/M3uaTrafficModeType/3.12.75" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="LOADSHARE" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="routingContext" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The routing context.
+
+If set to 0, the routing context is not specified, that is, it is not sent in outgoing messages and is not checked in incoming messages.
+
+An SP can serve several ASes with unique routing contexts or only one AS if it has routing context equal to 0.
+
+The routing context configuration must be aligned between peers. For this implementation of  IETF M3UA,  it means that:
+- In an ASP configuration, the routingContext in M3uaLocalAs must be equal to the routingContext in M3uaRemoteAs on the peer SGP.
+- In an IPSP configuration, in case of single exchange mode, the routingContext in M3uaLocalAs instances must be equal on both sides of the IPSP pair.
+- In an IPSP configuration, in case of double exchange mode, the routingContext in M3uaLocalAs must be equal to the routingContext in M3uaRemoteAs on the peer side. Both local and remote routing contexts are used for the connection.
+
+When setting this attribute, the following preconditions must be fulfilled:
+- In an IPSP configuration, in case of double exchange mode, all related M3uaRemoteSp instances must be LOCKED.
+- In an IPSP configuration, in case of single exchange mode, and in an ASP configuration, either all related M3uaRemoteSp instances or this MO instance must be LOCKED.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="4294967295" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="operationalState" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The operational state.
+
+The operational state is ENABLED, if at least one of remote SPs configured for this AS is available for the routing context of this AS. That is, if the AS has at least one signalling process available for traffic.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/OperState/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="availabilityStatus" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The availability status.
+
+It contains details about operationalState.
+
+Possible values for operational state ENABLED:
+
+NO_STATUS = All related SPs are in state ASP-ACTIVE for this local AS. That is, all remote SPs, are available for the routing context of this AS.
+DEGRADED = Only a part of related SPs are in state ASP-ACTIVE for this local AS. That is, only some remote SPs are available for the routing context of this AS. For example, some of related SPs can be listed in the attribute inactivatedRemoteSpRefs.
+
+Possible values for operational state DISABLED:
+
+DEPENDENCY_LOCKED,
+DEPENDENCY_FAILED,
+DEPENDENCY_SHUTTINGDOWN = These values are based on the administrative state and the availability status of the M3uaRemoteSp instances configured for this AS.
+FAILED = The MO has other reasons for staying DISABLED.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/AvailabilityStatus/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="administrativeState" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The administrative state.
+
+Possible values are:
+LOCKED = All related remote SPs are kept in state ASP-INACTIVE for this AS or in state ASP-DOWN.
+UNLOCKED = All related remote SPs are kept in state ASP-ACTIVE for this AS, unless they are LOCKED or manually inactivated for this AS.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/AdmState/3.12.75" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="LOCKED" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="M3uaLocalAsId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains a list of MO instances that reserve this MO instance.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="/dps_primarytype/CPP_MODEL/ManagedObject/3.12.75" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="LoadClass" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/oss_edt/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Defines the phase in the load and start sequence.</ns1:desc>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CORE_0S" value="10">
+    <ns1:desc>CORE_0S</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CORE_DEVICE_TEST_0" value="40">
+    <ns1:desc>CORE_DEVICE_TEST_0</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CORE_DEVICE_TEST_1" value="41">
+    <ns1:desc>CORE_DEVICE_TEST_1</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CORE_DEVICE_TEST_2" value="42">
+    <ns1:desc>CORE_DEVICE_TEST_2</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CORE_DEVICE_TEST_3" value="43">
+    <ns1:desc>CORE_DEVICE_TEST_3</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CORE_DEVICE_TEST_4" value="44">
+    <ns1:desc>CORE_DEVICE_TEST_4</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CORE_DEVICE" value="50">
+    <ns1:desc>CORE_DEVICE</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CORE_DEVICE_TEST_5" value="65">
+    <ns1:desc>CORE_DEVICE_TEST_5</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CORE_DEVICE_TEST_6" value="66">
+    <ns1:desc>CORE_DEVICE_TEST_6</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CORE_DEVICE_TEST_7" value="67">
+    <ns1:desc>CORE_DEVICE_TEST_7</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CORE_DEVICE_TEST_8" value="68">
+    <ns1:desc>CORE_DEVICE_TEST_8</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CORE_DEVICE_TEST_9" value="69">
+    <ns1:desc>CORE_DEVICE_TEST_9</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="LOAD_LIST_PROVIDER" value="100">
+    <ns1:desc>LOAD_LIST_PROVIDER</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CORE_EARLY" value="200">
+    <ns1:desc>CORE_EARLY</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NCH_HW_INIT" value="240">
+    <ns1:desc>NCH_HW_INIT</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="APPLICATION_HW_INIT" value="250">
+    <ns1:desc>APPLICATION_HW_INIT</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="UPGRADE_EARLY" value="260">
+    <ns1:desc>UPGRADE_EARLY</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CORE_LATE" value="300">
+    <ns1:desc>CORE_LATE</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NETWORK_AND_CONNECTION_HANDLING" value="400">
+    <ns1:desc>NETWORK_AND_CONNECTION_HANDLING</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NCH_LATE" value="430">
+    <ns1:desc>NCH_LATE</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="APPLICATION" value="500">
+    <ns1:desc>APPLICATION</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="APPLICATION_LATE" value="530">
+    <ns1:desc>APPLICATION_LATE</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="UPGRADE" value="600">
+    <ns1:desc>UPGRADE</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CORE_BOOT" value="150">
+    <ns1:desc>CORE_BOOT</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CORE_MEDIUM" value="270">
+    <ns1:desc>CORE_MEDIUM</ns1:desc>
+  </ns2:member>
+</ns2:EnumDataTypeDefinition>

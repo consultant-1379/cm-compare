@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="CVCurrentMainActivity" ns1:ns="CPP_MODEL" ns1:version="3.12.75">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/oss_edt/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Configuration version current main activity</ns1:desc>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="IDLE" value="0">
+    <ns1:desc>The CV function is idle.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CREATING_CV" value="1">
+    <ns1:desc>Creating a CV.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="DELETING_CV" value="2">
+    <ns1:desc>Deleting a CV.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="REMOVING_CV_FROM_ROLLBACK_LIST" value="3">
+    <ns1:desc>Removing a CV from the rollback list.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="SETTING_CV_FIRST_IN_ROLLBACK_LIST" value="4">
+    <ns1:desc>Setting a CV first in the rollback list.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="SETTING_CV_AS_STARTABLE" value="5">
+    <ns1:desc>Setting a CV as startable.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="EXPORTING_BACKUP_CV" value="6">
+    <ns1:desc>Uploading a backup CV to a FTP Server.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="IMPORTING_BACKUP_CV" value="7">
+    <ns1:desc>Downloading a backup CV from a FTP Server.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="RESTORING_DOWNLOADED_BACKUP_CV" value="8">
+    <ns1:desc>Restoring a downloaded backup CV.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VERIFYING_DOWNLOADED_BACKUP_CV_BEFORE_RESTORE" value="9">
+    <ns1:desc>Verifying downloaded backup CV before restore.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CANCELLING_RESTORE_OF_DOWNLOADED_BACKUP_CV" value="10">
+    <ns1:desc>Cancelling restore of a downloaded backup CV.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CONFIRMING_RESTORE_OF_DOWNLOADED_BACKUP_CV" value="11">
+    <ns1:desc>Confirming the restore of the downloaded backup CV.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CHANGING_RESTORE_CONFIRMATION_TIMEOUT" value="12">
+    <ns1:desc>Changing the restore confirmation timeout value.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CONFIG_COUNTDOWN_ONGOING" value="13">
+    <ns1:desc>Counting down the time left to confirm a configuration change.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="EMERGENCY_RESTORE_OF_DOWNLOADED_BACKUP_CV" value="14">
+    <ns1:desc>Executing emergency restore of a downloaded backup CV.</ns1:desc>
+  </ns2:member>
+</ns2:EnumDataTypeDefinition>

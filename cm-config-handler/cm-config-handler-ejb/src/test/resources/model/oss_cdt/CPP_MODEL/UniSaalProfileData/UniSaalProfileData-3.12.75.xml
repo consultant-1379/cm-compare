@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:lifeCycleDesc="" ns1:name="UniSaalProfileData" ns1:ns="CPP_MODEL" ns1:version="3.12.75">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/oss_cdt/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>UniSaalProfileData</ns1:desc>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="maxPD">
+    <ns1:desc>The maximum number of SD PDUs before a poll is sent.
+
+This attribute must follow the rule, maxPD &lt; initialCredit.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="10000" min="10"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="25" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="maxStat">
+    <ns1:desc>The maximum number, odd integer value, of list elements placed in a STAT PDU.
+
+The maxStat attribute is controlled by the AAL5 maximum SDU size defined in the Aal5TpVccTp MO. The maxStat times 4 (octets) plus additional 12 octets (for header) must not exceed the AAL5 maximum SDU size (lower of the two directions, fromUserMaxSduSize and toUserMaxSduSize).
+
+The consistency check is performed when the UniSaalTp MO is created, as there is no relation between the UniSaalProfile MO and the Aal5TpVccTp MO.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="1001" min="3"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="67" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="initialCredit">
+    <ns1:desc>Initial number of credits.
+
+For 64 kbit/s use 30.
+
+This attribute must follow the rule, initialCredit &gt; maxPD.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="1000" min="10"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="30" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerKeepAlive">
+    <ns1:desc>The timer to be used during a period of no outstanding acknowledgements or new data pending receipt of credit. At timeout, the peer is polled to see if it is alive. The timer determines the interval between polls in the transient phase. This timer should be greater than the roundtrip delay and also greater than timerPoll.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="10000" min="10"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="500" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerNoResponse">
+    <ns1:desc>The timer to determine the maximum time interval, during which reception of at least one STAT PDU is expected as a response to a poll.
+
+This attribute must follow the rule, timerNoResponse &gt;= timerKeepAlive + one roundtrip delay</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100000" min="10"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="4000" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerIdle">
+    <ns1:desc>The timer running when there are no PDUs to transmit and there are no outstanding acknowledgements or data pending for credit. When this timer is running, no POLL PDUs are sent.
+This timer should be significantly greater than the value of timerKeepAlive.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="600000" min="1000"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="2000" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerCC">
+    <ns1:desc>The timer determining the time between retransmission of PDUs: BGN, END, ER, RS.
+
+It should be more than the roundtrip delay.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="10000" min="10"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1000" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerPoll">
+    <ns1:desc>The timer that specifies the maximum time between sending of POLL PDUs to the peer receiver during other traffic (active phase).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100000" min="10"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="100" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="maxCC">
+    <ns1:desc>The maximum number of retransmissions of Protocol Data Units (PDU): BGN, END, ER, RS.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="4" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="congestionOnSet">
+    <ns1:desc>The percentage of the buffer that must be filled in order to cause congestion.
+
+When the current send buffer occupancy for a Termination Point (TP) increases above congestionOnSet, a congestion indication is sent to the user of this TP.
+The part of the buffer above the congestion level is used to take care of the messages that were sent before the users stopped the sending.
+
+This attribute must follow the rule, 0 &lt;= congestationAbatement &lt; congestationOnSet &lt;= 100.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="90" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="congestionAbatement">
+    <ns1:desc>The percentage of the buffer for which congestion is stopped.
+
+When the current send buffer occupancy for a Termination Point (TP) decreases below congestionAbatement, a congestion ceased indication is sent to the user of this TP. If the congestionAbatement level is lesser but almost equal to congestionOnSet, congestion indications might be raised and ceased very often.
+
+This attribute must follow the rule, 0 &lt;= congestationAbatement &lt; congestationOnSet &lt;= 100.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="30" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

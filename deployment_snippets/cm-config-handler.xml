@@ -1,0 +1,33 @@
+<tor_sw>
+
+  <litp:component-def id="cmconfighandler">
+
+    <litp:deployable-entity-def id="cmconfighandler_de">
+
+      <app-type/>
+
+      <install-source/>
+
+      <name/>
+
+      <service>jboss_ENMServices</service>
+
+      <version/>
+
+    </litp:deployable-entity-def>
+
+    <litp:package-def id="cmconfighandler_pkg">
+
+      <ensure>installed</ensure>
+
+      <name>ERICcmconfighandler_CXP9030948</name>
+
+      <repository/>
+
+      <version>%{Version}</version>
+
+    </litp:package-def>
+
+  </litp:component-def>
+
+</tor_sw>

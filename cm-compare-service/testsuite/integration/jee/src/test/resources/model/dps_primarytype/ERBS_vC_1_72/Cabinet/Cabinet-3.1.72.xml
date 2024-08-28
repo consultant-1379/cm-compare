@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="Cabinet" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>This MO represents the cabinet where the node is hosted.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="cabinetIdentifier" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Unique identifier of the cabinet. An undefined value is shown as an empty string that indicates no contact with  SCU, SUP or support system controlling node.
+
+Dependencies: Reflects the value of attribute productData; productNumber and serialNumber on the HwUnit MO with attribute hwUnitType set to SCU/SUP.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="productData" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Enclosure Product Information Data (PID). To guarantee that the data survives a main processor replacement, the data is stored persistently in both the database and in the corresponding Support Control Unit (SCU).  Mismatches of stored data generate an alarm.
+
+Dependencies: Must match the PID on the enclosure label. Possible to write in the node only when the attribute supportSystemControl on MO EquipmentSupportFunction is set to true.
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/ProductData/3.1.72" xsi:type="ns1:complexRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="climateSystem" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The type of climate system used, and indirectly the number of fan groups  in the cabinet.
+
+Dependencies: Only valid in the node where the attribute supportSystemControl in MO EquipmentSupportFunction is set to true.
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/ClimateSystem/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="STANDARD" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="CabinetId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains a list of MO instances that reserve this MO instance.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="//ERBS_vC_1_72/ManagedObject/3.1.72" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="climateControlMode" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies in which mode to run the climate control.
+Valid values:
+•	NORMAL (default mode)
+•	BATTERY_LIFE_EXTENSION (Improves battery life time. This mode may cause increased acoustic noise. This mode is only applicable for RBS with internal batteries)
+
+Dependencies: Only valid in the node where the attribute supportSystemControl in MO EquipmentSupportFunction is set to true.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/ClimateControlMode/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="NORMAL" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="smokeDetector" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies if smoke detector is used or not in this cabinet.
+
+Dependencies: Only valid in the node where the attribute supportSystemControl on MO EquipmentSupportFunction is set to true.
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

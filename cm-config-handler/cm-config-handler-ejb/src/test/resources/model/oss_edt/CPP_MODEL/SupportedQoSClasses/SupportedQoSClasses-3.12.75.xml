@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="SupportedQoSClasses" ns1:ns="CPP_MODEL" ns1:version="3.12.75">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/oss_edt/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Supported quality of service classes.</ns1:desc>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NO_CLASS_SUPPORTED" value="0">
+    <ns1:desc>No class is supported.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CLASS_A" value="1">
+    <ns1:desc>Class A</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CLASS_B" value="2">
+    <ns1:desc>Class B</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CLASS_A_B" value="3">
+    <ns1:desc>Class A and B</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CLASS_C" value="4">
+    <ns1:desc>Class C</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CLASS_A_C" value="5">
+    <ns1:desc>Class A and C</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CLASS_B_C" value="6">
+    <ns1:desc>Class B and C</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CLASS_A_B_C" value="7">
+    <ns1:desc>Class A, B and C</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CLASS_D" value="8">
+    <ns1:desc>Class D</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CLASS_A_D" value="9">
+    <ns1:desc>Class A and D</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CLASS_B_D" value="10">
+    <ns1:desc>Class B and D</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CLASS_A_B_D" value="11">
+    <ns1:desc>Class A, B and D</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CLASS_C_D" value="12">
+    <ns1:desc>Class C and D</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CLASS_A_C_D" value="13">
+    <ns1:desc>Class A, C and D</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CLASS_B_C_D" value="14">
+    <ns1:desc>Class B, C and D</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CLASS_A_B_C_D" value="15">
+    <ns1:desc>Class A, B, C and D</ns1:desc>
+  </ns2:member>
+</ns2:EnumDataTypeDefinition>

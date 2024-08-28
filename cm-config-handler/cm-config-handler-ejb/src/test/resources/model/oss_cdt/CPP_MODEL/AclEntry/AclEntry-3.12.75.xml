@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:lifeCycleDesc="" ns1:name="AclEntry" ns1:ns="CPP_MODEL" ns1:version="3.12.75">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/oss_cdt/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Access Control List Entry</ns1:desc>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="localIpAddress">
+    <ns1:desc>The input format is four fields of digits, separated by a dot. Each field consists of one to three digits.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="remoteIpAddress">
+    <ns1:desc>The input format is four fields of digits, separated by a dot. Each field consists of one to three digits.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="localPortFiltering">
+    <ns1:desc>If set to true, the filter rule matches on the specific port number mentioned in the localPort attribute. If set to false, all possible ports are used.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="remotePortFiltering">
+    <ns1:desc>If set to true, the filter rule matches on the specific port number mentioned in the remotePort attribute. If set to false, all possible ports are used.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="protocol">
+    <ns1:desc>Specifies the protocol that matches.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/ProtocolType/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="aclAction">
+    <ns1:desc>The performed action.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/AclActionTypes/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="localIpAddressMask">
+    <ns1:desc>Specifies the number of most significant bits that match in the localIpAddress.
+
+If this field is set to 0, all local IP addresses match, independently of the value set in the field localIpAddress.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="localPort">
+    <ns1:desc>The local port.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="remoteIpAddressMask">
+    <ns1:desc>Specifies the number of most significant bits that match in the remoteIpAddress.
+
+If this field is set to 0, all remote IP addresses match, independently of the value set in the field remoteIpAddress.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="remotePort">
+    <ns1:desc>The remote port.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="icmpType">
+    <ns1:desc>Specifies the ICMP type value (as specified by IANA). This field is only valid if the protocol is set to ICMP. The value 256 is used to state that all possible values are included.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="256" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

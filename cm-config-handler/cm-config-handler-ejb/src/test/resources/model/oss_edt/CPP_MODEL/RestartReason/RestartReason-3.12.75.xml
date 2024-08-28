@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="RestartReason" ns1:ns="CPP_MODEL" ns1:version="3.12.75">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/oss_edt/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>The restart reason.</ns1:desc>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="PLANNED_RECONFIGURATION" value="0">
+    <ns1:desc>Restart ordered to perform planned activities such as reconfigurations.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="UNPLANNED_NODE_EXTERNAL_PROBLEMS" value="1">
+    <ns1:desc>Restart ordered to resolve node external problems.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="UNPLANNED_NODE_UPGRADE_PROBLEMS" value="2">
+    <ns1:desc>Restart ordered to resolve upgrade problems.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="UNPLANNED_O_AND_M_ISSUE" value="3">
+    <ns1:desc>Restart ordered to resolve O&amp;M issues.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="UNPLANNED_CYCLIC_RECOVERY" value="4">
+    <ns1:desc>Restart ordered to stop further auto recovery attempts.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="UNPLANNED_LOCKED_RESOURCES" value="5">
+    <ns1:desc>Restart ordered to release locked resources.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="UNPLANNED_COLD_WITH_HW_TEST" value="6">
+    <ns1:desc>Restart ordered to perform HW tests.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="UNPLANNED_CALL_PROCESSING_DEGRADATION" value="7">
+    <ns1:desc>Restart ordered to improve Call Set Up or Call Drop Rate.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="UNPLANNED_LOW_COVERAGE" value="8">
+    <ns1:desc>Restart ordered to improve Cell Availability.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="UPGRADE_BOARD_RESTART" value="30">
+    <ns1:desc>Restart ordered to effectuate autoconfiguration of a plug-in unit.
+
+This is only used for PlugInUnit MO.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="OPERATOR_CLASSIFIED_PROBLEMS" value="31">
+    <ns1:desc>Restart ordered to resolve operator procedural errors or office environmental problems.
+Example: power, grounding, temperature, humidity or security problems.</ns1:desc>
+  </ns2:member>
+</ns2:EnumDataTypeDefinition>

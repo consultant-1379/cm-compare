@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="OspfArea" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Open Shortest Path First (OSPF) Area
+
+An OSPF autonomous system is divided into OSPF areas. The OspfArea MO represents such OSPF areas.
+
+A default OspfArea MO is automatically created when the Ospf MO is created and can only be deleted by deleting the Ospf MO.
+
+It has the identity 1 or default_aue, that is the LDN of this MO is:
+ManagedElement=1,IpSystem=1,Ospf=1,OspfArea=1 or
+ManagedElement=1,IpSystem=1,Ospf=1,OspfArea=default_aue.
+The latter is created at an upgrade if the an OspfArea=1 already exists, that is not backbone OspfArea with areaId=0.0.0.0.
+
+A maximum of 4 OspfAreas can be configured each with a maximum of 8 interfaces.
+
+Disturbances: Changing some of these attributes may cause a disturbance or loss of OAM connectivity. If there are any doubts regarding the results of the attribute changes, it is strongly recommended to activate the robust rollback function, by setting the attribute configCountdownActivated on the ConfigurationVersion MO first.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="OspfAreaId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="stubArea" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies whether the OSPF area is a stub area or not.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="importExternalLsa" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies whether importing Autonomous System external LSAs is supported.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="true" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="sendAreaSummary" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies whether the router originates and propagates summary LSAs into a stub-area.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="stubAreaMetric" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Cost for default router when the router advertises into a stub area and the router is an area border router.
+
+This attribute is set by default to the least metric among the interfaces to other areas.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="1" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="stubAreaMetricType" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Stub area metric type.
+
+RFC 1850 (OSPF V2 MIB):
+
+comparableCost (external type 1)
+nonComparable (external type 2)</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/OspfMetricType/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="COMPARABLE_COST" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="areaLsaChecksum" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Represents 32-bit unsigned sum of the link-state advertisements LS check-sums contained in this area's link-state database.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="areaId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The OSPF area identity in form of an IP address. This areId uniquely identifies the area.
+
+AreaId 0.0.0.0 is used for the OSPF backbone.
+
+Range: 000.000.000.000 to 255.255.255.255.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="range0" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>OspfArea IP address range zero (0).</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/OspfAreaRange/3.12.0" xsi:type="ns1:complexRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="range1" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>OspfArea IP address range one (1).</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/OspfAreaRange/3.12.0" xsi:type="ns1:complexRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="range2" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>OspfArea IP address range two (2).</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/OspfAreaRange/3.12.0" xsi:type="ns1:complexRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfOspfSpfRuns" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of times that the intra-area route table has been calculated using the link-state database for this area.
+This is typically done using Dijkstras algorithm.
+For more detailed information, see RFC 1850.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains a list of MO instances that reserve this MO instance.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="//MOM-CPP-C12/OspfInterface/3.12.0" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

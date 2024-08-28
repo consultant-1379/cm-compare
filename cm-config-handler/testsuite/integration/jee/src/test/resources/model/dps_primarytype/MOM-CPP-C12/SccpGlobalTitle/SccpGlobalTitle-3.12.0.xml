@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="SccpGlobalTitle" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>SCCP Global Title (GT)
+
+This MO represents a Global Title (GT) translation. The result of a GT translation is a reference to an SccpEntitySet MO for further actions.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="SccpGlobalTitleId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="gtIndicator" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Global title indicator for China, ITU, TTC and ANSI.
+ 
+SccpGlobalTitle MOs created under the same SccpSp must be unique. Set of attributes that must be unique is defined by the gtIndicator value and includes also addressInformation. Detailed information can be found in the GlobalTitleIndicator enumeration description.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/GlobalTitleIndicator/3.12.0" xsi:type="ns1:enumRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="natureOfAddress" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Indicates the number type, that is if it is a national or international number.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/NatureOfAddress/3.12.0" xsi:type="ns1:enumRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="numberingPlan" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Indicates which numbering plan is used.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/NumberingPlan/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="UNKNOWN" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="translationType" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Used to direct the message to the appropriate Global Title translation function.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:notNullConstraint/>
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="254" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="addressInformation" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Digit string of 1-37 digits, where each digit is 0-9. "B", "C" and "F" can be used for for Code 11, 12 and 15.
+The addressInformation may also contain wild card symbols: "*" or "?".
+Wild cards are only allowed for defining Global Title Translations, they are not allowed for specifying SCCP SAPs (built with SPC and Global Title or SPC + SSN + Global Title). A "*" can only be used at the end of an addressInformation.
+
+The number of digits in the addressInformation must be even if gtIndicator=2 or 6 is used. This means that a filler (zero) must be added to the addressInformation if the address i even (for example, 040231240 must be configured as 0402312400). No filler is needed if "*" is used.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="37" min="1"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="DEPRECATED" ns1:name="encodingScheme" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Attribute: encodingSchemeDescription</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/EncodingScheme/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="UNKNOWN" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="sccpEntitySetId" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The sccpEntitySetId attribute points out the corresponding SccpEntitySet MO.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/SccpEntitySet/3.12.0" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains a list of MO instances that reserve this MO instance.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="//MOM-CPP-C12/ManagedObject/3.12.0" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

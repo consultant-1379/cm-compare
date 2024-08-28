@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:lifeCycleDesc="" ns1:name="Mtp3bSpTtcPriorityData" ns1:ns="CPP_MODEL" ns1:version="3.12.75">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/oss_cdt/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Priority attributes for MTP3b SP of the TTC standard.
+
+When a message is transferred from the MTP3b the message priority uses the two spare bits in the SIO.</ns1:desc>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="prioCo">
+    <ns1:desc>Specifies the priority for the Changeover-order (COO) and Changeover-acknowledgement (COA) or Extended Changeover Order (XCO) and Extended Changeover Acknowledgement (XCA) messages.
+
+When a message is sent from the MTP3, the message priority uses the two spare bits in the SIO.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/Mtp3bSpPriorityLevel/3.12.75" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="HIGHEST" xsi:type="ns1:stringValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="prioCb">
+    <ns1:desc>Specifies the priority for the Changeback-declaration (CBD) and Changeback-acknowledgement (CBA) messages.
+
+When a message is sent from the MTP3, the message priority uses the two spare bits in the SIO.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/Mtp3bSpPriorityLevel/3.12.75" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="HIGHEST" xsi:type="ns1:stringValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="prioEc">
+    <ns1:desc>Specifies the priority for the Emergency-changeover-order (ECO) and Emergency-changeover-acknowledgement (ECA) messages.
+
+When a message is sent from the MTP3, the message priority uses the two spare bits in the SIO.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/Mtp3bSpPriorityLevel/3.12.75" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="HIGHEST" xsi:type="ns1:stringValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="prioRst">
+    <ns1:desc>Specifies the priority for Signalling-route-set-test signal for prohibited destination (RST) message.
+
+When a message is sent from the MTP3, the message priority uses the two spare bits in the SIO.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/Mtp3bSpPriorityLevel/3.12.75" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="HIGHEST" xsi:type="ns1:stringValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="prioRt">
+    <ns1:desc>Specifies the priority for signalling route test (SRT/SRA) messages.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/Mtp3bSpPriorityLevel/3.12.75" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="HIGHEST" xsi:type="ns1:stringValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="prioTfc">
+    <ns1:desc>Specifies the priority for the Transfer-controlled (TFC), Transfer-allowed (TFA), Transfer-prohibited (TFP) and Transfer-restricted (TFR) messages.
+
+When a message is sent from the MTP3, the message priority uses the two spare bits in the SIO.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/Mtp3bSpPriorityLevel/3.12.75" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="HIGHEST" xsi:type="ns1:stringValue"/>
+  </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

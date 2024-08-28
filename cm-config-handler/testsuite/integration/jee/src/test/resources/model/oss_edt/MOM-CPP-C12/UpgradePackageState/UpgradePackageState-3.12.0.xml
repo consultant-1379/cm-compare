@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="UpgradePackageState" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/oss_edt/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>UpgradePackageState</ns1:desc>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NOT_INSTALLED" value="0">
+    <ns1:desc>The upgrade package is not installed.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="INSTALL_COMPLETED" value="1">
+    <ns1:desc>The upgrade package has been completely installed.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="UPGRADE_EXECUTING" value="2">
+    <ns1:desc>Upgrade (the action update, upgrade or rebootNodeUpgrade) is executing.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="AWAITING_CONFIRMATION" value="3">
+    <ns1:desc>The execution of upgrade needs confirmation before it proceeds.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="ONLY_DELETEABLE" value="4">
+    <ns1:desc>In this state the only allowed operations are delete and action updateFTPServerData. If any other type of action is invoked exception ActionNotAllowedException is thrown.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="INSTALL_EXECUTING" value="5">
+    <ns1:desc>Installation of the UpgradePackage or PiuType MO is executing.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="INSTALL_NOT_COMPLETED" value="6">
+    <ns1:desc>The upgrade package is not completely installed, that is, only parts of it has been installed.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="UPGRADE_COMPLETED" value="7">
+    <ns1:desc>The upgrade (the action update, upgrade or rebootNodeUpgrade) has been successfully executed. 
+
+If this was the current state when an action was invoked it will also be the end state.</ns1:desc>
+  </ns2:member>
+</ns2:EnumDataTypeDefinition>

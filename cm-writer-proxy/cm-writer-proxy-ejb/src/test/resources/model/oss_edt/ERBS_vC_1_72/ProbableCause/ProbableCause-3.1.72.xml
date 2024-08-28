@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns5:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns5="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="ProbableCause" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/oss_edt/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>ProbableCause</ns1:desc>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="INDETERMINATE" value="0">
+    <ns1:desc>INDETERMINATE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="ALARM_INDICATION_SIGNAL" value="1">
+    <ns1:desc>ALARM_INDICATION_SIGNAL</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="CALL_SETUP_FAILURE" value="2">
+    <ns1:desc>CALL_SETUP_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="DEGRADED_SIGNAL_M3100" value="3">
+    <ns1:desc>DEGRADED_SIGNAL_M3100</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="FAR_END_RECEIVER_FAILURE" value="4">
+    <ns1:desc>FAR_END_RECEIVER_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="FRAMING_ERROR_M3100" value="5">
+    <ns1:desc>FRAMING_ERROR_M3100</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="LOSS_OF_FRAME" value="6">
+    <ns1:desc>LOSS_OF_FRAME</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="LOSS_OF_POINTER" value="7">
+    <ns1:desc>LOSS_OF_POINTER</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="LOSS_OF_SIGNAL" value="8">
+    <ns1:desc>LOSS_OF_SIGNAL</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="PAYLOAD_TYPE_MISMATCH" value="9">
+    <ns1:desc>PAYLOAD_TYPE_MISMATCH</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="TRANSMISSION_ERROR" value="10">
+    <ns1:desc>TRANSMISSION_ERROR</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="REMOTE_ALARM_INTERFACE" value="11">
+    <ns1:desc>REMOTE_ALARM_INTERFACE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="EXCESSIVE_BIT_ERROR_RATE" value="12">
+    <ns1:desc>EXCESSIVE_BIT_ERROR_RATE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="PATH_TRACE_MISMATCH" value="13">
+    <ns1:desc>PATH_TRACE_MISMATCH</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="UNAVAILABLE" value="14">
+    <ns1:desc>UNAVAILABLE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="SIGNAL_LABEL_MISMATCH" value="15">
+    <ns1:desc>SIGNAL_LABEL_MISMATCH</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="LOSS_OF_MULTI_FRAME" value="16">
+    <ns1:desc>LOSS_OF_MULTI_FRAME</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="BACK_PLANE_FAILURE" value="51">
+    <ns1:desc>BACK_PLANE_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="DATA_SET_PROBLEM" value="52">
+    <ns1:desc>DATA_SET_PROBLEM</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="EQUIPMENT_IDENTIFIER_DUPLICATION" value="53">
+    <ns1:desc>EQUIPMENT_IDENTIFIER_DUPLICATION</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="EXTERNAL_DEVICE_PROBLEM" value="54">
+    <ns1:desc>EXTERNAL_DEVICE_PROBLEM</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="LINE_CARD_PROBLEM" value="55">
+    <ns1:desc>LINE_CARD_PROBLEM</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="MULTIPLEXER_PROBLEM_M3100" value="56">
+    <ns1:desc>MULTIPLEXER_PROBLEM_M3100</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="NE_IDENTIFIER_DUPLICATION" value="57">
+    <ns1:desc>NE_IDENTIFIER_DUPLICATION</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="POWER_PROBLEM_M3100" value="58">
+    <ns1:desc>POWER_PROBLEM_M3100</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="PROCESSOR_PROBLEM_M3100" value="59">
+    <ns1:desc>PROCESSOR_PROBLEM_M3100</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="PROTECTION_PATH_FAILURE" value="60">
+    <ns1:desc>PROTECTION_PATH_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="RECEIVER_FAILURE_M3100" value="61">
+    <ns1:desc>RECEIVER_FAILURE_M3100</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="REPLACEABLE_UNIT_MISSING" value="62">
+    <ns1:desc>REPLACEABLE_UNIT_MISSING</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="REPLACEABLE_UNIT_TYPE_MISMATCH" value="63">
+    <ns1:desc>REPLACEABLE_UNIT_TYPE_MISMATCH</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="SYNCHRONISATION_SOURCE_MISMATCH" value="64">
+    <ns1:desc>SYNCHRONISATION_SOURCE_MISMATCH</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="TERMINAL_PROBLEM" value="65">
+    <ns1:desc>TERMINAL_PROBLEM</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="TIMING_PROBLEM_M3100" value="66">
+    <ns1:desc>TIMING_PROBLEM_M3100</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="TRANSMITTER_FAILURE_M3100" value="67">
+    <ns1:desc>TRANSMITTER_FAILURE_M3100</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="TRUNK_CARD_PROBLEM" value="68">
+    <ns1:desc>TRUNK_CARD_PROBLEM</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="REPLACEABLE_UNIT_PROBLEM" value="69">
+    <ns1:desc>REPLACEABLE_UNIT_PROBLEM</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="AIR_COMPRESSOR_FAILURE" value="101">
+    <ns1:desc>AIR_COMPRESSOR_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="AIR_CONDITIONING_FAILURE" value="102">
+    <ns1:desc>AIR_CONDITIONING_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="AIR_DRYER_FAILURE" value="103">
+    <ns1:desc>AIR_DRYER_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="BATTERY_DISCHARGING" value="104">
+    <ns1:desc>BATTERY_DISCHARGING</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="BATTERY_FAILURE" value="105">
+    <ns1:desc>BATTERY_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="COMMERICAL_POWER_FAILURE" value="106">
+    <ns1:desc>COMMERICAL_POWER_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="COOLING_FAN_FAILURE" value="107">
+    <ns1:desc>COOLING_FAN_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="ENGINE_FAILURE" value="108">
+    <ns1:desc>ENGINE_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="FIRE_DETECTOR_FAILURE" value="109">
+    <ns1:desc>FIRE_DETECTOR_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="FUSE_FAILURE" value="110">
+    <ns1:desc>FUSE_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="GENERATOR_FAILURE" value="111">
+    <ns1:desc>GENERATOR_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="LOW_BATTERY_THRESHOLD" value="112">
+    <ns1:desc>LOW_BATTERY_THRESHOLD</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="PUMP_FAILURE_M3100" value="113">
+    <ns1:desc>PUMP_FAILURE_M3100</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="RECTIFIER_FAILURE" value="114">
+    <ns1:desc>RECTIFIER_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="RECTIFIER_HIGH_VOLTAGE" value="115">
+    <ns1:desc>RECTIFIER_HIGH_VOLTAGE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="RECTIFIER_LOW_F_VOLTAGE" value="116">
+    <ns1:desc>RECTIFIER_LOW_F_VOLTAGE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="VENTILATION_SYSTEM_FAILURE" value="117">
+    <ns1:desc>VENTILATION_SYSTEM_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="ENCLOSURE_DOOR_OPEN_M3100" value="118">
+    <ns1:desc>ENCLOSURE_DOOR_OPEN_M3100</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="EXPLOSIVE_GAS" value="119">
+    <ns1:desc>EXPLOSIVE_GAS</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="FIRE" value="120">
+    <ns1:desc>FIRE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="FLOOD" value="121">
+    <ns1:desc>FLOOD</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="HIGH_HUMIDITY" value="122">
+    <ns1:desc>HIGH_HUMIDITY</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="HIGH_TEMPERATURE" value="123">
+    <ns1:desc>HIGH_TEMPERATURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="HIGH_WIND" value="124">
+    <ns1:desc>HIGH_WIND</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="ICE_BUILD_UP" value="125">
+    <ns1:desc>ICE_BUILD_UP</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="LOW_FUEL" value="127">
+    <ns1:desc>LOW_FUEL</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="LOW_HUMIDITY" value="128">
+    <ns1:desc>LOW_HUMIDITY</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="LOW_CABLE_PRESSURE" value="129">
+    <ns1:desc>LOW_CABLE_PRESSURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="LOW_TEMPERATURE" value="130">
+    <ns1:desc>LOW_TEMPERATURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="LOW_WATER" value="131">
+    <ns1:desc>LOW_WATER</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="SMOKE" value="132">
+    <ns1:desc>SMOKE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="TOXIC_GAS" value="133">
+    <ns1:desc>TOXIC_GAS</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="STORAGE_CAPACITY_PROBLEM_M3100" value="151">
+    <ns1:desc>STORAGE_CAPACITY_PROBLEM_M3100</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="MEMORY_MISMATCH" value="152">
+    <ns1:desc>MEMORY_MISMATCH</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="CORRUPT_DATA_M3100" value="153">
+    <ns1:desc>CORRUPT_DATA_M3100</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="OUT_OF_CPU_CYCLES" value="154">
+    <ns1:desc>OUT_OF_CPU_CYCLES</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="SOFTWARE_ENVIRONMENT_PROBLEM" value="155">
+    <ns1:desc>SOFTWARE_ENVIRONMENT_PROBLEM</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="SOFTWARE_DOWNLOAD_FAILURE" value="156">
+    <ns1:desc>SOFTWARE_DOWNLOAD_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="ADAPTER_ERROR" value="301">
+    <ns1:desc>ADAPTER_ERROR</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="APPLICATION_SUBSYSTEM_FAILURE" value="302">
+    <ns1:desc>APPLICATION_SUBSYSTEM_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="BANDWIDTH_REDUCTION" value="303">
+    <ns1:desc>BANDWIDTH_REDUCTION</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="COMMUNICATION_PROTOCOL_ERROR" value="305">
+    <ns1:desc>COMMUNICATION_PROTOCOL_ERROR</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="COMMUNICATION_SUBSYSTEM_FAILURE" value="306">
+    <ns1:desc>COMMUNICATION_SUBSYSTEM_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="CONFIGURATION_OR_CUSTOMIZING_ERROR" value="307">
+    <ns1:desc>CONFIGURATION_OR_CUSTOMIZING_ERROR</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="CONGESTION" value="308">
+    <ns1:desc>CONGESTION</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="CPU_CYCLES_LIMIT_EXCEEDED" value="310">
+    <ns1:desc>CPU_CYCLES_LIMIT_EXCEEDED</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="DATA_SET_OR_MODEM_ERROR" value="311">
+    <ns1:desc>DATA_SET_OR_MODEM_ERROR</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="DTE_DCE_INTERFACE_ERROR" value="313">
+    <ns1:desc>DTE_DCE_INTERFACE_ERROR</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="EQUIPMENT_MALFUNCTION" value="315">
+    <ns1:desc>EQUIPMENT_MALFUNCTION</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="EXCESSIVE_VIBRATION" value="316">
+    <ns1:desc>EXCESSIVE_VIBRATION</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="FILE_ERROR" value="317">
+    <ns1:desc>FILE_ERROR</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="HEATING_OR_VENTILATION_OR_COOLING_SYSTEM_PROBLEM" value="321">
+    <ns1:desc>HEATING_OR_VENTILATION_OR_COOLING_SYSTEM_PROBLEM</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="HUMIDITY_UNACCEPTABLE" value="322">
+    <ns1:desc>HUMIDITY_UNACCEPTABLE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="INPUT_OUTPUT_DEVICE_ERROR" value="323">
+    <ns1:desc>INPUT_OUTPUT_DEVICE_ERROR</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="INPUT_DEVICE_ERROR" value="324">
+    <ns1:desc>INPUT_DEVICE_ERROR</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="LAN_ERROR" value="325">
+    <ns1:desc>LAN_ERROR</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="LEAK_DETECTION" value="326">
+    <ns1:desc>LEAK_DETECTION</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="LOCAL_NODE_TRANSMISSION_ERROR" value="327">
+    <ns1:desc>LOCAL_NODE_TRANSMISSION_ERROR</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="MATERIAL_SUPPLY_EXHAUSTED" value="330">
+    <ns1:desc>MATERIAL_SUPPLY_EXHAUSTED</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="OUT_OF_MEMORY" value="332">
+    <ns1:desc>OUT_OF_MEMORY</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="OUTPUT_DEVICE_ERROR" value="333">
+    <ns1:desc>OUTPUT_DEVICE_ERROR</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="PERFORMANCE_DEGRADED" value="334">
+    <ns1:desc>PERFORMANCE_DEGRADED</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="PRESSURE_UNACCEPTABLE" value="336">
+    <ns1:desc>PRESSURE_UNACCEPTABLE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="QUEUE_SIZE_EXCEEDED" value="339">
+    <ns1:desc>QUEUE_SIZE_EXCEEDED</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="RECEIVE_FAILURE" value="340">
+    <ns1:desc>RECEIVE_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="REMOTE_NODE_TRANSMISSION_ERROR" value="342">
+    <ns1:desc>REMOTE_NODE_TRANSMISSION_ERROR</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="RESOURCE_AT_OR_NEARING_CAPACITY" value="343">
+    <ns1:desc>RESOURCE_AT_OR_NEARING_CAPACITY</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="RESPONSE_TIME_EXCESSIVE" value="344">
+    <ns1:desc>RESPONSE_TIME_EXCESSIVE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="RETRANSMISSION_RATE_EXCESSIVE" value="345">
+    <ns1:desc>RETRANSMISSION_RATE_EXCESSIVE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="SOFTWARE_ERROR" value="346">
+    <ns1:desc>SOFTWARE_ERROR</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="SOFTWARE_PROGRAM_ABNORMALLY_TERMINATED" value="347">
+    <ns1:desc>SOFTWARE_PROGRAM_ABNORMALLY_TERMINATED</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="SOFTWARE_PROGRAM_ERROR" value="348">
+    <ns1:desc>SOFTWARE_PROGRAM_ERROR</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="TEMPERATURE_UNACCEPTABLE" value="350">
+    <ns1:desc>TEMPERATURE_UNACCEPTABLE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="THRESHOLD_CROSSED" value="351">
+    <ns1:desc>THRESHOLD_CROSSED</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="TOXIC_LEAK_DETECTED" value="353">
+    <ns1:desc>TOXIC_LEAK_DETECTED</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="TRANSMIT_FAILURE" value="354">
+    <ns1:desc>TRANSMIT_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="UNDERLYING_RESOURCE_UNAVAILABLE" value="356">
+    <ns1:desc>UNDERLYING_RESOURCE_UNAVAILABLE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="VERSION_MISMATCH" value="357">
+    <ns1:desc>VERSION_MISMATCH</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="A_BIS_TO_BTS_INTERFACE_FAILURE" value="501">
+    <ns1:desc>A_BIS_TO_BTS_INTERFACE_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="A_BIS_TO_TRX_INTERFACE_FAILURE" value="502">
+    <ns1:desc>A_BIS_TO_TRX_INTERFACE_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="ANTENNA_PROBLEM" value="503">
+    <ns1:desc>ANTENNA_PROBLEM</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="BATTERY_BREAKDOWN" value="504">
+    <ns1:desc>BATTERY_BREAKDOWN</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="BATTERY_CHARGING_FAULT" value="505">
+    <ns1:desc>BATTERY_CHARGING_FAULT</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="CLOCK_SYNCHRONISATION_PROBLEM" value="506">
+    <ns1:desc>CLOCK_SYNCHRONISATION_PROBLEM</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="COMBINER_PROBLEM" value="507">
+    <ns1:desc>COMBINER_PROBLEM</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="DISK_PROBLEM" value="508">
+    <ns1:desc>DISK_PROBLEM</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="EXCESSIVE_RECEIVER_TEMPERATURE" value="510">
+    <ns1:desc>EXCESSIVE_RECEIVER_TEMPERATURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="EXCESSIVE_TRANSMITTER_OUTPUT_POWER" value="511">
+    <ns1:desc>EXCESSIVE_TRANSMITTER_OUTPUT_POWER</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="EXCESSIVE_TRANSMITTER_TEMPERATURE" value="512">
+    <ns1:desc>EXCESSIVE_TRANSMITTER_TEMPERATURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="FREQUENCY_HOPPING_DEGRADED" value="513">
+    <ns1:desc>FREQUENCY_HOPPING_DEGRADED</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="FREQUENCY_HOPPING_FAILURE" value="514">
+    <ns1:desc>FREQUENCY_HOPPING_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="FREQUENCY_REDEFINITION_FAILED" value="515">
+    <ns1:desc>FREQUENCY_REDEFINITION_FAILED</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="LINE_INTERFACE_FAILURE" value="516">
+    <ns1:desc>LINE_INTERFACE_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="LINK_FAILURE" value="517">
+    <ns1:desc>LINK_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="LOSS_OF_SYNCHRONISATION" value="518">
+    <ns1:desc>LOSS_OF_SYNCHRONISATION</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="LOST_REDUNDANCY" value="519">
+    <ns1:desc>LOST_REDUNDANCY</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="MAINS_BREAKDOWN_WITH_BATTERY_BACKUP" value="520">
+    <ns1:desc>MAINS_BREAKDOWN_WITH_BATTERY_BACKUP</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="MAINS_BREAKDOWN_WITHOUT_BATTERY_BACKUP" value="521">
+    <ns1:desc>MAINS_BREAKDOWN_WITHOUT_BATTERY_BACKUP</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="POWER_SUPPLY_FAILURE" value="522">
+    <ns1:desc>POWER_SUPPLY_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="RECEIVER_ANTENNA_FAULT" value="523">
+    <ns1:desc>RECEIVER_ANTENNA_FAULT</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="RECEIVER_MULTICOUPLER_FAILURE" value="525">
+    <ns1:desc>RECEIVER_MULTICOUPLER_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="REDUCED_TRANSMITTER_OUTPUT_POWER" value="526">
+    <ns1:desc>REDUCED_TRANSMITTER_OUTPUT_POWER</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="SIGNAL_QUALITY_EVALUATION_FAULT" value="527">
+    <ns1:desc>SIGNAL_QUALITY_EVALUATION_FAULT</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="TIMESLOT_HARDWARE_FAILURE" value="528">
+    <ns1:desc>TIMESLOT_HARDWARE_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="TRANSCEIVER_PROBLEM" value="529">
+    <ns1:desc>TRANSCEIVER_PROBLEM</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="TRANSCODER_PROBLEM" value="530">
+    <ns1:desc>TRANSCODER_PROBLEM</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="TRANSCODER_OR_RATE_ADAPTER_PROBLEM" value="531">
+    <ns1:desc>TRANSCODER_OR_RATE_ADAPTER_PROBLEM</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="TRANSMITTER_ANTENNA_FAILURE" value="532">
+    <ns1:desc>TRANSMITTER_ANTENNA_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="TRANSMITTER_ANTENNA_NOT_ADJUSTED" value="533">
+    <ns1:desc>TRANSMITTER_ANTENNA_NOT_ADJUSTED</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="TRANSMITTER_LOW_VOLTAGE_OR_CURRENT" value="535">
+    <ns1:desc>TRANSMITTER_LOW_VOLTAGE_OR_CURRENT</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="TRANSMITTER_OFF_FREQUENCY" value="536">
+    <ns1:desc>TRANSMITTER_OFF_FREQUENCY</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="DATABASE_INCONSISTENCY" value="537">
+    <ns1:desc>DATABASE_INCONSISTENCY</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="FILE_SYSTEM_CALL_UNSUCCESSFUL" value="538">
+    <ns1:desc>FILE_SYSTEM_CALL_UNSUCCESSFUL</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="INPUT_PARAMETER_OUT_OF_RANGE" value="539">
+    <ns1:desc>INPUT_PARAMETER_OUT_OF_RANGE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="INVALID_PARAMETER" value="540">
+    <ns1:desc>INVALID_PARAMETER</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="INVALID_POINTER" value="541">
+    <ns1:desc>INVALID_POINTER</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="MESSAGE_NOT_EXPECTED" value="542">
+    <ns1:desc>MESSAGE_NOT_EXPECTED</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="MESSAGE_NOT_INITIALISED" value="543">
+    <ns1:desc>MESSAGE_NOT_INITIALISED</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="MESSAGE_OUT_OF_SEQUENCE" value="544">
+    <ns1:desc>MESSAGE_OUT_OF_SEQUENCE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="SYSTEM_CALL_UNSUCCESSFUL" value="545">
+    <ns1:desc>SYSTEM_CALL_UNSUCCESSFUL</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="TIMEOUT_EXPIRED" value="546">
+    <ns1:desc>TIMEOUT_EXPIRED</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="VARIABLE_OUT_OF_RANGE" value="547">
+    <ns1:desc>VARIABLE_OUT_OF_RANGE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="WATCH_DOG_TIMER_EXPIRED" value="548">
+    <ns1:desc>WATCH_DOG_TIMER_EXPIRED</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="COOLING_SYSTEM_FAILURE" value="549">
+    <ns1:desc>COOLING_SYSTEM_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="EXTERNAL_EQUIPMENT_FAILURE" value="550">
+    <ns1:desc>EXTERNAL_EQUIPMENT_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="EXTERNAL_POWER_SUPPLY_FAILURE" value="551">
+    <ns1:desc>EXTERNAL_POWER_SUPPLY_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="EXTERNAL_TRANSMISSION_DEVICE_FAILURE" value="552">
+    <ns1:desc>EXTERNAL_TRANSMISSION_DEVICE_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="REDUCED_ALARM_REPORTING" value="561">
+    <ns1:desc>REDUCED_ALARM_REPORTING</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="REDUCED_EVENT_REPORTING" value="562">
+    <ns1:desc>REDUCED_EVENT_REPORTING</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="REDUCED_LOGGING_CAPABILITY" value="563">
+    <ns1:desc>REDUCED_LOGGING_CAPABILITY</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="SYSTEM_RESOURCES_OVERLOAD" value="564">
+    <ns1:desc>SYSTEM_RESOURCES_OVERLOAD</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="BROADCAST_CHANNEL_FAILURE" value="565">
+    <ns1:desc>BROADCAST_CHANNEL_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="CALL_ESTABLISHMENT_ERROR" value="566">
+    <ns1:desc>CALL_ESTABLISHMENT_ERROR</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="INVALID_MESSAGE_RECEIVED" value="567">
+    <ns1:desc>INVALID_MESSAGE_RECEIVED</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="INVALID_MSU_RECEIVED" value="568">
+    <ns1:desc>INVALID_MSU_RECEIVED</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="LAPD_LINK_PROTOCOL_FAILURE" value="569">
+    <ns1:desc>LAPD_LINK_PROTOCOL_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="LOCAL_ALARM_INDICATION" value="570">
+    <ns1:desc>LOCAL_ALARM_INDICATION</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="REMOTE_ALARM_INDICATION" value="571">
+    <ns1:desc>REMOTE_ALARM_INDICATION</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="ROUTING_FAILURE" value="572">
+    <ns1:desc>ROUTING_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="SS7_PROTOCOL_FAILURE" value="573">
+    <ns1:desc>SS7_PROTOCOL_FAILURE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="TRANSMISSION_FAILURE" value="574">
+    <ns1:desc>TRANSMISSION_FAILURE</ns1:desc>
+  </ns5:member>
+</ns5:EnumDataTypeDefinition>

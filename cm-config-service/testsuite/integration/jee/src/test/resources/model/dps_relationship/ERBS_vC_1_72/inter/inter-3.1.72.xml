@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeRelationshipDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:name="inter" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_relationship/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Inter mim relationships. Mim:ERBS_vC_1_72</ns1:desc>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Licensing_to_CapacityLicenses">
+    <ns1:desc>Licensing_to_CapacityLicenses</ns1:desc>
+    <ns2:parent primaryTypeUrn="//MOM-CPP-C12/Licensing/3.12.0"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/CapacityLicenses/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Licensing_to_OptionalFeatures">
+    <ns1:desc>Licensing_to_OptionalFeatures</ns1:desc>
+    <ns2:parent primaryTypeUrn="//MOM-CPP-C12/Licensing/3.12.0"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/OptionalFeatures/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="ManagedElement_to_SectorEquipmentFunction">
+    <ns1:desc>ManagedElement_to_SectorEquipmentFunction</ns1:desc>
+    <ns2:parent primaryTypeUrn="//MOM-CPP-C12/ManagedElement/3.12.0"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/SectorEquipmentFunction/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="12" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="ManagedElement_to_ResourceAllocationFunction">
+    <ns1:desc>ManagedElement_to_ResourceAllocationFunction</ns1:desc>
+    <ns2:parent primaryTypeUrn="//MOM-CPP-C12/ManagedElement/3.12.0"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ResourceAllocationFunction/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="PlugInUnit_to_Cpu">
+    <ns1:desc>PlugInUnit_to_Cpu</ns1:desc>
+    <ns2:parent primaryTypeUrn="//MOM-CPP-C12/PlugInUnit/3.12.0"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/Cpu/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="2" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="GeneralProcessorUnit_to_ProcessorLoad">
+    <ns1:desc>GeneralProcessorUnit_to_ProcessorLoad</ns1:desc>
+    <ns2:parent primaryTypeUrn="//MOM-CPP-C12/GeneralProcessorUnit/3.12.0"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ProcessorLoad/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Equipment_to_HwUnit">
+    <ns1:desc>Equipment_to_HwUnit</ns1:desc>
+    <ns2:parent primaryTypeUrn="//MOM-CPP-C12/Equipment/3.12.0"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/HwUnit/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minSize value="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Equipment_to_Cabinet">
+    <ns1:desc>Equipment_to_Cabinet</ns1:desc>
+    <ns2:parent primaryTypeUrn="//MOM-CPP-C12/Equipment/3.12.0"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/Cabinet/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Equipment_to_ExternalNode">
+    <ns1:desc>Equipment_to_ExternalNode</ns1:desc>
+    <ns2:parent primaryTypeUrn="//MOM-CPP-C12/Equipment/3.12.0"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ExternalNode/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="7" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="PlugInUnit_to_EcPort">
+    <ns1:desc>PlugInUnit_to_EcPort</ns1:desc>
+    <ns2:parent primaryTypeUrn="//MOM-CPP-C12/PlugInUnit/3.12.0"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/EcPort/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="ManagedElement_to_EquipmentSupportFunction">
+    <ns1:desc>ManagedElement_to_EquipmentSupportFunction</ns1:desc>
+    <ns2:parent primaryTypeUrn="//MOM-CPP-C12/ManagedElement/3.12.0"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/EquipmentSupportFunction/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Equipment_to_AntennaUnitGroup">
+    <ns1:desc>Equipment_to_AntennaUnitGroup</ns1:desc>
+    <ns2:parent primaryTypeUrn="//MOM-CPP-C12/Equipment/3.12.0"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/AntennaUnitGroup/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="24" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="ManagedElement_to_ENodeBFunction">
+    <ns1:desc>ManagedElement_to_ENodeBFunction</ns1:desc>
+    <ns2:parent primaryTypeUrn="//MOM-CPP-C12/ManagedElement/3.12.0"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/ENodeBFunction/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="1"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Equipment_to_AuxPlugInUnit">
+    <ns1:desc>Equipment_to_AuxPlugInUnit</ns1:desc>
+    <ns2:parent primaryTypeUrn="//MOM-CPP-C12/Equipment/3.12.0"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/AuxPlugInUnit/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minSize value="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Equipment_to_RbsSubrack">
+    <ns1:desc>Equipment_to_RbsSubrack</ns1:desc>
+    <ns2:parent primaryTypeUrn="//MOM-CPP-C12/Equipment/3.12.0"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/RbsSubrack/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minSize value="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="PlugInUnit_to_DeviceGroup">
+    <ns1:desc>PlugInUnit_to_DeviceGroup</ns1:desc>
+    <ns2:parent primaryTypeUrn="//MOM-CPP-C12/PlugInUnit/3.12.0"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/DeviceGroup/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="1" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+  <ns2:containment ns1:lifeCycle="CURRENT" ns1:name="PlugInUnit_to_RiPort">
+    <ns1:desc>PlugInUnit_to_RiPort</ns1:desc>
+    <ns2:parent primaryTypeUrn="//MOM-CPP-C12/PlugInUnit/3.12.0"/>
+    <ns2:child primaryTypeUrn="//ERBS_vC_1_72/RiPort/3.1.72"/>
+    <ns2:collectionSizeConstraint>
+      <ns1:minMaxSize max="6" min="0"/>
+    </ns2:collectionSizeConstraint>
+  </ns2:containment>
+</ns2:PrimaryTypeRelationshipDefinition>

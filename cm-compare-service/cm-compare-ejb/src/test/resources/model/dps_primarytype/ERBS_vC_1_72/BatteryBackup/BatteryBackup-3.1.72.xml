@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="BatteryBackup" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>This MO models batteries that can be indirectly controlled by one BFU. No data is obtained from the battery itself.
+
+The functionality represented by this MO will not work until a HwUnit MO of type BFU exists.
+
+Dependencies: Can only exist in the node when the attribute supportSystemControl on MO EquipmentSupportFunction is set to true.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="BatteryBackupId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="batteryCurrent" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The measured battery current. When the battery is charging, the current is positive. When the battery is discharging, the current is negative.
+
+Unit: 1 A
+Resolution: 1
+Undefined value: -9999 indicates no contact with Battery Fuse Unit (BFU).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="-9999" min="-9999"/>
+        <ns1:minMaxRange max="200" min="-200"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="batteryDisconnectTemp" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The temperature at which the battery is disconnected. Applies to both main and priority loads. The battery is disconnected when batteryTemperature &gt; batteryDisconnectTemp.
+
+Note:  Only specified batteries should be set to values &gt; 60, and then only after consulting with Ericsson personnel and the battery manufacturer.
+
+Unit: 1Â°C
+Resolution: 1
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="70" min="40"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="60" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="batteryDisconnectTempCeaseOffset" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The offset for the disconnect temperature below which the battery will be reconnected. Applies to both main and priority loads. The battery is reconnected when batteryTemperature &lt; batteryDisconnectedTemp - batteryDisconnectTempCeaseOffset.
+
+Unit: 1Â°C
+Resolution: 1
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="20" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="5" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="batteryTemperature" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The current temperature reported by the battery temperature sensor installed on the battery.
+
+Unit: 1Â°C
+Resolution: 1
+Undefined value: 999 (no contact with BFU, BFU has no battery or BFU has no temperature sensor)</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="125" min="-55"/>
+        <ns1:minMaxRange max="999" min="999"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="batteryType" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The type of battery to which the installed battery conforms. The type is related to the capabilities of the battery.
+
+Dependencies: batteryType = UNKNOWN is valid only when chargingMode = USER_DEFINED.
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/BatteryType/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="TYPE01" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="batteryVoltage" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The measured battery voltage. It is equal to the attribute systemVoltage, PowerSupply MO, when the battery is connected.
+
+0 means the battery is disconnected.
+
+Unit: 0.1 V
+Resolution: 1
+Undefined value: -1 means no contact with the Battery Fuse Unit (BFU)</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="-380" min="-600"/>
+        <ns1:minMaxRange max="-1" min="-1"/>
+        <ns1:minMaxRange max="0" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="boostChargeTime" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The time in boost charge. Value zero (0) means that boost charging is disabled.
+
+Unit: 1 h
+Resolution: 1
+Dependencies: This attribute is only relevant if attribute chargingMode in MO BatteryBackup has the value USER_DEFINED.
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="48" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="5" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="boostChargeTriggerVoltage" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Defines the trigger voltage for boost charge. When the trigger voltage is surpassed during discharge, the consecutive charging is boost charging.
+
+Unit: 0.1 V
+Resolution: 1
+Dependencies: This attribute is only relevant if attribute chargingMode in MO BatteryBackup has the value USER_DEFINED.
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="-420" min="-500"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="-470" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="chargingMode" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The type of battery charging used. If charging is user-defined, the charging algorithm and parameters must be specified.
+
+If chargingMode = AUTOMATIC, the following attributes are not used:
+• chargingVoltage
+• tempCompVoltageSlope
+• nominalTemp
+• tempCompMinVoltage
+• tempCompMaxVoltage
+• increasedChargeVoltage
+• boostChargeTime
+• boostChargeTriggerVoltage
+• equalizeChargeTime
+• equalizeChargeCyclicInterval
+• intermittentChargeConnectVoltage
+• intermittentChargeConnectTime
+• intermittentChargeDisconnectTime
+
+Dependencies: If the charging mode is AUTOMATIC, the system charges according to behavior defined in the attribute batteryType.
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/ChargingMode/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="AUTOMATIC" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="chargeMaxCurrent" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Maximum allowed battery current during charging.
+
+Unit: 1 A
+Resolution: 1
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="270" min="20"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="125" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="chargingVoltage" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The desired battery voltage for charging at 25 degrees Celsius.
+
+Unit: 0.1 V
+Resolution: 1
+Dependencies: This attribute is relevant only when attribute chargingMode in MO BatteryBackup has the value USER_DEFINED.
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="-480" min="-570"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="-545" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="equalizeChargeCyclicInterval" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The number of days between equalize charging. The cycle is reset at restart.
+
+Unit: 1 day
+Resolution: 1
+Dependencies: This attribute is only relevant if attribute chargingMode in MO BatteryBackup has the value USER_DEFINED.
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="365" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="30" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="equalizeChargeTime" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The time in equalize charge. Value zero (0) means that equalize charging is disabled. To enable equalize charging, the value must be set to a number other than zero (0).
+
+Unit: 1 h
+Resolution: 1
+Dependencies: This attribute is only relevant if attribute chargingMode in MO BatteryBackup has the value USER_DEFINED.
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="24" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="4" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="increasedChargeVoltage" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The charge voltage used at boost charging and equalize charging.
+
+Unit: 0.1 V
+Resolution: 1
+Dependencies: This attribute is only relevant if attribute chargingMode in MO BatteryBackup has the value USER_DEFINED.
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="-555" min="-585"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="-564" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="intermittentChargeConnectTime" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Defines the period following disconnection after which the battery is reconnected. Used in intermittent charging.
+
+Unit: 1 h
+Resolution: 1
+Dependencies: This attribute is only relevant if attribute chargingMode in MO BatteryBackup has the value USER_DEFINED.
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="72" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="72" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="intermittentChargeConnectVoltage" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Defines the minimum battery voltage level allowed for a disconnected battery. When minimum level is reached, the battery is reconnected. Used in intermittent charging.
+
+Unit: 0.1 V
+Resolution: 1
+Dependencies: This attribute is only relevant if attribute chargingMode in MO BatteryBackup has the value USER_DEFINED.
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="-460" min="-530"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="-500" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="intermittentChargeDisconnectTime" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Defines the time until the batteries are disconnected (during this time the batteries are connected). Value zero (0) means that intermittent charging is not enabled.
+
+Unit: 1 h
+Resolution: 1
+Dependencies: This attribute is only relevant if attribute chargingMode in MO BatteryBackup has the value USER_DEFINED.
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="2400" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="12" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="nominalTemp" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Nominal temperature for temperature compensated float charging.
+
+Unit: 0.1Â°C
+Resolution: 1
+Dependencies: This attribute is only relevant if attribute chargingMode in MO BatteryBackup has the value USER_DEFINED.
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="280" min="170"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="250" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="tempCompMaxVoltage" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The maximum voltage allowed for float charging. Used in temperature compensated float charging.
+
+Unit: 0.1 V
+Resolution: 1
+Dependencies: This attribute is only relevant if attribute chargingMode in MO BatteryBackup has the value USER_DEFINED.
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="-480" min="-570"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="-569" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="tempCompMinVoltage" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The minimum voltage allowed for float charging. Used in temperature compensated float charging.
+
+Unit: 0.1 V
+Resolution: 1
+Dependencies: This attribute is only relevant if attribute chargingMode in MO BatteryBackup has the value USER_DEFINED.
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="-480" min="-570"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="-528" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="tempCompVoltageSlope" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>A compensation factor that expresses the amount of voltage changes caused by temperature. Used in temperature compensated float charging. Fixed battery charging is achieved by assigning this attribute the value zero.
+Example: -2500 = -2.5 V per 1 degree Celsius
+
+Unit: 0.001 V/Â°C
+Resolution: 1
+Dependencies: This attribute is only relevant if attribute chargingMode in MO BatteryBackup has the value USER_DEFINED.
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="0" min="-10000"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="-96" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="sharedBattery" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Indicates if the RBS shares a battery with another RBS or other power consumer on the site. The setting of this attributes has a great impact on the system behavior.
+
+Dependencies: If sharedBattery is set to True a backup time test will be used as battery test. A battery capacity test cannot be executed if shared batteries are used.
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="true" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="batteryInstallationDate" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The date when the batteries in the battery backup of the RBS were installed and taken into service. Format:  YYYYMMDD.
+
+Dependencies: The date must not be a future date. Changing this attribute will cause the system to restart battery capacity test calculations and recalculate attribute referenceBatteryCapacity.
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="8" min="8"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="00000000" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="testMode" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The mode of the battery test.
+
+Dependencies: The following attributes are only relevant if testMode is set to CONFIGURED: testStartDay, testStartTime, testStartMonths and minimumStateOfHealth.
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/BatteryTestMode/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="DISABLED" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="testStartDay" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The day of month for periodic battery tests.
+
+Dependencies: The attribute is relevant only when testMode has the value CONFIGURED. Combination of testStartDay and testStartMonths must be a valid date.
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="31" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="25" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="testStartTime" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The time of day to start periodic battery tests. Format: HH:MM, 24-hour format.
+
+Dependencies: The attribute is only relevant if testMode has the value CONFIGURED.
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="5" min="5"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="01:00" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="testStartMonths" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The months in which periodic battery tests are performed. A battery test is performed in the months listed in the parameter. A month may be listed only once in the parameter. Default value = MARCH, SEPTEMBER.
+
+Dependencies: The attribute is only relevant if attribute testMode has the value CONFIGURED.
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="12"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType modelUrn="//ERBS_vC_1_72/Month/3.1.72" xsi:type="ns1:enumRefType"/>
+    </ns1:type>
+    <ns1:default xsi:type="ns1:collectionValue">
+      <ns1:values>
+        <ns1:value value="MARCH" xsi:type="ns1:stringValue"/>
+        <ns1:value value="SEPTEMBER" xsi:type="ns1:stringValue"/>
+      </ns1:values>
+    </ns1:default>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="minimumStateOfHealth" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The minimum requirement for the State-of-Health of a battery when conducting a battery capacity test. An alarm is raised if State-Of-Health is lower than minimumStateOfHealth. State-of-Health is defined as estimated battery capacity divided by referenceBatteryCapacity * 100.
+
+Unit: 1%
+Resolution: 1
+Dependencies: The attribute is only relevant if sharedBattery is set to false.
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="70" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="referenceBatteryCapacity" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The calculated reference battery capacity. This value is calculated at the first battery capacity test (manual or periodic) or when a significantly higher capacity is detected. The attribute is used in battery capacity tests.
+
+Unit: 1 Ah
+Resolution: 1
+Undefined value: -1
+Dependencies: This attribute has a defined value only if sharedBattery is set to False and at least one battery capacity test has been conducted. This attribute will be recalculated at the first battery capacity test after the attribute batteryInstallationDate has been changed.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="999999" min="-1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="minimumBackupTime" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The minimum requirement for backup time for the installed batteries when conducting a battery backup time test. An alarm is raised if measured backup time is shorter than minimumBackupTime.
+
+Unit: 1 minute
+Resolution: 1
+Dependencies: This attribute is only relevant if sharedBattery is set to true.
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="1080" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="60" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="nextScheduledTestDate" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Date of next scheduled periodic battery test. Format: "YYYYMMDD".
+
+Undefined value: "00000000".
+Dependencies: The value is undefined if testMode has the value DISABLED.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="8" min="8"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="00000000" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="batteryTestIsRunning" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>State whether a battery test is running or not. Possible values:
+- true: A battery test cycle has been started
+- false: Either the battery test is disabled or there is not any ongoing battery test.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

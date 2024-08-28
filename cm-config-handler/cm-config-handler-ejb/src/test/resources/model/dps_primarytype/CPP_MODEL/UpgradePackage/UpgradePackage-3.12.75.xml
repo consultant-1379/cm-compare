@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="UpgradePackage" ns1:ns="CPP_MODEL" ns1:version="3.12.75" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Upgrade Package (UP)
+
+This MO represents an upgrade package stored in the file system on the node. It also represents the UP stored on the FTP server that it is, or will be, fetched from.
+
+There can be more than one UP at the same time on the disk. One UP represents the software executing on the node. This UP is specified by the MO, ConfigurationVersion.
+
+The actions in this MO execute a specific upgrade on the node.
+
+The UP is deleted from the disk when the associated UpgradePackage MO is deleted. The following are also deleted:
+- the MOs and files that are unique for the UP
+- the CVs specifed by the attribute, otherReferringCVs.
+
+This MO refers to all the load modules used in the UP. One load module can be used in more than one UP.
+
+When the node is restarted, instances of this MO are created automatically and these represent UPs that are stored on the disk, but which do not have an MO instance in the current CV. These instances are in the state, onlyDeletable. In this state, the MO throws ActionNotAllowedException on all its actions.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="UpgradePackageId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.
+
+It is set automatically during system upgrade.
+
+If this is empty, the attribute, upgradePackageDocumentId is copied.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="loadModuleList" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies the references to load modules that belong to this upgrade package.
+
+This list is null until a successful install has been performed.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="/dps_primarytype/CPP_MODEL/LoadModule/3.12.75" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="upgradeControlFilePath" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies the path to the UCF on the node once it has been fetched from the FTP server.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="state" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies the state of this upgrade package.
+
+This attribute is used to accept, reject or modify behavior of actions. For example, the action, upgrade, is not allowed in the state NOT_INSTALLED.
+
+The action, confirmUpgrade, is called to continue and conclude the upgrade sequence when state = AWITING_CONFIRMATION. Then the attribute, confirmationDeadline, is used to check the time left before automatic rollback is done.
+
+Upgrade Package MOs that are stored on disk but do not have an MO in the current CV, are in the state ONLY_DELETEABLE. An MO in this state only accepts action, updateFTPServerData. If any other type of action is invoked, the ActionNotAllowedException is thrown.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/UpgradePackageState/3.12.75" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="NOT_INSTALLED" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="progressHeader" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies the current upgrade progress information.
+
+Changes in the progress header do not require any particular action.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/UpgradeProgressInformation/3.12.75" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="IDLE" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="progressTotal" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies one of the following:
+
+- the total number of load module files to be downloaded during installation of an UpgradePackage MO
+- the total number of load module files to be downloaded during installation of an PiuType MO
+- the total number of steps in the used sequence, defined in the UCF, when an upgrade is executed.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="progressCount" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Shows the progress of:
+- an installation of an UpgradePackage MO
+- installation of a PiuType MO or
+- execution of an upgrade.
+
+This attribute specifies the current number of downloaded load module files during installation of an upgrade package. A load module may contain one or several files.
+
+It also specifies the current number of executed steps in the used sequence, defined in the UCF, when an upgrade is executed.
+
+This value is incremented in steps of 1, from 0 to progressTotal.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="administrativeData" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains product data for this upgrade package. This information is extracted from the UCF.</ns1:desc>
+    <ns1:type modelUrn="/oss_cdt/CPP_MODEL/AdminProductData/3.12.75" xsi:type="ns1:complexRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="confirmationDeadline" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies the deadline, date and time, for an operator confirmation.
+
+If the deadline is not met, then an automatic rollback to a previous configuration is issued.
+The format is UTC time.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ftpServerIpAddress" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The IP address of the FTP Server.
+
+Examples:
+
+- 110.112.111.102
+- wnaw107 (logical name).</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="64" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="upFilePathOnFtpServer" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Specifies the file path on the FTP server to the UCF.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="user" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The user identity to the FTP server.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="anonymous" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="password" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Password to the FTP server.
+
+This attribute is only supplied when the UP MO is created, and it is not displayed.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="anonymous" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="upgradePackageDocumentId" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies the document number and revision of the upgrade package. White spaces are removed, and an underscore is inserted between the document number and the revision.
+
+Example: 19089-CSX10901/1_A</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="40" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="deletePreventingCVs" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies the configuration version(s) that prevents delete of the UP.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType xsi:type="ns1:stringType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="otherReferringCVs" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies the configuration versions that refer to this MO, but do not affect the deletable status of the MO UpgradePackage. The deletable status is specified in the attribute, isDeletable.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType xsi:type="ns1:stringType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="isDeletable" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies if the UpgradePackage MO can be deleted.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="basedOnUpgradePackages" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>This attribute is only valid for UPs of type Delta. It contains the merge history of this upgrade package.
+
+Examples:
+
+- Product Data for normal UP (non Delta UP)
+- Product Data for Delta UP1
+- Product Data for Delta UP2.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="/oss_cdt/CPP_MODEL/AdminProductData/3.12.75" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="upCompatibilityIndex" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies a compatibility index.
+
+If this is specified, it may be used when verifying that an upgrade from-state is valid for this UP.
+
+It is only used when the UCF element upgrade window contains this type of information.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="cppUpVersion" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies the CPP upgrade package version of this UP.
+
+This information is extracted from the UCF.</ns1:desc>
+    <ns1:type modelUrn="/oss_cdt/CPP_MODEL/AdminProductData/3.12.75" xsi:type="ns1:complexRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="actionResult" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains the result from the latest four invoked actions.
+
+This attribute is only applicable for the actions:
+- install (all variants)
+- cancelInstall
+- readReferringCvInformation
+- verifyUpgrade
+- update
+- upgrade
+
+For the actions, update, upgrade, and rebootNodeUpgrade, this attribute is only valid when the verification phase has discovered that upgrade or update is not possible.
+
+Any problems detected after the verification phase is not reported in this attribute.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="/oss_cdt/CPP_MODEL/ActionResultData/3.12.75" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="stepLabel" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains the name of the currently executing step in the used sequence, defined in the UCF. This value is specified in the attribute label in the element Step or UpdateStep in the UCF.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="maxTimeBetweenUpgradeEvents" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>States the maximum time allowed to elapse before the next upgrade event (FM event) is sent.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="60" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="sendEvents" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Defines whether upgrade events (FM events) shall be sent or not during execution of an upgrade.
+
+The default maximum time between FM events is 60 seconds. This means that if no new progress indication is available within that time, the last FM event is sent again.
+
+The first created UpgradePackage MO has the default value, false. For the subsequent new UpgradePackage MOs that are created, the value of this attribute is not set to the default value, but is instead copied from the currently active UpgradePackage MO.
+The currently active UpgradePackage MO is specified by the attribute, currentUpgradePackage in the ConfigurationVersion MO.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="deletePreventingUPs" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies the upgrade package(s) that prevents delete of the UP.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="/oss_cdt/CPP_MODEL/AdminProductData/3.12.75" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="typeOfUP" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>States the type of UP specified in the UCF.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/UpgradePackageType/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="progressHeaderAddInfo" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Additional information to the attribute, progressHeader.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType xsi:type="ns1:stringType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="actualTypeOfUP" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>States the actual type of the UP.
+
+Its value is set by copying the value of the attribute, requestedTypeOfUP.
+
+Its initial value is set when the UP is created.
+
+This value is then updated in the following cases:
+
+- the UP is not active, that is, state is not UPGRADE_COMPLETED, and a successful install action has been executed.
+
+- the UP is installed, that is, state is INSTALL_COMPLETED, and a successful upgrade action has been executed. When the last install action has been executed, the value of requestedTypeOfUP is saved and copied.
+
+- the UP is active, that is, state is UPGRADE_COMPLETED, and a successful upgrade action has been executed. When the last install action has been executed, the value of requestedTypeOfUP is saved and copied.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/UpgradePackageType/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="requestedTypeOfUP" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>States the type of UP to be used when an install action is executed. It is not used when load modules for a specific MO PiuType are installed. When an upgrade action is executed, the type used at the last install is valid.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/UpgradePackageType/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

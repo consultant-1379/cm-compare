@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="AuxPlugInUnit" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>This MO models an auxiliary plug-in unit.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="administrativeState" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The administrative state.
+
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/AdminState/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="UNLOCKED" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="productData" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The product ID of the installed AuxPlugInUnit/HW Unit. If the corresponding hardware unit is not installed yet, the struct contains empty strings.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/ProductData/3.1.72" xsi:type="ns1:complexRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="greenLed" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Deprecated: Since L11A. Replaced by attribute operationalIndicator.
+Indicates the operational status of the Auxiliary Plug-in Unit.
+
+The following values are possible for this attribute:
+
+NOT_AVAILABLE = The LED state is not readable at the moment
+STEADY_LIGHT = Power present
+SLOW_BLINK = Missing resource
+FAST_BLINK = Load or test in progress
+FLICKERING = Busy</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/LedStatus/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="redLed" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Deprecated: Since L11A. Replaced by attribute faultIndicator.
+Indicates the fault status of the Auxiliary Plug-in Unit.
+
+The following values are possible for this attribute:
+
+NOT_AVAILABLE = The LED state is not available at the moment
+OUT = No fault
+STEADY_LIGHT = PIU fault</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/LedStatus/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="yellowLed" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Deprecated: Since L11A. Replaced by attribute maintenanceIndicator.
+Indicates the information status of the Auxiliary Plug-in Unit.
+
+The following values are possible for this attribute:
+
+NOT_AVAILABLE = The LED state is not available at the moment
+OUT = PIU unlocked
+STEADY_LIGHT = PIU locked
+SLOW_BLINK = Shutting-down in progress
+FLICKERING = Busy</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/LedStatus/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="AuxPlugInUnitId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="operationalState" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Defines the operational state.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/OperState/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="availabilityStatus" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The availability status of the device.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/AvailabilityStatus/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="piuType" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Refers to the corresponding PiuType MO. Used by the auto-configuration and system upgrade functions to create corresponding device group and XpProgram MOs.
+
+Takes effect: At restart.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/PiuType/3.1.72" xsi:type="ns1:moRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains a list of MO instances that reserves this MO instance.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="//ERBS_vC_1_72/ManagedObject/3.1.72" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="unitType" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Mirrors the attribute PiuType.productData(productName).</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="12" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="positionRef" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Refers to the cabinet or shelf in which the AuxPlugInUnit is placed or to which it belongs.
+
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/ManagedObject/3.1.72" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="position" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The absolute position of the AuxPlugInUnit in a shelf. Position numbering starts from left or ground with the first position numbered 1. A board can occupy more than one position, depending on its width. When a board occupies more than one position, its position number is the left-most position it occupies.
+
+Undefined value: 0
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="30" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="positionInformation" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The position of a AuxPlugInUnit. It can be:
+
+- On a shelf
+- Not on a shelf but inside or outside the cabinet
+- At a remote site
+
+If the hardware is contained on a shelf, the attribute position is used. Otherwise this attribute can be used, for example, to provide the address of a remote site, or to indicate that the unit is installed in connection to a specific shelf.
+
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="255" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="faultIndicator" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The fault status of the auxiliary plug-in unit as shown by the optical indicator on the unit.
+
+Valid values:
+
+• NOT_APPLICABLE = This indicator is not supported.
+• NOT_AVAILABLE = The indicator state is currently not available.
+• OFF = No hardware fault.
+• STEADY_ON = Hardware fault.
+
+Dependencies: Only applicable to RBS 6000. If RBS 3000, see redLed.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/IndicatorStatus/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="operationalIndicator" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The operational status of the auxiliary plug-in unit as shown by the optical indicator on the unit. Valid values:
+
+• NOT_APPLICABLE = This indicator is not supported.
+• NOT_AVAILABLE = The indicator state is currently not available.
+• OFF = No power.
+• STEADY_ON = Operational, the unit can perform its intended purpose.
+• SLOW_BLINK = Dependent resource missing, the unit is non-operational.
+• DOUBLE_FLASH_AND_STEADY_ON = Loading software, the unit is operational during software loading.
+• DOUBLE_FLASH_AND_OFF = Loading software, the unit is non-operational during software loading.
+
+Dependencies: Only applicable to RBS 6000. If RBS 3000, see greenLed</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/IndicatorStatus/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="maintenanceIndicator" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The maintenance status of the auxiliary plug-in unit as shown by the optical maintenance indicator on the unit. Valid values:
+
+• NOT_APPLICABLE = The indicator is not supported.
+• NOT_AVAILABLE = The indicator state is currently not available.
+• OFF = Non-maintenance mode (board unlocked)
+• STEADY_ON = Full maintenance mode (board locked)
+• SLOW_BLINK = Removing ongoing traffic in unit
+• FAST_BLINK = Alarms suppressed in unit
+
+Dependencies: Only applicable to RBS 6000. If RBS 3000, see yellowLed.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/IndicatorStatus/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<job id="multiFileBatchProcessing-job" xmlns="http://xmlns.jcp.org/xml/ns/javaee" version="1.0">
+    <properties>
+        <property name="downloadDirectory" value="/tmp/download"/>
+        <property name="archivesDirectory" value="/tmp/downloadArchives"/>
+    </properties>
+    <listeners>
+        <listener ref="InfoJobListener"/>
+    </listeners>  
+    <flow id="flow1"> 
+        <step id="createDirectory" next="downloadFiles">
+            <listeners>
+                <listener ref="InfoJobListener"/>
+            </listeners>
+            <batchlet ref="com.ericsson.oss.services.cm.export.service.batch.downloadmanager.MakeDirectoryBatchlet"></batchlet>
+        </step>
+        <step id="downloadFiles" next="assembleArchive">
+            <listeners>
+                <listener ref="InfoJobListener"/>
+            </listeners>
+            <chunk item-count="3">
+                <reader ref="com.ericsson.oss.services.cm.export.service.batch.downloadmanager.ItemReader"></reader> 
+                <processor ref="com.ericsson.oss.services.cm.export.service.batch.downloadmanager.ItemProcessor"></processor>
+                <writer ref="com.ericsson.oss.services.cm.export.service.batch.downloadmanager.ItemWriter"></writer> 
+            </chunk>
+        </step>    
+        <step id="assembleArchive" next="removeFilesAndDirectory">
+            <listeners>
+                <listener ref="InfoJobListener"/>
+            </listeners>
+            <batchlet ref="com.ericsson.oss.services.cm.export.service.batch.downloadmanager.FileArchiver">
+            </batchlet>
+        </step>
+        <step id="removeFilesAndDirectory" >
+            <listeners>
+                <listener ref="InfoJobListener"/>
+            </listeners>
+            <batchlet ref="com.ericsson.oss.services.cm.export.service.batch.downloadmanager.RemoveDirectoryBatchlet">
+            </batchlet>
+        </step>
+    </flow>
+</job>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="PmUeMeasControl" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>This managed object contains the settings for PM Initiated UE Measurements.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ueMeasIntraFreq1" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The specification of the UE measurement initiated by activating the PM event UE_MEAS_INTRAFREQ1 in a Cell Trace scanner.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/PmUeMeasIntraFreq/3.1.72" xsi:type="ns1:complexRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ueMeasIntraFreq2" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The specification of the UE measurement initiated by activating the PM event UE_MEAS_INTRAFREQ2 in a Cell Trace or UE Trace scanner.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/PmUeMeasIntraFreq/3.1.72" xsi:type="ns1:complexRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmUeMeasRsrpServIntraFreq1" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Shows a histogram of the reported values for the reference signal received power (RSRP) measurements for the serving cell. A description of RSRP can be found in 3GPP specification 36.133.
+
+PDF ranges:
+[0]: 0 &lt;= RSRP_xx &lt;= 15
+[1]: 16 &lt;= RSRP_xx &lt;= 18
+[2]: 19 &lt;= RSRP_xx &lt;= 21
+[3]: 22 &lt;= RSRP_xx &lt;= 24
+[4]: 25 &lt;= RSRP_xx &lt;= 27
+[5]: 28 &lt;= RSRP_xx &lt;= 30
+[6]: 31 &lt;= RSRP_xx &lt;= 33
+[7]: 34 &lt;= RSRP_xx &lt;= 36
+[8]: 37 &lt;= RSRP_xx &lt;= 39
+[9]: 40 &lt;= RSRP_xx &lt;= 42
+[10]: 43 &lt;= RSRP_xx &lt;= 45
+[11]: 46 &lt;= RSRP_xx &lt;= 48
+[12]: 49 &lt;= RSRP_xx &lt;= 51
+[13]: 52 &lt;= RSRP_xx &lt;= 54
+[14]: 55 &lt;= RSRP_xx &lt;= 57
+[15]: 58 &lt;= RSRP_xx &lt;= 60
+[16]: 61 &lt;= RSRP_xx &lt;= 97
+
+Unit: -
+Condition: The counter is only stepped when PM Initiated UE Measurement is activated i.e. the event UE_MEAS_INTRAFREQ1 is activated. The counter is only triggered if the reports from the UE are according to the cell parameter configuration applied to the cell at the start of the ROP.
+Counter type: PDF
+Scanner: Not included in any predefined scanner
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="17"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:longType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmUeMeasRsrqServIntraFreq1" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Shows a histogram of the reported values for the reference signal received quality (RSRQ) measurements for the serving cell. A description of RSRQ can be found in 3GPP specification 36.133.
+
+PDF ranges:
+[0]: 0 &lt;= RSRQ_xx &lt;= 1
+[1]: 2 &lt;= RSRQ_xx &lt;= 3
+[2]: 4 &lt;= RSRQ_xx &lt;= 5
+[3]: 6 &lt;= RSRQ_xx &lt;= 7
+[4]: 8 &lt;= RSRQ_xx &lt;= 9
+[5]: 10 &lt;= RSRQ_xx &lt;= 11
+[6]: 12 &lt;= RSRQ_xx &lt;= 13
+[7]: 14 &lt;= RSRQ_xx &lt;= 15
+[8]: 16 &lt;= RSRQ_xx &lt;= 17
+[9]: 18 &lt;= RSRQ_xx &lt;= 19
+[10]: 20 &lt;= RSRQ_xx &lt;= 21
+[11]: 22 &lt;= RSRQ_xx &lt;= 23
+[12]: 24 &lt;= RSRQ_xx &lt;= 25
+[13]: 26 &lt;= RSRQ_xx &lt;= 27
+[14]: 28 &lt;= RSRQ_xx &lt;= 29
+[15]: 30 &lt;= RSRQ_xx &lt;= 31
+[16]: 32 &lt;= RSRQ_xx &lt;= 34
+
+Unit: -
+Condition: The counter is only stepped when PM Initiated UE Measurement is activated i.e. the event UE_MEAS_INTRAFREQ1 is activated. The counter is only triggered if the reports from the UE are according to the cell parameter configuration applied to the cell at the start of the ROP.
+Counter type: PDF
+Scanner: Not included in any predefined scanner
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="17"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:longType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmUeMeasRsrpDeltaIntraFreq1" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Shows a histogram of the delta values between reported serving and best target cell reference signal received power measurements (i.e. Delta = RSRP_SERVING - RSRP_BEST_TARGET). A description of RSRP can be found in 3GPP specification 36.133.
+
+PDF ranges:
+[0]:  delta RSRP_xx &lt;= - 6
+[1]:  - 5 &lt;= delta RSRP_xx &lt;= - 4
+[2]:  - 3 &lt;= delta RSRP_xx &lt;= - 2
+[3]:  - 1 &lt;= delta RSRP_xx &lt;= - 1
+[4]:  0 &lt;= delta RSRP_xx &lt;= 0
+[5]:  1 &lt;= delta RSRP_xx &lt;= 1
+[6]:  2 &lt;= delta RSRP_xx &lt;= 2
+[7]:  3 &lt;= delta RSRP_xx &lt;= 3
+[8]:  4 &lt;= delta RSRP_xx &lt;= 4
+[9]:  5 &lt;= delta RSRP_xx &lt;= 6
+[10]:  7 &lt;= delta RSRP_xx &lt;= 8
+[11]:  9 &lt;= delta RSRP_xx
+
+Unit: -
+Condition: The counter is only stepped when PM Initiated UE Measurement is activated i.e. the event UE_MEAS_INTRAFREQ1 is activated. The counter is only triggered if the reports from the UE are according to the cell parameter configuration applied to the cell at the start of the ROP.
+Counter type: PDF
+Scanner: Not included in any predefined scanner
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="12"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:longType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmUeMeasRsrqDeltaIntraFreq1" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Shows a histogram of the delta values between reported serving and best target cell reference signal received quality measurements (i.e. Delta = RSRQ_SERVING - RSRQ_BEST_TARGET). A description of RSRQ can be found in 3GPP specification 36.133.
+
+PDF ranges:
+[0]:  delta RSRQ_xx &lt;= - 12
+[1]:  - 11 &lt;= delta RSRQ_xx &lt;= - 8
+[2]:  - 7 &lt;= delta RSRQ_xx &lt;= - 4
+[3]:  - 3 &lt;= delta RSRQ_xx &lt;= - 2
+[4]:  - 1 &lt;= delta RSRQ_xx &lt;= 0
+[5]:  1 &lt;= delta RSRQ_xx &lt;= 2
+[6]:  3 &lt;= delta RSRQ_xx &lt;= 4
+[7]:  5 &lt;= delta RSRQ_xx &lt;= 6
+[8]:  7 &lt;= delta RSRQ_xx &lt;= 8
+[9]:  9 &lt;= delta RSRQ_xx &lt;= 12
+[10]:  13 &lt;= delta RSRQ_xx &lt;= 16
+[11]:  17 &lt;= delta RSRQ_xx
+
+Unit: -
+Condition: The counter is only stepped when PM Initiated UE Measurement is activated i.e. the event UE_MEAS_INTRAFREQ1 is activated. The counter is only triggered if the reports from the UE are according to the cell parameter configuration applied to the cell at the start of the ROP.
+Counter type: PDF
+Scanner: Not included in any predefined scanner
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="12"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:longType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="PmUeMeasControlId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the Relative Distinguished Name (RDN).</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmZtemporary44" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Normally this counter is not used, it can however sometimes be temporarily used for very late additions in a release. If so, for description see Network Impact Report in the CPI.
+
+Unit: -
+Condition: -
+Counter type: PDF
+Sampling rate: -
+Scanner: Not included in any predefined scanner 
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="17"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:longType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

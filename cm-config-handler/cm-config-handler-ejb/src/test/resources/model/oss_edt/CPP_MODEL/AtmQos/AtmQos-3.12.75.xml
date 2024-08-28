@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="AtmQos" ns1:ns="CPP_MODEL" ns1:version="3.12.75">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/oss_edt/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>ATM's Quality of Service classes.
+
+The ATM layer system provides four QoS classes, numbered 1 to 4, where CLASS_ONE gives the best QoS in regards to Cell Loss Ratio &lt;CLR&gt; and Cell Delay Variation &lt;CDV&gt; and CLASS_FOUR doesn't give any QoS guarantees. CLASS_ONE and CLASS_TWO are the only classes applicable for real time traffic.</ns1:desc>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CLASS_ONE" value="1">
+    <ns1:desc>CDV &lt; 1 ms (milliseconds), CLR &lt; 10e-8. Typically used by timing unit.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CLASS_TWO" value="2">
+    <ns1:desc>CDV &lt; 1 ms, CLR &lt; 10e-7. Typically used for speech.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CLASS_THREE" value="3">
+    <ns1:desc>CLR &lt; 10e-5. Typically used for signalling.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CLASS_FOUR" value="4">
+    <ns1:desc>Typically used for IP.</ns1:desc>
+  </ns2:member>
+</ns2:EnumDataTypeDefinition>

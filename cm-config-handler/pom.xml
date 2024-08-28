@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.ericsson.nms</groupId>
+		<artifactId>integration</artifactId>
+		<version>13.2.0.241</version>
+	</parent>
+	<groupId>com.ericsson.oss.services.cm</groupId>
+	<artifactId>cm-config-handler</artifactId>
+	<version>1.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<url>http://www.ericsson.com</url>
+
+	<organization>
+		<name>Ericsson</name>
+	</organization>
+
+	<prerequisites>
+		<maven>3.0.3</maven>
+	</prerequisites>
+
+	<name>[${project.artifactId}] JEE6 Project</name>
+
+	<issueManagement>
+		<system>JIRA</system>
+		<url>${jira.url}</url>
+	</issueManagement>
+
+
+
+	<properties>
+		<version.java>1.7</version.java>
+		<version.weld>1.1.10.Final</version.weld>
+		<version.ejb>3.1</version.ejb>
+		<version.jee>6</version.jee>
+		<version.junit>4.10</version.junit>
+		<jira.url>http://jira-oss.lmera.ericsson.se/browse/TORCM</jira.url>
+
+		<version.jboss.as>6.1.1</version.jboss.as>
+		<jboss.eap.home>jboss-eap-6.1</jboss.eap.home>
+		<!-- Do not use JBoss community version use EAP 6. As JBoss version 7.1.1.Final 
+			is being used by maven plugin(version.jboss-as-maven-plugin) -->
+		<version.jboss.as.arquillian>7.1.3.Final</version.jboss.as.arquillian>
+		<!-- <version.arquillian-junit-container>1.0.0.Final</version.arquillian-junit-container> -->
+		<version.arquillian.bom>1.0.3.Final</version.arquillian.bom>
+		<version.arquillian-weld-se-embedded>1.0.0.CR3</version.arquillian-weld-se-embedded>
+		<version.jboss-as-maven-plugin>${version.jboss.as}</version.jboss-as-maven-plugin>
+		<version.easymock>3.1</version.easymock>
+		<!-- When you want to switch to new Service Framework version only change -->
+		<version.service.framework>2.0.3.1</version.service.framework>
+		<project.ear.defaultLibBundleDir>lib</project.ear.defaultLibBundleDir>
+		<!-- Versant host for dps integration -->
+		<versant.db.host>localhost</versant.db.host>
+		<!-- JBoss modules your service will automatically add to classpath -->
+		<project.ear.Dependencies>org.slf4j</project.ear.Dependencies>
+		<version.cm-parser>${project.version}</version.cm-parser>
+		<version.cm-reader>RELEASE</version.cm-reader>
+		<version.cm-writer>RELEASE</version.cm-writer>
+		<version.cm-compare>1.4.14-SNAPSHOT</version.cm-compare>
+		<version.cm-common>RELEASE</version.cm-common> <!-- Only used for arq. tests -->
+		<version.script-engine>RELEASE</version.script-engine>
+		<version.guava>14.0.1</version.guava>
+		<!-- Data layer dependency versions (required for creating test-data) -->
+		<version.dps>1.3.1</version.dps>
+		<versant.db.host>localhost</versant.db.host>
+		<version.model.deployment.tool>1.0.14</version.model.deployment.tool>
+		<version.modeling.bom>1.0.30</version.modeling.bom>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- here we specify what version of Service Framework we want to use. 
+				All modules will be imported -->
+			<dependency>
+				<groupId>com.ericsson.oss.itpf.sdk</groupId>
+				<artifactId>ServiceFrameworkBOM</artifactId>
+				<version>${version.service.framework}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.ericsson.oss.itpf.modeling</groupId>
+				<artifactId>Modeling-BOM</artifactId>
+				<version>${version.modeling.bom}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.ericsson.oss.itpf.datalayer.dps</groupId>
+				<artifactId>data-persistence-service-bom</artifactId>
+				<version>${version.dps}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.jboss.arquillian</groupId>
+				<artifactId>arquillian-bom</artifactId>
+				<version>${version.arquillian.bom}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-dependency-plugin</artifactId>
+										<versionRange>[2.4,)</versionRange>
+										<goals>
+											<goal>analyze-dep-mgt</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-ear-plugin</artifactId>
+										<versionRange>[2.7,)</versionRange>
+										<goals>
+											<goal>generate-application-xml</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>com.ericsson.maven.plugins</groupId>
+										<artifactId>rstate-maven-plugin</artifactId>
+										<versionRange>[1.0,)</versionRange>
+										<goals>
+											<goal>rstate</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-checkstyle-plugin</artifactId>
+										<versionRange>[2.10,)</versionRange>
+										<goals>
+											<goal>check</goal>
+											<goal>checkstyle</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${version.java}</source>
+					<target>${version.java}</target>
+				</configuration>
+			</plugin>			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>**/src/test/*.java</exclude>
+						<exclude>**/generated/*.java</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>tidy-maven-plugin</artifactId>
+				<version>1.0-alpha-2</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.10</version>
+				<dependencies>
+					<dependency>
+						<groupId>com.ericsson.oss.services.cm.config.handler</groupId>
+						<artifactId>build-tools</artifactId>
+						<version>1.0.1-SNAPSHOT</version>
+					</dependency>
+				</dependencies>
+
+				<executions>
+					<execution>
+						<id>check-style</id>
+						<goals>
+							<goal>check</goal>
+						</goals>
+						<phase>validate</phase>
+						<configuration>
+							<consoleOutput>true</consoleOutput>
+							<logViolationsToConsole>true</logViolationsToConsole>
+							<failsOnError>true</failsOnError>
+							<failOnViolation>true</failOnViolation>
+							<configLocation>com/ericsson/oss/services/cm/config/handler/checkstyle.xml</configLocation>
+							<includeTestSourceDirectory>false</includeTestSourceDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>			
+		</plugins>
+	</build>
+
+	<dependencies>
+		<!-- JEE IMPLEMENTATION -->
+		<dependency>
+			<groupId>org.jboss.spec</groupId>
+			<artifactId>jboss-javaee-6.0</artifactId>
+			<version>1.0.0.Final</version>
+			<type>pom</type>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- TESTING & MOCKING -->
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-library</artifactId>
+			<version>1.3.RC2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit-dep</artifactId>
+			<version>4.10</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.hamcrest</groupId>
+					<artifactId>hamcrest-core</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>1.9.5</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.easymock</groupId>
+			<artifactId>easymock</artifactId>
+			<version>${version.easymock}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<profiles>
+		<profile>
+			<!-- Required for Running Graph plugin, depnds also Install graphviz command 
+				line tool, see http://mvnplugins.fusesource.org/maven/1.4/maven-graph-plugin -->
+			<id>graph</id>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>mvnplugins.fusesource.org</id>
+					<url>http://mvnplugins.fusesource.org/repo/release</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+				</pluginRepository>
+			</pluginRepositories>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.fusesource.mvnplugins</groupId>
+						<artifactId>maven-graph-plugin</artifactId>
+						<version>1.30</version>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<modules>
+		<module>cm-config-parser</module>
+		<module>cm-config-handler-ejb</module>
+		<module>cm-config-handler-ear</module>
+		<module>ERICcmconfig_CXP9030315</module>
+		<module>testsuite</module>
+	</modules>
+</project>

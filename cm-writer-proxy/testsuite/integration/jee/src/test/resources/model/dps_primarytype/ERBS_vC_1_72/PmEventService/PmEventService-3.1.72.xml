@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="PmEventService" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>This MO contains the parameters for Performance Monitoring (PM) event handling functions.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="cellTraceDataLevel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Since L12A. Planned to be removed.
+Indicates if the ASN.1 contents should be included in the event data collection.
+
+Takes effect: At the next ROP.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="true" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="cellTraceHighPrioReserve" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The percentage of total cell trace storage (totalCellTraceStorageSize) reserved for high-priority scanners.
+
+This means that no events from low-priority scanners are stored in the file when the storage limit is reached for the sum of the low-priority scanners:
+
+totalCellTraceStorageSize - (cellTraceHighPrioReserv / 100) * totalCellTraceStorageSize.
+
+High-priority scanner files are not limited to the reserved area for high priority scanners. These files can also be stored in the non-reserved area together with the low-priority scanner files. When the default value of zero is set, the high- and low-priority share the totalCellTraceStorageSize for storing cell trace events.
+
+Unit: 1 %
+Resolution: 1
+Takes effect: At the next ROP.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="80" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="totalCellTraceStorageSize" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Total available storage for the cell trace recording files.
+
+Unit: 1 kilobyte (kb)
+Resolution: 1
+Dependencies: totalCellTraceStorageSize &gt;= cellTraceFileSize AND totalCellTraceStorageSize &lt;= totalEventStorageSize
+Takes effect: At the next ROP.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="250000" min="100"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="80000" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="cellTraceFileSize" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Maximum size of each cell trace recording file. The file size is valid for the compressed file.
+
+If the cellTraceFileSize is reached within a specific Reporting Output Period (ROP), cell trace recording stops until the next ROP begins.
+
+Unit: 1 kilobyte (kb)
+Resolution: 1
+Dependencies: cellTraceFileSize &lt;= totalCellTraceStorageSize
+Takes effect: At the next ROP.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="20000" min="100"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1000" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="totalEventStorageSize" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The total storage that the observability mechanisms can use to store information about the collected event data.
+This means that the total size of the cell trace and UE trace files stored should be less that the value of this attribute.
+
+Unit: 1 kilobyte (kb)
+Resolution: 1
+Dependencies: totalEventStorageSize &gt;= totalCellTraceStorageSize + totalUeTraceStorageSize
+Takes effect: At the next ROP.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="266000" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="100000" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ueTraceFileSize" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Since L10B. Values &gt;1000 are not part of the value range and shall not be used.
+Maximum size of each UE trace recording file. The file size is valid for the compressed file.
+
+If the ueTraceFileSize is reached within a specific Reporting Output Period (ROP), UE trace recording stops until the next ROP begins.
+
+Unit: 1 kilobyte (kb)
+Resolution: 1
+Dependencies: ueTraceFileSize &lt;= totalUeTraceStorageSize
+Takes effect: At the next ROP.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="5000" min="100"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1000" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="PmEventServiceId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="totalUeTraceStorageSize" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Total available storage for the UE trace recording files.
+
+Unit: 1 kilobyte (kb)
+Resolution: 1
+Dependencies: totalUeTraceStorageSize &gt;= ueTraceFileSize AND totalUeTraceStorageSize &lt;= totalEventStorageSize.
+Takes effect: At the next ROP.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="20000" min="100"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="16000" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="rbsUeTraceEventStreamingPort" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Replaced by attribute streamPortPmUeTrace. Since L10B.
+Port on target for UE trace streaming over the user datagram protocol port.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="51543" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="cellPmTraceStreamStatus" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Deprecated: Replaced by attribute streamStatusPmCellTrace. Since L10B.
+List of status on PM Cell Trace streams and file writing</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="6"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType modelUrn="//ERBS_vC_1_72/TraceStreamStruct/3.1.72" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="uePmTraceStreamStatus" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Deprecated: Replaced by attribute streamStatusPmUeTrace. Since L10B. 
+List of status on PM Ue Trace streams and file writing</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="16"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType modelUrn="//ERBS_vC_1_72/TraceStreamStruct/3.1.72" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="streamPortPmUeTrace" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Port on target for UE trace streaming over the user datagram protocol port.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="51543" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="streamStatusPmCellTrace" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>List of status on PM Cell Trace streams and file writing</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="6"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType modelUrn="//ERBS_vC_1_72/TraceStreamStruct/3.1.72" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="streamStatusPmUeTrace" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>List of status on PM Ue Trace streams and file writing</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="16"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType modelUrn="//ERBS_vC_1_72/TraceStreamStruct/3.1.72" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

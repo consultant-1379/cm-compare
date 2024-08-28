@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="TermPointToMme" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Models the MME termination point of an S1 link between the RBS and the MME node.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="TermPointToMmeId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="mmeName" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Used by OSS-RC to identify an MME. The attribute is set by the RBS at S1-SETUP.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="150" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="servedPlmnIdList" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Deprecated: Since L11A. Replaced by: servedPlmnListLTERelated, servedPlmnListOtherRATs
+Lists the PLMN IDs served by the MME. The list can contain up to six PLMN IDs. The attribute is set by the RBS at S1-SETUP.
+The PLMN ID consists of MCC  (3 digits MSB) and MNC (2 or 3 digits LSB).</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="6"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType modelUrn="//ERBS_vC_1_72/PlmnIdentity/3.1.72" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="domainName" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The fully-qualified domain name of the MME.
+
+A valid domain name consists of 1 or more labels separated by dots (.).
+
+Valid characters for a label are limited to letters a - z, A - Z, digits 0 - 9, and the character - (dash). Character case is preserved. Length of a label may not exceed 255 characters.
+
+NOTE: The first and last character in the domain name must be one of the following: alphanumerical a - z, A - Z and digits 0 - 9. For more information refer to RFC 952, 1101 and 1123.
+
+To set this attribute, administrativeState must be LOCKED.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="255" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ipAddress1" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The primary IP address of the MME. A unique IP address is required for each MME.
+
+The input format is four fields of digits, separated by dots. Each field consists of three digits. The value of each field must be in the range 0-255.
+
+To set this attribute, administrativeState must be LOCKED.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="15" min="7"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="0.0.0.0" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="administrativeState" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The administrative state.
+
+Takes effect: Immediatley.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/AdminState/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="LOCKED" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="availabilityStatus" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The availability status. It contains details about operationalState. This attribute is set by the application in the RBS.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/AvailabilityStatus/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="operationalState" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The operational state.  This attribute is set by the application in the RBS.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/OperState/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ipAddress2" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The secondary IP address of the MME. A unique IP address is required for each MME.
+
+The input format is four fields of digits, separated by dots. Each field consists of three digits. The value of each field must be in the range 0-255.
+
+To set this attribute, administrativeState must be LOCKED.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="15" min="7"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="0.0.0.0" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="gUMMEIList" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Deprecated: Since L11A. Replaced by: servedPlmnListLTERelated, servedPlmnListOtherRATs, mmeGIListLTERelated, mmeCodeListLTERelated and mmeCodeListOtherRATs.
+Lists the globally unique MME IDs for one MME. The ID is used by the RBS to select the correct MME for a UE. The value of the attribute is received in the RBS from the MME at S1-SETUP. The ID consists of plmnId (24 bits MSB), MMEGI (16 bits), and MMEC(8 bits LSB).</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="6"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType modelUrn="//ERBS_vC_1_72/GlobalUniqueMmeId/3.1.72" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="usedIpAddress" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The IP address currently used to connect to the RBS. The IP address can be an IPv4 or an IPv6 address.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="39" min="2"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="relativeMmeCapacity" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Relative processing capacity of an MME to the other MMEs in the pool. The capacity is used to balance the load between MMEs in a pool.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="255" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ipv6Address1" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The primary IPv6 address of the MME. The input format is eight fields, separated by colons. 
+Each field consists of four hexadecimal characters. The value of each field must  be in the range 0-FFFF.
+Leading zeroes can be omitted in a field, and multiple groups of 16 bits of zeroes can be compressed to ::. The :: can be used only once in an address.
+
+To set this attribute, administrativeState must be LOCKED.
+
+Takes effect: Object enabled</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="39" min="2"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="::" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ipv6Address2" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The secondary IPv6 address of the MME. The input format is eight fields, separated by colons. 
+Each field consists of four hexadecimal characters. The value of each field must be in the range 0-FFFF.
+Leading zeroes can be omitted in a field and multiple groups of 16 bits of zeroes can be compressed to ::.
+The :: can be used only once in an address.
+
+To set this attribute, administrativeState must be LOCKED.
+
+Takes effect: Object enabled</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="39" min="2"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="::" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="servedPlmnListLTERelated" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Lists the PLMN IDs served by the MME. The attribute is set by the RBS at S1-SETUP. The PLMN ID consists of:
+
+1. MobileCountryCode, MCC, 3 digits
+2. MobileNetworkCode, MNC, 2 or 3 digits (the correct number of digits is set in the mncLength member of this Struct)
+
+Example: If MCC=125 and MNC=46, then plmnId=12546.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="16"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType modelUrn="//ERBS_vC_1_72/PlmnIdentity/3.1.72" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="servedPlmnListOtherRATs" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Lists PLMN IDs served by the MME for radio technologies other than LTE. The attribute is set by the RBS at S1-SETUP. The PLMN ID consists of:
+
+1. MobileCountryCode, MCC, 3 digits
+2. MobileNetworkCode, MNC, 2 or 3 digits (the correct number of digits is set in the mncLength member of this Struct)
+
+Example: If MCC=125 and MNC=46, then plmnId=12546.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="32"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType modelUrn="//ERBS_vC_1_72/PlmnIdentity/3.1.72" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="mmeGIListLTERelated" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>MME group ID for LTE.
+
+Resolution: 1</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="16"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:longType">
+        <ns1:valueRangeConstraint>
+          <ns1:minMaxRange max="65535" min="-1"/>
+        </ns1:valueRangeConstraint>
+      </ns1:collectionValuesType>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="mmeCodeListLTERelated" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>MME code for LTE.
+
+Resolution: 1</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="256"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:longType">
+        <ns1:valueRangeConstraint>
+          <ns1:minMaxRange max="255" min="-1"/>
+        </ns1:valueRangeConstraint>
+      </ns1:collectionValuesType>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="mmeCodeListOtherRATs" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>MME code for radio technologies other than LTE.
+
+Resolution: 1</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="256"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:longType">
+        <ns1:valueRangeConstraint>
+          <ns1:minMaxRange max="255" min="-1"/>
+        </ns1:valueRangeConstraint>
+      </ns1:collectionValuesType>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

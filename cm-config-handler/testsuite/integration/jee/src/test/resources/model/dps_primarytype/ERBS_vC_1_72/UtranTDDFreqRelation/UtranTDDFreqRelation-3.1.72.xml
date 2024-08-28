@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="UtranTDDFreqRelation" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>This Managed Object represents a UTRAN TDD mobility relation between a EUtranCellFDD or EUtranCellTDD and a UtranFrequency. It contains parameters that are specific for this relation.
+
+Deleting this MO while the parent EUtranCellFDD/EUtranCellTDD has operationalState set to ENABLED is not recommended as it may affect traffic.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="UtranTDDFreqRelationId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the Relative Distinguished Name (RDN).</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="utranFrequencyRef" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Reference to the UTRAN frequency MO, UtranFrequency.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/UtranFrequency/3.1.72" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="cellReselectionPriority" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>CellReselectionPriority concerns the absolute priority of the concerned carrier frequency, as used by the cell reselection procedure. Corresponds with parameter "priority" in TS 36.304.
+
+Value 0 means: lowest priority. The UE behaviour for the case the field is absent, if applicable, is specified in TS 36.304.
+
+Resolution: 1
+Dependencies: The value must be uniqe and not already used by other RAT, i.e. equal priorities between RATs are not supported.
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="7" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="6" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="threshXHigh" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>This specifies the threshold used by the UE when reselecting towards the higher priority frequency X than current serving frequency. Each frequency of UTRAN might have a specific threshold. Parameter "Threshx,high" in TS 36.304
+
+Unit: dB
+Resolution: 2
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="62" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="4" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="threshXLow" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>This specifies the threshold used in reselection towards frequency X priority from a higher priority frequency. Each frequency of UTRAN might have a specific threshold. Parameter "Threshx,low" in TS 36.304.
+
+Unit: dB
+Resolution: 2
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="62" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="qRxLevMin" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Parameter Qrxlevmin, see TS 25.304. Specifies the minimum required Rx level in the cell expressed in dBm.
+
+Unit: dBm
+Resolution: 2
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="-25" min="-119"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="-119" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pMaxUtra" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The maximum allowed transmission power on the (uplink) carrier frequency, see TS 25.304.
+
+Unit: dBm
+Resolution: 1
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="33" min="-50"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="33" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="allowedPlmnList" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>List of all Public Land Mobile Network (PLMN) IDs allowed for this frequency relation.
+
+A UE that does not support one of the IDs included in the allowedPlmnList does not measure on this frequency, according to the UE Handover Restriction List.
+
+No values in allowedPlmnList imply that the frequency has no restrictions for PLMN.
+
+The PLMN ID contains the following parts: 
+1. MobileCountryCode, MCC, 3 digits
+2. MobileNetworkCode, MNC, 2 or 3 digits (the correct number of digits is set in the mncLength member of this Struct)
+
+For example, if MCC=125 and MNC=46, then plmnId=12546.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="15"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType modelUrn="//ERBS_vC_1_72/PlmnIdentity/3.1.72" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="connectedModeMobilityPrio" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Prioritizes UTRA frequencies among all frequencies related to the cell for UEs in connected mode.
+(0 means the lowest priority)
+
+Resolution: 1
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="7" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="6" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="csFallbackPrio" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Prioritizes UTRAN  frequencies among all frequencies related to the cell for UEs in connected mode.
+Sets the priority to which frequency/frequency group to make CS Falback to. 
+The value 0 means the lowest priority.
+The value 7 means the highest priority.
+
+Resolution: 1
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="7" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="csFallbackPrioEC" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Prioritizes UTRAN  frequencies for emergency calls among all frequencies/frequency groups related to the cell for UEs in connected mode.
+Sets the priority to which frequency to make emergency call CS Fallback to. 
+The value 0 means the lowest priority.
+The value 7 means the highest priority.
+
+Resolution: 1
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="7" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="qOffsetFreq" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Indicates a frequency-specific offset to apply when evaluating triggering conditions for measurement reporting.
+
+Unit: 1 dB
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="15" min="-15"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="mobilityAction" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The preferred way to transfer a UE in connected mode to a UTRAN TDD frequency in case of coverage triggered mobility.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/MobilityActionUtran/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="HANDOVER" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="mobilityActionCsfb" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The preferred way to transfer a UE in connected mode to a UTRAN TDD frequency in case of CS Fallback mobility.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/MobilityActionCsfbUtranTDD/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="HANDOVER" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

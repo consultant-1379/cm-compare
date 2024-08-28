@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="Sctp" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Stream Control Transmission Protocol (SCTP)
+
+This MO represents an SCTP host. SCTP transports signalling messages between SCTP users over IP networks.
+
+M3uAssociation or M3uaLocalSp can refer to this MO if:
+- ipAccessHostGpbId is set, or
+- ipAccessSctpRef is set.
+
+Most of the attributes are specified in the IETF RFC 4960.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="SctpId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="operationalState" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The operational state.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/OperState/3.12.0" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="availabilityStatus" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The availability status.
+
+It contains details about operationalState.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/AvailabilityStatus/3.12.0" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="numberOfAssociations" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The maximum number of associations that can be handled by this SCTP MO.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:notNullConstraint/>
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="512" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains a list of MO instances that reserve this MO instance.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="//MOM-CPP-C12/ManagedObject/3.12.0" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ipAccessHostGpbId" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Reference to an instance of an IpAccessHostGpb MO.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/IpAccessHostGpb/3.12.0" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="minimumRto" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The minimum value for RTO.
+
+The value of this attribute has the following relation to the values of other attributes:
+tSack + expected Round Trip Time &lt; minimumRto &lt; maximumRto
+
+A new value of the attribute applies to both existing and new associations.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="500" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="10" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="maximumRto" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The maximum value for the RTO.
+
+The value of this attribute must be greater than the value of minimumRto.
+
+A new value of the attribute applies to both existing and new associations.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="12000" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="40" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="initialRto" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The initial value that the Retransmission Timeout (RTO) takes prior to the first measurement of the Round-Trip Time (RTT).
+
+The value of this attribute has the following relation to the values of other attributes:
+minimumRto &lt;= initialRto &lt;= maximumRto
+
+A new value of the attribute does not apply to associations that are already established.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="12000" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="20" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="rtoAlphaIndex" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The attribute rtoAlphaIndex (Retransmission Timeout Alpha Index) computes the value of the Smoothed Round-Trip Time (SRTT) for a specific destination address. It weights the RTT values.
+
+The value of this attribute is used to create a value of RTO.Alpha between 0 and 1. A value close to 1 gives a higher importance to the last RTT measurement. The range of possible values and the actual value given to the RTO.Alpha parameter are the following:
+
+rtoAlphaIndex = 1 -&gt; RTO.Alpha = 1/2
+rtoAlphaIndex = 2 -&gt; RTO.Alpha = 1/4
+rtoAlphaIndex = 3 -&gt; RTO.Alpha = 1/8
+rtoAlphaIndex = 4 -&gt; RTO.Alpha = 1/16
+
+A new value of the attribute applies to both existing and new associations.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="4" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="3" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="rtoBetaIndex" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The attribute rtoBetaIndex (Retransmission Timeout Beta Index) computes the value of RTTVar (Round Trip Time Variation) of a destination address.
+
+The value of this attribute is used to create a value of RTO.Beta between 0 and 1. A value close to 1 gives a higher importance to the last observed variation. The range of possible values and the actual value given to the RTO.Beta parameter are the following:
+
+rtoBetaIndex = 1 -&gt; RTO.Beta = 1/2
+rtoBetaIndex = 2 -&gt; RTO.Beta = 1/4
+rtoBetaIndex = 3 -&gt; RTO.Beta = 1/8
+rtoBetaIndex = 4 -&gt; RTO.Beta = 1/16
+
+A new value of the attribute applies to both existing and new associations.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="4" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="2" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="validCookieLife" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The attribute sets the lifespan of the State Cookie sent in the INIT_ACK chunk. It limits the amount of time between sending the INIT_ACK and the reception of a COOKIE_ECHO chunk when establishing an association.
+
+The value of this attribute has the following relation to the values of other attributes:
+validCookieLife &gt;= maximumRto * maxInitialRtrAtt.
+
+A new value of the attribute does not apply to associations that are already established.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="180" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="60" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="allowedIncrementCookieLife" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The attribute defines the allowed increment of the validCookieLife parameter (in local node) when an increase of the parameter is requested from remote node.
+
+A new value of the attribute does not apply to associations that are already established.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="180" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="30" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="keyChangePeriod" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Defines how often the secret key used for computing the Message Authentication Code (MAC) on the State Cookie is changed.
+
+A new value of the attribute does not change the current measurement interval. It applies only to subsequent intervals.
+
+A new value of the attribute applies to both existing and new associations.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="180" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="4" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="associationMaxRtx" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The maximum number of consecutive retransmissions to a remote peer (on all the remote transport addresses of the peer).
+If the number of retransmissions becomes greater than this value, the remote peer is considered to be unreachable and the association is closed down. 
+
+It is recommended to set the value of this attribute within the following range:
+
+- if SCTP_PATHS algorithm is used for path selection: pathMaxRtx &lt;= associationMaxRtx &lt;= number of remote transport addresses * pathMaxRtx,
+- if IP_PATHS or IP_PATHS_OPTIMIZED algorithm is used for path selection: pathMaxRtx &lt;= associationMaxRtx &lt;= number of IP paths * pathMaxRtx.
+
+The value may need to be increased to avoid frequently lost associations in an unstable network.
+
+A new value of this attribute applies to both existing and new associations.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="20" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="8" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pathMaxRtx" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>If the path selection algorithm is SCTP_PATHS, this attribute specifies the maximum number of consecutive retransmissions to a remote transport address. For other path selection algorithms, this attribute specifies the maximum number of consecutive retransmissions over an IP path.
+
+If the number of retransmissions becomes greater than this value, the remote transport address or the IP path is considered to be "inactive" and no data is sent to it. If all the remote transport addresses or all IP paths become "inactive", the association will be closed down.
+
+The value of this attribute has the following range: 1 attempt &lt;= pathMaxRtx &lt;= associationMaxRtx
+
+The value should be adapted to the network quality. A low value will reduce the time for fault detection, but it is recommended only for stable networks.
+
+The value may need to be increased to avoid frequently lost associations in an unstable network.
+
+If multihomed SCTP is used and tests for insertion and removal of the Ethernet cable are performed, wait 60 seconds between inserting the first cable and removing the second cable. That is: remove cable, insert cable, wait 60 seconds, remove second cable, insert second cable.
+
+A new value of this attribute applies to both existing and new associations. 
+
+The recommended value for pathMaxRtx is as follows:
+-  if the selection algorithm is set to SCTP_PATHS: set the value to associationMaxRtx / number of remote transport addresses,
+-  if the selection algorithm is set to IP_PATHS or IP_PATHS_OPTIMIZED: set the value to associationMaxRtx / number of IP paths.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="20" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="4" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="maxInitialRtrAtt" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The maximum number of retransmissions allowed for both INIT and COOKIE_ECHO chunks. If the number of retransmissions exceeds this value, SCTP aborts the initialization of the association and reports the error to the SCTP user.
+
+A new value of the attribute does not apply to associations that are already established.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="16" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="8" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="maxShutDownRtrAtt" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The maximum number of retransmissions during the shutdown phase of an association.
+
+A new value of the attribute applies to both existing and new associations.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="20" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="5" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="heartbeatInterval" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The amount of time added to the RTO of a specific address when setting up the period of time between sending heartbeats. Small values can lead to an earlier detection of unreachable addresses than higher values. However, sending the heartbeat too often can lead to a performance penalty.
+
+A new value of the attribute does not change the current measurement interval. It applies only to subsequent intervals.
+
+A new value of the attribute applies to both existing and new associations.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="1800" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="30" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="heartbeatStatus" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Enables and disables heartbeats for associations.
+
+true - enable heartbeats.
+false - disable heartbeats.
+
+A new value of this attribute applies to both existing and new associations.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="true" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="maxIncomingStream" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The allowed maximum number of incoming streams for an association.
+
+A change to this attribute does not affect the existing associations. To apply a new value, the endpoint must be re-created.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="16384" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="17" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="maxOutgoingStream" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The allowed maximum number of outgoing streams for an association.
+
+A change to this attribute does not affect the existing associations. To apply a new value, the endpoint must be re-created.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="16384" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="17" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="maxUserDataSize" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The maximum number of bytes of an IP datagram that can be transferred in a single unit over a specific path in an IP network. If an IP datagram exceeds the Path Maximum Transfer Unit (PMTU), it is either fragmented or dropped.
+
+This value does not include the IP header, 20 bytes for IPv4 or 40 bytes for IPv6.
+
+For Sctp that uses IPv4 addresses, the recommended value of this attribute is 1480. 
+For Sctp that uses IPv6 addresses, the recommended value of this attribute is 1460.
+
+If IPsec is used, the value of this attribute must be less than the recommended value to make room for the overhead specified by IPsec protocol to prevent message fragmentation on IP level.
+
+In order to avoid fragmentation by local IP stack, the maxUserDataSize must correlate with mtu attribute of IpInterface in the following way:
+maxUserDataSize + ipHeaderSize &lt;= MTU, where ipHeaderSize is:
+- 20 octets for IPv4 
+- 40 octets for IPv6 
+A new value of this attribute applies to both existing and new associations.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="1480" min="508"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1480" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="mBuffer" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The attribute sets the size of the buffer used for storing user data pending to be sent or retransmitted in an association. That is, the attribute sets the maximum amount of user data that SCTP buffers before discarding user messages.
+
+The value may need to be increased to ensure stable data flow at high load.
+It must be greater than the value of nThreshold
+
+A new value of this attribute applies to both existing and new associations.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="2048" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="256" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="nThreshold" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Sets the value of the threshold used to ask the SCTP user to stop the delivery of a data on an association. A congestion indication will be sent to the user when the SCTP send buffer usage is above nTreshold.
+
+The value of this attribute has the following relation to the value of mBuffer:
+- nThreshold must be less than mBuffer,
+- nThreshold = 3/4 * mBuffer, is the normal value.
+
+The value may need to be increased to ensure stable dataflow at high load.
+
+A new value of this attribute applies to both existing and new associations.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="2048" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="192" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="tSack" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The time delay for sending the Selective Acknowledgement (SACK), that is, the time from reception of the DATA chunk to sending of the SACK chunk.
+
+A new value of the attribute does not change the current measurement
+interval. It applies only to subsequent intervals.
+
+A new value of the attribute applies to both existing and new
+associations.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="50" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="4" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="DEPRECATED" ns1:name="maxDataSizeIp" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The maximum number of bytes that SCTP can fetch every time it reads from the IP socket.
+
+This value includes the IP header, 20 bytes.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="1500"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1500" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="initialAdRecWin" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The initial value of the advertised receiver window credit.
+
+If the value of this attribute is increased, it applies to both existing and new associations. If the value is decreased, it does not apply to associations that are already established.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="1048576" min="1500"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="32768" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="intervalOobPkts" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The number of seconds after which the counter for out-of-the-blue packets is reset.
+
+A new value of the attribute does not change the current measurement interval. It applies only to subsequent intervals.
+
+A new value of the attribute applies to both existing and new associations.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="6500" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="3600" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="DEPRECATED" ns1:name="intervalLostUser" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Attribute: intervalLostUserDescription</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="3600" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="maxBurst" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The number of packages that are sent during the fast retransmit phase when a SACK is processed.
+
+A new value of the attribute applies to both existing and new associations.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="16384" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="4" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="nPercentage" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>This attribute is set as a percentage of the attribute nThreshold. A congestion-ceased indication is sent to the SCTP user when the usage of the SCTP send buffer drops below nPercentage.
+
+A new value of the attribute applies to both existing and new associations.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="85" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="bundlingActivated" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Enables and disables the use of bundling.
+
+A new value of this attribute applies to both existing and new associations.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/BundlingActivated/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="ENABLED" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="bundlingTimer" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies the maximum SCTP bundling delay.
+
+Value=0 means that SCTP bundles only what is available and sends directly (no delay).
+
+A new value of the attribute does not change the current measurement interval. It applies only to subsequent intervals.
+
+A new value of the attribute applies to both existing and new associations.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="1000" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="10" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmSctpCurrEstab" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of SCTP associations for which the current state is either ESTABLISHED, SHUTDOWN-PENDING, or SHUTDOWN-RECEIVED.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmSctpActiveEstab" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of times that SCTP associations have made a direct transition to the ESTABLISHED state from the COOKIE-ECHOED state.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmSctpPassiveEstab" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of times that SCTP associations have made a direct transition to the ESTABLISHED state from the CLOSED state.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmSctpAborted" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of times that SCTP associations have made a direct transition to the CLOSED state from any state, using the chunk ABORT.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmSctpShutdowns" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of times that SCTP associations have made a direct transition to the CLOSED state from either the SHUTDOWN-SENT state or the SHUTDOWN-ACK-SENT state.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmSctpStatAssocOutOfBlue" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of out-of-the-blue packets that are received by the host.
+
+These are SCTP packets that are correctly formed (with a correct checksum), but where the receiver is not able to identify the association to which this packet belongs.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmSctpStatSentChunks" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of complete data chunks sent to the peers (no retransmissions included).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmSctpStatRecChunks" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of complete data chunks received from the peers (no retransmissions included).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmSctpStatOutOfOrderSendChunks" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of unordered chunks sent to the peers.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmSctpStatOutOfOrderRecChunks" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of unordered chunks received from the peers.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmSctpStatChecksumErrorCounter" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of SCTP packets received from the peers, with an invalid checksum.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmSctpStatRetransChunks" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of data chunks retransmitted to the peers.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmSctpStatSentControlChunks" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of sent control chunks.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmSctpStatReceivedControlChunks" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of received control chunks.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmSctpStatFragmentedUserMsg" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of fragmented user messages, incremented when the first data chunk of fragmented message is sent.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmSctpStatReassembledUserMsg" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of reassembled user messages, incremented when the first data chunk of a fragmented message is received.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmSctpStatSentPackages" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of SCTP packages sent.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmSctpStatReceivedPackages" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of SCTP packages received.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmSctpStatCommStop" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of times SCTP has sent a congestion indication to the user.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmSctpStatCommResume" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of times SCTP has sent a congestion ceased indication to the user.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmSctpStatSentChunksDropped" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of outgoing user messages originating from the application for this SCTP for which no problems were encountered to prevent their transmission but were discarded. User messages are discarded due to lack of M-buffer.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmSctpStatRecChunksDropped" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of received chunks dropped for the following reasons: 
+- Invalid association state
+- Duplicated data
+- Invalid stream identity in the DATA_CHUNK
+- Invalid verification tag in the packet
+- Stale SACK_CHUNK received
+- Lack of receiving buffer
+- ULP buffer overflow.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="rpuId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Reference to an instance of ReliableProgramUniter MO.
+
+There is a one to one relation between SCTP MO and ReliableProgramUniter MO instances.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/ReliableProgramUniter/3.12.0" xsi:type="ns1:moRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ipAccessSctpRef" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Reference to an instance of an IpAccessSctp MO.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/IpAccessSctp/3.12.0" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmSctpInErrors" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of received SCTP datagrams for which an SCTP association could not be determined.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmSctpInNoPorts" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of received SCTP datagrams for which an SCTP association and endpoint could not be determined (for example if there was no user application at the destination port).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="heartbeatMaxBurst" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The maximum number of heartbeats, which can be sent at the same time during the path probing procedure. If the value is set to 0, path probing is not used.
+
+A new value of the attribute does not apply to associations that are already established.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="4" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="heartbeatPathProbingInterval" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The interval between consecutive heartbeats during the path probing.
+
+The value of this attribute has the following relationship to the values of other attributes:
+maximumRto &lt;= heartbeatPathProbingInterval &lt;= heartbeatInterval.
+ 
+A new value of the attribute does not apply to associations that are already established.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="180000" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="500" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pathSelection" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The type of path selection algorithm.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/PathSelectionType/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="SCTP_PATHS" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

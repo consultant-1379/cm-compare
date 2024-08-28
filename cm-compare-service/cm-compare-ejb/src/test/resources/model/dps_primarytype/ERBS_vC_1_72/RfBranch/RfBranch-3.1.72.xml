@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="RfBranch" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>This MO represents the connection from an antenna feeder port on the RU to one antenna feeder connector on one or several antenna units. The MO represents all equipment between the radio and the antenna which isn't modelled by any other MO. That includes feeder, filters and non-supervised, non-controlled TMA</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="RfBranchId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.
+
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="dlAttenuation" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Downlink attenuation between the connector on the Radio Unit (RU)/Remote Radio Unit (RRU) and the connector on the antenna unit. The attenuation includes feeder, filters, and non-supervised, uncontrolled Tower Mounted Amplifiers (TMAs).
+The sequence contains 15 entries and each entry represents one 5-MHz interval.
+The first entry represents the attenuation value of the lowest frequency interval in the frequency band, and so on.
+The number of intervals depends on the frequency band.
+For information on the different frequency bands, refer to 3GPP TS 36.104.
+The value range for each entry is -500 to -2, -1, 0-500 (-50 to 50 dB). Unused entries are set to -1.
+
+Unit: 0.1 dB
+Resolution: 1
+Takes effect: Cell lock/unlock</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:notNullConstraint/>
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="15"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:longType">
+        <ns1:valueRangeConstraint>
+          <ns1:minMaxRange max="500" min="-500"/>
+          <ns1:minMaxRange max="65535" min="65535"/>
+        </ns1:valueRangeConstraint>
+      </ns1:collectionValuesType>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ulAttenuation" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Uplink attenuation between the connector on the Radio Unit (RU)/Remote Radio Unit (RRU) and the connector on the antenna unit. The attenuation includes feeder, filters, and non-supervised, uncontrolled Tower Mounted Amplifiers (TMAs).
+The sequence contains 15 entries and each entry represents one 5-MHz interval.
+The first entry represents the attenuation value of the lowest frequency interval in the frequency band, and so on.
+The number of intervals depends on the frequency band.
+For information on the different frequency bands, refer to 3GPP TS 36.104.
+The value range for each entry is -500 to -2, -1, 0-500 (-50 to 50 dB). Unused entries are set to -1.
+
+Unit: 0.1 dB
+Resolution: 1
+Takes effect: Cell lock/unlock</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:notNullConstraint/>
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="15"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:longType">
+        <ns1:valueRangeConstraint>
+          <ns1:minMaxRange max="500" min="-500"/>
+          <ns1:minMaxRange max="65535" min="65535"/>
+        </ns1:valueRangeConstraint>
+      </ns1:collectionValuesType>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="dlTrafficDelay" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Downlink traffic delay between the connector on the Radio Unit (RU)/Remote Radio Unit (RRU) and the connector on the antenna unit. The delay includes feeder, filter, and non-supervised, uncontrolled Tower Mounted Amplifiers (TMAs).
+The sequence contains 15 entries and each entry represents one 5-MHz interval. The first entry represents the attenuation value of the lowest frequency interval in the frequency band, and so on.
+The number of intervals used depends on the frequency band.
+For information on the different frequency bands, refer to 3GPP TS 36.104.
+The value range for each entry is 0-800000 (0-800000 ns). Unused entries are set to -1.
+NOTE: The range supported by the actual Radio Unit may be smaller and must be considered when configuring the antenna system.
+
+Unit: 1 ns
+Resolution: 1
+Takes effect: Cell lock/unlock</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="15"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:longType">
+        <ns1:valueRangeConstraint>
+          <ns1:minMaxRange max="800000" min="-1"/>
+        </ns1:valueRangeConstraint>
+      </ns1:collectionValuesType>
+    </ns1:type>
+    <ns1:default xsi:type="ns1:collectionValue">
+      <ns1:values>
+        <ns1:value value="-1" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1" xsi:type="ns1:longValue"/>
+      </ns1:values>
+    </ns1:default>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ulTrafficDelay" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Uplink traffic delay between the connector on the Radio Unit (RU)/Remote Radio Unit (RRU) and the connector on the antenna unit. The delay includes feeder, filter, and non-supervised, uncontrolled Tower Mounted Amplifiers (TMAs).
+The sequence contains 15 entries and each entry represents one 5-MHz interval. The first entry represents the attenuation value of the lowest frequency interval in the frequency band, and so on.
+The number of intervals used depends on the frequency band.
+For information on the different frequency bands, refer to 3GPP TS 36.104.
+The value range for each entry is 0-800000 (0-800000 ns). Unused entries are set to -1.
+NOTE:  The range supported by individual radio units may be smaller and must be considered when configuring the antenna system.
+
+Unit: 1 ns
+Resolution: 1
+Takes effect: Cell lock/unlock</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="15"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:longType">
+        <ns1:valueRangeConstraint>
+          <ns1:minMaxRange max="800000" min="-1"/>
+        </ns1:valueRangeConstraint>
+      </ns1:collectionValuesType>
+    </ns1:type>
+    <ns1:default xsi:type="ns1:collectionValue">
+      <ns1:values>
+        <ns1:value value="-1" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1" xsi:type="ns1:longValue"/>
+        <ns1:value value="-1" xsi:type="ns1:longValue"/>
+      </ns1:values>
+    </ns1:default>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains a reference to the SectorEquipmentFunction MO that reserves this MO instance.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="//ERBS_vC_1_72/ManagedObject/3.1.72" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="tmaRef" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Reference to a possible TMA that is connected to this RfBranch.
+
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/ManagedObject/3.1.72" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="rfPortRef" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Refers to the RfPort MO that represents the physical antenna feeder connector on the Radio Unit (RU)/Remote Radio Unit (RRU), to which this RfBranch is connected.
+
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/ManagedObject/3.1.72" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="auPortRef" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Refers to the AuPort MO that represents the physical antenna feeder connector on the antenna unit, to which this RfBranch is connected.
+
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="4"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType modelUrn="//ERBS_vC_1_72/ManagedObject/3.1.72" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns5:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns5="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="LastModificationEutran" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/oss_edt/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>LastModificationEutran</ns1:desc>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="ANR_MODIFICATION" value="0">
+    <ns1:desc>ANR_MODIFICATION</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="X2_MODIFICATION" value="1">
+    <ns1:desc>X2_MODIFICATION</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="OPERATOR_MODIFICATION" value="2">
+    <ns1:desc>OPERATOR_MODIFICATION</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="ANR_DELETE" value="3">
+    <ns1:desc>ANR_DELETE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="X2_DELETE" value="4">
+    <ns1:desc>X2_DELETE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="OPERATOR_DELETE" value="5">
+    <ns1:desc>OPERATOR_DELETE</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="NOT_MODIFIED" value="6">
+    <ns1:desc>NOT_MODIFIED</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="MRO_MODIFICATION" value="7">
+    <ns1:desc>MRO_MODIFICATION</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="PCI_MODIFICATION" value="8">
+    <ns1:desc>PCI_MODIFICATION</ns1:desc>
+  </ns5:member>
+</ns5:EnumDataTypeDefinition>

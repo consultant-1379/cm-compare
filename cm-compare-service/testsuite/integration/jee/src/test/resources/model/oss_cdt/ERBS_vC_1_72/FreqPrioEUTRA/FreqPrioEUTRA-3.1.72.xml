@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:lifeCycleDesc="" ns1:name="FreqPrioEUTRA" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/oss_cdt/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>FreqPrioEUTRA</ns1:desc>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="cellReselectionPriority">
+    <ns1:desc>CellReselectionPriority concerns the absolute priority of the concerned carrier frequency, as used by the cell reselection procedure. Corresponds with parameter "priority" in TS 36.304.
+Value 0 means: lowest priority. The UE behaviour for the case the field is absent, if applicable, is specified in TS 36.304. 
+When value is configured to -1000, the parameter is ignored.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="-1000" min="-1000"/>
+        <ns1:minMaxRange max="7" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="-1000" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="connectedModeMobilityPrio">
+    <ns1:desc>Prioritizes EUTRAN frequencies among all frequencies related to the cell for UEs in connected mode. (0 means the lowest priority)
+When value is configured to -1000, the parameter is ignored.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="-1000" min="-1000"/>
+        <ns1:minMaxRange max="7" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="-1000" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="arfcnValueEUtranDl">
+    <ns1:desc>Indicates the ARFCN applicable for a downlink E-UTRA carrier frequency, as defined in 3GPP TS 36.104 for specified E-UTRA bands. For TDD this also indicate the ARFCN for uplink. The values that can be used depends on national operator specific frequency allocation as well as from the supported frequency band(s) of the equipment in the eNodeB.
+When value is configured to -1000, the parameter is ignored.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="-1000" min="-1000"/>
+        <ns1:minMaxRange max="17999" min="0"/>
+        <ns1:minMaxRange max="44999" min="36000"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="-1000" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="CVCurrentDetailedActivity" ns1:ns="CPP_MODEL" ns1:version="3.12.75">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/oss_edt/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Configuration version detailed activity</ns1:desc>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="IDLE" value="0">
+    <ns1:desc>The CV function is idle.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CREATING_BACKUP" value="1">
+    <ns1:desc>Creating a backup of a CV existing on the node.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="TRANSFERING_BACKUP_TO_REMOTE_SERVER" value="2">
+    <ns1:desc>The backup CV is transferred to a remote FTP Server.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="RETREIVING_BACKUP_FROM_REMOTE_SERVER" value="3">
+    <ns1:desc>Downloads a remote backup of a CV to the node.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="UNPACKING_RETREIVED_BACKUP" value="4">
+    <ns1:desc>The retrieved backup CV is unpacked.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="RESTORE_REQUESTED" value="5">
+    <ns1:desc>Variant of restore action initiated (that is, restore/forcedRestore).</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VERIFYING_UPGRADE_PACKAGE_PRESENT" value="6">
+    <ns1:desc>Verifying that there are no missing upgrade packages.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VERIFYING_CHECKSUM_FOR_LOAD_MODULES" value="7">
+    <ns1:desc>Verifying the checksum for all load modules used by the CV.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VERIFYING_CORE_CENTRAL_MP" value="8">
+    <ns1:desc>Verifying that the node core central MP position is the same as in the downloaded backup CV.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VERIFYING_HARDWARE_SOFTWARE_COMPATIBILITY" value="9">
+    <ns1:desc>Verifying the node board/slot configuration with the board/slot configuration in the downloaded backup CV.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VERIFYING_NODE_IDENTITY" value="10">
+    <ns1:desc>Verifying if the downloaded backup CV originates from this node/site or from another node/site.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VERIFYING_APPLICATION_CONFIGURATION_DATA" value="11">
+    <ns1:desc>Verifying node configuration data with application configuration data in the downloaded backup CV.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VERIFYING_NETWORK_CONFIGURATION_FOR_IP_ATM" value="12">
+    <ns1:desc>Verifying node network configuration for IP/ATM with the network configuration for IP/ATM in the downloaded backup CV.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="RESTORE_INITIATED" value="13">
+    <ns1:desc>The restore has been initiated, that is the verification phase has been successfully executed.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="SAVING_ROLLBACK_CV" value="14">
+    <ns1:desc>Saving a rollback Configuration Version.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NODE_RESTART_REQUEST" value="15">
+    <ns1:desc>The node is to be restarted.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="INITIATING_CONFIRM_RESTORE_TIME_SUPERVISION" value="16">
+    <ns1:desc>The confirm restore time supervision is to be started.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="AWAITING_RESTORE_CONFIRMATION" value="17">
+    <ns1:desc>Waiting for confirmation of the restore request.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="RESTORE_CONFIRMATION_RECEIVED" value="18">
+    <ns1:desc>The restore of the node is made permanent.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="TERMINATING_CONFIRM_RESTORE_TIME_SUPERVISION" value="19">
+    <ns1:desc>The confirm restore time supervision is to be stopped.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="SAVING_FINAL_CV" value="20">
+    <ns1:desc>Saving a final Configuration Version.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="RESTORE_EXECUTED" value="21">
+    <ns1:desc>Restore has been executed successfully.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="EXECUTION_FAILED" value="22">
+    <ns1:desc>The execution of an action has been aborted due to not possible to continue.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="EXECUTING_BLOCKING_ACTION" value="23">
+    <ns1:desc>A blocking action is executing (no detailed information is available).</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VERIFYING_HARDWARE_COMPATIBILITY" value="24">
+    <ns1:desc>Verifying that the hardware configuration in the downloaded backup CV is compatible with node hardware configuration.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VERIFY_RESTORE_REQUESTED" value="25">
+    <ns1:desc>Verification before restore requested, that is, action verifyRestore has been invoked.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="RESTORE_CANCELLED" value="26">
+    <ns1:desc>Restore has been cancelled (requested by the action cancelRestore).</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VERIFYING_POSSIBLE_TO_CREATE_REQUIRED_NUMBER_OF_CVS" value="27">
+    <ns1:desc>Verifying that it is possible to create the required number of CVs at restore.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="EXPORT_OF_BACKUP_CV_REQUESTED" value="28">
+    <ns1:desc>Export of a node CV to a FTP server has been requested.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="IMPORT_OF_BACKUP_CV_REQUESTED" value="29">
+    <ns1:desc>Import of a backup CV from a FTP server to the node has been requested.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CONFIG_COUNTDOWN_ONGOING" value="30">
+    <ns1:desc>Counting down the time left to confirm a configuration change.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="EMERGENCY_RESTORE_INITIATED" value="31">
+    <ns1:desc>Emergency restore has been initiated.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="EMERGENCY_RESTORE_EXECUTED" value="32">
+    <ns1:desc>Emergency restore has been executed successfully.</ns1:desc>
+  </ns2:member>
+</ns2:EnumDataTypeDefinition>

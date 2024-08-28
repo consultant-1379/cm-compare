@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="IndicatorStatus" ns1:ns="CPP_MODEL" ns1:version="3.12.75">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/oss_edt/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Possible states for green, yellow and red indicators. Since the semantics of the different indicator states depend on the color of the indicator, the semantics is described as part of the corresponding indicator status attribute description.</ns1:desc>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NOT_APPLICABLE" value="0">
+    <ns1:desc>The indicator is not supported.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NOT_AVAILABLE" value="1">
+    <ns1:desc>The indicator state is currently not available.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="OFF" value="2">
+    <ns1:desc>The indicator is off.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="STEADY_ON" value="3">
+    <ns1:desc>The indicator is on continuously.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="SLOW_BLINK" value="4">
+    <ns1:desc>The indicator blinks slowly.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="FAST_BLINK" value="6">
+    <ns1:desc>The indicator blinks quickly.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="DOUBLE_FLASH_AND_STEADY_ON" value="7">
+    <ns1:desc>The indicator blinks twice and is then on for a short time. This cycle is then repeated.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="DOUBLE_FLASH_AND_OFF" value="8">
+    <ns1:desc>The indicator blinks twice and is then off for a short time. This cycle is then repeated.</ns1:desc>
+  </ns2:member>
+</ns2:EnumDataTypeDefinition>

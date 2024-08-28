@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:lifeCycleDesc="" ns1:name="DscpPbit" ns1:ns="CPP_MODEL" ns1:version="3.12.75">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/oss_cdt/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Default values according to IEEE 802.1p  :
+       
+pBit 0 -&gt; DSCP 0, 48, 56
+pBit 1 -&gt; DSCP 10, 12, 14
+pBit 2 -&gt; spare
+pBit 3 -&gt; DSCP 18, 20, 22
+pBit 4 -&gt; DSCP 26, 28, 30
+pBit 5 -&gt; DSCP 34, 36, 38
+pBit 6 -&gt; DSCP 46
+pBit 7 -&gt; not used
+
+All other DSCP values maps to priority 0.</ns1:desc>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="dscp">
+    <ns1:desc>DSCP - differentiated services code point.
+
+The number of members in this sequence is 64.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="63" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="pbit">
+    <ns1:desc>802.1p priorities according to IEEE 8021D:
+0 - Best effort
+1 - Background
+2 - Spare
+3 - Excellent effort
+4 - Controlled load
+5 - Voice, less than 100 ms delay
+6 - Voice, less than 10 ms delay
+7 - Network control
+
+The number of members in this sequence is 64.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="7" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

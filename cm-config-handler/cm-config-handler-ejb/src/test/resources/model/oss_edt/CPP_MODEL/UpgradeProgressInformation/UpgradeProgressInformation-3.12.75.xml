@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="UpgradeProgressInformation" ns1:ns="CPP_MODEL" ns1:version="3.12.75">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/oss_edt/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>UpgradeProgressInformation</ns1:desc>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="IDLE" value="0">
+    <ns1:desc>No action is in progress.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="DOWNLOADING_FILES" value="1">
+    <ns1:desc>Downloading of files (load modules) in progress.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="SAVING_CV" value="2">
+    <ns1:desc>Saving a Configuration Version.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="RECONFIGURE_MOS" value="3">
+    <ns1:desc>Reconfiguring MOs according to the UCF.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="INITIATE_LOADER_INFO" value="4">
+    <ns1:desc>Executing trigger Initiate.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="PRELOADING" value="5">
+    <ns1:desc>Executing trigger Preload.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CONV_OF_PERSISTENT_DATA" value="6">
+    <ns1:desc>Executing trigger Convert.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="APPL_SPECIFIC_ACTION" value="7">
+    <ns1:desc>Executing an application unique trigger.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NODE_RESTART_REQ" value="8">
+    <ns1:desc>The node is to be restarted, for example, due to rollback at failure, or as a normal action in the upgrade sequence.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="TAKE_NEW_SW_INTO_SERVICE" value="9">
+    <ns1:desc>Executing trigger Execute.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="FINISH_AND_CLEAN_UP" value="10">
+    <ns1:desc>Executing trigger Finish.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="ENTER_NORMAL_MODE" value="11">
+    <ns1:desc>The execution mode is switched back to normal.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="EXECUTION_FAILED" value="12">
+    <ns1:desc>Execution of an install or an upgrade action has failed.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CANCEL_OF_INST_IS_EXECUTING" value="13">
+    <ns1:desc>Cancellation of an ongoing installation is in progress.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CANCEL_OF_INST_FAILED" value="14">
+    <ns1:desc>Execution of the cancelInstall action failed.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VERIFICATION_INITIATED" value="15">
+    <ns1:desc>The verification phase has been initiated.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VERIFY_UPGR_FROM_VER" value="16">
+    <ns1:desc>Verifying that the upgrade Window defined in the UCF allows an upgrade.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VERIFY_CREATE_REQ_CVS" value="17">
+    <ns1:desc>Verifying that it is possible to create the required number of CVs during the upgrade phase.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VERIFY_PIUS_SUPPORTED" value="18">
+    <ns1:desc>Verifying that the used plug-in-units in the node are supported according to the UCF.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VERIFY_CHECKSUM_FOR_LM" value="19">
+    <ns1:desc>Verifying the checksum for all load modules that has a checksum value defined in the UCF.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VERIFY_PIUS_NOT_FAULTY" value="20">
+    <ns1:desc>Verifying that plug-in-units on the node are not faulty before the upgrade is initiated.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VERIFICATION_FINISHED" value="21">
+    <ns1:desc>The verification phase is finished.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VERIFICATION_FAILED" value="22">
+    <ns1:desc>The verification phase has failed.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="JVM_RESTART_REQ" value="23">
+    <ns1:desc>The JVM is to be restarted.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="ENTER_UPGRADE_MODE" value="24">
+    <ns1:desc>The execution mode is switched to upgrade.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="PIU_UPGRADE_REQ" value="25">
+    <ns1:desc>One or several plug-in-units are to be upgraded.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="SOFT_PIU_UPGRADE_REQ" value="26">
+    <ns1:desc>A number of programs are started, stopped or upgraded.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="PROGRAM_ADD_REMOVE" value="27">
+    <ns1:desc>One or several programs are added and/or removed.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NODE_UPGRADE_REQ" value="28">
+    <ns1:desc>Node upgrade requested.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="CONF_NORMAL_WORKING_STATE" value="29">
+    <ns1:desc>Executing trigger Confirmed.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="HANDLING_FINAL_CV_FAILED" value="30">
+    <ns1:desc>Handling of final configuration version failed, for example, creation, setting as startable.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="WAIT_FOR_CONF_UPGRADE" value="31">
+    <ns1:desc>Waiting for confirmation of the upgrade.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="UPGRADE_EXECUTED" value="32">
+    <ns1:desc>Upgrade has been executed successfully.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="UPGRADE_REQUESTED" value="33">
+    <ns1:desc>Variant of upgrade action initiated (that is, update, upgrade or rebootNodeUpgrade).</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="AUE_PROGRESS" value="34">
+    <ns1:desc>Progress indication from an AUE that is part of the upgrade.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="AUE_FAILURE" value="36">
+    <ns1:desc>An AUE has reported failure or has not answered within an expected time.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="AUE_CONF_WITH_WARNING" value="37">
+    <ns1:desc>An AUE has confirmed with warning.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VERIFY_INIT_CONF_PIUS" value="38">
+    <ns1:desc>Verifying that initial configured PIUs (with programs) are supported by the Upgrade Package (in UCF) and that all load modules referenced in programs are valid.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VERIFY_JVM_PIUS" value="39">
+    <ns1:desc>Verifying that the JVM MP(s) is operational.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VERIFY_FTC" value="40">
+    <ns1:desc>Verifying the Fault Tolerant Core (FTC) states.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VERIFY_LM_FILES" value="41">
+    <ns1:desc>Verifying that all required load module files are installed for the supported plug-in-units according to the UCF.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VERIFY_SUBRACK_TYPE" value="42">
+    <ns1:desc>Verifying that the subracks in the node are supported according to the UCF.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VERIFY_PIUTYPE_UNIQUE" value="43">
+    <ns1:desc>Verifying that SwAllocations connected to the same slot do not define the same PiuType.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VERIFYING_SLOTS_OF_PIUS_CONNECTED_TO_SWA" value="44">
+    <ns1:desc>Verifying that Slots related to plug-in-units are connected to an SWA.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VERIFYING_LM_TYPE_ALLOWED" value="45">
+    <ns1:desc>Verifying that only allowed types of load modules are referenced in Repertoires to be connected to ManagedObject(s) via an SWA.
+
+Both configured data and data in the UCF will be used to predict the SwAllocation connections during upgrade.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VERIFY_PIUTYPE_LOADLIST" value="46">
+    <ns1:desc>Verifying that all Repertoires in a SwAllocation support the same set of PiuTypes.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="VERIFY_PROGRAM_CONSISTENCY" value="47">
+    <ns1:desc>Verifying that programs that will exist in TO state are specified in a consistent manner, that is the result of combining UCF data with how repertoires are connected to an upgradeable PIU must be consistent. 	
+The following checks are done:
+
+- heap value
+- pool value
+- program instances
+- loader data (attributes loader type, deviceLoaderName)
+- device loader information
+- loader type allowed for program parent MO</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="SHRINK_SUCCESSFULLY_EXECUTED" value="48">
+    <ns1:desc>Shrink has been executed successfully.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="SHRINK_INITIATED" value="49">
+    <ns1:desc>Execution of shrink has been initiated.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="IDENTIFYING_NOT_REQUIRED_LM_FILES" value="50">
+    <ns1:desc>Identifying not required load module files.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="REMOVING_NOT_REQUIRED_LM_FILES" value="51">
+    <ns1:desc>Removing not required load module files.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="READREFERRINGCVINFORMATION_INITIATED" value="52">
+    <ns1:desc>Read of referring CV information initiated</ns1:desc>
+  </ns2:member>
+</ns2:EnumDataTypeDefinition>

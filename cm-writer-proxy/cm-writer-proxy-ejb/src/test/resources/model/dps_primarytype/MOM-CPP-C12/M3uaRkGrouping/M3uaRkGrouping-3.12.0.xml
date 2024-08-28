@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="M3uaRkGrouping" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>The M3UA routing key grouping.
+
+The M3uaRkGrouping is used when sending data to the IP network to find an application server for the corresponding traffic flow. The attributes dpc, opc and serviceInd in the M3uaRkGrouping are compared with the routing label in the message, which is sent to the IP network.
+
+All routing key groupings must be unique and must not interfere with each other in one M3UA stack for a specific NA and NI.
+
+NA and NI are specified in the related Mtp3bSp MO instance.
+
+Examples:
+
+If there exists a grouping with dpc=A, opc=0, serviceInd=0, it is not allowed to add more specific groupings, like dpc=A, opc=B, serviceInd=0.
+
+If there exists a grouping with dpc=A, opc=B, serviceInd=C, it is not allowed to add less specific grouping, like dpc=A, opc=0, serviceInd=0.
+
+If there exists a grouping with dpc=A, opc=B, serviceInd=0, it is not allowed to add an interfering grouping, like dpc=A, opc=0, serviceInd=3.
+
+The value 0 denotes "any".
+
+Routing key groupings must also not interfere with routing labels of access points using ASP configuration in one stack, which consist of:
+- service indicator, in the attribute serviceInd in Mtp3bAp,
+- originating point code, in the attribute signallingPointCode in Mtp3bSp,
+- destination point code, in the attribute destPointCode in Mtp3bSrs.
+
+When creating or deleting this MO, and when setting any of the attributes in this MO, the following preconditions must be fulfilled:
+- In an IPSP configuration, in case of double exchange mode, and in an SGP configuration, all related M3uaRemoteSp instances must be LOCKED.
+- In an IPSP configuration, in case of single exchange mode, either all related M3uaRemoteSp instances or the related M3uaLocalAs instance must be LOCKED.
+
+The maximum number of routing key groupings per node is 1024.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="dpc" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The destination point code (DPC).
+
+An Mtp3bSrs for a specific DPC must be created before an M3uaRkGrouping is configured for that DPC. That is, a destination representation must exist before configuring routing toward it.
+
+If the node behaviour is set to SEP, the SGP can serve only shared point code. That is, if the attribute nodeBehaviour in the related Mtp3bSp is set to SEP, this attribute has to be equal to the attribute signallingPointCode in the related Mtp3bSp.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:notNullConstraint/>
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="16777215" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="opc" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The originating point code (OPC).
+
+For an IPSP configuration, this attribute contains the point code of the SPMC, to which the served AS belongs. That is, it is the same as the value of the attribute signallingPointCode in the related instance of Mtp3bSp.
+
+If set to 0, it is interpreted as "any". This value is allowed only for an SGP configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:notNullConstraint/>
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="16777215" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="serviceInd" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The service indicator.
+
+In an IPSP configuration, the following values are normally used:
+3 = SCCP
+12 = Q.2630.1
+14 = GCP (H.248)
+
+In an IPSP configuration, there can be only one routing key for SCCP (serviceInd=3).
+
+If set to 0, it is interpreted as "any".</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:notNullConstraint/>
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="0" min="0"/>
+        <ns1:minMaxRange max="15" min="3"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="M3uaRkGroupingId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

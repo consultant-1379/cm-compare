@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:lifeCycleDesc="" ns1:name="TraceStreamStruct" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/oss_cdt/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>TraceStreamStruct</ns1:desc>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="traceReference">
+    <ns1:desc>Customer used reference to the trace of Cell Trace or Ue Trace.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="-1" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="scannerId">
+    <ns1:desc>Id for the allocation of the trace (example Cell Scanner Id).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="-1" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="ipAddress">
+    <ns1:desc>IP adress to the event stream receiver
+
+Disturbance: None</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="15" min="7"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="0.0.0.0" xsi:type="ns1:stringValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="portNumber">
+    <ns1:desc>Port number on the event stream receiver.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="51543" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="fileStatus">
+    <ns1:desc>Status of ROP file writing.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/TracePmFileStatusEnum/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="INACTIVE" xsi:type="ns1:stringValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="streamStatus">
+    <ns1:desc>Status of event stream</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/TracePmStreamStatusEnum/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="INACTIVE" xsi:type="ns1:stringValue"/>
+  </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

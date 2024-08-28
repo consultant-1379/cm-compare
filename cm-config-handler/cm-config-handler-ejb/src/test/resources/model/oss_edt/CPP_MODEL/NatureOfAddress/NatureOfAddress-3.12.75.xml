@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="NatureOfAddress" ns1:ns="CPP_MODEL" ns1:version="3.12.75">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/oss_edt/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Phone number types.</ns1:desc>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="UNKNOWN" value="0">
+    <ns1:desc>Unknown number type.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="SN" value="1">
+    <ns1:desc>Subscriber number type.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="RN" value="2">
+    <ns1:desc>Reserved for national use, number type.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NSN" value="3">
+    <ns1:desc>National Significant Number type.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="IN" value="4">
+    <ns1:desc>International number type.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NATIONAL_USE_1" value="112">
+    <ns1:desc>Reserved for national use.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NATIONAL_USE_2" value="113">
+    <ns1:desc>Reserved for national use.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NATIONAL_USE_3" value="114">
+    <ns1:desc>Reserved for national use.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NATIONAL_USE_4" value="115">
+    <ns1:desc>Reserved for national use.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NATIONAL_USE_5" value="116">
+    <ns1:desc>Reserved for national use.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NATIONAL_USE_6" value="117">
+    <ns1:desc>Reserved for national use.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NATIONAL_USE_7" value="118">
+    <ns1:desc>Reserved for national use.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NATIONAL_USE_8" value="119">
+    <ns1:desc>Reserved for national use.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NATIONAL_USE_9" value="120">
+    <ns1:desc>Reserved for national use.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NATIONAL_USE_10" value="121">
+    <ns1:desc>Reserved for national use.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NATIONAL_USE_11" value="122">
+    <ns1:desc>Reserved for national use.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NATIONAL_USE_12" value="123">
+    <ns1:desc>Reserved for national use.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NATIONAL_USE_13" value="124">
+    <ns1:desc>Reserved for national use.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NATIONAL_USE_14" value="125">
+    <ns1:desc>Reserved for national use.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NATIONAL_USE_15" value="126">
+    <ns1:desc>Reserved for national use.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="RESERVED" value="127">
+    <ns1:desc>RESERVED</ns1:desc>
+  </ns2:member>
+</ns2:EnumDataTypeDefinition>

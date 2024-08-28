@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="AntennaSubunit" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>This MO groups the antenna elements that, because of being controlled by the same RET radiate with the same tilt angle.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="AntennaSubunitId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="totalTilt" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Total antenna elevation including the installed tilt and the tilt applied by the Remote Electrical Tilt (RET). Total tilt is defined as the inclination of the maximum of the antenna main beam with respect to the horizontal plane.
+
+Tilt is a signed value. Positive indicates downtilt, and negative indicates uptilt, found by the following equation:
+
+totalTilt = AntennaUnit.MechanicaAntennalTilt+RetSubunit.electricalTilt
+
+NOTE:  If the antenna has no RET installed, this value does not account for the inclination that the antenna beam may have by default, with respect to the direction orthogonal to the antenna element axis.
+
+Unit: 0.1Â°
+Resolution: 1
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="900" min="-900"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="minTotalTilt" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The minimum antenna elevation including the installed tilt and the tilt applied by the Remote Electrical Tilt (RET) described by the inclination of the maximum of the antenna main beam with respect to the horizontal plane. It is a signed value. Positive indicates downtilt, and negative indicates uptilt. The limitation on total tilt is found by the following equation:
+
+TotalTilt = AntennaUnit.MechanicaAntennalTilt + RetSubunit.electricalTilt
+
+NOTE: If the antenna has no RET installed, the total tilt value does not necessarily account for the inclination that the antenna beam might have by default, with respect to the direction orthogonal to the antenna element axis.
+
+Unit: 0.1Â°
+Resolution: 1
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="900" min="-900"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="-900" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="maxTotalTilt" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The maximum antenna elevation including the installed tilt and the tilt applied by the Remote Electrical Tilt (RET), described by the inclination of the maximum of the antenna main beam with respect to the horizontal plane. It is a signed value. Positive indicates downtilt, and negative indicates uptilt. It sets a limitation on total tilt which is given by:
+
+TotalTilt = AntennaUnit.MechanicaAntennalTilt + RetSubunit.electricalTilt
+
+NOTE: If the antenna has no RET installed, this value does not account for the inclination that the antenna beam might have by default, with respect to the direction orthogonal to the antenna element axis.
+
+Unit: 0.1Â°
+Resolution: 1
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="900" min="-900"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="900" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="retSubunitRef" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Reference to the RetSubunit controlling the tilt of this AntennaSubunit.
+
+Takes effect: Immediately.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/ManagedObject/3.1.72" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="azimuthHalfPowerBeamwidth" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies the azimuth half power beamwidth for the antenna.
+
+Unit: 1Â°
+Takes effect: Cell lock/unlock</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65" min="65"/>
+        <ns1:minMaxRange max="90" min="90"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="65" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

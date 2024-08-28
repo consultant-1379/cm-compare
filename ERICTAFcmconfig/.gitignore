@@ -1,0 +1,43 @@
+# Compiled source #
+*.class
+*/bin/*
+
+# TAF junk
+bin
+build
+tmp
+
+# Eclipse files
+.project
+.classpath
+.settings
+
+# Packages
+*.jar
+
+# Maven build files
+target
+reports
+
+# Taf generated stuff
+test-output
+
+# ARQ tests
+arq-perf
+
+# PMD
+.pmd
+
+# IntelliJ junk
+
+.idea
+*.iml;
+
+#Generated files
+*.ser
+
+# Merge files
+*.orig
+
+tmp
+

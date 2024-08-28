@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="ClockState" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/oss_edt/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>ClockState</ns1:desc>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="UNKNOWN_MODE" value="0">
+    <ns1:desc>UNKNOWN_MODE</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="STARTUP_MODE" value="1">
+    <ns1:desc>The system clock is starting up.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="LOCKED_MODE" value="2">
+    <ns1:desc>The system clock signal on the Timing Unit is locked: a synchronization reference is used to generate the system clock, the clock accuracy is 50 ppb or better.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="HOLD_OVER_MODE" value="3">
+    <ns1:desc>The system clock signal on the Timing Unit has holdover quality: no synchronization reference is used to generate the system clock, the clock accuracy is 50 ppb or better.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="FREE_RUNNING_MODE" value="4">
+    <ns1:desc>The system clock signal on the Timing Unit is free-running: no synchronization reference is used to generate the system clock, the clock accuracy is 4.6 ppm or better.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="FAILED_MODE" value="5">
+    <ns1:desc>The system clock signal on the Timing Unit is failed: there is fault in generating the system clock, no guarantee of clock accuracy level.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="LOSS_OF_TRACKING_MODE" value="6">
+    <ns1:desc>The frequency of the system clock is at its upper or lower limit.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NOT_APPLICABLE" value="7">
+    <ns1:desc>The system clock signal on Timing Unit is not applicable: the TUB or the CBU is not present.</ns1:desc>
+  </ns2:member>
+</ns2:EnumDataTypeDefinition>

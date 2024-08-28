@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="SccpEntitySet" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>SCCP Entity Set (ES)
+
+The ES is referenced from a Global Title (GT).
+
+To terminate traffic in the local node, the ES must reference SccpApLocal MOs.
+
+To route traffic, the ES can reference to either SccpApRemote or Mtp3bAp MOs:
+- If the ES references SccpApRemote MOs, the Routing Indicator (RI) is set to "Route on SSN".
+- If the ES references Mtp3bAp MOs, the RI is unchanged.
+
+For a Signalling Routing Point (SRP) between two networks (two Mtp3bSp with different NI) the ES must reference SccpSp MOs. This configuration is not supported on the HD stack.
+
+SccpEntitySet MO configured on one stack can not refer to an SccpSp MO which is configured on another stack.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="SccpEntitySetId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="routeIds" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>An array of maximum:
+- two instances of SccpApLocal MOs or,
+- two instances of SccpApRemote MOs or,
+- two instances of Mtp3bAp MOs or
+- one instance of SccpSp MO.
+
+On the HD stack an SccpSp MO cannot be referenced.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:notNullConstraint/>
+      <ns1:collectionValuesType modelUrn="//MOM-CPP-C12/ManagedObject/3.12.0" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="sharingMode" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Controls the distribution of SCCP traffic over the entities (Access Points) in the set, when two routeIds are defined for the ES.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/SharingMode/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="LOAD_SHARE" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="newSubSystemNumber" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The new Subsystem Number (SSN) attribute is only valid if the Mtp3b Access Points are used in the set. In that case the SSN attribute allows to optionally set the SSN in the Called Party Address (CdPA) as a result of a Global Title Translation (GTT).
+
+If the set consists of SCCP Access Points, the SSN in the CdPA is always implicitly set to the SCCP Access Point SAP, as a result of a GTT.
+
+This attribute is controlled by the type of AP(s) that the SccpEntitySet refers to.
+
+The default value 0 means no new subsystem number.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="254" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="newGlobalTitle" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Allows to optionally replace the GT in the Called Party Address (CdPA) as a result of a Global Title Translation (GTT).
+
+If the GT resulting from a GTT is different from the GT previously included in the CdPA, the newly produced GT replaces the existing one.
+
+The attribute indicator in struct GlobalTitleData is read-only, and is derived from the combination of natureOfAddress, the translationType and numberingPlan used.
+
+Default value is no new GT.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/GlobalTitleData/3.12.0" xsi:type="ns1:complexRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains a list of MO instances that reserve this MO instance.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="//MOM-CPP-C12/ManagedObject/3.12.0" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns5:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns5="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="FaultReason" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/oss_edt/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>FaultReason</ns1:desc>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="SMRS_CONNECTION_FAULT" value="0">
+    <ns1:desc>The connection to the SMRS failed.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="OSS_CONNECTION_FAULT" value="1">
+    <ns1:desc>The connection to the OSS failed.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="WRONG_INITIAL_CONFIG_LEVEL" value="2">
+    <ns1:desc>The attribute rbsconfigLevel has wrong initial level.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="DHCP_FAULT" value="3">
+    <ns1:desc>Unsuccessful DHCP request.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="MO_CONFIGURATION_FAULT" value="4">
+    <ns1:desc>The configuration of an MO failed.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="SUMMARY_FILE_FAULT" value="5">
+    <ns1:desc>Erroneous or missing summary file.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="OAM_CONFIG_FILE_FAULT" value="6">
+    <ns1:desc>Erroneous or missing O&amp;M Configuration file.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="SITE_EQUIPMENT_FILE_FAULT" value="7">
+    <ns1:desc>Erroneous or missing site equipment file.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="LICENSING_FAULT" value="8">
+    <ns1:desc>Activation of Licensing Key File failed.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="UPGRADE_FAULT" value="9">
+    <ns1:desc>Software Upgrade failed.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="UNDEFINED" value="10">
+    <ns1:desc>No fault has occurred.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="CERTIFICATE_ENROLLMENT_FAULT" value="11">
+    <ns1:desc>Deprecated: Since L10B. Planned to be removed.
+
+Installation of security credentials has failed.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="SECURITY_LEVEL_3_ACTIVATION_FAULT" value="12">
+    <ns1:desc>Deprecated: Since L10B. Planned to be removed.
+
+Security level 3 activation failed.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="OTHER_FAULT" value="13">
+    <ns1:desc>Unexpected software fault.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="SECURITY_CONFIGURATION_FAULT" value="14">
+    <ns1:desc>Security configuration failed.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="SECURITY_ACTIVATION_FAULT" value="15">
+    <ns1:desc>Security activation failed.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="PERMANENT_IPSEC_FOR_OAM_CONFIGURATION_FAULT" value="16">
+    <ns1:desc>Configuration of permanent IPsec for OAM failed.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="PERMANENT_IPSEC_FOR_OAM_ACTIVATION_FAULT" value="17">
+    <ns1:desc>Activation of permanent IPsec for OAM failed.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="INITIAL_IPSEC_FOR_OAM_CONFIGURATION_FAULT" value="18">
+    <ns1:desc>Configuration of initial IPsec for OAM failed.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="INITIAL_IPSEC_FOR_OAM_ACTIVATION_FAULT" value="19">
+    <ns1:desc>Activation of initial IPsec for OAM failed.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="OSS_CONFIGURATION_FAULT" value="20">
+    <ns1:desc>OSS configuration failed</ns1:desc>
+  </ns5:member>
+</ns5:EnumDataTypeDefinition>

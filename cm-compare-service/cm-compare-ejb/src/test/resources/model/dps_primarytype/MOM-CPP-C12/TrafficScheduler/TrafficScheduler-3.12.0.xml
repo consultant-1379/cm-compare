@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="TrafficScheduler" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Handles configuration of scheduling and shaping as well as DSCP to Queue mapping. 
+
+The highest number of MO TrafficScheduler instances, that it is possible to create, equals to the maximum allowed number of MO IpInterface instances.
+
+An egress Traffic Manager entity is configured by MO TrafficScheduler and MO TrafficManagementQueue. The configuration of an egress Traffic Manager entity is initiated by creating an MO TrafficScheduler. With the MO TrafficScheduler, scheduling and shaping as well as DSCP to Queue mapping is configured. 
+
+The MO TrafficScheduler automatically creates a number of MO TrafficManagementQueue children. The number of children created is equivalent to the highest queue number, with at least one mapped DSCP value in the dscpMap attribute of MO TrafficScheduler. To add or delete queues, the MO TrafficScheduler has to be deleted and re-created with an updated dscpMap attribute.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="TrafficSchedulerId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains an MO instance that reserves this MO instance.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="//MOM-CPP-C12/ManagedObject/3.12.0" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="egressCir" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>This attribute defines the Committed Information Rate (CIR), that is, the average rate in Mbps, used by the traffic shaper on the egress direction of the interface. If the value is zero (default value), then there is effectively no rate limit. The lowest configurable value (above zero) is 2 Mbps.
+
+If the sum of the egressCir values for TrafficScheduler MO instances referenced by IpInterfaces connected to the same physical interface exceeds the equivalent IP Layer bandwidth of the physical interface , the shaping characteristics are undefined and un-deterministic.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="0" min="0"/>
+        <ns1:minMaxRange max="1000" min="2"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="egressCbs" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The maximum Committed Burst Size (CBS) in number of bytes sent in the egress direction.
+
+An egress Traffic Manager entity is always allowed to burst 2 x MTU bytes even if egressCbs is configured to a value lower than 2 x MTU. The MTU for an MO TrafficScheduler referenced by one or several MO IpInterface instances, is assumed to be the MTU with the highest value among all MO IpInterface instances.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="wpStartQueue" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The queue number on which the Weighted Priority Scheduling starts. 
+
+The value 1000 means that Weighted Priority Scheduling is not used for any queue.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="1" min="1"/>
+        <ns1:minMaxRange max="1000" min="1000"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1000" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="dscpMap" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Maps a queue number (1-8) to each DSCP value (0-63).
+
+Default mappings for DSCP -&gt; queue
+
+DSCP  51, 54 -&gt; queue 1
+DSCP  24, 32, 34, 36, 38, 40, 46, 48 -&gt; queue 2
+DSCP  8, 16, 18, 20, 22, 26, 28 -&gt; queue 3
+DSCP  10, 12, 14 -&gt; queue 4
+DSCP  0, 1, 2, 3, 4, 5, 6, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 30, 31, 33, 35, 37, 39, 41, 42, 43, 44, 45, 47, 49, 50, 52, 53, 55, 56, 57, 58, 59, 60, 61, 62, 63 -&gt; queue 5</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="//MOM-CPP-C12/DscpMap/3.12.0" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

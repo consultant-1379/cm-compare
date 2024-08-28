@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:lifeCycleDesc="" ns1:name="M3uaIetfTimerData" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/oss_cdt/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>The timer data for an IETF M3UA stack.</ns1:desc>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerNotify">
+    <ns1:desc>The time to wait for a Notify (NTFY) message before considering an AS to be available.
+
+If set to 0, the timer is not used, that is, the M3UA behavior is complicant with the standard specification.
+
+When communicating with E-SIGTRAN, the value 1 is recommended in order to minimize delays.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="40" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerFailover">
+    <ns1:desc>The delay for rerouting during failover.
+
+Specifies the delay for failover procedure to avoid message mis-sequencing during rerouting between bearers or between signalling processes in an application server.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="5" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerHeartbeat">
+    <ns1:desc>The timer for the heartbeat procedure.
+
+Specifies the delay between sending Heartbeat (BEAT) messages.
+
+This attribute must follow the rule:
+timerHeartbeat &gt; timerAck / 2</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="300" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerAck">
+    <ns1:desc>The time to wait for an acknowledgement of management message.
+
+Specifies the time to wait for an acknowledgement, before considering the delay to be a failure for the following management messages:
+- ASP Up (ASPUP)
+- ASP Down (ASPDN)
+- ASP Active (ASPAC)
+- ASP Inactive (ASPIA).
+
+It should be longer than the time a message spends to reach the most distant destination, be processed and returned.
+
+This attribute must follow the rule:
+timerAck &gt; associationMaxRtx * maximumRto,
+where the last two attributes are specified in the Sctp MO.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="50" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerPeriodicAudit">
+    <ns1:desc>The timer for the destination audit procedure.
+
+Specifies the time for periodic sending/resending Destination State Audit (DAUD) messages to the peer SGP in order to audit the state of SS7 destinations.
+
+Applicable for an ASP configuration and for an SGP in SG-SG configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="300" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerReconnect">
+    <ns1:desc>The time between sets of attempts to establish an SCTP association.
+
+The number of attempts in one set is limited by the attribute attemptsOfAssocEstablish in the M3ua MO.
+
+Applicable only for signalling processes with client and client-peer role.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="100" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerAssocAck">
+    <ns1:desc>The time to wait for an acknowledgement of an SCTP association establishment.
+
+Specifies the maximum time to wait for the acknowledgement, before considering the attempt to establish an SCTP association to be failed.
+
+It should be longer than the time a message spends to reach the most distant destination, be processed and returned.
+
+This attribute must follow the rule:
+timerAssocAck &gt; (maxInitialRtrAtt + 1) * maximumRto,
+where the last two attributes are specified in the Sctp MO.
+
+Timer pending, the time for an AS to remain in state PENDING, if no related signalling processes are left in ACTIVE state, is calculated according to the following rule:
+timerPending = timerAssocAck * attemptsOfAssocEstablish,
+where the last attribute is specified in the M3ua MO. When an AS is in state PENDING, incoming data is stored in the buffer, specified in the attribute failoverBufSize in the M3ua MO.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="40" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerT42">
+    <ns1:desc>The time between resend attempts.
+
+Specifies the time between attempts to send the following management messages after the timerAck is expired:
+- ASP Up (ASPUP)
+- ASP Down (ASPDN)
+- ASP Active (ASPAC)
+- ASP Inactive (ASPIA).
+
+Specifies the time between attempts to establish an SCTP association in one set of attempts after the timerAssocAck is expired.
+
+Applicable for ASP and IPSP configurations and for SGP configurations, provided they are also SG-SG configurations.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="8" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

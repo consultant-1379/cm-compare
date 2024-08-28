@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="EmergencyStatus" ns1:ns="CPP_MODEL" ns1:version="3.12.75">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/oss_edt/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>This enumeration specifies the different stages of the emergency state.</ns1:desc>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="NEVER_USED" value="0">
+    <ns1:desc>EmergencyStatus has not been activated since installation of the LKF.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="ACTIVE" value="1">
+    <ns1:desc>EmergencyStatus goes from NEVER_USED to ACTIVE, the first time the node is emergency-unlocked. The licenses are open for the emergency state as described in the documentation about licensing. The maximum time in this state is 7 days. After expiry, EmergencyStatus goes to USE_DEGRADED. EmergencyStatus goes from ACTIVE to NEVER_USED when the LKF is installed with emergency unlock reset.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="USE_DEGRADED" value="2">
+    <ns1:desc>EmergencyStatus goes to USE_DEGRADED from ACTIVE. 
+All features and capacities are license-controlled in accordance with the installed LKF. 
+
+EmergencyStatus remains in USE_DEGRADED until:
+an emergency unlock of the node and EmergencyStatus goes to ACTIVE_AGAIN or,
+an LKF is installed with an entry, emergency unlock reset. Then EmergencyStatus goes to NEVER_USED.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="ACTIVE_AGAIN" value="3">
+    <ns1:desc>The EmergencyStatus goes from USE_DEGRADED to ACTIVE_AGAIN at emergency unlock of  the node. The licenses are open for the emergency state as described in the documentation about licensing. The maximum time in this state is 7 days. After expiry the EmergencyStatus goes from ACTIVE_AGAIN to USE_DISABLED. The EmergencyStatus goes from ACTIVE_AGAIN to NEVER_USED at installation of an emergency unlock reset LKF.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="USE_DISABLED" value="4">
+    <ns1:desc>The EmergencyStatus goes to USE_DISABLED from ACTIVE_AGAIN. 
+All features and capacities are license-controlled in accordance with the installed LKF. 
+The node remains in USE_DISABLED until an LKF with the entry, emergency unlock reset, is installed. Then it goes to NEVER_USED.</ns1:desc>
+  </ns2:member>
+</ns2:EnumDataTypeDefinition>

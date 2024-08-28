@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:lifeCycleDesc="" ns1:name="Scmg" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/oss_cdt/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>The SCCP Management (SCMG) functions.</ns1:desc>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="sendSST">
+    <ns1:desc>Controls when to send SST (SCCP Subsystem Test message).
+
+0 = Wait for tStatInfo timer to expire once after MTP_RESUME before sending SST.
+1 = Send SST immediately after MTP_RESUME, then start tStatInfo timer.
+
+Set sendSST=0 for the TTC standard.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="1" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="sendSSA">
+    <ns1:desc>Controls when to send SSA (SCCP Subsystem Allowed message).
+
+0 = Do not send SSA.
+1 = Send SSA immediately when client attaches.
+
+Set sendSSA=0 for the TTC standard.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="1" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="sendSSP">
+    <ns1:desc>Controls whether to send SSP (SCCP Subsystem Prohibited message).
+
+0 = Do not send SSP when client detaches.
+1 = Send SSP immediately when client detaches.
+2 = Do not send SSP when receiving MTP_TRANSFER_ind and user is detached and do not send when user detaches.
+3 = Send SSP when receiving MTP_TRANSFER_ind and client is detached and send when user detaches.
+
+Set sendSSP=2 for the TTC standard.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="3" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="useSST">
+    <ns1:desc>Controls whether to send SST messages or not (SCCP Subsystem Test message).
+
+0 = Send SST as indicated by sendSST.
+1 = (not used)
+2 = (not used)
+3 = Do not initiate SST.
+
+Set useSST=3 for the TTC standard</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="allowRemoteBroadcast">
+    <ns1:desc>Controls the remote broadcast.
+
+0 = allow remote broadcast.
+1 = do not allow remote broadcast.
+
+Set allowRemoteBroadcast=1 for the TTC standard.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="initiateTimerTcon">
+    <ns1:desc>Controls whether to initiate hardcoded congestion timer or not.
+
+0 = start timer when SSC is received.
+1 = do not start timer.
+
+Set initiateTimerTcon=1 for the TTC standard.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="SwitchStp" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Spanning Tree Protocol (STP), Switch Part
+
+This MO is created automatically, as a consequence of creating its parent, and cannot be deleted.
+
+The RDN of this MO is SwitchStp=1.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="administrativeState" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The administrative state.
+
+Turns on or off the use of the Spanning Tree Protocol.
+
+SHUTTING_DOWN is not supported and if set the value is changed to LOCKED.
+
+In case the parent MO is an instance of EthernetSwitchModule, this attribute is not applicable and is ignored by the system.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/AdmState/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="LOCKED" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="bridgeForwardDelay" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The delay used by the switch before changing to the Forwarding state, in case of a port interoperating with a legacy STP switch.
+
+If interoperability with legacy STP bridges is wanted, the value of bridgeForwardDelay must be set to greater than or equal to (bridgeMaxAge/2 + 10). 
+Refer to the description of the relevant board for details on validation of this relationship.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="300" min="40"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="150" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="bridgeHelloTime" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Interval between periodic transmissions of configuration messages by designated ports.
+
+If interoperability with legacy STP bridges is wanted, the value of bridgeHelloTime must be set to less than or equal to (bridgeMaxAge/2 -10). Ranges and limitations can vary between boards. Refer to the description of the relevant board for details.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="10"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="20" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="bridgeId" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The bridge ID of the switch.
+
+The attribute consists of priority and macaddress combined into a string, where the first 4 characters repesent the priority, and the last characters represent the macaddress. A hyphen (-) separates the two.
+
+Example: "0000-00:00:00:00:00:00"</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="bridgeMaxAge" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The maximum time interval before a switch, not receiving any BPDUs, assumes that a network change has occurred.
+
+If interoperability with legacy STP bridges is wanted, the value of bridgeMaxAge must be set to greater than or equal to 2 x (bridgeHelloTime +10). 
+Refer to the description of the relevant board for details on validation of this relationship.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="400" min="60"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="60" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="bridgePriority" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Switch priority used by the protocol.
+
+The value must be a multiple of 4096.
+
+The preferred rootswitch must have a low value and the standby rootswitch must have a value that is almost as low. To achieve as good convergence time as possible, when the rootswitch is lost, all switches must be set to a value that increases with the distance to the preferred rootswitch.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/BridgePriority/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="PRIO_32768" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="DEPRECATED" ns1:name="currentPmRegister" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Returns the current values of all PM counters.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType xsi:type="ns1:stringType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="mode" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The kind of spanning tree protocol used.
+
+The system supports Rapid Spanning Tree Protocol, RSTP.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/StpMode/3.12.0" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="RSTP" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="rootBridgeId" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The bridge ID of the switch defined as the root bridge.
+
+The attribute consists of priority and macaddress combined into a string, where the first 4 characters repesent the priority, and the last characters represent the macaddress. A hyphen (-) separates the two.
+
+Example: "0000-00:00:00:00:00:00"</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="rootPortNumber" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The root port number.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="SwitchStpId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.
+
+It is set automatically when the MO instance is created.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="topologyChangeTime" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The time since the latest topology change occurred.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmTopologyChanges" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Number of topology changes.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="transmitHoldCount" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The maximum number of BPDUs that may be sent on one port to a neighboring switch. 
+
+When the maximum number is reached, only one more BPDU may be sent per second. A high value gives better convergence time. The fastest convergence is achieved with the value 10 in the entire RSTP domain. 
+
+Interworking switches must have the same value.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="10" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="6" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

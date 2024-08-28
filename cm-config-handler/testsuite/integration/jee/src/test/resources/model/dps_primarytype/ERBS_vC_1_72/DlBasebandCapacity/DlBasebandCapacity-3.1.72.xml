@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="DlBasebandCapacity" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Contains information about the capacity license, Downlink baseband capacity.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="DlBasebandCapacityId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="licenseCapacityDlBbCapacity" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The licensed capacity limit for downlink baseband capacity. It reflects the capacity value in the license key file.
+
+Unit: 1
+Resolution: 1</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="capacityUnitDlBbCapacity" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Defines the unit for the licensed capacity downlink baseband capacity.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="30" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="keyIdDlBbCapacity" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The product identity of the key for the capacity license downlink baseband capacity.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="30" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="dlBbCapacityHardLimit" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Deprecated: Since L12A. Planned to be removed.
+Inidicates the hard limit for downlink baseband capacity in the RBS.
+
+Unit: 1
+Resolution: 1</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="65535" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="licDlBbPercentileConf" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The percentile to use for the counter pmLicDlCapActual.
+
+Unit: %
+Resolution: 1
+Takes effect: At the next ROP.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="90" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="licenseStateDlBbCapacity" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The license status of downlink baseband capacity, ENABLED or DISABLED. The value is ENABLED when a license key is installed.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/StateVals/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmLicDlCapDistr" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Shows the utilization for downlink baseband capacity.
+
+PDF ranges:
+[0]: [0..5]%,
+[1]: ]5..10]%,
+[2]: ]10..15]%,
+[3]: ]15..20]%,
+[4]: ]20..25]%,
+[5]: ]25..30]%,
+[6]: ]30..35]%,
+[7]: ]35..40]%,
+[8]: ]40..45]%,
+[9]: ]45..50]%,
+[19]: ]50..55]%,
+[11]: ]55..60]%,
+[12]: ]60..65]%,
+[13]: ]65..70]%,
+[14]: ]70..75]%,
+[15]: ]75..80]%,
+[16]: ]80..85]%,
+[17]: ]85..90]%,
+[18]: ]90..95]%,
+[19]: ]95..100]%
+
+Unit: %
+Counter type: PDF
+Scanner: Primary
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="20"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:longType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmLicDlCapLicense" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates the licensed capacity limit for downlink baseband capacity. The value reflects the capacity value in the license key file i.e. the value of the parameter licenseCapacityDlBbCapacity.
+
+Source Attribute: licenseCapacityDlBbCapacity
+
+Unit: Mbps (1 000 000 bits/s)
+Condition: Is changed when a new license key file with a new value for downlink baseband capacity is installed on the RBS.
+Counter type: Gauge
+Scanner: Primary
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmLicDlCapActual" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The X percentile of the utilization for downlink baseband capacity during a measurement period. The value for X is set in the parameter licDlBbPercentileConf.
+
+Source Data: licDlBbPercentileConf and pmLicDlCapDistr
+
+Unit: %
+Condition: Is calculated at the end of a ROP period.
+Counter type: Gauge
+Scanner: Primary
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmLicDlCapMax" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Deprecated: Since L11B. Has no functional behaviour. Planned to be removed.
+Reports the maximum achieved throughput in the downlink direction expressed as a percentage of the DL capacity license.
+
+Unit: %
+Condition: For each TTI, the following procedure is used to calculate the value of the counter:
+If the current throughput is higher than the value of the counter, then assign the current throughput to the counter.
+The counter shall be initialized to zero.
+Counter type: Gauge
+Sampling rate: Per TTI
+Scanner: Not included in any predefined scanner
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmZtemporary40" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Normally this counter is not used, it can however sometimes be temporarily used for very late additions in a release. If so, for description see Network Impact Report in the CPI.
+
+Unit: -
+Condition: -
+Counter type: PDF
+Sampling rate: -
+Scanner: Not included in any predefined scanner 
+Counter is reset after measurement period: Yes</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:maxSize value="20"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:longType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

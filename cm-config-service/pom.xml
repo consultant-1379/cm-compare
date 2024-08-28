@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.ericsson.nms</groupId>
+    <artifactId>integration</artifactId>
+    <version>13.2.0.244</version>
+  </parent>
+
+  <groupId>com.ericsson.oss.services.cm</groupId>
+  <artifactId>cm-config-service</artifactId>
+  <version>1.0.32-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>CM Config Service</name>
+  <description>CM Config Service</description>
+  <url>#</url>
+
+  <modules>
+    <module>cm-config-service-ear</module>
+    <module>cm-config-service-ejb</module>
+    <module>cm-config-service-api</module>
+    <module>cm-config-service-common</module>
+    <module>ERICcmconfigservice_CXP9030949</module>
+    <module>testsuite</module>
+  </modules>
+
+  <scm>
+    <url>https://gerrit.ericsson.se/#/admin/projects/OSS/com.ericsson.oss.services.cm/cm-config-service</url>
+    <connection>scm:git:ssh://gerrit.ericsson.se:29418/OSS/com.ericsson.oss.services.cm/cm-config-service</connection>
+    <tag>HEAD</tag>
+  </scm>
+
+  <properties>
+    <jira.url>http://jira-oss.lmera.ericsson.se/browse/TORF</jira.url>
+    <nexus.url>https://arm1s11-eiffel004.eiffel.gic.ericsson.se:8443/nexus/</nexus.url>
+    <project.documentation.url>http://eselivm2v553l.lmera.ericsson.se:8080/jenkins/job/cm-config-service_Site/site</project.documentation.url>
+    <version.slf4j>1.7.5</version.slf4j>
+    <version.java>1.7</version.java>
+    <version.weld>1.1.10.Final</version.weld>
+    <version.ejb>3.1</version.ejb>
+    <version.jee>6</version.jee>
+    <version.logback>1.0.9</version.logback>
+    <version.mockito>1.9.0</version.mockito>
+    <version.junit>4.11</version.junit>
+    <version.jboss.as>6.1.1</version.jboss.as>
+    <jboss.eap.home>jboss-eap-6.1</jboss.eap.home>
+    <version.jboss.as.arquillian>7.1.3.Final</version.jboss.as.arquillian>
+    <version.arquillian-junit-container>1.0.0.Final</version.arquillian-junit-container>
+    <version.arquillian.bom>1.0.3.Final</version.arquillian.bom>
+    <version.arquillian-weld-se-embedded>1.0.0.CR3</version.arquillian-weld-se-embedded>
+
+    <!-- Versant host for dps integration -->
+    <versant.db.host>localhost</versant.db.host>
+    <!-- The versant root dir has to be specified to auto create the index on the database -->
+    <versant.dir>/opt/versant/vjpa_server</versant.dir>
+    <!-- These dependency should go in BOM but enforcer plug-in does not allow non-version plug-ins in JEE integration -->
+    <version.dps>1.7.7</version.dps>
+    <version.model.deployment.tool>1.2.12</version.model.deployment.tool>
+
+    <project.ear.defaultLibBundleDir>lib</project.ear.defaultLibBundleDir>
+    <!-- JBoss modules your service will automatically add to classpath -->
+    <project.ear.Dependencies>org.slf4j</project.ear.Dependencies>
+
+
+    <!-- codehale metrics dependency -->
+    <version.codehale.metrics>3.0.2</version.codehale.metrics>
+    <!-- Maven plugin versions -->
+    <version.maven-checkstyle-plugin>2.12</version.maven-checkstyle-plugin>
+    <version.maven-site-plugin>3.3</version.maven-site-plugin>
+    <version.maven-graph-plugin>1.31</version.maven-graph-plugin>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency> <!-- TOR dependencies are defined in BOM -->
+        <groupId>com.ericsson.oss.services.cm.config</groupId>
+        <artifactId> cm-config-dependency-bom</artifactId>
+        <version>LATEST</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.arquillian</groupId>
+        <artifactId>arquillian-bom</artifactId>
+        <version>${version.arquillian.bom}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${version.junit}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  
+  <dependencies>
+    <!-- JEE IMPLEMENTATION -->
+    <dependency>
+      <groupId>org.jboss.spec</groupId>
+      <artifactId>jboss-javaee-6.0</artifactId>
+      <version>1.0.0.Final</version>
+      <type>pom</type>
+      <scope>provided</scope>
+    </dependency>
+    <!-- TESTING & MOCKING -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-all</artifactId>
+      <version>${version.mockito}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself. -->
+        <plugin>
+          <groupId>org.eclipse.m2e</groupId>
+          <artifactId>lifecycle-mapping</artifactId>
+          <version>1.0.0</version>
+          <configuration>
+            <lifecycleMappingMetadata>
+              <pluginExecutions>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <versionRange>[2.4,)</versionRange>
+                    <goals>
+                      <goal>analyze-dep-mgt</goal>
+                      <goal>copy-dependencies</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore />
+                  </action>
+                </pluginExecution>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-ear-plugin</artifactId>
+                    <versionRange>[2.7,)</versionRange>
+                    <goals>
+                      <goal>generate-application-xml</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore />
+                  </action>
+                </pluginExecution>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>com.ericsson.maven.plugins</groupId>
+                    <artifactId>rstate-maven-plugin</artifactId>
+                    <versionRange>[1.0,)</versionRange>
+                    <goals>
+                      <goal>rstate</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore />
+                  </action>
+                </pluginExecution>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-enforcer-plugin</artifactId>
+                    <versionRange>[1.0.0,)</versionRange>
+                    <goals>
+                      <goal>enforce</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore />
+                  </action>
+                </pluginExecution>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>build-helper-maven-plugin</artifactId>
+                    <versionRange>[1.7,)</versionRange>
+                    <goals>
+                      <goal>regex-property</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore />
+                  </action>
+                </pluginExecution>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <versionRange>[2.10,)</versionRange>
+                    <goals>
+                      <goal>check</goal>
+                      <goal>checkstyle</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore />
+                  </action>
+                </pluginExecution>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>rpm-maven-plugin</artifactId>
+                    <versionRange>[2.1-alpha-2,)</versionRange>
+                    <goals>
+                      <goal>version</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore />
+                  </action>
+                </pluginExecution>
+              </pluginExecutions>
+            </lifecycleMappingMetadata>
+          </configuration>
+        </plugin>
+        <!-- Site Documentation settings -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>${version.maven-site-plugin}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.pitest</groupId>
+          <artifactId>pitest-maven</artifactId>
+          <version>0.33</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>${version.java}</source>
+          <target>${version.java}</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>cobertura-maven-plugin</artifactId>
+        <configuration>
+          <formats>
+            <format>xml</format>
+          </formats>
+        </configuration>
+        <executions>
+          <execution>
+            <phase />
+            <goals>
+              <goal>cobertura</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <configuration>
+          <excludes>
+            <!-- <exclude>**/src/test/*.java</exclude> -->
+            <exclude>**/generated/*.java</exclude>
+          </excludes>
+          <includeTests>true</includeTests>
+          <failOnViolation>true</failOnViolation>
+          <verbose>true</verbose>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>tidy-maven-plugin</artifactId>
+        <version>1.0-alpha-2</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>${version.maven-checkstyle-plugin}</version>
+        <dependencies>
+          <dependency>
+            <groupId>com.ericsson.apollo.checkstyle</groupId>
+            <artifactId>build-tools</artifactId>
+            <version>1.0.2-SNAPSHOT</version>
+          </dependency>
+        </dependencies>
+        <executions>
+          <execution>
+            <id>check-style</id>
+            <goals>
+              <goal>check</goal>
+            </goals>
+            <phase>validate</phase>
+            <configuration>
+              <consoleOutput>true</consoleOutput>
+              <logViolationsToConsole>true</logViolationsToConsole>
+              <failsOnError>true</failsOnError>
+              <failOnViolation>true</failOnViolation>
+              <configLocation>/com/ericsson/apollo/checkstyle/checkstyle.xml</configLocation>
+              <includeTestSourceDirectory>true</includeTestSourceDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.fusesource.mvnplugins</groupId>
+        <artifactId>maven-graph-plugin</artifactId>
+        <version>${version.maven-graph-plugin}</version>
+      </plugin>
+    </plugins>
+  </build>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <version>2.6</version>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>dependencies</report>
+              <report>scm</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+        <configuration>
+          <dependencyDetailsEnabled>true</dependencyDetailsEnabled>
+          <dependencyLocationsEnabled>true</dependencyLocationsEnabled>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-report-plugin</artifactId>
+        <version>2.4.2</version>
+        <configuration>
+          <aggregate>true</aggregate>
+          <linkXRef>true</linkXRef> <!--also set this to link to generated source reports -->
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-changelog-plugin</artifactId>
+        <version>2.2</version>
+        <reportSets>
+          <reportSet>
+            <id>changelog</id>
+            <configuration>
+              <type>range</type>
+              <range>25</range>
+              <detail>false</detail>
+              <issueLinkUrl>http://jira-oss.lmera.ericsson.se/browse/</issueLinkUrl>
+            </configuration>
+            <reports>
+              <report>changelog</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+    </plugins>
+  </reporting>
+
+  <profiles>
+    <profile>
+      <id>pitest</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.pitest</groupId>
+            <artifactId>pitest-maven</artifactId>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>mutationCoverage</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <threads>2</threads>
+              <jvmArgs>
+                <arg>-ea</arg>
+              </jvmArgs>
+              <targetClasses>
+                <param>com.ericsson.oss.services.cm.cmconfig.service.*</param>
+              </targetClasses>
+              <targetTests>
+                <param>com.ericsson.oss.services.cm.cmconfig.service.*</param>
+              </targetTests>
+              <excludedClasses>
+                <!-- Exclude integration test classes -->
+                <param>com.ericsson.oss.services.cm.cmconfig.service.*IT</param>
+                <!-- Lambdas do not have debug information so PIT cannot mutate them -->
+                <pattern>*$$Lambda$*</pattern>
+              </excludedClasses>
+              <failWhenNoMutations>false</failWhenNoMutations>
+              <timestampedReports>false</timestampedReports>
+              <mutators>
+                <mutator>ALL</mutator>
+              </mutators>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+</project>

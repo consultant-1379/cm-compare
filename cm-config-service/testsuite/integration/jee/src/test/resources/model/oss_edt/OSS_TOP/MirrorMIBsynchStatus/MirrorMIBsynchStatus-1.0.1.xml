@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="MirrorMIBsynchStatus" ns1:ns="OSS_TOP" ns1:version="1.0.1">
+  <ns1:modelCreationInfo author="lciadm100" creationDate="Fri Aug 23 16:05:17 CEST 2013">
+    <ns1:designedModel className="com.ericsson.oss.services.topmim.SupportedMirrorMibSynchStatus" componentId="OssTop-model"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Indicates whether or not the Mirrored MIB of this Node is currently being synchronized with the MIB in the Node. Initial value is unsynchronized. SYNCING = 1 SYNCHRONIZED = 2 UNSYNCHRONIZED = 3</ns1:desc>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="SYNCING" value="1">
+    <ns1:desc>synch status is SYNCING.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="SYNCHRONIZED" value="2">
+    <ns1:desc>synch status is SYNCHRONIZED.</ns1:desc>
+  </ns2:member>
+  <ns2:member ns1:lifeCycle="CURRENT" ns1:name="UNSYNCHRONIZED" value="3">
+    <ns1:desc>synch status is UNSYNCHRONIZED.</ns1:desc>
+  </ns2:member>
+</ns2:EnumDataTypeDefinition>

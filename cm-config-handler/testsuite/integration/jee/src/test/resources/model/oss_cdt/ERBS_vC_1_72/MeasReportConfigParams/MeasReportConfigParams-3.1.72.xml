@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:lifeCycleDesc="" ns1:name="MeasReportConfigParams" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/oss_cdt/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>MeasReportConfigParams</ns1:desc>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="a1ThresholdRsrpPrimOffset">
+    <ns1:desc>QCI dependent offset for the absolute threshold a1ThresholdRsrpPrim. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the "base" value in the MO class, namely ReportConfigA1Prim.a1ThresholdRsrpPrim. 
+The rule is that the threshold for a certain QCI profile is computed as ReportConfigA1Prim.a1ThresholdRsrpPrim+QciProfilePredefined.measReportConfigParams.a1ThresholdRsrpPrimOffset
+
+Unit: 1 dBm</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="24" min="-24"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="a1ThresholdRsrpSecOffset">
+    <ns1:desc>QCI dependent offset for the absolute threshold a1ThresholdRsrpSec. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the "base" value in the MO class, namely ReportConfigA1Sec.a1ThresholdRsrpSec. 
+The rule is that the threshold for a certain QCI profile is computed as ReportConfigA1Sec.a1ThresholdRsrpSec+QciProfilePredefined.measReportConfigParams.a1ThresholdRsrpSecOffset
+
+Unit: 1 dBm</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="24" min="-24"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="a1ThresholdRsrqPrimOffset">
+    <ns1:desc>QCI dependent offset for the absolute threshold a1ThresholdRsrpPrim. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the "base" value in the MO class, namely ReportConfigA1Prim.a1ThresholdRsrqPrim. 
+The rule is that the threshold for a certain QCI profile is computed as ReportConfigA1Prim.a1ThresholdRsrqPrim+QciProfilePredefined.measReportConfigParams.a1ThresholdRsrqPrimOffset
+
+Unit: 0.1 dB</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="240" min="-240"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="a1ThresholdRsrqSecOffset">
+    <ns1:desc>QCI dependent offset for the absolute threshold a1ThresholdRsrqSec. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the "base" value in the MO class, namely ReportConfigA1Sec.a1ThresholdRsrqSec. 
+The rule is that the threshold for a certain QCI profile is computed as ReportConfigA1Prim.a1ThresholdRsrqSec+QciProfilePredefined.measReportConfigParams.a1ThresholdRsrqSecOffset
+
+Unit: 0.1 dB</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="240" min="-240"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="a2ThresholdRsrpPrimOffset">
+    <ns1:desc>QCI dependent offset for the absolute threshold a2ThresholdRsrpPrim. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the "base" value in the MO class, namely ReportConfigA2Prim.a2ThresholdRsrpPrim. 
+The rule is that the threshold for a certain QCI profile is computed as ReportConfigA2Prim.a2ThresholdRsrpPrim+QciProfilePredefined.measReportConfigParams.a2ThresholdRsrpPrimOffset
+
+Unit: 1 dBm</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="24" min="-24"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="a2ThresholdRsrpSecOffset">
+    <ns1:desc>QCI dependent offset for the absolute threshold a2ThresholdRsrpPrim. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the "base" value in the MO class, namely ReportConfigA2Sec.a2ThresholdRsrpSec. 
+The rule is that the threshold for a certain QCI profile is computed as ReportConfigA2Sec.a2ThresholdRsrpSec+QciProfilePredefined.measReportConfigParams.a2ThresholdRsrpSecOffset
+
+Unit: 1 dBm</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="24" min="-24"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="a2ThresholdRsrqPrimOffset">
+    <ns1:desc>QCI dependent offset for the absolute threshold a2ThresholdRsrqPrim. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the "base" value in the MO class, namely ReportConfigA2Prim.a2ThresholdRsrqPrim. 
+The rule is that the threshold for a certain QCI profile is computed as ReportConfigA2Prim.a2ThresholdRsrqPrim+QciProfilePredefined.measReportConfigParams.a2ThresholdRsrqPrimOffset
+
+Unit: 0.1 dB</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="240" min="-240"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="a2ThresholdRsrqSecOffset">
+    <ns1:desc>QCI dependent offset for the absolute threshold a2ThresholdRsqSec. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the "base" value in the MO class, namely ReportConfigA2Sec.a2ThresholdRsrqSec. 
+The rule is that the threshold for a certain QCI profile is computed as ReportConfigA2Sec.a2ThresholdRsrqSec+QciProfilePredefined.measReportConfigParams.a2ThresholdRsrqSecOffset
+
+Unit: 0.1 dB</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="240" min="-240"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="a5Threshold1RsrpOffset">
+    <ns1:desc>QCI dependent offset for the absolute threshold a5Threshold1Rsrp. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the "base" value in the MO class, namely ReportConfigA5.a5Threshold1Rsrp. 
+The rule is that the threshold for a certain QCI profile is computed as ReportConfigA5.a5Threshold1Rsrp+QciProfilePredefined.measReportConfigParams.a5Threshold1RsrpOffset
+
+Unit: 1 dBm</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="24" min="-24"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="a5Threshold1RsrqOffset">
+    <ns1:desc>QCI dependent offset for the absolute threshold a5Threshold1Rsrq. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the "base" value in the MO class, namely ReportConfigA5.a5Threshold1Rsrq. 
+The rule is that the threshold for a certain QCI profile is computed as ReportConfigA5.a5Threshold1Rsrq+QciProfilePredefined.measReportConfigParams.a5Threshold1RsrqOffset
+
+Unit: 0.1 dB</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="240" min="-240"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="a5Threshold2RsrpOffset">
+    <ns1:desc>QCI dependent offset for the absolute threshold a5Threshold2Rsrp. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the "base" value in the MO class, namely ReportConfigA5.a5Threshold2Rsrp. 
+The rule is that the threshold for a certain QCI profile is computed as ReportConfigA5.a5Threshold2Rsrp+QciProfilePredefined.measReportConfigParams.a5Threshold2RsrpOffset
+
+Unit: 1 dBm</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="24" min="-24"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="a5Threshold2RsrqOffset">
+    <ns1:desc>QCI dependent offset for the absolute threshold a5Threshold2Rsrq. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the "base" value in the MO class, namely ReportConfigA5.a5Threshold2Rsrq. 
+The rule is that the threshold for a certain QCI profile is computed as ReportConfigA5.a5Threshold2Rsrq+QciProfilePredefined.measReportConfigParams.a5Threshold2RsrqOffset
+
+Unit: 0.1 dB</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="240" min="-240"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="b2Threshold1RsrpCdma2000Offset">
+    <ns1:desc>QCI dependent offset for the absolute threshold ReportConfigB2Cdma2000.b2Threshold1Rsrp. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the "base" value in the MO class, namely ReportConfigB2Cdma2000.b2Threshold1Rsrp. 
+The rule is that the threshold for a certain QCI profile is computed as ReportConfigB2Cdma2000.b2Threshold1Rsrp+QciProfilePredefined.measReportConfigParams.b2Threshold1RsrpCdma2000Offset
+
+Unit: 1 dBm</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="24" min="-24"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="b2Threshold1RsrqCdma2000Offset">
+    <ns1:desc>QCI dependent offset for the absolute threshold ReportConfigB2Cdma2000.b2Threshold1Rsrq. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the "base" value in the MO class, namely ReportConfigB2Cdma2000.b2Threshold1Rsrq. 
+The rule is that the threshold for a certain QCI profile is computed as ReportConfigB2Cdma2000.b2Threshold1Rsrq+QciProfilePredefined.measReportConfigParams.b2Threshold1RsrqCdma2000Offset
+
+Unit: 0.1 dBm</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="240" min="-240"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="b2Threshold2Cdma2000Offset">
+    <ns1:desc>QCI dependent offset for the absolute threshold b2Threshold2Cdma2000. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the "base" value in the MO class, namely b2Threshold2Cdma2000. 
+The rule is that the threshold for a certain QCI profile is computed as ReportConfigB2Cdma2000.b2Threshold2Cdma2000+QciProfilePredefined.measReportConfigParams.b2Threshold2Cdma2000Offset
+
+Unit: 0.5 dB
+Resolution: 5</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="50" min="-50"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="b2Threshold1RsrpGeranOffset">
+    <ns1:desc>QCI dependent offset for the absolute threshold ReportConfigB2Geran.b2Threshold1Rsrp. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the "base" value in the MO class, namely ReportConfigB2Geran.b2Threshold1Rsrp. 
+The rule is that the threshold for a certain QCI profile is computed as ReportConfigB2Geran.b2Threshold1Rsrp+QciProfilePredefined.measReportConfigParams.b2Threshold1RsrpGeranOffset
+
+Unit: 1 dBm</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="24" min="-24"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="b2Threshold1RsrqGeranOffset">
+    <ns1:desc>QCI dependent offset for the absolute threshold ReportConfigB2Geran.b2Threshold1Rsrq. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the "base" value in the MO class, namely ReportConfigB2Geran.b2Threshold1Rsrq. 
+The rule is that the threshold for a certain QCI profile is computed as ReportConfigB2Geran.b2Threshold1Rsrq+QciProfilePredefined.measReportConfigParams.b2Threshold1RsrqGeranOffset
+
+Unit: 0.1 dBm</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="240" min="-240"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="b2Threshold2GeranOffset">
+    <ns1:desc>QCI dependent offset for the absolute threshold b2Threshold2Geran. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the "base" value in the MO class, namely b2Threshold2Geran. 
+The rule is that the threshold for a certain QCI profile is computed as ReportConfigB2Geran.b2Threshold2Geran+QciProfilePredefined.measReportConfigParams.b2Threshold2GeranOffset
+
+Unit: 1 dBm</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="24" min="-24"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="b2Threshold1RsrpUtraOffset">
+    <ns1:desc>QCI dependent offset for the absolute threshold ReportConfigB2Utra.b2Threshold1Rsrp. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the "base" value in the MO class, namely ReportConfigB2Utra.b2Threshold1Rsrp. 
+The rule is that the threshold for a certain QCI profile is computed as ReportConfigB2Utra.b2Threshold1Rsrp+QciProfilePredefined.measReportConfigParams.b2Threshold1RsrpUtraOffset
+
+Unit: 1 dBm</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="24" min="-24"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="b2Threshold1RsrqUtraOffset">
+    <ns1:desc>QCI dependent offset for the absolute threshold ReportConfigB2Utra.b2Threshold1Rsrq. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the "base" value in the MO class, namely ReportConfigB2Utra.b2Threshold1Rsrq. 
+The rule is that the threshold for a certain QCI profile is computed as ReportConfigB2Utra.b2Threshold1Rsrq+QciProfilePredefined.measReportConfigParams.b2Threshold1RsrqUtraOffset
+
+Unit: 0.1 dBm</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="240" min="-240"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="b2Threshold2EcNoUtraOffset">
+    <ns1:desc>QCI dependent offset for the absolute threshold b2Threshold2EcNoUtra. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the "base" value in the MO class, namely b2Threshold2EcNoUtra. 
+The rule is that the threshold for a certain QCI profile is computed as ReportConfigB2Utra.b2Threshold2EcNoUtra+QciProfilePredefined.measReportConfigParams.b2Threshold2EcNoUtraOffset
+
+Unit: 0.1 dB
+Resolution: 5</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="50" min="-50"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="b2Threshold2RscpUtraOffset">
+    <ns1:desc>QCI dependent offset for the absolute threshold b2Threshold2RscpUtra. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the "base" value in the MO class, namely b2Threshold2RscpUtra. 
+The rule is that the threshold for a certain QCI profile is computed as ReportConfigB2Utra.b2Threshold2RscpUtra+QciProfilePredefined.measReportConfigParams.b2Threshold2RscpUtraOffset
+
+Unit: 1 dBm</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="24" min="-24"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

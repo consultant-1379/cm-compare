@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="SgwMgmtMapping" ns1:ns="CPP_MODEL" ns1:version="3.12.75" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>The Signalling Gateway (SGW) Management Mapping (SMM).
+
+Specifies a pair of destinations in SS7 and IP networks for the Associated Signalling Mode in SGW function (ASM).
+
+This function makes it appear to the destination in the SS7 network that it is connected directly to a destination in the IP network. That is, the SS7 node is not aware about this SGW.
+
+When ASM is activated, the mapping information from the SgwMgmtMapping MOs is used to remap the point code of the signalling messages in the SS7 network. Notifications to the destination in the SS7 network about availability and congestion status of the destination in the IP network are replaced with activation/deactivation of all links toward the destination in the SS7 network.
+
+The point code of the destination in the SS7 network, specified in the
+attribute origPointCode, has to be unique within each signalling point.
+
+This MO can be configured only if the attribute useSgwMgmtMapping in the parent Mtp3bSp is set to true. That is, it can be configured if ASM is activated for this signalling point.
+
+Applicable only for an E-SIGTRAN configuration.
+
+This MO is not supported on the HD stack.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="SgwMgmtMappingId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="destPointCode" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The point code of the IP SEP.
+
+The format of this attribute must be aligned with the standard of the parent Mtp3bSp, ITU, ANSI, TTC or China.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="16777215" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="origPointCode" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The point code of the SS7 SEP/STP.
+
+The format of this attribute must be aligned with the standard of the parent Mtp3bSp, ITU, ANSI, TTC or China.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="16777215" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

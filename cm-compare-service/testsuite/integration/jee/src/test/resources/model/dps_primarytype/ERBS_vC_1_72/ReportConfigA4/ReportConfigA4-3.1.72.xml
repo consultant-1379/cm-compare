@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="ReportConfigA4" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>This managed object contains report configuration settings for the A4 event measurements. The A4 event is used to detect when neighbor cell becomes better than threshold.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ReportConfigA4Id" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the Relative Distinguished Name (RDN).</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="a4ThresholdRsrp" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The Reference Signal Received Power (RSRP) threshold value for eventA4.
+
+Unit: 1 dBm
+Dependencies: Only used if triggerQuantityA4 is set to RSRP.
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="-44" min="-140"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="-140" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="a4ThresholdRsrq" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The Reference Signal Received Quality (RSRQ) threshold value for eventA4.
+
+Unit: 0.1 dB
+Resolution: 5
+Dependencies: Only used if triggerQuantityA4 is set to RSRQ.
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="-30" min="-195"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="-195" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="hysteresisA4" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The hysteresis value for the eventA4 measurement.
+
+Unit: 0.1 dB
+Resolution: 5
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="150" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="10" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timeToTriggerA4" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The time-to-trigger value for the eventA4 measurement.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="0" min="0"/>
+        <ns1:minMaxRange max="40" min="40"/>
+        <ns1:minMaxRange max="64" min="64"/>
+        <ns1:minMaxRange max="80" min="80"/>
+        <ns1:minMaxRange max="100" min="100"/>
+        <ns1:minMaxRange max="128" min="128"/>
+        <ns1:minMaxRange max="160" min="160"/>
+        <ns1:minMaxRange max="256" min="256"/>
+        <ns1:minMaxRange max="320" min="320"/>
+        <ns1:minMaxRange max="480" min="480"/>
+        <ns1:minMaxRange max="512" min="512"/>
+        <ns1:minMaxRange max="640" min="640"/>
+        <ns1:minMaxRange max="1024" min="1024"/>
+        <ns1:minMaxRange max="1280" min="1280"/>
+        <ns1:minMaxRange max="2560" min="2560"/>
+        <ns1:minMaxRange max="5120" min="5120"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="640" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="triggerQuantityA4" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The quantity that triggers the eventA4 for the eventA4 measurement.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/TriggerQuantity/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="RSRP" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

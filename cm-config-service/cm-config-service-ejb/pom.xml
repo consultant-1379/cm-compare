@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.ericsson.oss.services.cm</groupId>
+    <artifactId>cm-config-service</artifactId>
+    <version>1.0.32-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>cm-config-service-ejb</artifactId>
+  <packaging>ejb</packaging>
+
+  <name>[${project.parent.artifactId}] EJB module</name>
+
+  <properties>
+    <version.maven-ejb-plugin>2.3</version.maven-ejb-plugin>
+        <version.org.jberet>1.1.0.Alpha1</version.org.jberet>
+    <version.org.jboss.spec.javax.batch.jboss-batch-api_1.0_spec>1.0.0.Final
+        </version.org.jboss.spec.javax.batch.jboss-batch-api_1.0_spec>
+    
+  </properties>
+
+  <dependencies>
+    <dependency>
+                <groupId>org.jboss.spec.javax.batch</groupId>
+                <artifactId>jboss-batch-api_1.0_spec</artifactId>
+                <version>${version.org.jboss.spec.javax.batch.jboss-batch-api_1.0_spec}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jberet</groupId>
+                <artifactId>jberet-core</artifactId>
+                <version>${version.org.jberet}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.jboss.logging</groupId>
+                        <artifactId>jboss-logging-processor</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.jboss.marshalling</groupId>
+                        <artifactId>jboss-marshalling</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+  
+    <dependency>
+      <groupId>org.jboss.spec.javax.ejb</groupId>
+      <artifactId>jboss-ejb-api_3.1_spec</artifactId>
+      <version>1.0.1.Final</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>${project.parent.artifactId}-api</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>${project.parent.artifactId}-common</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.ericsson.oss.itpf.sdk</groupId>
+      <artifactId>sdk-config-core</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.ericsson.oss.itpf.datalayer.dps</groupId>
+      <artifactId>dps-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <!-- CM Service dependencies -->
+    <dependency>
+      <groupId>com.ericsson.oss.services.cm</groupId>
+      <artifactId>cm-common-modelservice-extensions</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.ericsson.oss.services.cm</groupId>
+      <artifactId>cm-common-dtomapping</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.ericsson.oss.services.cm</groupId>
+      <artifactId>cm-common-testutil</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.ericsson.oss.services.cm</groupId>
+      <artifactId>cm-common-search</artifactId>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <!-- DO NOT DELETE RESOURCE FILTERING. FILTERING IS REQUIRED BY SERVICE
+         FRAMEWORK. YOU CAN EXCLUDE FILES YOU DO NOT WANT TO BE FILTERED. -->
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+    <pluginManagement>
+      <plugins>
+        <!-- maven-compiler-plugin configuration, needed for EService ref-->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-ejb-plugin</artifactId>
+        <version>${version.maven-ejb-plugin}</version>
+        <configuration>
+          <ejbVersion>${version.ejb}</ejbVersion>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.jboss.as.plugins</groupId>
+        <artifactId>jboss-as-maven-plugin</artifactId>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

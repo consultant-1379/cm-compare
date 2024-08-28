@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="MspgExtended" ns1:ns="MOM-CPP-C12" ns1:version="3.12.0" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:14.167">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/MOM-CPP-C12/MOM-CPP-C12/3.12.0"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Multiplex Section Protection Group Extended
+
+This MO represents bidirectional and unidirectional 1+1 MSP, excluding optimized bidirectional MSP.
+
+This MO controls two different protection mechanisms:
+1. Standard 1+1 MSP mechanism, where failure on the working line causes a switch to the protection line.
+2. Equipment protection, where a failure on the working board causes a switch to the protection board. While executing an equipment protection switch, the node on the other end of the multiplexer section, switches using 1+1 MSP.
+
+It is possible to force traffic to one board by using the attribute, administrativeState of the PlugIn Unit MO.
+
+If administrativeState of the working Os155SpiTtp MO is LOCKED or if availabilityStatus is DEPENDENCY_LOCKED or DEPENDENCY_FAILED, a forcedSwitch(1) request is sent to the remote node.
+
+If administrativeState of the protection Os155SpiTtp MO is LOCKED or if the availabilityStatus is DEPENDENCY_LOCKED, a forcedSwitch(0) request is sent to the remote node.
+
+If availabilityStatus of the protection Os155SpiTtp MO is DEPENDENCY_FAILED, a switchback to the working section is made.
+
+Configure an MSP protection interface as follows:
+1. Create the working interface.
+2. Create the protection interface by creating an instance of the Os155SpiTtp MO with the attribute, muxMode set to STANDBY (standby for protection).
+3. Create an MspgExtended MO with references to the two Os155SpiTtp MOs.
+
+The two Os155SpiTtp MO instances referred to by the MspgExtended MO must have the attribute, standardMode configured in exactly the same way.
+
+The Os155SpiTtp MO created for standby does not create any children, for example, no Vc3Ttp or Vc4Ttp MOs are created.
+
+If the working line and the protection line are not created on the same board, all Os155SpiTtp children of the ExchangeTerminal MOs must be reserved by an Mspg or by an MspgExtended MO. This condition must be fulfilled for the MSP function to work.
+If the MSP function is not used, Os155SpiTtp children of the ExchangeTerminal MOs must not be reserved by an Mspg or by an MspgExtended MO.
+
+Before configuring Msp and equipment protection for additional physical lines of a particular ExchangeTerminal board, where some lines are already configured for protection, make sure that all related Os155SpiTtp children reside on the working board. That is, that the ExchangeTerminal instance referred to by selectedBoard is also the parent of the Os155SpiTtp instance referred to by os155SpiWorkingRef, for all previously configured instances of Mspg or MspgExtended.
+
+This MO applies for ANSI, ETSI and TTC standards.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="MspgExtendedId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="os155SpiWorkingRef" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Reference to an instance of Os155SpiTtp MO.
+
+The working OS155 physical path termination.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/Os155SpiTtp/3.12.0" xsi:type="ns1:moRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="os155SpiProtectionRef" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Reference to an instance of Os155SpiTtp MO.
+
+The protection OS155 physical path termination.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/Os155SpiTtp/3.12.0" xsi:type="ns1:moRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="selectedBoard" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The ExchangeTerminal MO that is currently used to process the user plane traffic.
+
+The only action that can change the selected board is an equipment protection switch.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/ManagedObject/3.12.0" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="selectedPort" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The port currently selected by the MSPG.
+
+The selected port can change only as a result of an MSP switch or an equipment protection switch.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/Os155SpiTtp/3.12.0" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="availabilityStatus" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The availability status.
+
+It contains details about operationalState.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/AvailabilityStatus/3.12.0" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="operationalState" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The operational state.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/OperState/3.12.0" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="bidirectional" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies the switching type of the MSP.
+
+true = bidirectional mode
+false = unidirectional mode</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="true" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="revertive" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies whether the MSP is revertive or non-revertive.
+
+true = revertive
+false = non-revertive</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="waitToRestoreTime" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Represents the time that the working section must be fault-free before switching back from the protection section.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="12" min="5"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="5" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="protectionStatus" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates the status of the protection switch.</ns1:desc>
+    <ns1:type modelUrn="//MOM-CPP-C12/ProtectionStatus/3.12.0" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="opBidirectionalMode" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates the operational switching type of the MSP. 
+
+It differs from the value of the attribute bidirectional if: 
+-  the standardMode of the os155SpiWorkingRef is ANSI, 
+-  bidirectional is true, and
+-  the remote side does not support bidirectional switching mode.
+
+If the local side is set to bidirectional, and the remote side does not support bidirectional MSP, then this attribute changes to false.
+
+true = bidirectional mode
+false = unidirectional mode</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

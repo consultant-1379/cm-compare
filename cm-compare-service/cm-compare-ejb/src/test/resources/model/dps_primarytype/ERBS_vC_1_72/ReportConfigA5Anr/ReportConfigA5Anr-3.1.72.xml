@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="ReportConfigA5Anr" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>The Automated Neighbor Relations (ANR) delta report configuration settings for the A5 event measurements as compared to mobility provided in the parent MO class.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ReportConfigA5AnrId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the Relative Distinguished Name (RDN).
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="a5Threshold1RsrpAnrDelta" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>This parameter together with a5Threshold1Rsrp specifies "The Reference Signal Received Power (RSRP) threshold1 value for eventA5." . The equation for calculating the RSRP threshold1 value for ANR is a5Threshold1Rsrp + a5Threshold1RsrpAnrDelta . Only used if triggerQuantityA5 onReportConfigA5 MO is set to RSRP.
+
+Unit: 1 dBm
+Resolution: 1
+Dependencies: Not pure dependence towards parameter on ReportConficA5 Mo, but there should be a check that this attribute and corresponding attribute on ReportConfigA5 MO together sends out a valid number to the UE
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="10" min="-10"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="a5Threshold2RsrpAnrDelta" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>This parameter together with a5Threshold2Rsrp specifies "The Reference Signal Received Power (RSRP) threshold2 value for eventA5." . The equation for calculating the RSRP threshold2 value for ANR is a5Threshold2Rsrp - a5Threshold2RsrpAnrDelta . Only used if triggerQuantityA5 onReportConfigA5 MO is set to RSRP.
+
+Unit: 1 dBm
+Resolution: 1
+Dependencies: Not pure dependence towards parameter on ReportConficA5 Mo, but there should be a check that this attribute and corresponding attribute on ReportConfigA5 MO together sends out a valid number to the UE
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="10" min="-10"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="a5Threshold1RsrqAnrDelta" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>This parameter together with a5Threshold1Rsrq specifies "The Reference Signal Received Quality (RSRQ) threshold1 value for eventA5." . The equation for calculating the RSRQ threshold1 value for ANR is a5Threshold1Rsrq + a5Threshold1RsrqAnrDelta . Only used if triggerQuantityA5 onReportConfigA5 MO is set to RSRQ.
+
+Unit: 0.1 dB
+Resolution: 5
+Dependencies: Not pure dependence towards parameter on ReportConficA5 Mo, but there should be a check that this attribute and corresponding attribute on ReportConfigA5 MO together sends out a valid number to the UE
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="10" min="-10"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="10" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="a5Threshold2RsrqAnrDelta" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>This parameter together with a5Threshold2Rsrq specifies "The Reference Signal Received Quality (RSRQ) threshold2 value for eventA5." . The equation for calculating the RSRQ threshold2 value for ANR is a5Threshold2Rsrq -a5Threshold2RsrqAnrDelta . Only used if triggerQuantityA5 onReportConfigA5 MO is set to RSRQ.
+
+Unit: 0.1 dB
+Resolution: 5
+Dependencies: Not pure dependence towards parameter on ReportConficA5 Mo, but there should be a check that this attribute and corresponding attribute on ReportConfigA5 MO together sends out a valid number to the UE
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="10" min="-10"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="10" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timeToTriggerA5" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The time-to-trigger value for the eventA5 measurement.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="0" min="0"/>
+        <ns1:minMaxRange max="40" min="40"/>
+        <ns1:minMaxRange max="64" min="64"/>
+        <ns1:minMaxRange max="80" min="80"/>
+        <ns1:minMaxRange max="100" min="100"/>
+        <ns1:minMaxRange max="128" min="128"/>
+        <ns1:minMaxRange max="160" min="160"/>
+        <ns1:minMaxRange max="256" min="256"/>
+        <ns1:minMaxRange max="320" min="320"/>
+        <ns1:minMaxRange max="480" min="480"/>
+        <ns1:minMaxRange max="512" min="512"/>
+        <ns1:minMaxRange max="640" min="640"/>
+        <ns1:minMaxRange max="1024" min="1024"/>
+        <ns1:minMaxRange max="1280" min="1280"/>
+        <ns1:minMaxRange max="2560" min="2560"/>
+        <ns1:minMaxRange max="5120" min="5120"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="640" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="hysteresisA5" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The hysteresis value for the eventA5 measurement.
+
+Unit: 0.1 dB
+Resolution: 5
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="150" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="10" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

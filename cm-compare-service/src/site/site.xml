@@ -1,0 +1,38 @@
+<project xmlns="http://maven.apache.org/DECORATION/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/DECORATION/1.0.0 http://maven.apache.org/xsd/decoration-1.0.0.xsd">
+  <bannerLeft>
+    <name>CM Writer</name>
+    <href>http://www.ericsson.com/</href>
+  </bannerLeft>
+  
+  <bannerRight>
+  </bannerRight>
+  <body>
+    <links>
+    	<item name="Report bugs" href="${jira.url}" /> 
+    	<item name="Nexus" href="${nexusUrl}" />
+    </links>
+    
+    <menu name="CM Writer">
+      <item name="JavaDocs" href="${cmreaderJavadoc.irl}"/>
+    </menu>
+
+	<menu ref="modules" />
+		
+	<menu name="Guidelines">
+      
+    </menu>
+
+  </body>
+	<skin>
+    	<groupId>org.apache.maven.skins</groupId>
+    	<artifactId>maven-fluido-skin</artifactId>
+    	<version>1.2.2</version>
+	</skin>
+	<custom>
+    <fluidoSkin>
+      <sourceLineNumbersEnabled>true</sourceLineNumbersEnabled>
+    </fluidoSkin>
+  </custom>
+</project>

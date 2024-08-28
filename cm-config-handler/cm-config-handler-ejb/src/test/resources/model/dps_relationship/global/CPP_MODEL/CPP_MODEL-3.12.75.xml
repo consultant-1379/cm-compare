@@ -1,0 +1,1916 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- ******************************************************************************* 
+	* COPYRIGHT Ericsson LMI 2013. All rights reserved. * * No part of this document 
+	may be reproduced in any form without the * written permission of the copyright 
+	owner.The contents of this document * are subject to revision without notice 
+	due to continued progress in * methodology, design and manufacturing. Ericsson 
+	shall have no liability * for any error or damage of any kind resulting from 
+	the use of this document. * ******************************************************************************* -->
+<ns2:PrimaryTypeRelationshipDefinition
+	xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_relationship"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:name="intra"
+	ns1:ns="CPP_MODEL" ns1:version="3.12.75">
+	<ns1:modelCreationInfo author="mom-xml-transformer-tool"
+		creationDate="2013-08-22 16:54:14.262">
+		<ns1:derivedModel derivedFrom="/dps_relationship/CPP_MODEL/CPP_MODEL/3.12.75" />
+	</ns1:modelCreationInfo>
+	<ns1:desc>Intra mim relationships. Mim:CPP_MODEL</ns1:desc>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="HgTtp_to_Ds0Bundle">
+		<ns1:desc>HgTtp_to_Ds0Bundle</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/HgTtp/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Ds0Bundle/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="6" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="E1PhysPathTerm_to_Ds0Bundle">
+		<ns1:desc>E1PhysPathTerm_to_Ds0Bundle</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/E1PhysPathTerm/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Ds0Bundle/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="31" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="J1PhysPathTerm_to_Ds0Bundle">
+		<ns1:desc>J1PhysPathTerm_to_Ds0Bundle</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/J1PhysPathTerm/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Ds0Bundle/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="24" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="T1PhysPathTerm_to_Ds0Bundle">
+		<ns1:desc>T1PhysPathTerm_to_Ds0Bundle</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/T1PhysPathTerm/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Ds0Bundle/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="24" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="E1Ttp_to_Ds0Bundle">
+		<ns1:desc>E1Ttp_to_Ds0Bundle</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/E1Ttp/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Ds0Bundle/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="31" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="T1Ttp_to_Ds0Bundle">
+		<ns1:desc>T1Ttp_to_Ds0Bundle</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/T1Ttp/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Ds0Bundle/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="24" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_TdmCrossConnection">
+		<ns1:desc>TransportNetwork_to_TdmCrossConnection</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/TdmCrossConnection/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1500" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_Aal0TpVccTp">
+		<ns1:desc>TransportNetwork_to_Aal0TpVccTp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Aal0TpVccTp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="2200" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_Aal1TpVccTp">
+		<ns1:desc>TransportNetwork_to_Aal1TpVccTp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Aal1TpVccTp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1000" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_Aal2PathVccTp">
+		<ns1:desc>TransportNetwork_to_Aal2PathVccTp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Aal2PathVccTp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="2000" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_Aal2QosCodePointProfile">
+		<ns1:desc>TransportNetwork_to_Aal2QosCodePointProfile</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Aal2QosCodePointProfile/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="20" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_Aal2QosProfile">
+		<ns1:desc>TransportNetwork_to_Aal2QosProfile</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Aal2QosProfile/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="20" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_Aal2RoutingCase">
+		<ns1:desc>TransportNetwork_to_Aal2RoutingCase</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Aal2RoutingCase/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="2000" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_Aal2Sp">
+		<ns1:desc>TransportNetwork_to_Aal2Sp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Aal2Sp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Aal2Sp_to_Aal2Ap">
+		<ns1:desc>Aal2Sp_to_Aal2Ap</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Aal2Sp/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Aal2Ap/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="850" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="Aal2Ap_to_Aal2PathDistributionUnit">
+		<ns1:desc>Aal2Ap_to_Aal2PathDistributionUnit</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Aal2Ap/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Aal2PathDistributionUnit/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="28" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_Aal5TpVccTp">
+		<ns1:desc>TransportNetwork_to_Aal5TpVccTp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Aal5TpVccTp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="6000" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_AtmCrossConnection">
+		<ns1:desc>TransportNetwork_to_AtmCrossConnection</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/AtmCrossConnection/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="5000" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_AtmPort">
+		<ns1:desc>TransportNetwork_to_AtmPort</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/AtmPort/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1000" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="AtmPort_to_VplTp">
+		<ns1:desc>AtmPort_to_VplTp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/AtmPort/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/VplTp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minSize value="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="VplTp_to_VpcTp">
+		<ns1:desc>VplTp_to_VpcTp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/VplTp/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/VpcTp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="VpcTp_to_VclTp">
+		<ns1:desc>VpcTp_to_VclTp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/VpcTp/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/VclTp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="5000" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_AtmTrafficDescriptor">
+		<ns1:desc>TransportNetwork_to_AtmTrafficDescriptor</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/AtmTrafficDescriptor/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1000" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_ImaGroup">
+		<ns1:desc>TransportNetwork_to_ImaGroup</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/ImaGroup/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="800" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="ImaGroup_to_ImaLink">
+		<ns1:desc>ImaGroup_to_ImaLink</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/ImaGroup/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/ImaLink/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="28" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_AtmConfService">
+		<ns1:desc>TransportNetwork_to_AtmConfService</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/AtmConfService/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="Equipment_to_SubrackProdType">
+		<ns1:desc>Equipment_to_SubrackProdType</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Equipment/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/SubrackProdType/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minSize value="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Subrack_to_Slot">
+		<ns1:desc>Subrack_to_Slot</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Subrack/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Slot/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="28" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="Equipment_to_InterPiuLink">
+		<ns1:desc>Equipment_to_InterPiuLink</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Equipment/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/InterPiuLink/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="ManagedElement_to_Equipment">
+		<ns1:desc>ManagedElement_to_Equipment</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/ManagedElement/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Equipment/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Equipment_to_Subrack">
+		<ns1:desc>Equipment_to_Subrack</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Equipment/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Subrack/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="9" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Slot_to_PlugInUnit">
+		<ns1:desc>Slot_to_PlugInUnit</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Slot/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/PlugInUnit/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="PlugInUnit_to_PiuDevice">
+		<ns1:desc>PlugInUnit_to_PiuDevice</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/PlugInUnit/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/PiuDevice/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minSize value="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="PlugInUnit_to_GeneralProcessorUnit">
+		<ns1:desc>PlugInUnit_to_GeneralProcessorUnit</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/PlugInUnit/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/GeneralProcessorUnit/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="Cbu_to_GeneralProcessorUnit">
+		<ns1:desc>Cbu_to_GeneralProcessorUnit</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Cbu/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/GeneralProcessorUnit/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Equipment_to_Jvm">
+		<ns1:desc>Equipment_to_Jvm</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Equipment/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Jvm/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="GeneralProcessorUnit_to_MediumAccessUnit">
+		<ns1:desc>GeneralProcessorUnit_to_MediumAccessUnit</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/GeneralProcessorUnit/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/MediumAccessUnit/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Subrack_to_Fan">
+		<ns1:desc>Subrack_to_Fan</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Subrack/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Fan/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="10" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="PlugInUnit_to_Cbu">
+		<ns1:desc>PlugInUnit_to_Cbu</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/PlugInUnit/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Cbu/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Equipment_to_Shelf">
+		<ns1:desc>Equipment_to_Shelf</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Equipment/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Shelf/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minSize value="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="EthernetSwitchModule_to_EthernetSwitchModulePort">
+		<ns1:desc>EthernetSwitchModule_to_EthernetSwitchModulePort</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/EthernetSwitchModule/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/EthernetSwitchModulePort/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="8" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="EthernetSwitchModule_to_SwitchStp">
+		<ns1:desc>EthernetSwitchModule_to_SwitchStp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/EthernetSwitchModule/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/SwitchStp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="PlugInUnit_to_EthernetSwitchModule">
+		<ns1:desc>PlugInUnit_to_EthernetSwitchModule</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/PlugInUnit/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/EthernetSwitchModule/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="ExchangeTerminalIp_to_EthernetSwitch">
+		<ns1:desc>ExchangeTerminalIp_to_EthernetSwitch</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/ExchangeTerminalIp/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/EthernetSwitch/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="ManagedElement_to_EthernetSwitchFabric">
+		<ns1:desc>ManagedElement_to_EthernetSwitchFabric</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/ManagedElement/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/EthernetSwitchFabric/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="EthernetSwitchFabric_to_Vlan">
+		<ns1:desc>EthernetSwitchFabric_to_Vlan</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/EthernetSwitchFabric/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Vlan/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="256" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Lag_to_SwitchPortStp">
+		<ns1:desc>Lag_to_SwitchPortStp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Lag/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/SwitchPortStp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="EthernetSwitchPort_to_SwitchPortStp">
+		<ns1:desc>EthernetSwitchPort_to_SwitchPortStp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/EthernetSwitchPort/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/SwitchPortStp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="EthernetSwitchModulePort_to_SwitchPortStp">
+		<ns1:desc>EthernetSwitchModulePort_to_SwitchPortStp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/EthernetSwitchModulePort/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/SwitchPortStp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="EthernetSwitch_to_EthernetSwitchPort">
+		<ns1:desc>EthernetSwitch_to_EthernetSwitchPort</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/EthernetSwitch/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/EthernetSwitchPort/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="7" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="EthernetSwitch_to_SwitchStp">
+		<ns1:desc>EthernetSwitch_to_SwitchStp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/EthernetSwitch/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/SwitchStp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="ManagedElement_to_EthernetSwitchingAdm">
+		<ns1:desc>ManagedElement_to_EthernetSwitchingAdm</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/ManagedElement/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/EthernetSwitchingAdm/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="EthernetSwitch_to_Lag">
+		<ns1:desc>EthernetSwitch_to_Lag</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/EthernetSwitch/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Lag/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="4" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="EthernetSwitchModule_to_Lag">
+		<ns1:desc>EthernetSwitchModule_to_Lag</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/EthernetSwitchModule/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Lag/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="4" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="PlugInUnit_to_ControlSwitch">
+		<ns1:desc>PlugInUnit_to_ControlSwitch</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/PlugInUnit/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/ControlSwitch/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="ControlSwitch_to_ControlSwitchPort">
+		<ns1:desc>ControlSwitch_to_ControlSwitchPort</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/ControlSwitch/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/ControlSwitchPort/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="7" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="EthernetSwitchFabric_to_ControlInterSwitchLink">
+		<ns1:desc>EthernetSwitchFabric_to_ControlInterSwitchLink</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/EthernetSwitchFabric/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/ControlInterSwitchLink/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minSize value="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="PlugInUnit_to_SwitchCoreUnit">
+		<ns1:desc>PlugInUnit_to_SwitchCoreUnit</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/PlugInUnit/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/SwitchCoreUnit/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="PlugInUnit_to_SwitchExtensionUnit">
+		<ns1:desc>PlugInUnit_to_SwitchExtensionUnit</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/PlugInUnit/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/SwitchExtensionUnit/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="ManagedElement_to_SwitchFabric">
+		<ns1:desc>ManagedElement_to_SwitchFabric</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/ManagedElement/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/SwitchFabric/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="SwitchFabric_to_SwitchModule">
+		<ns1:desc>SwitchFabric_to_SwitchModule</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/SwitchFabric/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/SwitchModule/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="32" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="SwitchFabric_to_InternalLinkGroup">
+		<ns1:desc>SwitchFabric_to_InternalLinkGroup</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/SwitchFabric/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/InternalLinkGroup/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="31" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="InternalLinkGroup_to_SwitchInternalLink">
+		<ns1:desc>InternalLinkGroup_to_SwitchInternalLink</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/InternalLinkGroup/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/SwitchInternalLink/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="8" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Ospf_to_OspfInterface">
+		<ns1:desc>Ospf_to_OspfInterface</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Ospf/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/OspfInterface/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="32" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Ospf_to_OspfArea">
+		<ns1:desc>Ospf_to_OspfArea</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Ospf/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/OspfArea/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="4" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="IpOam_to_Ospf">
+		<ns1:desc>IpOam_to_Ospf</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/IpOam/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Ospf/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Ip_to_IpRoutingTable">
+		<ns1:desc>Ip_to_IpRoutingTable</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Ip/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/IpRoutingTable/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="IpOam_to_Ip">
+		<ns1:desc>IpOam_to_Ip</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/IpOam/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Ip/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Ip_to_IpAtmLink">
+		<ns1:desc>Ip_to_IpAtmLink</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Ip/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/IpAtmLink/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="810" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Ip_to_EthernetLink">
+		<ns1:desc>Ip_to_EthernetLink</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Ip/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/EthernetLink/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="ManagedElement_to_IpOam">
+		<ns1:desc>ManagedElement_to_IpOam</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/ManagedElement/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/IpOam/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="IpOam_to_Dhcp">
+		<ns1:desc>IpOam_to_Dhcp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/IpOam/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Dhcp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Ip_to_IpHostLink">
+		<ns1:desc>Ip_to_IpHostLink</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Ip/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/IpHostLink/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="2" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="IpSec_to_IkePeer">
+		<ns1:desc>IpSec_to_IkePeer</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/IpSec/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/IkePeer/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minSize value="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="IpSec_to_IpSecTunnel">
+		<ns1:desc>IpSec_to_IpSecTunnel</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/IpSec/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/IpSecTunnel/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minSize value="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="IpSystem_to_IpSec">
+		<ns1:desc>IpSystem_to_IpSec</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/IpSystem/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/IpSec/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="IpSystem_to_VpnInterface">
+		<ns1:desc>IpSystem_to_VpnInterface</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/IpSystem/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/VpnInterface/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minSize value="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="IpSystem_to_AccessControlList">
+		<ns1:desc>IpSystem_to_AccessControlList</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/IpSystem/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/AccessControlList/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minSize value="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="ExchangeTerminalIp_to_InternalEthernetPort">
+		<ns1:desc>ExchangeTerminalIp_to_InternalEthernetPort</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/ExchangeTerminalIp/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/InternalEthernetPort/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="PiuDevice_to_ExchangeTerminalIp">
+		<ns1:desc>PiuDevice_to_ExchangeTerminalIp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/PiuDevice/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/ExchangeTerminalIp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="PlugInUnit_to_ExchangeTerminalIp">
+		<ns1:desc>PlugInUnit_to_ExchangeTerminalIp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/PlugInUnit/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/ExchangeTerminalIp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="InternalEthernetPort_to_IpInterface">
+		<ns1:desc>InternalEthernetPort_to_IpInterface</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/InternalEthernetPort/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/IpInterface/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="8" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="GigaBitEthernet_to_IpInterface">
+		<ns1:desc>GigaBitEthernet_to_IpInterface</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/GigaBitEthernet/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/IpInterface/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="16" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="ExchangeTerminalIp_to_GigaBitEthernet">
+		<ns1:desc>ExchangeTerminalIp_to_GigaBitEthernet</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/ExchangeTerminalIp/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/GigaBitEthernet/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="ManagedElement_to_IpSystem">
+		<ns1:desc>ManagedElement_to_IpSystem</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/ManagedElement/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/IpSystem/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="IpSystem_to_Ipv6Interface">
+		<ns1:desc>IpSystem_to_Ipv6Interface</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/IpSystem/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Ipv6Interface/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minSize value="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="IpSystem_to_Ipv6">
+		<ns1:desc>IpSystem_to_Ipv6</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/IpSystem/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Ipv6/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="IpSystem_to_IpAccessAutoConfig">
+		<ns1:desc>IpSystem_to_IpAccessAutoConfig</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/IpSystem/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/IpAccessAutoConfig/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="32" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="IpSystem_to_IpAccessHostGpb">
+		<ns1:desc>IpSystem_to_IpAccessHostGpb</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/IpSystem/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/IpAccessHostGpb/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="128" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="IpSystem_to_IpAccessHostSpb">
+		<ns1:desc>IpSystem_to_IpAccessHostSpb</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/IpSystem/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/IpAccessHostSpb/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="128" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="IpSystem_to_IpAccessHostEt">
+		<ns1:desc>IpSystem_to_IpAccessHostEt</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/IpSystem/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/IpAccessHostEt/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="2500" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="IpAccessHostEt_to_IpSyncRef">
+		<ns1:desc>IpAccessHostEt_to_IpSyncRef</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/IpAccessHostEt/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/IpSyncRef/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="8" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="GeneralProcessorUnit_to_FastEthernet">
+		<ns1:desc>GeneralProcessorUnit_to_FastEthernet</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/GeneralProcessorUnit/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/FastEthernet/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="IpSystem_to_IpAccessSctp">
+		<ns1:desc>IpSystem_to_IpAccessSctp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/IpSystem/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/IpAccessSctp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="33" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="IpSystem_to_IpMux">
+		<ns1:desc>IpSystem_to_IpMux</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/IpSystem/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/IpMux/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="64" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TrafficManagement_to_TrafficScheduler">
+		<ns1:desc>TrafficManagement_to_TrafficScheduler</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TrafficManagement/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/TrafficScheduler/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minSize value="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TrafficScheduler_to_Queue">
+		<ns1:desc>TrafficScheduler_to_Queue</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TrafficScheduler/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/TrafficManagementQueue/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minSize value="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="IpSystem_to_TrafficManagement">
+		<ns1:desc>IpSystem_to_TrafficManagement</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/IpSystem/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/TrafficManagement/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="IpSystem_to_IpInterfaceGroup">
+		<ns1:desc>IpSystem_to_IpInterfaceGroup</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/IpSystem/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/IpInterfaceGroup/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="16" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="SystemFunctions_to_Licensing">
+		<ns1:desc>SystemFunctions_to_Licensing</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/SystemFunctions/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Licensing/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="LogService_to_Log">
+		<ns1:desc>LogService_to_Log</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/LogService/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Log/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minSize value="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="SystemFunctions_to_LogService">
+		<ns1:desc>SystemFunctions_to_LogService</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/SystemFunctions/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/LogService/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="ManagedElement_to_TransportNetwork">
+		<ns1:desc>ManagedElement_to_TransportNetwork</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/ManagedElement/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="ManagedElement_to_ManagedElementData">
+		<ns1:desc>ManagedElement_to_ManagedElementData</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/ManagedElement/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/ManagedElementData/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="SystemFunctions_to_WebServer">
+		<ns1:desc>SystemFunctions_to_WebServer</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/SystemFunctions/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/WebServer/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="ManagedElement_to_SystemFunctions">
+		<ns1:desc>ManagedElement_to_SystemFunctions</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/ManagedElement/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/SystemFunctions/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="SystemFunctions_to_PmService">
+		<ns1:desc>SystemFunctions_to_PmService</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/SystemFunctions/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/PmService/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="SystemFunctions_to_Ncli">
+		<ns1:desc>SystemFunctions_to_Ncli</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/SystemFunctions/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Ncli/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_Mspg">
+		<ns1:desc>TransportNetwork_to_Mspg</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mspg/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minSize value="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="ExchangeTerminal_to_E1PhysPathTerm">
+		<ns1:desc>ExchangeTerminal_to_E1PhysPathTerm</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/ExchangeTerminal/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/E1PhysPathTerm/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="8" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="ExchangeTerminal_to_E3PhysPathTerm">
+		<ns1:desc>ExchangeTerminal_to_E3PhysPathTerm</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/ExchangeTerminal/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/E3PhysPathTerm/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="2" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="ExchangeTerminal_to_J1PhysPathTerm">
+		<ns1:desc>ExchangeTerminal_to_J1PhysPathTerm</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/ExchangeTerminal/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/J1PhysPathTerm/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="8" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="ExchangeTerminal_to_Os155SpiTtp">
+		<ns1:desc>ExchangeTerminal_to_Os155SpiTtp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/ExchangeTerminal/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Os155SpiTtp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="4" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="Os155SpiTtp_to_Sts1SpeTtp">
+		<ns1:desc>Os155SpiTtp_to_Sts1SpeTtp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Os155SpiTtp/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Sts1SpeTtp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="3" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Sts1SpeTtp_to_Vt15Ttp">
+		<ns1:desc>Sts1SpeTtp_to_Vt15Ttp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Sts1SpeTtp/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Vt15Ttp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="28" min="28" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Vt15Ttp_to_T1Ttp">
+		<ns1:desc>Vt15Ttp_to_T1Ttp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Vt15Ttp/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/T1Ttp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="Os155SpiTtp_to_Sts3CspeTtp">
+		<ns1:desc>Os155SpiTtp_to_Sts3CspeTtp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Os155SpiTtp/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Sts3CspeTtp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Os155SpiTtp_to_Vc4Ttp">
+		<ns1:desc>Os155SpiTtp_to_Vc4Ttp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Os155SpiTtp/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Vc4Ttp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Vc4Ttp_to_Vc12Ttp">
+		<ns1:desc>Vc4Ttp_to_Vc12Ttp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Vc4Ttp/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Vc12Ttp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="63" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Vc12Ttp_to_E1Ttp">
+		<ns1:desc>Vc12Ttp_to_E1Ttp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Vc12Ttp/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/E1Ttp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="ExchangeTerminal_to_T1PhysPathTerm">
+		<ns1:desc>ExchangeTerminal_to_T1PhysPathTerm</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/ExchangeTerminal/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/T1PhysPathTerm/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="8" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="ExchangeTerminal_to_T3PhysPathTerm">
+		<ns1:desc>ExchangeTerminal_to_T3PhysPathTerm</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/ExchangeTerminal/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/T3PhysPathTerm/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="2" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="PlugInUnit_to_ExchangeTerminal">
+		<ns1:desc>PlugInUnit_to_ExchangeTerminal</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/PlugInUnit/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/ExchangeTerminal/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="Cbu_to_ExchangeTerminal">
+		<ns1:desc>Cbu_to_ExchangeTerminal</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Cbu/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/ExchangeTerminal/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Vc11Ttp_to_HgTtp">
+		<ns1:desc>Vc11Ttp_to_HgTtp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Vc11Ttp/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/HgTtp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="4" min="4" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Vc3Ttp_to_Vc11Ttp">
+		<ns1:desc>Vc3Ttp_to_Vc11Ttp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Vc3Ttp/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Vc11Ttp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="28" min="28" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Os155SpiTtp_to_Vc3Ttp">
+		<ns1:desc>Os155SpiTtp_to_Vc3Ttp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Os155SpiTtp/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Vc3Ttp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="3" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_MspgExtended">
+		<ns1:desc>TransportNetwork_to_MspgExtended</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/MspgExtended/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minSize value="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_Sctp">
+		<ns1:desc>TransportNetwork_to_Sctp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Sctp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="34" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_SctpProfile">
+		<ns1:desc>TransportNetwork_to_SctpProfile</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/SctpProfile/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="128" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="SystemFunctions_to_Security">
+		<ns1:desc>SystemFunctions_to_Security</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/SystemFunctions/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Security/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Spu_to_Spm">
+		<ns1:desc>Spu_to_Spm</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Spu/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Spm/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="5" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="PlugInUnit_to_Spu">
+		<ns1:desc>PlugInUnit_to_Spu</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/PlugInUnit/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Spu/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_NniSaalProfile">
+		<ns1:desc>TransportNetwork_to_NniSaalProfile</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/NniSaalProfile/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="50" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_NniSaalTp">
+		<ns1:desc>TransportNetwork_to_NniSaalTp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/NniSaalTp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="600" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="SccpScrc_to_SccpAccountingCriteria">
+		<ns1:desc>SccpScrc_to_SccpAccountingCriteria</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/SccpScrc/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/SccpAccountingCriteria/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="100" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="SccpScrc_to_SccpApLocal">
+		<ns1:desc>SccpScrc_to_SccpApLocal</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/SccpScrc/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/SccpApLocal/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="7" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="SccpScrc_to_SccpApRemote">
+		<ns1:desc>SccpScrc_to_SccpApRemote</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/SccpScrc/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/SccpApRemote/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="200" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="SccpScrc_to_SccpEntitySet">
+		<ns1:desc>SccpScrc_to_SccpEntitySet</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/SccpScrc/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/SccpEntitySet/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="2048" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="SccpScrc_to_SccpGlobalTitle">
+		<ns1:desc>SccpScrc_to_SccpGlobalTitle</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/SccpScrc/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/SccpGlobalTitle/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="2048" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="SccpScrc_to_SccpPolicing">
+		<ns1:desc>SccpScrc_to_SccpPolicing</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/SccpScrc/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/SccpPolicing/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1024" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="SccpSp_to_SccpScrc">
+		<ns1:desc>SccpSp_to_SccpScrc</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/SccpSp/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/SccpScrc/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_SccpSp">
+		<ns1:desc>TransportNetwork_to_SccpSp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/SccpSp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="45" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_Mtp3bSpTtc">
+		<ns1:desc>TransportNetwork_to_Mtp3bSpTtc</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp3bSpTtc/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="45" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Mtp3bSrs_to_Mtp3bSr">
+		<ns1:desc>Mtp3bSrs_to_Mtp3bSr</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Mtp3bSrs/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp3bSr/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="5" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Mtp3bSpTtc_to_Mtp3bSrs">
+		<ns1:desc>Mtp3bSpTtc_to_Mtp3bSrs</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Mtp3bSpTtc/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp3bSrs/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="255" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Mtp3bSpItu_to_Mtp3bSrs">
+		<ns1:desc>Mtp3bSpItu_to_Mtp3bSrs</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Mtp3bSpItu/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp3bSrs/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="255" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="Mtp3bSpChina_to_Mtp3bSrs">
+		<ns1:desc>Mtp3bSpChina_to_Mtp3bSrs</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Mtp3bSpChina/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp3bSrs/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="255" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="Mtp3bSpAnsi_to_Mtp3bSrs">
+		<ns1:desc>Mtp3bSpAnsi_to_Mtp3bSrs</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Mtp3bSpAnsi/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp3bSrs/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="255" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_Mtp3bSpItu">
+		<ns1:desc>TransportNetwork_to_Mtp3bSpItu</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp3bSpItu/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="45" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_Mtp3bSpChina">
+		<ns1:desc>TransportNetwork_to_Mtp3bSpChina</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp3bSpChina/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="45" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_Mtp3bSpAnsi">
+		<ns1:desc>TransportNetwork_to_Mtp3bSpAnsi</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp3bSpAnsi/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="45" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Mtp3bSls_to_Mtp3bSlTtc">
+		<ns1:desc>Mtp3bSls_to_Mtp3bSlTtc</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Mtp3bSls/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp3bSlTtc/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="16" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Mtp3bSpTtc_to_Mtp3bSls">
+		<ns1:desc>Mtp3bSpTtc_to_Mtp3bSls</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Mtp3bSpTtc/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp3bSls/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="255" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Mtp3bSpItu_to_Mtp3bSls">
+		<ns1:desc>Mtp3bSpItu_to_Mtp3bSls</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Mtp3bSpItu/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp3bSls/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="255" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="Mtp3bSpChina_to_Mtp3bSls">
+		<ns1:desc>Mtp3bSpChina_to_Mtp3bSls</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Mtp3bSpChina/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp3bSls/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="255" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="Mtp3bSpAnsi_to_Mtp3bSls">
+		<ns1:desc>Mtp3bSpAnsi_to_Mtp3bSls</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Mtp3bSpAnsi/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp3bSls/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="255" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Mtp3bSls_to_Mtp3bSlItu">
+		<ns1:desc>Mtp3bSls_to_Mtp3bSlItu</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Mtp3bSls/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp3bSlItu/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="16" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="Mtp3bSls_to_Mtp3bSlChina">
+		<ns1:desc>Mtp3bSls_to_Mtp3bSlChina</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Mtp3bSls/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp3bSlChina/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="16" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="Mtp3bSls_to_Mtp3bSlAnsi">
+		<ns1:desc>Mtp3bSls_to_Mtp3bSlAnsi</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Mtp3bSls/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp3bSlAnsi/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="16" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Mtp3bSpTtc_to_Mtp3bAp">
+		<ns1:desc>Mtp3bSpTtc_to_Mtp3bAp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Mtp3bSpTtc/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp3bAp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="512" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Mtp3bSpItu_to_Mtp3bAp">
+		<ns1:desc>Mtp3bSpItu_to_Mtp3bAp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Mtp3bSpItu/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp3bAp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="512" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="Mtp3bSpChina_to_Mtp3bAp">
+		<ns1:desc>Mtp3bSpChina_to_Mtp3bAp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Mtp3bSpChina/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp3bAp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="512" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Mtp3bSpAnsi_to_Mtp3bAp">
+		<ns1:desc>Mtp3bSpAnsi_to_Mtp3bAp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Mtp3bSpAnsi/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp3bAp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="512" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_Mtp2TpItu">
+		<ns1:desc>TransportNetwork_to_Mtp2TpItu</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp2TpItu/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="576" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_Mtp2TpChina">
+		<ns1:desc>TransportNetwork_to_Mtp2TpChina</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp2TpChina/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="576" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_Mtp2TpAnsi">
+		<ns1:desc>TransportNetwork_to_Mtp2TpAnsi</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp2TpAnsi/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="576" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_Mtp2ProfileItu">
+		<ns1:desc>TransportNetwork_to_Mtp2ProfileItu</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp2ProfileItu/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="256" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_Mtp2ProfileChina">
+		<ns1:desc>TransportNetwork_to_Mtp2ProfileChina</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp2ProfileChina/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="256" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_Mtp2ProfileAnsi">
+		<ns1:desc>TransportNetwork_to_Mtp2ProfileAnsi</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp2ProfileAnsi/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="256" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_Mtp2ProfileTtc">
+		<ns1:desc>TransportNetwork_to_Mtp2ProfileTtc</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp2ProfileTtc/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="256" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_Mtp2TpTtc">
+		<ns1:desc>TransportNetwork_to_Mtp2TpTtc</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp2TpTtc/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="576" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="Mtp2Hsl_to_Mtp2HslProfileItu">
+		<ns1:desc>Mtp2Hsl_to_Mtp2HslProfileItu</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Mtp2Hsl/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp2HslProfileItu/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="15" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="Mtp2Hsl_to_Mtp2HslTpItu">
+		<ns1:desc>Mtp2Hsl_to_Mtp2HslTpItu</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Mtp2Hsl/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp2HslTpItu/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="80" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="Mtp2Hsl_to_Mtp2HslProfileChina">
+		<ns1:desc>Mtp2Hsl_to_Mtp2HslProfileChina</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Mtp2Hsl/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp2HslProfileChina/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="15" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="Mtp2Hsl_to_Mtp2HslTpChina">
+		<ns1:desc>Mtp2Hsl_to_Mtp2HslTpChina</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Mtp2Hsl/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp2HslTpChina/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="80" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_Mtp2Hsl">
+		<ns1:desc>TransportNetwork_to_Mtp2Hsl</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Mtp2Hsl/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="M3ua_to_M3uaLocalAs">
+		<ns1:desc>M3ua_to_M3uaLocalAs</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/M3ua/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/M3uaLocalAs/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="512" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_M3ua">
+		<ns1:desc>TransportNetwork_to_M3ua</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/M3ua/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="3" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="M3ua_to_M3uaRemoteAs">
+		<ns1:desc>M3ua_to_M3uaRemoteAs</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/M3ua/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/M3uaRemoteAs/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1024" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="M3ua_to_M3uaLocalSp">
+		<ns1:desc>M3ua_to_M3uaLocalSp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/M3ua/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/M3uaLocalSp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="255" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="M3ua_to_M3uaRemoteSp">
+		<ns1:desc>M3ua_to_M3uaRemoteSp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/M3ua/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/M3uaRemoteSp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1024" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="M3ua_to_M3uaRemoteSctpEp">
+		<ns1:desc>M3ua_to_M3uaRemoteSctpEp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/M3ua/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/M3uaRemoteSctpEp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="512" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="M3ua_to_M3uaRk">
+		<ns1:desc>M3ua_to_M3uaRk</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/M3ua/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/M3uaRk/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1024" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="M3uaRk_to_M3uaRkGrouping">
+		<ns1:desc>M3uaRk_to_M3uaRkGrouping</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/M3uaRk/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/M3uaRkGrouping/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="254" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="Mtp3bSpTtc_to_M3uAssociation">
+		<ns1:desc>Mtp3bSpTtc_to_M3uAssociation</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Mtp3bSpTtc/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/M3uAssociation/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="512" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="Mtp3bSpItu_to_M3uAssociation">
+		<ns1:desc>Mtp3bSpItu_to_M3uAssociation</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Mtp3bSpItu/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/M3uAssociation/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="512" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="Mtp3bSpChina_to_M3uAssociation">
+		<ns1:desc>Mtp3bSpChina_to_M3uAssociation</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Mtp3bSpChina/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/M3uAssociation/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="512" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="Mtp3bSpAnsi_to_M3uAssociation">
+		<ns1:desc>Mtp3bSpAnsi_to_M3uAssociation</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Mtp3bSpAnsi/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/M3uAssociation/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="512" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="Mtp3bSpTtc_to_SgwMgmtMapping">
+		<ns1:desc>Mtp3bSpTtc_to_SgwMgmtMapping</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Mtp3bSpTtc/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/SgwMgmtMapping/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="50" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="Mtp3bSpItu_to_SgwMgmtMapping">
+		<ns1:desc>Mtp3bSpItu_to_SgwMgmtMapping</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Mtp3bSpItu/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/SgwMgmtMapping/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="50" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="Mtp3bSpChina_to_SgwMgmtMapping">
+		<ns1:desc>Mtp3bSpChina_to_SgwMgmtMapping</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Mtp3bSpChina/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/SgwMgmtMapping/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="50" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="Mtp3bSpAnsi_to_SgwMgmtMapping">
+		<ns1:desc>Mtp3bSpAnsi_to_SgwMgmtMapping</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Mtp3bSpAnsi/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/SgwMgmtMapping/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="50" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="SwManagement_to_UpgradeTrace">
+		<ns1:desc>SwManagement_to_UpgradeTrace</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/SwManagement/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/UpgradeTrace/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="SwManagement_to_UpgradePackage">
+		<ns1:desc>SwManagement_to_UpgradePackage</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/SwManagement/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/UpgradePackage/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minSize value="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="SwManagement_to_ConfigurationVersion">
+		<ns1:desc>SwManagement_to_ConfigurationVersion</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/SwManagement/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/ConfigurationVersion/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="ExchangeTerminal_to_Program">
+		<ns1:desc>ExchangeTerminal_to_Program</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/ExchangeTerminal/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Program/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minSize value="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Spm_to_Program">
+		<ns1:desc>Spm_to_Program</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Spm/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Program/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minSize value="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Spu_to_Program">
+		<ns1:desc>Spu_to_Program</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Spu/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Program/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minSize value="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="ExchangeTerminalIp_to_Program">
+		<ns1:desc>ExchangeTerminalIp_to_Program</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/ExchangeTerminalIp/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Program/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minSize value="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Fan_to_Program">
+		<ns1:desc>Fan_to_Program</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Fan/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Program/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minSize value="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="PlugInUnit_to_Program">
+		<ns1:desc>PlugInUnit_to_Program</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/PlugInUnit/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Program/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minSize value="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="TimingUnit_to_Program">
+		<ns1:desc>TimingUnit_to_Program</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TimingUnit/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Program/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minSize value="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="ManagedElement_to_SwManagement">
+		<ns1:desc>ManagedElement_to_SwManagement</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/ManagedElement/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/SwManagement/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="SwManagement_to_LoadModule">
+		<ns1:desc>SwManagement_to_LoadModule</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/SwManagement/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/LoadModule/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minSize value="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="SwManagement_to_PiuType">
+		<ns1:desc>SwManagement_to_PiuType</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/SwManagement/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/PiuType/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minSize value="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="SwManagement_to_ReliableProgramUniter">
+		<ns1:desc>SwManagement_to_ReliableProgramUniter</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/SwManagement/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/ReliableProgramUniter/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minSize value="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="SwManagement_to_Repertoire">
+		<ns1:desc>SwManagement_to_Repertoire</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/SwManagement/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Repertoire/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minSize value="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="SwManagement_to_SwAllocation">
+		<ns1:desc>SwManagement_to_SwAllocation</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/SwManagement/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/SwAllocation/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minSize value="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="SwManagement_to_ActiveOtherLMs">
+		<ns1:desc>SwManagement_to_ActiveOtherLMs</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/SwManagement/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/ActiveOtherLMs/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TimingUnit_to_TuSyncRef">
+		<ns1:desc>TimingUnit_to_TuSyncRef</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TimingUnit/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/TuSyncRef/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="2" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="PlugInUnit_to_TimingUnit">
+		<ns1:desc>PlugInUnit_to_TimingUnit</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/PlugInUnit/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/TimingUnit/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT" ns1:name="Cbu_to_TimingUnit">
+		<ns1:desc>Cbu_to_TimingUnit</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/Cbu/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/TimingUnit/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TimingUnit_to_GpsSyncRef">
+		<ns1:desc>TimingUnit_to_GpsSyncRef</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TimingUnit/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/GpsSyncRef/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_Synchronization">
+		<ns1:desc>TransportNetwork_to_Synchronization</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/Synchronization/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="1" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="PlugInUnit_to_SystemClockDistribution">
+		<ns1:desc>PlugInUnit_to_SystemClockDistribution</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/PlugInUnit/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/SystemClockDistribution/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="1" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_UniSaalProfile">
+		<ns1:desc>TransportNetwork_to_UniSaalProfile</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/UniSaalProfile/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="300" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+	<ns2:containment ns1:lifeCycle="CURRENT"
+		ns1:name="TransportNetwork_to_UniSaalTp">
+		<ns1:desc>TransportNetwork_to_UniSaalTp</ns1:desc>
+		<ns2:parent primaryTypeUrn="//CPP_MODEL/TransportNetwork/3.12.75" />
+		<ns2:child primaryTypeUrn="//CPP_MODEL/UniSaalTp/3.12.75" />
+		<ns2:collectionSizeConstraint>
+			<ns1:minMaxSize max="4800" min="0" />
+		</ns2:collectionSizeConstraint>
+	</ns2:containment>
+</ns2:PrimaryTypeRelationshipDefinition>

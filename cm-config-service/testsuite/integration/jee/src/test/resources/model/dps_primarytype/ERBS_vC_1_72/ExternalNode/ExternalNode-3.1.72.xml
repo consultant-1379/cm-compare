@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="ExternalNode" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>This MO represents an external node sharing certain resources (such as climate, power and external alarm hardware) with this node and possibly other external nodes. With node is understood a node with a ManagedElement MO as top MO. The number of MO ExternalNode must match the actual number of external nodes if the attribute supportSystemControl on MO EquipmentSupportFunction is set to true. In this case the MO is used for configuration purposes and attribute informationOnly has the value false. MO ExternalNode is optional to create if attribute supportSystemControl on MO EquipmentSupportFunction is set to false. In this case the MO is used only for information purposes and attribute informationOnly has the value true. The communication between the nodes is established via configuration of this MO if supportSystemControl in MO EquipmentSupportFunction is set to true in this node.
+
+Dependencies: Can only have child MO EcPort when the attribute supportSystemControl on MO EquipmentSupportFunction is set to true.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ExternalNodeId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="logicalName" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Reflects the value of attribute logicalName on MO ManagedElement in the external node. The undefined value, an empty string, is used for a node that has no configured logicalName. The value NOT AVAILABLE is used when information is currently unavailable from the external node.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="255" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="supportSystemControl" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Reflects the value of the attribute supportSystemControl on MO EquipmentSupportFunction in the external node. The value NOT_AVAILABLE is used if information is currently unavailable from the external node.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/SupportSystemControl/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="fullDistinguishedName" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Reflects the Full Distinguished Name (FDN) of MO ManagedElement in the external node. The undefined value, an empty string, is used for a node that has no configured Full Distinguished Name, such as a GSM node. The value "NOT AVAILABLE" is used if information is currently  unavailable from the external node.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="255" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="radioAccessTechnology" readBehavior="FROM_DELEGATE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Reflects the radio access technology supported by the external node.  The value NOT_AVAILABLE is used if information is currently unavailable from the external node.</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/RadioAccessTechnology/3.1.72" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="informationOnly" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Indicates if the MO data is only for informational purposes or for configuration purposes.
+
+When set to true, the MO contains read-only data about the external nodes. The number of MO ExternalNode does not have to match the actual number of external nodes. The MO attributes are populated with data if a corresponding external node exists.
+
+When set to false, the MO contains configuration data such as MO EcPort. The MO ExternalNode number must match the actual number of external nodes.
+
+Dependencies: The attribute value must be false if attribute supportsystemControl on MO EquipmentSupportFunction has the value true and vice versa.
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

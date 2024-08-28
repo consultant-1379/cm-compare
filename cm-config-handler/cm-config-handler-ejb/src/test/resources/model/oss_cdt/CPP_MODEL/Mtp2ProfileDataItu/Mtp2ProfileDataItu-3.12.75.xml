@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:lifeCycleDesc="" ns1:name="Mtp2ProfileDataItu" ns1:ns="CPP_MODEL" ns1:version="3.12.75">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/oss_cdt/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>The MTP2 profile data for the ITU standard.</ns1:desc>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="suermT">
+    <ns1:desc>The threshold value of the SUERM counter, when the link is taken out of service.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="64" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="64" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="suermD">
+    <ns1:desc>Number of received signal units before decrementing the counter for the Signalling Unit Error Rate Monitor (SUERM).</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="256" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="256" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="suermN">
+    <ns1:desc>The number of octets that should be received in octet counting mode before incrementing the SUERM counter.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="256" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="16" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="tin">
+    <ns1:desc>The normal AERM threshold, called Tin. Number of signal unit errors that cause abortion of a normal proving peroid.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="7" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="4" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="tie">
+    <ns1:desc>The threshold for the Emergency Alignment Error Rate Monitor (AERM) called Tie. The number of signal unit errors that causes abortion of an emergency proving period.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="7" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="provings">
+    <ns1:desc>Proving abort limit. Number of consecutive aborted proving periods that will cause a return to the state, Out of service.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="7" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="5" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerT1">
+    <ns1:desc>The maximum time to stay in the state, Aligned Ready, before signalling link failure.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="300000" min="500"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="45000" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerT2">
+    <ns1:desc>The maximum time to stay in the state, Not Aligned, before signalling link failure.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="300000" min="500"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="30000" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerT3">
+    <ns1:desc>The maximum time to stay in state, Aligned, before signalling link failure.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="300000" min="500"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1500" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerT4n">
+    <ns1:desc>The length of the normal proving period.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="60000" min="50"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="8200" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerT4e">
+    <ns1:desc>The length of the emergency proving period.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="60000" min="50"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="500" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerT5">
+    <ns1:desc>The time between sending Status Indication "B" (SIB) while in the Congested state.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="60000" min="50"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="100" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerT6">
+    <ns1:desc>The maximum time a remote site may remain in the Congested state before signalling link failure.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="300000" min="500"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="5000" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="timerT7">
+    <ns1:desc>The maximum time to wait for an expected acknowledgement of an MSU, before signalling link failure.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="60000" min="50"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1500" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="bitRate">
+    <ns1:desc>The speed of the link. Only supported values are 64 and 56 kbit/s.
+0 = 64 kbit/s
+1 = 56 kbit/s
+
+The timer default values in the struct are valid for 64 kbit/s.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="1" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="errorCorrection">
+    <ns1:desc>The type of error correction algorithm to use.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/ErrorCorrectionType/3.12.75" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="BEC" xsi:type="ns1:stringValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="congestionOnSet1">
+    <ns1:desc>When the current send buffer occupancy increases above the congestionOnSet1, a congestion indication is sent to MTP3b and the MTP3b congestion status of the internal signalling link changes from 0 to 1.
+
+It is recommended to set the value of this attribute within the following range:
+congestionOnSet1 &lt; congestionOnSet2 &lt; congestionOnSet3.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="70" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="congestionOnSet2">
+    <ns1:desc>When the current send buffer occupancy increases above the congestionOnSet2, a congestion indication is sent to MTP3b and the MTP3b congestion status of the internal signalling link changes from 1 to 2.
+
+It is recommended to set the value of this attribute within the following range:
+congestionOnSet1 &lt; congestionOnSet2 &lt; congestionOnSet3.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="80" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="congestionOnSet3">
+    <ns1:desc>When the current send buffer occupancy increases above the congestionOnSet3, a congestion indication is sent to MTP3b and the MTP3b congestion status of the internal signalling link changes from 2 to 3.
+
+It is recommended to set the value of this attribute within the following range:
+congestionOnSet1 &lt; congestionOnSet2 &lt; congestionOnSet3.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="90" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="congestionAbatement1">
+    <ns1:desc>When the current send buffer occupancy decreases below congestionAbatement1, the MTP3b congestion status of the internal signalling link changes from 1 to 0.
+
+It is recommended to set the value of this attribute within the following range:
+congestionAbatement1 &lt; congestionOnSet1.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="60" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="congestionAbatement2">
+    <ns1:desc>When the current send buffer occupancy decreases below congestionAbatement2, but is not below congestionAbatement1, the MTP3b congestion status of the internal signalling link changes from 2 to 1.
+
+It is recommended to set the value of this attribute within the following range:
+congestionOnSet1 &lt;= congestionAbatement2 &lt; congestionOnSet2.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="71" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="congestionAbatement3">
+    <ns1:desc>When the current send buffer occupancy decreases below congestionAbatement3, but is not below congestionAbatement2, the MTP3b congestion status of the internal signalling link changes from 3 to 2.
+
+It is recommended to set the value of this attribute within the following range:
+congestionOnSet2 &lt;= congestionAbatement3 &lt; congestionOnSet3.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="81" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="congestionDiscardLevel1">
+    <ns1:desc>When the current send buffer occupancy exceeds congestionDiscardLevel1, but does not exceed congestionDiscardLevel2, the MTP3 will discard messages with priority 0.
+
+It is recommended to set the value of this attribute within the following range:
+ congestionOnSet1 &lt; congestionDiscardLevel1 &lt;= congestionOnSet2.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="80" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="congestionDiscardLevel2">
+    <ns1:desc>When the current send buffer occupancy exceeds congestionDiscardLevel2, but does not exceed congestionDiscardLevel3, the MTP3 will discard messages with priority 0 and 1.
+
+It is recommended to set the value of this attribute within the following range:
+congestionOnSet2 &lt; congestionDiscardLevel2 &lt;= congestionOnSet3.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="90" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="congestionDiscardLevel3">
+    <ns1:desc>When the current send buffer occupancy exceeds congestionDiscardLevel3, the MTP3 will discard messages with priority 0, 1 and 2.
+
+It is recommended to set the value of this attribute within the following range:
+congestionOnSet3 &lt; congestionDiscardLevel3.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="100" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="95" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="n1Onset">
+    <ns1:desc>The number of MSUs in ReTransmit Buffer before onset of preventive retransmission in PCR.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="127" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="127" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="n2Onset">
+    <ns1:desc>The number of MSU octets in ReTransmit Buffer before onset of preventive retransmission in PCR.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="35052" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1057" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

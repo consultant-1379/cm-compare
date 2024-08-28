@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="Mtp3bAp" ns1:ns="CPP_MODEL" ns1:version="3.12.75" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>The MTP3b Access Point.
+
+Provides access to the MTP3 service, for the local User Part on the local signalling point, to communicate with the corresponding User Part on the remote signalling point.
+
+The User Part is specified with the attribute serviceInd. The local signalling point is represented by the parent Mtp3bSp. The remote signalling point is represented by the referenced Mtp3bSrs.
+
+IETF M3UA specific: 
+- In an ASP configuration, the referenced M3uaLocalAs instance must be LOCKED, before deleting this MO.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="Mtp3bApId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="routeSetId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Reference to an instance of Mtp3bSrs MO.
+
+Specifies the destination for the traffic from the client.</ns1:desc>
+    <ns1:type modelUrn="/dps_primarytype/CPP_MODEL/Mtp3bSrs/3.12.75" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="serviceInd" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The service indicator.
+
+Specifies the Service Indicator (SI) of the client, which is used in outgoing messages and is used by traffic handling functions to perform message distribution.
+
+Possible SI values are:
+3 = SCCP
+4 = Telephone User Part (TUP)
+5 = ISDN User Part (ISUP)
+6 = Data User Part, call and circuit related messages
+7 = Data User Part, facility registration and cancellation messages
+8 = MTP Testing User Part
+9 = Broadband ISDN User Part
+10 = Satellite ISDN User Part
+11 = Spare
+12 = Q.2630.1
+13 = Spare
+14 = GCP (H.248)
+15 = Spare
+
+The service indicator must be unique among all Mtp3bAp instances, referring to the same Mtp3bSrs. A maximum of 3 different service indicators can be configured per Mtp3bSp.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="15" min="3"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="availabilityStatus" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The availability status.
+
+It contains details about operationalState.
+
+Possible values for operational state ENABLED:
+- NO_STATUS: the MO is fully operable.
+
+- DEGRADED: the corresponding destination is congested.
+
+- OFF_DUTY: The ASP Active procedure can not be started for the related application server until a client is ready to receive the traffic. The access point is kept ENABLED to allow a client to attach, but traffic sending/receiving is not allowed on this access point.
+This state is applicable only for an IETF M3UA configuration.
+
+Possible values for operational state DISABLED:
+- DEPENDENCY_LOCKED, DEPENDENCY_FAILED, DEPENDENCY_SHUTTINGDOWN: these values are based on the administrative state and the availability status of the M3uaLocalAs and Mtp3bSrs instances related to this access point.
+
+- FAILED: the MO has other reasons for staying DISABLED.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/AvailabilityStatus/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains a list of MO instances that reserve this MO instance.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="/dps_primarytype/CPP_MODEL/ManagedObject/3.12.75" xsi:type="ns1:moRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="operationalState" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The operational state.
+
+The operational state is ENABLED, if the client is allowed to send traffic.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/OperState/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfUserPartUnavailRec" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of User Part Unavailable (UPU) messages received.  Counts only in an SS7 configuration.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pmNoOfAdjacentSPNotAccessible" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of times when the adjacent signalling point became fully not accessible. Counts only in SS7  and E-SIGTRAN configurations.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="m3uaLocalAsRef" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Reference to an instance of M3uaLocalAs MO.
+
+Specifies an M3UA local application server to handle traffic from the client.
+
+This reference is allowed to be specified if the traffic routing for this access point is configured in an IETF M3UA configuration. That is, in an IPSP configuration, an M3uaRkGrouping is configured for the traffic from this Mtp3bAp.
+
+When setting this attribute, the local AS must be LOCKED.
+
+Applicable only for an IETF M3UA configuration.</ns1:desc>
+    <ns1:type modelUrn="/dps_primarytype/CPP_MODEL/M3uaLocalAs/3.12.75" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

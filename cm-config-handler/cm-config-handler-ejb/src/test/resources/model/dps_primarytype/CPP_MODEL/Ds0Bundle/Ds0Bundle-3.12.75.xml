@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="Ds0Bundle" ns1:ns="CPP_MODEL" ns1:version="3.12.75" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Digital Signalling Level 0 (DS0) Bundle
+
+This MO represents a number of timeslots on any of the following physical ports: E1PhysPathTerm, J1PhysPathTerm, T1PhysPathTerm, E1Ttp, T1Ttp or HgTtp.
+
+The DS0 Bundle can be used in three different ways:
+
+- Fractional ATM, see the MO AtmPort. The attribute tdmMode must be set to DISABLED.
+
+- Circuit emulation, see the MO Aal1TpVccTp. The attribute tdmMode must be set to DISABLED. Only 4 DS0 Bundles per port can be configured when running circuit emulation.
+
+- TDM Switching. The DS0 Bundle is reserved for DS0 connections that switch internally within the node. The attribute tdmMode must be set to ENABLED.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="Ds0BundleId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="availabilityStatus" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The availability status.
+
+It contains details about operationalState.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/AvailabilityStatus/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="operationalState" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The operational state.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/OperState/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="listOfTimeSlots" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The list gives the time slots (within ATM traffic fraction) that are to be allocated to the DS0 Bundle.
+
+When a DS0 Bundle is contained by an E1PhysPathTerm, the slots that can be placed in this list are 1 to 31.
+When a DS0 Bundle is contained by a J1PhysPathTerm, the slots that can be placed in this list are 1 to 24.
+When a DS0 Bundle is contained by a T1PhysPathTerm, the slots that can be placed in this list are 1 to 24.
+When a DS0 Bundle is contained by an E1Ttp, the slots that can be placed in this list are 1 to 31.
+When a DS0 Bundle is contained by a T1Ttp, the slots that can be placed in this list are 1 to 24.
+When a DS0 Bundle is contained by a HgTtp, the slots that can be placed in this list are 1 to 6.
+
+The same timeslot cannot appear more than once in the list. If an E1/J1/T1PhysPathTerm MP contains more than one DS0 Bundle, the listOfTimeSlots for the DS0 Bundle must be mutually exclusive, that is, slots in one list cannot be used in another list.
+
+If the DS0 Bundle is used for carrying SS7 traffic, that is if the DS0 Bundle is reserved by an Mtp2TpAnsi, Mtp2TpItu or Mtp2TpChina, the listOfTimeSlots can contain only one time slot.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType xsi:type="ns1:longType">
+        <ns1:valueRangeConstraint>
+          <ns1:minMaxRange max="31" min="0"/>
+        </ns1:valueRangeConstraint>
+      </ns1:collectionValuesType>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="tdmMode" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The state of tdmMode.
+
+true - enabled.
+false - disabled.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reservedBy" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Contains an MO instance that reserves this MO instance.</ns1:desc>
+    <ns1:type modelUrn="/dps_primarytype/CPP_MODEL/ManagedObject/3.12.75" xsi:type="ns1:moRefType"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

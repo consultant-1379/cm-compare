@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="QciProfilePredefined" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Contains bearer-level QoS configuration. It is not possible to create or remove instances of this MO.  Each QciProfilePredefined instance corresponds to a standardized QCI as described in TS 23.203, except for a default QCI profile activated whenever a profile related to a specific QCI is not defined.
+
+
+The RDNs for this MO type is “qci1”, “qci2”, .. “qci9”, “default”.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="schedulingAlgorithm" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Specifies which scheduling algorithm is to be used for a certain QCI.
+
+Dependencies: Only relevant if the license for QoS Aware Scheduler is present and the feature is active.
+Takes effect: New connection</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/SchedulingAlgorithm/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="RESOURCE_FAIR" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="QciProfilePredefinedId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="qci" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Quality of Service Class Indicator (QCI) as defined in 3GPP TS 23.203  (Release 8). Each instance of this MO has a unique value for the QCI.
+
+Special value: 0 refers to a default QCI profile activated whenever a profile related to a specific QCI has not been defined.
+
+Resolution: 1
+Dependencies: Each qci must be set to a unique value.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:notNullConstraint/>
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="9" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="priority" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Quality of Service Class Indicator (QCI)-related priority as defined in 3GPP TS 23.203 (Release 8).
+
+Resolution: 1
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:notNullConstraint/>
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="14" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="pdb" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The contribution from eNodeB to the Packet Delay Budget (PDB) for a QCI. Packet delays outside eNodeB e.g. in the transport network are excluded. For more information about PDB refer to TS 23.203.
+
+Unit: ms
+Resolution: 1
+Dependencies: Only relevant if the license for QoS Aware Scheduler is present and active.
+Takes effect: Cell lock/unlock</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="500" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="dscp" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The Differentiated Services Code Point for a Quality of Service Class Indicator (QCI). This corresponds to mappings from RAN QoS to Transport Network QoS.
+
+Resolution: 1
+Takes effect: New connection.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:notNullConstraint/>
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="63" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="logicalChannelGroupRef" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Refers to an instance of LogicalChannelGroup. Assigns a Logical Channel Group to a Quality of Service Class Indicator (QCI).
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/LogicalChannelGroup/3.1.72" xsi:type="ns1:moRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="aqmMode" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Active Queue Management (AQM) mode
+
+Takes effect: Cell lock/unlock</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/AQMMode/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="OFF" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="dlMinBitRate" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The scheduler will attempt to achieve minbitrate for all bearers before giving any user a higher rate. Value 0 means that the minRate scheduler is not used.
+
+Unit: kbps
+Dependencies: This parameter will only be used if one of the following Proportional Fair scheduling algorithms, "maximum_C_over_I", "proportional_fair_low", "proportional_fair_medium", "proportional_fair_high" or "equal_rate", has been selected. Only relevant if the license for QoS Aware Scheduler is present and the feature is active.
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="150000" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="rlcMode" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>RLC Mode
+
+Takes effect: Cell Lock/Unlock</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/RlcMode/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="AM" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="resourceType" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>Indicates if the resource type of the Quality of Service Class Indicator (QCI) is Guaranteed Bit Rate (GBR) or non-GBR as defined in 3GPP TS 23.203.
+
+Takes effect: Object unlocked</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/ResourceType/3.1.72" xsi:type="ns1:enumRefType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="dataFwdPerQciEnabled" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Enables forwarding of data for this QCI. Only valid if the licence IntraLTEHODataFwd
+is installed and active.
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ulMinBitRate" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The scheduler will attempt to achieve minbitrate for all bearers before giving any user a higher rate. Value 0 means that the minRate scheduler is not used.
+
+Unit: kbps
+Dependencies: This parameter will only be used if one of the following Proportional Fair scheduling algorithms, "maximum_C_over_I", "proportional_fair_low", "proportional_fair_medium", "proportional_fair_high" or "equal_rate", has been selected.
+
+Only relevant if the license for QoS Aware Scheduler is present and the feature is active.
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="75000" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="absPrioOverride" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Indicates if the data radio bearer is subject to Absolute Priority Override.
+
+Dependencies: Only relevant if the license for QoS Aware Scheduler is present and the feature is active.
+Takes effect: New connection</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/AbsPrioOverride/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="NO_OVERRIDE" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="resourceAllocationStrategy" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Defines the resource allocation strategy of the QoS Class Identifier (QCI).
+
+Dependencies: Only relevant if the licenses for Uplink Frequency Selective Scheduling and QoS Aware Scheduler are present and the features are active.
+Takes effect: New connection</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/ResourceAllocationStrategy/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="RESOURCE_FAIR" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="srsAllocationStrategy" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>If the parameter srsAllocationStrategy in the QoS configuration for a Data radio Bearer assigned to a UE is set to ACTIVATED, then an attempt is made to allocate sounding for a UE. If several Data Radio Bearers are setup towards the UE with different QoS configurations, and the QoS configurations has different QCI parameter, an algorithm using the priority parameter in the QoS configuration, will resolve which QoS configuration that will define sounding.
+
+Dependencies: Only relevant if the licenses for QoS Aware Scheduler and frequency selective scheduling are present and the features are active.
+Takes effect: New connection</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/SrsAllocationStrategy/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="DEACTIVATED" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="measReportConfigParams" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Encapsulates the offset quantities of the mobility measurement thresholds. Only absolute mobility measurement thresholds are considered. The structure holds, for example, offsets for the thresholds a1ThresholdRsrpPrim, a2ThresholdRsrpPrim, and a5Threshold1Rsrp.  The offsets are meant mainly to have values that differentiate the measurement threhsolds between QCIs.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/MeasReportConfigParams/3.1.72" xsi:type="ns1:complexRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="qciSubscriptionQuanta" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Normalized subscription quantity associated with the specific the QCI. Specifies the subscription cost of a bearer with this predefined profile. The subscription cost is used for traffic load balancing purposes. The value is a logarithmic scale that goes from 1 to 1E6 in 72 steps , "actual value" = 10**("attribute value"/12)".
+
+Takes effect: Immediately</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="72" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="qciACTuning" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Tuning factor per QCI for admission control. Only valid for QCIs with resource type GBR.
+
+Unit: 0.001
+Resolution: 1
+Dependencies: Only relevant if the license for Dynamic GBR admission control is present and the feature is active.
+Disturbances: Setting values below one means overbooking of GBR resources and thus a risk of letting in more GBR traffic than can be supported. Setting values above one means underbooking of GBR resources and thus a risk of underutilization of the resources.
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="1999" min="1"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="1000" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

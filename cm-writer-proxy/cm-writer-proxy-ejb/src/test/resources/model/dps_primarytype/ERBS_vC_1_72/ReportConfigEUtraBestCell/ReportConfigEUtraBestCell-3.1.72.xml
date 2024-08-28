@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="ReportConfigEUtraBestCell" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>This managed object contains the Report Configuration settings for best cell UE measurements.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="a3offset" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The offset value for eventA3.
+
+Unit: 0.1 dB
+Resolution: 5
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="150" min="-150"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="30" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="hysteresisA3" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The hysteresis value for eventA3.
+
+Unit: 0.1 dB
+Resolution: 5
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="150" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="10" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reportAmountA3" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Since L11B. Planned to be removed.
+Number of reports when periodical reporting is used.
+Value of 0 means that reports are sent as long as the event is fulfilled.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="0" min="0"/>
+        <ns1:minMaxRange max="1" min="1"/>
+        <ns1:minMaxRange max="2" min="2"/>
+        <ns1:minMaxRange max="4" min="4"/>
+        <ns1:minMaxRange max="8" min="8"/>
+        <ns1:minMaxRange max="16" min="16"/>
+        <ns1:minMaxRange max="32" min="32"/>
+        <ns1:minMaxRange max="64" min="64"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="0" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reportIntervalA3" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Since L11B. Planned to be removed.
+The interval for event triggered periodical reporting.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/ReportInterval/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="MS_480" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="reportQuantityA3" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Deprecated: Since L11B. Planned to be removed.
+The quantities to include in the measurement report.
+
+Dependencies: The value sameAsTriggerQuantity means that the same quantity as triggerQuantity is to be included in the measurement report.
+The value both means that both RSRP and RSRQ quantities is to be included in the measurement report.
+Takes effect: New connection</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/ReportQuantity/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="BOTH" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="timeToTriggerA3" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The time-to-trigger value for eventA3. This attribute is modified by SON function HoOscCtrlRel.
+
+Unit: ms
+Dependencies: Read only if the license for Automatic HO Control on Relation Level is present and the feature is active.
+Takes effect: New connection</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="0" min="0"/>
+        <ns1:minMaxRange max="40" min="40"/>
+        <ns1:minMaxRange max="64" min="64"/>
+        <ns1:minMaxRange max="80" min="80"/>
+        <ns1:minMaxRange max="100" min="100"/>
+        <ns1:minMaxRange max="128" min="128"/>
+        <ns1:minMaxRange max="160" min="160"/>
+        <ns1:minMaxRange max="256" min="256"/>
+        <ns1:minMaxRange max="320" min="320"/>
+        <ns1:minMaxRange max="480" min="480"/>
+        <ns1:minMaxRange max="512" min="512"/>
+        <ns1:minMaxRange max="640" min="640"/>
+        <ns1:minMaxRange max="1024" min="1024"/>
+        <ns1:minMaxRange max="1280" min="1280"/>
+        <ns1:minMaxRange max="2560" min="2560"/>
+        <ns1:minMaxRange max="5120" min="5120"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="40" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="triggerQuantityA3" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>The quantity that triggers the event.
+
+Takes effect: New connection</ns1:desc>
+    <ns1:type modelUrn="//ERBS_vC_1_72/TriggerQuantity/3.1.72" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="RSRP" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="ReportConfigEUtraBestCellId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the Relative Distinguished Name (RDN).</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

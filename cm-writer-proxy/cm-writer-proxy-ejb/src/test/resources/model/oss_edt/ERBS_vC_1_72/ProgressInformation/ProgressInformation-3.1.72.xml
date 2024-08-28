@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns5:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns5="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="ProgressInformation" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/oss_edt/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>ProgressInformation</ns1:desc>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="CONFIGURATION_NOT_STARTED" value="0">
+    <ns1:desc>Configuration not started.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="FETCHING_BASIC_IP_CONFIGURATION_VIA_DHCP" value="1">
+    <ns1:desc>Fetching basic IP configuration data from DHCP server.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="ACTIVATING_BASIC_IP_CONFIGURATION" value="2">
+    <ns1:desc>Setting up IP configuration for O&amp;M.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="FETCHING_SITE_BASIC_FILE" value="3">
+    <ns1:desc>Fetching Site Basic file from SMRS.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="FETCHING_SITE_EQUIPMENT_FILE" value="4">
+    <ns1:desc>Fetching Site Equpiment file from SMRS.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="FETCHING_LICENSING_KEY_FILE" value="5">
+    <ns1:desc>Fetching License Key file from SMRS.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="FETCHING_UPGRADE_PACKAGE" value="6">
+    <ns1:desc>Fetching Upgrade Package from SMRS.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="FETCHING_SUMMARY_FILE" value="7">
+    <ns1:desc>Fetching Summary File from SMRS.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="ACTIVATING_SITE_BASIC_DATA" value="8">
+    <ns1:desc>Configuring Site Basic Data.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="ACTIVATING_SITE_EQUIPMENT_DATA" value="9">
+    <ns1:desc>Configuring Site Equipment Data.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="INSTALLING_LICENSE_KEY" value="10">
+    <ns1:desc>Installing License Key file.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="UPGRADING" value="11">
+    <ns1:desc>Performing upgrade.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="NOTIFYING_OSS" value="12">
+    <ns1:desc>Notifying OSS to start MIB synchronization.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="INITIATING_CERTIFICATE_ENROLLMENT" value="13">
+    <ns1:desc>Deprecated: Since L10B. Planned to be removed.
+
+Initiating Certificate Enrollment.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="ACTIVATING_SECURITY_LEVEL_3" value="14">
+    <ns1:desc>Deprecated: Since L10B. Planned to be removed.
+
+Activating Security Level 3.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="WAITING_FOR_OSS_CONFIGURATION" value="15">
+    <ns1:desc>Waiting for MIB synchronization to complete.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="OSS_ACTIVATING_CONFIGURATION" value="16">
+    <ns1:desc>Activating configuration.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="WAITING_FOR_S1" value="17">
+    <ns1:desc>Waiting for establishment of S1 connection to MME.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="OSS_UNLOCKING_CELLS" value="18">
+    <ns1:desc>Unlocking cells.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="AUTO_INTEGRATION_COMPL" value="19">
+    <ns1:desc>Auto-integration complete.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="DETECTING_GIGABIT_LINK" value="21">
+    <ns1:desc>DETECTING_GIGABIT_LINK</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="INITIATING_SECURITY_CONFIGURATION" value="23">
+    <ns1:desc>Initiating Security Configuration.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="ACTIVATING_SECURITY_CONFIGURATION" value="24">
+    <ns1:desc>Activating Security Configuration.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="ACTIVATING_IPSEC_CONFIGURATION" value="25">
+    <ns1:desc>Activating IPSec Configuration.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="ACTIVATING_PERMANENT_OAM_IPSEC_CONFIGURATION" value="26">
+    <ns1:desc>Activating IPsec configuration for the permanent IPsec tunnel for OAM.</ns1:desc>
+  </ns5:member>
+  <ns5:member ns1:lifeCycle="CURRENT" ns1:name="ACTIVATING_INITIAL_OAM_IPSEC_CONFIGURATION" value="27">
+    <ns1:desc>Activating IPsec configuration for the initial IPsec tunnel for OAM.</ns1:desc>
+  </ns5:member>
+</ns5:EnumDataTypeDefinition>

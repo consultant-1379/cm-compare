@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:lifeCycle="CURRENT" ns1:name="Security" ns1:ns="CPP_MODEL" ns1:version="3.12.75" root="false">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/dps_primarytype/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Security
+
+This MO administers all data for O&amp;M Security, except the URL for the Single Login Server (SLS). The MO also contains all actions for O&amp;M Security.
+
+This MO is created automatically and cannot be deleted.
+
+The RDN of this MO is Security=1.</ns1:desc>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="requestedSecurityLevel" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Shows the security level requested. The requested security level may differ from the operational security level in some situations.
+
+The value of this attribute is set using the actions, setSecurityLevel3 or adaptSecurityLevel, or by using the command, secmode.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/SecurityLevel/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="operationalSecurityLevel" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Shows the current security level in the node. The operational security level may differ from the requested security level in some situations.
+
+The value of this attribute is set using the actions, setSecurityLevel3 or adaptSecurityLevel, or by using the command, secmode.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/SecurityLevel/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="telnetAndFTPServersActive" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies whether Telnet and FTP servers are activated. The value of this attribute is controlled using the command, secmode. In Security Level 3, these servers are inactivated.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="debugPortsActive" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>This attribute specifies whether the debug server and the UDP link handler are activated. If they are activated, these services open the TCP and UDP ports.
+
+The state of this attribute is controlled using the command, secmode. In Security Level 3, these services are inactive.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="fileTransferClientMode" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>This attribute specifies whether the node uses FTP or SFTP when retrieving files from external file servers. The state of this attribute is controlled using the command, secmode, and can be set on all security levels.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/FileXferClient/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="authorizationCacheTimeOut" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Timeout for authorization data obtained from the AA server. All locally cached authorization data are cleared and then requested again from the AA server.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="480" min="15"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="60" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="localAuthenticationFileVersion" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies the version of the file used for local user authentication.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="aAServerIPAddressList" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>List of Authentication and Authorization Server IP addresses
+
+The list can contain up to 10 IP addresses. The IP address used by the node is selected randomly from the list.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType xsi:type="ns1:stringType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="SecurityId" readBehavior="INHERITED" restricted="true" writeBehavior="INHERITED">
+    <ns1:desc>The value component of the RDN.
+
+It is set automatically when the MO instance is created.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Label for free use.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+    <ns1:default value="&quot;&quot;" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="localAADatabaseInstallationFailure" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>States whether the action, installLocalAADatabase has failed to complete within the specified duration.
+
+This attribute must be set to false using the action, cancelInstallLocalAADatabase, before installLocalAADatabase can be executed again. The attribute can also be set to false directly.
+
+When the node is on Security Level 3 and an installation failure occurs, an alarm is issued.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="trustedCertificateInstallationFailure" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>States whether one or more of the following is true:
+- the action, installTrustedCertificate has failed to complete within the specified duration
+- a downloaded certificate is corrupted
+- a downloaded certificate does not match the information provided in the structure, CertInfo.
+
+This attribute must be set to false using the action, cancelInstallTrustedCertificates before installTrustedCertificate can be executed again. The attribute can also be set to false directly.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="installedTrustedCertificates" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>A list containing information about each installed trusted certificate. This attribute is updated when a new trusted certificate is installed or removed (uninstalled).</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType modelUrn="/oss_cdt/CPP_MODEL/CertInfo/3.12.75" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="targetMonitorPortActive" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies whether the target monitor is activated. If activated, it opens a TCP port for output of trace data. The value of this attribute is controlled using the command, secmode, and it can be set on all security levels.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="localAuthorizationFileVersion" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Specifies the version of the file used for local user authorization.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="corbaSecurityActive" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>This attribute specifies whether Corba security is activated or not. The state of this attribute is controlled using the command, secmode.
+
+Corba security is disabled in Security Level 1 and enabled in Security Levels 2 and 3.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="certEnrollState" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Certification Enrollment State
+
+This attribute shows the current state of the certificate enrollment.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/CertEnrollState/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="certEnrollErrorMsg" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Certification Enrollment Error Message
+
+If the enrollment enters the error state, this attribute contains a string that states the cause of the error. Otherwise, the value of this attribute is not defined.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="255" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="nodeCertificate" readBehavior="FROM_PERSISTENCE" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Shows information about the currently active node certificate to be inspected.</ns1:desc>
+    <ns1:type modelUrn="/oss_cdt/CPP_MODEL/NodeCertInfo/3.12.75" xsi:type="ns1:complexRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="certExpirWarnTime" readBehavior="INHERITED" restricted="false" writeBehavior="INHERITED">
+    <ns1:desc>Certification Expiry Warning Time
+
+This attribute specifies how far in advance an event is issued when the node certificate is about to expire.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="365" min="2"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="90" xsi:type="ns1:longValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="installedUserDefProfilesInfo" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates information about the installed user defined profiles file.</ns1:desc>
+    <ns1:type modelUrn="/oss_cdt/CPP_MODEL/InstalledUserDefProfilesInfo/3.12.75" xsi:type="ns1:complexRefType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute ns1:lifeCycle="CURRENT" ns1:name="activeUserDefProfilesInfo" readBehavior="FROM_MEDIATION" restricted="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Indicates information about the activated user defined profiles.</ns1:desc>
+    <ns1:type modelUrn="/oss_cdt/CPP_MODEL/ActiveUserDefProfilesInfo/3.12.75" xsi:type="ns1:complexRefType"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

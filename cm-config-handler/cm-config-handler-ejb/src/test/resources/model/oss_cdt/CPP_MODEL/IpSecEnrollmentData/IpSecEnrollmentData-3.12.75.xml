@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:lifeCycleDesc="" ns1:name="IpSecEnrollmentData" ns1:ns="CPP_MODEL" ns1:version="3.12.75">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-08-22 16:54:14.262">
+    <ns1:derivedModel derivedFrom="/oss_cdt/CPP_MODEL/CPP_MODEL/3.12.75"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>IpSecEnrollmentData</ns1:desc>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="caFingerPrint">
+    <ns1:desc>The certificate fingerprint for the Certificate Authority which issues the node certificate.
+
+The format is: &lt;hash-algorithm&gt; [Fingerprint] = &lt;bb1&gt;:&lt;bb2&gt;: .. :&lt;bbn&gt;
+
+where: &lt;hash-algorithm&gt; is MD5, SHA-1 or SHA1, and the substring Fingerprint is optional.
+The equal character is mandatory and is followed by 16 (MD5) or 20 (SHA-1 or SHA1) bytes encoded in hexadecimal and separated by colons.
+
+Examples:
+
+MD5 Fingerprint=A4:AA:A6:35:70:AB:57:DC:34:27:8B:65:BE:CF:9B:9C
+
+SHA-1 Fingerprint=B6:12:31:B4:C7:03:20:62:F2:2A:B3:3D:E8:2D:0C:8F:C9:73:BC:39
+
+SHA1 Fingerprint=B6:12:31:B4:C7:03:20:62:F2:2A:B3:3D:E8:2D:0C:8F:C9:73:BC:39</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="127" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="keyLength">
+    <ns1:desc>The length of the public and private keys for the certificate.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/KeyLength/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="subjectAltNameType">
+    <ns1:desc>Specifies the type of identifier in the field subjectAltName.</ns1:desc>
+    <ns1:type modelUrn="/oss_edt/CPP_MODEL/SubjectAltNameType/3.12.75" xsi:type="ns1:enumRefType"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="subjectAltName">
+    <ns1:desc>The subject alternative name for the certificate.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="challengePassword">
+    <ns1:desc>Specifies the enrollment server to authenticate the request.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="21" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="distinguishedName">
+    <ns1:desc>The Distinguished Name (DN) to be used in the Subject field of the requested certificate. The component fields of the DN are encoded as FIELDNAME "=" VALUE where fields are separated with a comma (,) character.
+
+Example: C=SE, L=LI, O=Ericsson AB, OU=PJF/LO, CN=RBS 123
+
+As the comma character is used as field delimiter, a field value cannot contain it.
+
+This string cannot be empty.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="128" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="enrollmentServerURL">
+    <ns1:desc>The full URL for the enrollment server to use. It contains: method, host, an optional port, and URI parts.
+
+The method is always http://
+
+The host is an IPv4 address in dotted format, for example, 192.168.33.27. Host DNS names are currently not supported.
+
+Specify the optional port designation by appending a colon followed by the port to the host part, for example, 192.168.33.27:8080. If no port is given, the default HTTP port 80, is used.
+
+The URI is the resource identifier of the resource on the server which will process the request, for example, /cgi-bin/pkiclient.exe
+
+Example: http://192.168.33.27:8080/cgi-bin/pkiclient.exe</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringLengthConstraint>
+        <ns1:minMaxLength max="255" min="0"/>
+      </ns1:stringLengthConstraint>
+    </ns1:type>
+  </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

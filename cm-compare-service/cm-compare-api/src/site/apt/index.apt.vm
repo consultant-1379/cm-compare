@@ -1,0 +1,16 @@
+	------
+	CM Writer API Module
+	------
+	
+Configuration Management Reader API
+
+*What is CM Writer
+
+	CM Writer provides an optimized query DPS point for configuration management services. 
+	It sits above the Data Layer architecture and has the responsibility of querying the DPS. 
+	
+*Extra Content	
+	
+	Here is extra content
+	
+

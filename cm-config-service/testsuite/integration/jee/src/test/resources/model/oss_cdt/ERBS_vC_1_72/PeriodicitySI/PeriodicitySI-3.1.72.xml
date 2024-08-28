@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI 2013. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:lifeCycleDesc="" ns1:name="PeriodicitySI" ns1:ns="ERBS_vC_1_72" ns1:version="3.1.72">
+  <ns1:modelCreationInfo author="mom-xml-transformer-tool" creationDate="2013-09-18 19:48:02.066">
+    <ns1:derivedModel derivedFrom="/oss_cdt/ERBS_vC_1_72/ERBS_vC_1_72/3.1.72"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>PeriodicitySI</ns1:desc>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="siPeriodicitySI2">
+    <ns1:desc>The periodicity of SI message 2. If no SIB is mapped to the SI message, the SI message will not be transmitted.
+
+Unit: rf (radioframes)
+Dependencies: See siWindowLength for further information.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="8" min="8"/>
+        <ns1:minMaxRange max="16" min="16"/>
+        <ns1:minMaxRange max="32" min="32"/>
+        <ns1:minMaxRange max="64" min="64"/>
+        <ns1:minMaxRange max="128" min="128"/>
+        <ns1:minMaxRange max="256" min="256"/>
+        <ns1:minMaxRange max="512" min="512"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="64" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="siPeriodicitySI3">
+    <ns1:desc>The periodicity of SI message 3. If no SIB is mapped to the SI message, the SI message will not be transmitted.
+
+Unit: rf (radioframes)
+Dependencies: See siWindowLength for further information.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="8" min="8"/>
+        <ns1:minMaxRange max="16" min="16"/>
+        <ns1:minMaxRange max="32" min="32"/>
+        <ns1:minMaxRange max="64" min="64"/>
+        <ns1:minMaxRange max="128" min="128"/>
+        <ns1:minMaxRange max="256" min="256"/>
+        <ns1:minMaxRange max="512" min="512"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="64" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="siPeriodicitySI4">
+    <ns1:desc>The periodicity of SI message 4. If no SIB is mapped to the SI message, the SI message will not be transmitted.
+
+Unit: rf (radioframes)
+Dependencies: See siWindowLength for further information.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="8" min="8"/>
+        <ns1:minMaxRange max="16" min="16"/>
+        <ns1:minMaxRange max="32" min="32"/>
+        <ns1:minMaxRange max="64" min="64"/>
+        <ns1:minMaxRange max="128" min="128"/>
+        <ns1:minMaxRange max="256" min="256"/>
+        <ns1:minMaxRange max="512" min="512"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="64" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="siPeriodicitySI5">
+    <ns1:desc>The periodicity of SI message 5. If no SIB is mapped to the SI message, the SI message will not be transmitted.
+
+Unit: rf (radioframes)
+Dependencies: See siWindowLength for further information.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="8" min="8"/>
+        <ns1:minMaxRange max="16" min="16"/>
+        <ns1:minMaxRange max="32" min="32"/>
+        <ns1:minMaxRange max="64" min="64"/>
+        <ns1:minMaxRange max="128" min="128"/>
+        <ns1:minMaxRange max="256" min="256"/>
+        <ns1:minMaxRange max="512" min="512"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="64" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="siPeriodicitySI6">
+    <ns1:desc>The periodicity of SI message 6. If no SIB is mapped to the SI message, the SI message will not be transmitted.
+
+Unit: rf (radioframes)
+Dependencies: See siWindowLength for further information.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="8" min="8"/>
+        <ns1:minMaxRange max="16" min="16"/>
+        <ns1:minMaxRange max="32" min="32"/>
+        <ns1:minMaxRange max="64" min="64"/>
+        <ns1:minMaxRange max="128" min="128"/>
+        <ns1:minMaxRange max="256" min="256"/>
+        <ns1:minMaxRange max="512" min="512"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="64" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="siPeriodicitySI7">
+    <ns1:desc>The periodicity of SI message 7. If no SIB is mapped to the SI message, the SI message will not be transmitted.
+
+Unit: rf (radioframes)
+Dependencies: See siWindowLength for further information.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="8" min="8"/>
+        <ns1:minMaxRange max="16" min="16"/>
+        <ns1:minMaxRange max="32" min="32"/>
+        <ns1:minMaxRange max="64" min="64"/>
+        <ns1:minMaxRange max="128" min="128"/>
+        <ns1:minMaxRange max="256" min="256"/>
+        <ns1:minMaxRange max="512" min="512"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="64" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+  <ns2:attribute ns1:lifeCycle="CURRENT" ns1:name="siPeriodicitySI1">
+    <ns1:desc>The periodicity of SI message. If no SIB is mapped to this SI message, the SI message will not be transmitted. Note: SIB2 is always mapped to SI message 1 according to TS 36.331.
+
+Unit: rf (radioframes)
+Dependencies: See siWindowLength for further information.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="8" min="8"/>
+        <ns1:minMaxRange max="16" min="16"/>
+        <ns1:minMaxRange max="32" min="32"/>
+        <ns1:minMaxRange max="64" min="64"/>
+        <ns1:minMaxRange max="128" min="128"/>
+        <ns1:minMaxRange max="256" min="256"/>
+        <ns1:minMaxRange max="512" min="512"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:default value="8" xsi:type="ns1:longValue"/>
+  </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>
